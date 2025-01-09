@@ -1,0 +1,3 @@
+; English <en> to Russian <ru> localization document for `Tips` managed text document
+
+keyTip: Hello
