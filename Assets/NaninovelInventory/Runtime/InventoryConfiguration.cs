@@ -4,13 +4,13 @@ using UnityEngine;
 namespace NaninovelInventory
 {
     /// <summary>
-    /// Contains configuration data for the inventory-related systems.
+    /// Contains configuration data for the Base systems.
     /// </summary>
     [EditInProjectSettings]
     public class InventoryConfiguration : Configuration
     {
         /// <summary>
-        /// Used to distinguish inventory-related records among other resources.
+        /// Used to distinguish Base records among other resources.
         /// </summary>
         public const string DefaultPathPrefix = "Inventory";
 

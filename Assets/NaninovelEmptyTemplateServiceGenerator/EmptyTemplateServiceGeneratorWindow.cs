@@ -79,6 +79,12 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
 
             if (GUILayout.Button("Generate Service"))
             {
+                if (!useService && !useUI)
+                {
+                    EditorUtility.DisplayDialog("Nice Try", "You should decide what to do.)", "OK");
+                    return;
+                }
+
                 if (string.IsNullOrEmpty(servicePath))
                 {
                     EditorUtility.DisplayDialog("Error", "Please specify a valid path to save the service.", "OK");
@@ -163,6 +169,25 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
             );
 
             return newColor;
+        }
+
+        private TemplateServiceGeneratorInfo LoadTemplateServiceGeneratorInfo()
+        {
+            // Путь к ScriptableObject относительно папки "Assets"
+            string path = "Assets/NaninovelEmptyTemplateServiceGenerator/Templates/TemplateServiceGeneratorInfo.asset";
+
+            // Загружаем ScriptableObject по указанному пути
+            TemplateServiceGeneratorInfo templateServiceGeneratorInfo = AssetDatabase.LoadAssetAtPath<TemplateServiceGeneratorInfo>(path);
+
+            if (templateServiceGeneratorInfo != null)
+            {
+                return templateServiceGeneratorInfo;
+            }
+            else
+            {
+                Debug.LogError("Failed to load ScriptableObject at path: " + path);
+                return null;
+            }
         }
     }
 }
