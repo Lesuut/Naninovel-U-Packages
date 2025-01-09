@@ -14,8 +14,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
         private string commands;
         private string functions;
 
-        private bool useService;
-        private bool useConfiguration;
+        private bool useService = true;
 
         private bool useUI;
         private bool useUIdata;
@@ -50,11 +49,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
             EditorGUILayout.Space();
 
             EditorGUILayout.LabelField("———–––———–––———––––");
-            useService = EditorGUILayout.Toggle(new GUIContent("Use Service"), useService);
-            if (useService)
-                useConfiguration = EditorGUILayout.Toggle(new GUIContent("Use Configuration"), useConfiguration);
-            else
-                useConfiguration = false;
+            useService = EditorGUILayout.Toggle(new GUIContent($"Use {(isService ? "Service" : "Manager")}"), useService);
             EditorGUILayout.LabelField("———–––———–––———––––");
             useUI = EditorGUILayout.Toggle(new GUIContent("Use UI"), useUI);
             if (useUI)
@@ -150,17 +145,20 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
             // Получаем яркость начального цвета
             float brightness = (newColor.r + newColor.g + newColor.b) / 3f;
 
-            if (useConfiguration)
+            if (!isService)
                 newColor = new Color(newColor.r, Mathf.Clamp01(newColor.g + 0.1f), newColor.b);
 
             if (useUIdata)
                 newColor = new Color(newColor.r, newColor.g, Mathf.Clamp01(newColor.b + 0.1f));
 
             if (!string.IsNullOrEmpty(commands) && commands.Split(',').Length > 1)
-                newColor = new Color(newColor.r + (commands.Split(',').Length * 0.07f), newColor.g, Mathf.Clamp01(newColor.b));
+                newColor = new Color(newColor.r, newColor.g, Mathf.Clamp01(newColor.b + (commands.Split(',').Length * 0.07f)));
 
             if (!string.IsNullOrEmpty(functions) && functions.Split(',').Length > 1)
                 newColor = new Color(newColor.r, Mathf.Clamp01(newColor.g + (functions.Split(',').Length * 0.035f)), Mathf.Clamp01(newColor.b + (functions.Split(',').Length * 0.035f)));
+
+            if (!useService)
+                newColor = new Color(Mathf.Clamp01(newColor.r + 0.2f), newColor.g, newColor.b);
 
             // Корректируем цвет так, чтобы яркость оставалась прежней
             float newBrightness = (newColor.r + newColor.g + newColor.b) / 3f;

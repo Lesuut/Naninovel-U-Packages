@@ -9,7 +9,7 @@ namespace Naninovel.U.SideTip
     public class TipUI : CustomUI
     {
         [Serializable]
-        private class GameState
+        private new class GameState
         {
             public string Key;
         }
