@@ -1,13 +1,16 @@
 namespace Naninovel.U.Base
 {
     [InitializeAtRuntime()]
-    public class BaseServiceA : IBaseAService
+    public class BaseServiceB : IBaseBService
     {
+        public virtual BaseConfiguration Configuration { get; }
+
         private readonly IStateManager stateManager;
         private BaseState state;
 
-        public BaseServiceA(IStateManager stateManager)
+        public BaseServiceB(BaseConfiguration config, IStateManager stateManager)
         {
+            Configuration = config;
             this.stateManager = stateManager;
         }
         public UniTask InitializeServiceAsync()

@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using UnityEditor;
 using UnityEngine;
 
@@ -7,8 +6,10 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
 {
     public class EmptyTemplateServiceGeneratorWindow : EditorWindow
     {
+        private bool isService = true;
+
         private string servicePath;
-        private string serviceName = "NewEmptyService";
+        private string serviceName = "NewEmptySystem";
 
         private string commands;
         private string functions;
@@ -22,7 +23,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
         [MenuItem("Tools/Template Service Generator")]
         public static void OpenWindow()
         {
-            GetWindow<EmptyTemplateServiceGeneratorWindow>("Template Service Generator");
+            GetWindow<EmptyTemplateServiceGeneratorWindow>("Template Nani Generator");
         }
 
         private void OnEnable()
@@ -36,9 +37,10 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
             EditorGUI.DrawRect(new Rect(0, 0, position.width, position.height), GetWindowColor());
 
             // Continue with the rest of your GUI code
-            EditorGUILayout.LabelField("Template Service Generator", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField($"Template {(isService ? "Service" : "Manager")} Generator", EditorStyles.boldLabel);
 
-            serviceName = EditorGUILayout.TextField("Service Name", serviceName);
+            isService = EditorGUILayout.Toggle(new GUIContent($"Is {(isService ? "Service" : "Manager")}"), isService);
+            serviceName = EditorGUILayout.TextField($"{(isService ? "Service" : "Manager")} Name", serviceName);
 
             EditorGUILayout.Space();
 
@@ -140,6 +142,9 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
 
         private Color GetWindowColor()
         {
+            if (commands == null) commands = string.Empty;
+            if (functions == null) functions = string.Empty;
+
             // Начальный цвет (темно-серый)
             Color newColor = new Color(0.22f, 0.22f, 0.22f);
             // Получаем яркость начального цвета
@@ -151,10 +156,10 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
             if (useUIdata)
                 newColor = new Color(newColor.r, newColor.g, Mathf.Clamp01(newColor.b + 0.1f));
 
-            if (commands.Split(',').Length > 1)
+            if (!string.IsNullOrEmpty(commands) && commands.Split(',').Length > 1)
                 newColor = new Color(newColor.r + (commands.Split(',').Length * 0.07f), newColor.g, Mathf.Clamp01(newColor.b));
 
-            if (functions.Split(',').Length > 1)
+            if (!string.IsNullOrEmpty(functions) && functions.Split(',').Length > 1)
                 newColor = new Color(newColor.r, Mathf.Clamp01(newColor.g + (functions.Split(',').Length * 0.035f)), Mathf.Clamp01(newColor.b + (functions.Split(',').Length * 0.035f)));
 
             // Корректируем цвет так, чтобы яркость оставалась прежней

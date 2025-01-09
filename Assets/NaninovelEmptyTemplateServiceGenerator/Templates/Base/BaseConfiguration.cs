@@ -1,6 +1,3 @@
-using Naninovel;
-using UnityEngine;
-
 namespace Naninovel.U.Base
 {
     /// <summary>
