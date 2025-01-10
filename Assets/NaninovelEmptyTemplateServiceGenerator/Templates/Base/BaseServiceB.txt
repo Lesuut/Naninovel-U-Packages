@@ -1,21 +1,21 @@
-namespace Naninovel.U.Base
+namespace Naninovel.U.%CORENAME%
 {
     [InitializeAtRuntime()]
-    public class BaseServiceB : IBaseBService
+    public class %CORENAME%%SM% : I%CORENAME%%SM%
     {
-        public virtual BaseConfiguration Configuration { get; }
+        public virtual %CORENAME%Configuration Configuration { get; }
 
         private readonly IStateManager stateManager;
-        private BaseState state;
+        private %CORENAME%State state;
 
-        public BaseServiceB(BaseConfiguration config, IStateManager stateManager)
+        public %CORENAME%%SM%(%CORENAME%Configuration config, IStateManager stateManager)
         {
             Configuration = config;
             this.stateManager = stateManager;
         }
         public UniTask InitializeServiceAsync()
         {
-            state = new BaseState();
+            state = new %CORENAME%State();
             stateManager.AddOnGameSerializeTask(Serialize);
             stateManager.AddOnGameDeserializeTask(Deserialize);
 
@@ -30,18 +30,18 @@ namespace Naninovel.U.Base
 
         public void ResetService() { }
 
-        private void Serialize(GameStateMap map) => map.SetState(new BaseState(state));
+        private void Serialize(GameStateMap map) => map.SetState(new %CORENAME%State(state));
 
         private UniTask Deserialize(GameStateMap map)
         {
-            state = map.GetState<BaseState>();
-            state = state == null ? new BaseState() : new BaseState(state);
+            state = map.GetState<%CORENAME%State>();
+            state = state == null ? new %CORENAME%State() : new %CORENAME%State(state);
 
             return UniTask.CompletedTask;
         }
 
         /// <summary>
-        /// Write the body for the Base service here
+        /// Write the body for the %CORENAME% service here
         /// </summary>
     }
 }

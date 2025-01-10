@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 
-namespace Naninovel.U.Base
+namespace Naninovel.U.%CORENAME%
 {
     [Serializable]
-    public class BaseState
+    public class %CORENAME%State
     {
         public List<string> Value;
 
-        public BaseState()
+        public %CORENAME%State()
         {
             // Initialization Values
             Value = new List<string>
@@ -19,7 +19,7 @@ namespace Naninovel.U.Base
             };
         }
 
-        public BaseState(BaseState other)
+        public %CORENAME%State(%CORENAME%State other)
         {
             // Load and set Data
             Value = new List<string>(other.Value);

@@ -1,0 +1,20 @@
+using Naninovel.UI;
+
+namespace Naninovel.U.%CORENAME%
+{
+    public class %CORENAME%UI : CustomUI
+    {
+        private I%CORENAME%%SM% %CORENAME%%SM%;
+
+        protected override void Awake()
+        {
+            base.Awake();
+
+            %CORENAME%%SM% = Engine.GetService<I%CORENAME%%SM%>();
+        }
+
+        /// <summary>
+        /// Write the body for the %CORENAME% UI here
+        /// </summary>
+    }
+}

@@ -1,0 +1,9 @@
+namespace Naninovel.U.%CORENAME%
+{
+    public interface I%CORENAME%%SM% : IEngineService
+    {
+        /// <summary>
+        /// Write the body of your %CORENAME% interface here
+        /// </summary>
+    }
+}

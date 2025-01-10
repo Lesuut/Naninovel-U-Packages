@@ -1,0 +1,15 @@
+namespace Naninovel.U.%CORENAME%
+{
+    /// <summary>
+    /// Contains configuration data for the inventory-related systems.
+    /// </summary>
+    [EditInProjectSettings]
+    public class %CORENAME%Configuration : Configuration
+    {
+        public const string DefaultPathPrefix = "%CORENAME%";
+
+        /// <summary>
+        /// Write here the body of the configuration for %CORENAME%.
+        /// </summary>
+    }
+}

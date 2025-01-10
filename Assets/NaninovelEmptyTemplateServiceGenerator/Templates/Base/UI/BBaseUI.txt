@@ -2,9 +2,9 @@ using Naninovel.UI;
 using System;
 using System.Collections.Generic;
 
-namespace Naninovel.U.Base
+namespace Naninovel.U.%CORENAME%
 {
-    public class BBaseUI : CustomUI
+    public class %CORENAME%UI : CustomUI
     {
         [Serializable]
         private new class GameState
@@ -12,17 +12,17 @@ namespace Naninovel.U.Base
             public string Value;
         }
 
-        private IBaseBService baseService;
+        private I%CORENAME%%SM% %CORENAME%%SM%;
 
         protected override void Awake()
         {
             base.Awake();
 
-            baseService = Engine.GetService<IBaseBService>();
+            %CORENAME%%SM% = Engine.GetService<I%CORENAME%%SM%>();
         }
 
         /// <summary>
-        /// Write the body for the Base UI here
+        /// Write the body for the %CORENAME% UI here
         /// </summary>
 
         protected override void SerializeState(GameStateMap stateMap)

@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef5021105b677f34093788023f9f7851, type: 3}
   m_Name: TemplateServiceGeneratorInfo
   m_EditorClassIdentifier: 
-  Test: Test
+  BaseConfigucation: {fileID: 4900000, guid: cee6f062a36b8dd489ca73964d03f673, type: 3}
+  BaseState: {fileID: 4900000, guid: 4e42d71c32eb42a438668f569f5bda45, type: 3}
+  BaseService: {fileID: 4900000, guid: 977c287ac6919ff4fa6dd2d6165a0b64, type: 3}
+  BaseServiceConfigucation: {fileID: 4900000, guid: d5b223689eb032446a22103673155f4e, type: 3}
+  IBaseService: {fileID: 4900000, guid: 76c434d78438dbd4c8d6f67de3f8cadf, type: 3}
+  IBaseServiceConfigucation: {fileID: 4900000, guid: b6265616b6ec2de4d8e640c109582e38, type: 3}
+  BaseUI: {fileID: 4900000, guid: 5dd3e926b8905e14297a9f4ab8f33293, type: 3}
+  BaseUIData: {fileID: 4900000, guid: f466b11d57e271d4bb8b0bddad07177b, type: 3}
