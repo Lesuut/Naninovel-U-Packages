@@ -27,7 +27,9 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
         [MenuItem("Tools/Template Service Generator")]
         public static void OpenWindow()
         {
-            GetWindow<EmptyTemplateServiceGeneratorWindow>("Template Nani Generator");
+            var window = GetWindow<EmptyTemplateServiceGeneratorWindow>("Template Nani Generator");
+            window.minSize = new Vector2(400, 400);
+            window.maxSize = new Vector2(460, 410);
         }
 
         private void OnEnable()
