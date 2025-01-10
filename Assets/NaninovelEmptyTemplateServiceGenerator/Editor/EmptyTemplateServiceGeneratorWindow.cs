@@ -1,11 +1,15 @@
 ﻿using System.IO;
 using UnityEditor;
 using UnityEngine;
+using System.Collections.Generic;
+using System;
 
 namespace Naninovel.U.TemplateServiceGeneratorWindow
 {
     public class EmptyTemplateServiceGeneratorWindow : EditorWindow
     {
+        private readonly string version = "V1";
+
         private bool isService = true;
 
         private string servicePath;
@@ -36,7 +40,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
             EditorGUI.DrawRect(new Rect(0, 0, position.width, position.height), GetWindowColor());
 
             if (useService)
-                EditorGUILayout.LabelField($"Template {(isService ? "Service" : "Manager")} Generator", EditorStyles.boldLabel);
+                EditorGUILayout.LabelField($"Template {(isService ? "Service" : "Manager")} Generator\t{version}", EditorStyles.boldLabel);
             else
                 EditorGUILayout.LabelField($"Template Generator", EditorStyles.boldLabel);
 
@@ -189,16 +193,60 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
                     ReplaceKeys(uiDataTemplate, coreName, sm));
             }
 
-            if (commands.Split(",").Length > 0)
+            if (commands.Replace(" ", "").Split(",").Length > 0)
             {
                 CreateEmptyFolder(runtimePath, "Commands");
 
-                foreach (var commandName in commands.Split(","))
+                foreach (var commandName in commands.Replace(" ", "").Split(","))
                 {
                     GenerateCSharpScript(Path.Combine(runtimePath, "Commands"), $"{CapitalizeFirstLetter(commandName)}Command", 
                         ReplaceKeys(useService ? templateServiceGeneratorInfo.BaseCommand.text : templateServiceGeneratorInfo.BaseCommandEmpty.text,
                         coreName, sm).Replace("%COMMANDNAME%", commandName.ToLower()).Replace("%COMMANDNAMEHEAD%", CapitalizeFirstLetter(commandName)));
                 }
+            }
+
+            if (functions.Replace(" ", "").Split(",").Length > 0)
+            {
+                List<string> functionVoids = new List<string>();
+
+                foreach (var functionName in functions.Replace(" ", "").Split(","))
+                {
+                    if (useService)
+                    {
+                        functionVoids.Add($"        " +
+                            $"public static string {CapitalizeFirstLetter(functionName)}()\r\n        " +
+                            $"{{\r\n            " +
+                            $"var {coreName}{sm} = Engine.GetService<I{coreName}{sm}>();\r\n\r\n            " +
+                            $"return \"\";\r\n        " +
+                            $"}}");
+                    }
+                    else if (useUI)
+                    {
+                        functionVoids.Add($"" +
+                            $"public static string {CapitalizeFirstLetter(functionName)}()\r\n        " +
+                            $"{{\r\n            " +
+                            $"var uiManager = Engine.GetService<IUIManager>();\r\n            " +
+                            $"var {coreName}UI = uiManager.GetUI<{coreName}UI>();\r\n\r\n            " +
+                            $"return \"\";\r\n        " +
+                            $"}}");
+                    }
+                    else
+                    {
+                        functionVoids.Add($"" +
+                            $"public static string {CapitalizeFirstLetter(functionName)}()\r\n        " +
+                            $"{{\r\n            " +
+                            $"return \"\";\r\n        " +
+                            $"}}");
+                    }                 
+                }
+
+                GenerateCSharpScript(runtimePath, $"{coreName}Functions",
+                       $"namespace Naninovel.U.{coreName}\r\n{{\r\n    " +
+                       $"[ExpressionFunctions]\r\n    " +
+                       $"public static class {coreName}Functions\r\n    " +
+                       $"{{\n" +
+                       $"{string.Join(Environment.NewLine, functionVoids) + Environment.NewLine}" +
+                       $"    }}\r\n}}");
             }
         }
 
@@ -244,10 +292,10 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
                 newColor = new Color(newColor.r, newColor.g, Mathf.Clamp01(newColor.b + 0.1f));
 
             if (!string.IsNullOrEmpty(commands) && commands.Split(',').Length >= 1)
-                newColor = new Color(newColor.r, newColor.g, Mathf.Clamp01(newColor.b + (commands.Split(',').Length * 0.07f)));
+                newColor = new Color(newColor.r, newColor.g, Mathf.Clamp01(newColor.b + (commands.Replace(" ", "").Split(',').Length * 0.07f)));
 
             if (!string.IsNullOrEmpty(functions) && functions.Split(',').Length >= 1)
-                newColor = new Color(newColor.r, Mathf.Clamp01(newColor.g + (functions.Split(',').Length * 0.035f)), Mathf.Clamp01(newColor.b + (functions.Split(',').Length * 0.035f)));
+                newColor = new Color(newColor.r, Mathf.Clamp01(newColor.g + (functions.Replace(" ", "").Split(',').Length * 0.035f)), Mathf.Clamp01(newColor.b + (functions.Split(',').Length * 0.035f)));
 
             if (!useService)
                 newColor = new Color(Mathf.Clamp01(newColor.r + 0.2f), newColor.g, newColor.b);

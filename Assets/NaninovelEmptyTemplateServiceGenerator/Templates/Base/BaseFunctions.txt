@@ -1,0 +1,24 @@
+namespace Naninovel.U.SideTip
+{
+    [ExpressionFunctions]
+    public static class BaseFunctions
+    {
+        public static string GetValue()
+        {
+            var uiManager = Engine.GetService<IUIManager>();
+
+            return "";
+        }
+        public static string GetValue()
+        {
+            var uiManager = Engine.GetService<IUIManager>();
+            var tip = uiManager.GetUI<TipUI>();
+
+            return "";
+        }
+        public static string GetValue()
+        {
+            return "";
+        }
+    }
+}
