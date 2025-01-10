@@ -1,0 +1,19 @@
+namespace Naninovel.U.%CORENAME%
+{
+    [CommandAlias("%COMMANDNAME%")]
+    public class %COMMANDNAMEHEAD%Command : Command
+    {
+        [ParameterAlias(NamelessParameterAlias)]
+        public StringParameter firstValue;
+
+        /*[ParameterAlias("id"), LocalizableParameter]
+        public StringParameter text = "Hello World!";*/
+
+        public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
+        {
+            var %CORENAME%%SM% = Engine.GetService<I%CORENAME%%SM%>();
+
+            return UniTask.CompletedTask;
+        }
+    }
+}

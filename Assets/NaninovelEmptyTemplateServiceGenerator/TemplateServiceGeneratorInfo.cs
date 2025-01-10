@@ -15,4 +15,9 @@ public class TemplateServiceGeneratorInfo : ScriptableObject
     [Header("UI")]
     public TextAsset BaseUI;
     public TextAsset BaseUIData;
+    public TextAsset BaseUINoSystem;
+    public TextAsset BaseUIDataNoSystem;
+    [Header("Command")]
+    public TextAsset BaseCommand;
+    public TextAsset BaseCommandEmpty;
 }

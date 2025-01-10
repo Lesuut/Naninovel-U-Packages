@@ -9,7 +9,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
         private bool isService = true;
 
         private string servicePath;
-        private string coreName = "NewEmptySystem";
+        private string coreName = "CoreName";
 
         private string commands;
         private string functions;
@@ -134,7 +134,6 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
             string runtimePath = Path.Combine(serviceFolderPath, "Runtime");
 
             CreateEmptyFolder(serviceFolderPath, "Runtime");
-            CreateEmptyFolder(runtimePath, "Commands");
 
             if (useUIdata || useService)
             {
@@ -145,6 +144,10 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
 
             if (useService)
             {
+                GenerateCSharpScript(runtimePath, $"I{coreName}{sm}",
+                        ReplaceKeys(templateServiceGeneratorInfo.IBaseService.text,
+                        coreName, sm));
+
                 if (useConfigucation)
                 {
                     GenerateCSharpScript(runtimePath, $"{coreName}Configucation",
@@ -167,13 +170,36 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
             {
                 CreateEmptyFolder(runtimePath, "UI");
 
-                GenerateCSharpScript(Path.Combine(runtimePath, "UI"), $"{coreName}UI", ReplaceKeys((useUIdata ? 
-                    templateServiceGeneratorInfo.BaseUIData.text : 
-                    templateServiceGeneratorInfo.BaseUI.text), 
-                    coreName, sm));
+                string uiDataTemplate;
+
+                if (useUIdata)
+                {
+                    uiDataTemplate = useService
+                        ? templateServiceGeneratorInfo.BaseUIData.text
+                        : templateServiceGeneratorInfo.BaseUIDataNoSystem.text;
+                }
+                else
+                {
+                    uiDataTemplate = useService
+                        ? templateServiceGeneratorInfo.BaseUI.text
+                        : templateServiceGeneratorInfo.BaseUINoSystem.text;
+                }
+
+                GenerateCSharpScript(Path.Combine(runtimePath, "UI"), $"{coreName}UI",
+                    ReplaceKeys(uiDataTemplate, coreName, sm));
             }
 
-            GenerateCSharpScript(runtimePath, "TestScript", "//Hello");
+            if (commands.Split(",").Length > 0)
+            {
+                CreateEmptyFolder(runtimePath, "Commands");
+
+                foreach (var commandName in commands.Split(","))
+                {
+                    GenerateCSharpScript(Path.Combine(runtimePath, "Commands"), $"{CapitalizeFirstLetter(commandName)}Command", 
+                        ReplaceKeys(useService ? templateServiceGeneratorInfo.BaseCommand.text : templateServiceGeneratorInfo.BaseCommandEmpty.text,
+                        coreName, sm).Replace("%COMMANDNAME%", commandName.ToLower()).Replace("%COMMANDNAMEHEAD%", CapitalizeFirstLetter(commandName)));
+                }
+            }
         }
 
         private void CreateEmptyFolder(string directory, string folderName)
@@ -266,5 +292,15 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
         {
             return scriptTemple.Replace("%CORENAME%", coreName).Replace("%SM%", SM);
         }
+        private string CapitalizeFirstLetter(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                return input;
+            }
+
+            return char.ToUpper(input[0]) + input.Substring(1);
+        }
+
     }
 }

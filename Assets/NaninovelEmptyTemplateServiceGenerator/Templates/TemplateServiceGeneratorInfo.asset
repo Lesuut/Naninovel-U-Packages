@@ -20,3 +20,7 @@ MonoBehaviour:
   IBaseServiceConfigucation: {fileID: 4900000, guid: b6265616b6ec2de4d8e640c109582e38, type: 3}
   BaseUI: {fileID: 4900000, guid: 5dd3e926b8905e14297a9f4ab8f33293, type: 3}
   BaseUIData: {fileID: 4900000, guid: f466b11d57e271d4bb8b0bddad07177b, type: 3}
+  BaseUINoSystem: {fileID: 4900000, guid: 6ec6f55e339e1754597dc1a14644daad, type: 3}
+  BaseUIDataNoSystem: {fileID: 4900000, guid: 8e807c297f26a5d469d042d8fac9b14c, type: 3}
+  BaseCommand: {fileID: 4900000, guid: 96ab2729959339f489e95884baa7c9f2, type: 3}
+  BaseCommandEmpty: {fileID: 4900000, guid: 37714343f3a6f3447a5b813711bc932b, type: 3}
