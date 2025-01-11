@@ -201,9 +201,12 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
 
                 foreach (var commandName in commands.Replace(" ", "").Split(","))
                 {
-                    GenerateCSharpScript(Path.Combine(runtimePath, "Commands"), $"{CapitalizeFirstLetter(commandName)}Command", 
+                    if (!string.IsNullOrEmpty(commandName))
+                    {
+                        GenerateCSharpScript(Path.Combine(runtimePath, "Commands"), $"{CapitalizeFirstLetter(commandName)}Command",
                         ReplaceKeys(useService ? templateServiceGeneratorInfo.BaseCommand.text : templateServiceGeneratorInfo.BaseCommandEmpty.text,
                         coreName, sm).Replace("%COMMANDNAME%", commandName.ToLower()).Replace("%COMMANDNAMEHEAD%", CapitalizeFirstLetter(commandName)));
+                    }
                 }
             }
 
@@ -213,33 +216,36 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
 
                 foreach (var functionName in functions.Replace(" ", "").Split(","))
                 {
-                    if (useService)
+                    if (!string.IsNullOrEmpty(functionName))
                     {
-                        functionVoids.Add($"        " +
-                            $"public static string {CapitalizeFirstLetter(functionName)}()\r\n        " +
-                            $"{{\r\n            " +
-                            $"var {coreName}{sm} = Engine.GetService<I{coreName}{sm}>();\r\n\r\n            " +
-                            $"return \"\";\r\n        " +
-                            $"}}");
+                        if (useService)
+                        {
+                            functionVoids.Add($"        " +
+                                $"public static string {CapitalizeFirstLetter(functionName)}()\r\n        " +
+                                $"{{\r\n            " +
+                                $"var {coreName}{sm} = Engine.GetService<I{coreName}{sm}>();\r\n\r\n            " +
+                                $"return \"\";\r\n        " +
+                                $"}}");
+                        }
+                        else if (useUI)
+                        {
+                            functionVoids.Add($"" +
+                                $"public static string {CapitalizeFirstLetter(functionName)}()\r\n        " +
+                                $"{{\r\n            " +
+                                $"var uiManager = Engine.GetService<IUIManager>();\r\n            " +
+                                $"var {coreName}UI = uiManager.GetUI<{coreName}UI>();\r\n\r\n            " +
+                                $"return \"\";\r\n        " +
+                                $"}}");
+                        }
+                        else
+                        {
+                            functionVoids.Add($"" +
+                                $"public static string {CapitalizeFirstLetter(functionName)}()\r\n        " +
+                                $"{{\r\n            " +
+                                $"return \"\";\r\n        " +
+                                $"}}");
+                        }
                     }
-                    else if (useUI)
-                    {
-                        functionVoids.Add($"" +
-                            $"public static string {CapitalizeFirstLetter(functionName)}()\r\n        " +
-                            $"{{\r\n            " +
-                            $"var uiManager = Engine.GetService<IUIManager>();\r\n            " +
-                            $"var {coreName}UI = uiManager.GetUI<{coreName}UI>();\r\n\r\n            " +
-                            $"return \"\";\r\n        " +
-                            $"}}");
-                    }
-                    else
-                    {
-                        functionVoids.Add($"" +
-                            $"public static string {CapitalizeFirstLetter(functionName)}()\r\n        " +
-                            $"{{\r\n            " +
-                            $"return \"\";\r\n        " +
-                            $"}}");
-                    }                 
                 }
 
                 GenerateCSharpScript(runtimePath, $"{coreName}Functions",
@@ -250,6 +256,8 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
                        $"{string.Join(Environment.NewLine, functionVoids) + Environment.NewLine}" +
                        $"    }}\r\n}}");
             }
+
+            AssetDatabase.Refresh();
         }
 
         private void CreateEmptyFolder(string directory, string folderName)
