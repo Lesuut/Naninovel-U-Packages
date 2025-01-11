@@ -195,7 +195,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
                     ReplaceKeys(uiDataTemplate, coreName, sm));
             }
 
-            if (commands.Replace(" ", "").Split(",").Length > 0)
+            if (!string.IsNullOrEmpty(commands))
             {
                 CreateEmptyFolder(runtimePath, "Commands");
 
@@ -210,7 +210,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
                 }
             }
 
-            if (functions.Replace(" ", "").Split(",").Length > 0)
+            if (!string.IsNullOrEmpty(functions))
             {
                 List<string> functionVoids = new List<string>();
 
