@@ -256,7 +256,6 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
         {
             string folderPath = Path.Combine(directory, folderName);
 
-            // Убедимся, что путь существует
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
@@ -272,9 +271,15 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
         {
             string scriptPath = Path.Combine(directory, scriptName + ".cs");
 
-            // Перезаписываем существующий файл
-            File.WriteAllText(scriptPath, scriptContent);
-            Debug.Log($"Generated or overwritten script: {scriptPath}");
+            if (!File.Exists(scriptPath))
+            {
+                File.WriteAllText(scriptPath, scriptContent);
+                Debug.Log($"Generated script: {scriptPath}");
+            }
+            else
+            {
+                Debug.Log($"Script already exists: {scriptPath}");
+            }
         }
 
         private Color GetWindowColor()
