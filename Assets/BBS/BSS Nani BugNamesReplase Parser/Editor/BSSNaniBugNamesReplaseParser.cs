@@ -204,7 +204,6 @@ namespace Naninovel.U.BSSNaniBugNamesReplaseParser
             {
                 bool foundMatch = false;
                 string lastFindNewLine = "";
-                int foundInCycle = 0;
 
                 if (IsLineIsMessage(scriptLines[i]))
                 {
@@ -218,8 +217,7 @@ namespace Naninovel.U.BSSNaniBugNamesReplaseParser
                             {
                                 replaseLineList += $"{scriptLines[i]} => {SplitLineItems(narrativeLines[q])[0]}: {SplitLineItems(scriptLines[i])[1]} [{i+1}]\n";
                                
-                                if (foundInCycle == 0)
-                                    replaceCounter++;
+                                replaceCounter++;
                             }
 
                             // Добавляем строку из нарратива
@@ -229,7 +227,6 @@ namespace Naninovel.U.BSSNaniBugNamesReplaseParser
                             foundMatch = true;
 
                             // Не прерываем цикл, чтобы продолжить добавление других совпадений
-                            foundInCycle++;
                         }
                     }
                 }
