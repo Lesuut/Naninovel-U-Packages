@@ -1,0 +1,3506 @@
+; MC Room
+@ubgm AdultChelsiMCRoom
+@spawn Fade
+@back ChelseaBed id:MCRoom2
+@despawn Fade
+Chelsea: {MainCharacter}, вставай! Сегодня просто потрясающий день! 
+Chelsea: У нас множество планов. Поднимайся! Поднимайся! 
+@back ChelseaBed1.0 id:MCRoom2
+@sfx Sound150
+MainCharacter: Челси, прекрати. Еще пять минут. Дай мне поспать.
+@stopSfx Sound150
+Chelsea: Уже не время спать. 
+Chelsea: Надо действовать! 
+@back ChelseaBed1.1 id:MCRoom2
+MainCharacter: Что? Ты о чем? 
+Chelsea: Мы с Грейс оккупировали бассейн. 
+Chelsea: И хотим сегодня весь день плавать. 
+@back ChelseaBed1 id:MCRoom2
+Chelsea: И мы очень ждем тебя. 
+MainCharacter: Я хотел бы еще поспать. Можно? Ну пожалуйста. 
+Chelsea: Ты пропустишь самое интересное..Ой. 
+@back ChelseaBed2 id:MCRoom2
+Chelsea: Оооу.. Доброе утро. 
+MainCharacter: Прости. Такое часто бывает по утрам. 
+@back ChelseaBed2.0 id:MCRoom2
+MainCharacter: И тем более ты такая красивая.
+MainCharacter: А я совсем не контролирую свое тело. 
+@back ChelseaBed2.1 id:MCRoom2
+Chelsea: Да-да. Я помню, как ты не мог контролировать свои эмоции. 
+Chelsea: И все они были у тебя на лице. 
+@back ChelseaBed3 id:MCRoom2
+@sfx Sound151
+Chelsea: Тогда на ужине.. Ммм. 
+@stopSfx Sound151
+Chelsea: Я очень хотела нырнуть под стол.
+Chelsea:  И пока все были заняты едой и ругались, я могла бы...
+@back ChelseaBed4 id:MCRoom2
+Chelsea: Переключить твой аппетит на себя. 
+MainCharacter: Ты сегодня какая-то особенно игривая. 
+@back MaxChest id:MCRoom2
+Chelsea: Я отлично выспалась и полна сил. 
+Chelsea: И сейчас готова поделиться этими силами с тобой. 
+Chelsea: Мы могли бы немного развлечься до приезда Марго и остальных. 
+@back ChelseaBed5 id:MCRoom2
+MainCharacter: Оох.. А когда они приедут? 
+Chelsea: Альфред сказал, что примерно через час. 
+@back ChelseaBed5.0 id:MCRoom2
+MainCharacter: И ты думаешь, что мы управимся за час? 
+Chelsea: Если это поможет разбудить всего тебя целиком, а не отдельные части тела. 
+@back MaxKissChelsea id:MCRoom2
+Chelsea: Мммм.. Такие решительные действия мне определенно нравятся. 
+@back MaxKissChelsea1 id:MCRoom2
+@sfx Sound152
+MainCharacter: А Грейс тебя не будет искать? 
+@stopSfx Sound152
+Chelsea: Хммм. Будет. 
+@back ChelseaBed6 id:MCRoom2
+Chelsea: И она знает, что я пошла будить тебя.
+Chelsea:  А значит, она придет именно сюда. 
+Chelsea: Застанет нас за этим.. 
+@back ChelseaBed6.0 id:MCRoom2
+Chelsea: И, будь уверен, она не сможет не присоединиться. 
+MainCharacter: И она совершенно не будет тебя ревновать ко мне? 
+@back ChelseaBed7 id:MCRoom2
+Chelsea: У нас намного нежнее отношения, чем ты думаешь. 
+Chelsea: Я расскажу ей, как ты хорош и сделаю все, чтоб она тоже попробовала тебя.
+MainCharacter: Звучит очень приятно. 
+@back ChelseaBed8 id:MCRoom2
+Chelsea: Вау! Твой член такой большой и красивый. 
+Chelsea: Грейс точно понравится. 
+@spawn Fade
+@hideAll
+@back Chelsea_GG_1 id:VideoBack1
+@unlock Chelsea_GG_1
+@despawn Fade
+@hidePrinter
+[i]
+Chelsea: Такой горячий и готовый ммм.. 
+MainCharacter: Ох, Челси, ты.. то, что ты делаешь очень приятно. 
+MainCharacter: Ты такая нежная. 
+Chelsea: Я могу сделать тебе еще приятнее. Хочешь? 
+MainCharacter: Да. Я очень хочу. 
+@back ChelseaBed9 id:MCRoom2
+@back Chelsea_GG_1 id:VideoBack1 visible:false
+@usfx Sound200
+Chelsea: Но учти, {MainCharacter}, за такое удовольствие придется заплатить. 
+MainCharacter: Как? Аааах .. Чем? Я готов, да. 
+Chelsea: Как и чем - это останется для тебя небольшим секретом. 
+@back ChelseaBed10 id:MCRoom2
+@usfx Sound201
+Chelsea: Но не волнуйся. Я уверена, что тебе понравится. 
+MainCharacter: О, Боже! Мне уже нравится. 
+@spawn Fade
+@hideAll
+@back Chelsea_GG_2 id:VideoBack1
+@unlock Chelsea_GG_2
+@despawn Fade
+@hidePrinter
+[i]
+MainCharacter: Не останавливайся.
+MainCharacter: Это помогает моему пробуждению. 
+MainCharacter: Еще никогда так приятно меня не призывали проснуться, о боже, да. 
+@back ChelseaBed11 id:MCRoom2
+@back Chelsea_GG_2 id:VideoBack1 visible:false
+@usfx Sound202
+MainCharacter: Какой у тебя невероятно горячий  и мягкий язык. 
+MainCharacter: Челси, ты невероятная! Ого! Ты.. Ох. Да! 
+@spawn Fade
+@hideAll
+@back Chelsea_GG_3 id:VideoBack1
+@unlock Chelsea_GG_3
+@despawn Fade
+@hidePrinter
+[i]
+MainCharacter: Я не продержусь слишком долго. Ты слишком хороша. 
+Chelsea: Я рада, что тебе нравится. 
+MainCharacter: Да! Черт! Я сейчас кончу. 
+Chelsea: Я хочу, чтоб ты сделал это на мои сиськи. 
+@back ChelseaBed12 id:MCRoom2
+@back Chelsea_GG_3 id:VideoBack1 visible:false
+Chelsea: Хочу, чтоб ты залил их полностью, хочу ощутить твою горячую сперму на себе. 
+MainCharacter: Только от такой просьбы, я уже на грани. 
+Chelsea: Ты и представить  себе не можешь, как пульсируют мои соски от желания. 
+@spawn Fade
+@hideAll
+@back Chelsea_GG_4 id:VideoBack1
+@unlock Chelsea_GG_4
+@despawn Fade
+@hidePrinter
+[i]
+Chelsea: И этот пульс отдается в мой маленький клитор. 
+Chelsea: Между моих бедер уже скопилась влага - такой очевидный признак глубоко засевшего желания. 
+Chelsea: Я безмерно тону от своего желания, {MainCharacter}.
+@back ChelseaBed13 id:MCRoom2
+@back Chelsea_GG_4 id:VideoBack1 visible:false
+@usfx Sound203
+MainCharacter: Я сейчас. Ох.. Да. Я сейчас! Я кончаю!
+@back ChelseaSmile1 id:MCRoom2
+MainCharacter: Вааау.. Я нарекаю это утро самым прекрасным утром во всем мире. 
+MainCharacter: Ты невероятная. 
+MainCharacter: Просто невероятная. Я давно так бурно не кончал. 
+@back MaxKissChelsea2 id:MCRoom2
+@sfx Sound153
+Chelsea: И? Теперь ты готов вставать с постели? 
+@stopSfx Sound153
+MainCharacter: О да. На все сто процентов готов. 
+@back ChelseaSmile2 id:MCRoom2
+Chelsea: Отлично! Мы с Грейс будем ждать тебя у бассейна. 
+MainCharacter: Прежде чем ты уйдешь, я мог бы помочь тебе с твоим желанием. 
+MainCharacter: Что скажешь? 
+@back ChelseaClothes id:MCRoom2
+Chelsea: Скажу, чтоб ты не затягивал свой завтрак и скорее присоединился к нам. 
+Chelsea: Пока я еще не остыла, заражу этим жаром Грейс.
+@back ChelseaOut id:MCRoom2
+Chelsea: Не думай об этом. Ты еще проявишь себя. Обещаю. 
+ThoughtsMainCharacter: Мне определенно нравится, как начинается мой день. 
+ThoughtsMainCharacter: Если мне будут так рады каждое утро - о, небо, сделай так, чтоб показ на вилле никогда не кончился!
+@back MaxChill id:MCRoom2
+@sfx GrowlingSFX
+@sfx Sound154
+ThoughtsMainCharacter: Ой. Надо бы набраться сил для продолжения.
+@stopSfx Sound154
+@stopSfx GrowlingSFX
+ThoughtsMainCharacter: Раз день обещает быть таким приятным.
+@stopUbgm AdultChelsiMCRoom
+; Hall MargoNikki
+@spawn Fade
+@bgm Hall
+@hidePrinter
+@back MargoNikki id:Hall5
+@despawn Fade
+[i]
+@back MargoNikki1 id:Hall5
+[i]
+@back MargoNikki2 id:Hall5
+[i]
+@back MargoNikki3 id:Hall5
+[i]
+@back MargoNikki4 id:Hall5
+[i]
+@back MeetingМargoNikki id:Hall5
+@sfx Sound155
+Margo: Неужели эта адская поездка кончилась. 
+@stopSfx Sound155
+Margo: 4 часа пробок по пути домой - это слишком. Куда все едут? 
+@back NikkiAround id:Hall5
+Nikki: Явно на море. У всех сейчас период отпусков. 
+Nikki: Не удивительно, что дороги перегружены. 
+@back NikkiGlasses id:Hall5
+Nikki: А где Стейси? Она только что шла за нами. 
+Nikki: Куда она вечно теряется? 
+@back NikkiAround1 id:Hall5
+Margo: Не спрашивай меня, Никки. 
+Margo: Я и так почувствовала себя ее мамочкой во время поездки. 
+@back NikkiSmile id:Hall5
+Nikki: Хм.. Это даже мило. Разве нет? 
+Nikki: Тебе не все равно тех, с кем ты работаешь. 
+@back МargoAround id:Hall5
+Margo: Пф. Нет мне никакого дела.
+Nikki: Глупости. Я знаю, что именно ты настояла на том, чтоб некоторых девочек, не буду называть имена, взяли на этот показ. 
+@back BothAround id:Hall5
+Nikki: Тебе не все равно.
+@back MaxHand id:Hall5
+MainCharacter: Доброе утро, дамы. 
+MainCharacter: Рад, что вы добрались в целости и сохранности. 
+@back MaxSmile id:Hall5
+Margo: Мы были бы в большей целости, если б ты соизволил нас встретить у ворот. 
+Margo: Не понимаю, почему отец нанимает тех,  кто не может выучить элементарных правил распорядка. 
+@back MaxSmile1 id:Hall5
+Margo: Что Сью, что теперь...
+Margo: Как тебя зовут? 
+MainCharacter: {MainCharacter}. 
+Margo: Теперь какой-то {MainCharacter}. У папы явные проблемы с персоналом. 
+@back NikkiSorry id:Hall5
+Nikki: Мне кажется, ты слишком требовательная. 
+Margo: Разве? А что сложного вовремя подняться с постели и не заставлять нас ждать 30 минут у ворот. 
+@back MargoAngry id:Hall5
+@sfx Sound156
+Margo: Слава богу, что Грейс была на улице. 
+@stopSfx Sound156
+Margo: Иначе мы простояли бы еще дольше. 
+@back NikkiSorry1 id:Hall5
+Nikki: {MainCharacter}, не принимай близко к сердцу. 
+Nikki: Она всегда такая раздражительная после поездки. 
+@back MargoAngry1 id:Hall5
+Margo: Что ты его защищаешь? 
+Margo: Вот скажи, {MainCharacter}, Альфред ведь предупреждал тебя, что мы приедем? 
+@back MaxConfused id:Hall5
+MainCharacter: Да. Предупреждал. 
+MainCharacter: Но я не знал, что обязан был вас встречать. 
+@back MargoAngry2 id:Hall5
+Margo: Вот. Об этом я и говорю, Никки. Так со всеми. 
+@back MargoСarefully id:Hall5
+Margo: Пока не выдашь полноценную инструкцию поведения, никто и пальцем не пошевелит. 
+Nikki: Если он здесь совсем недавно, то извини его. 
+Nikki: Он еще только привыкает.
+@back MargoAngry3 id:Hall5
+Nikki: Как давно ты здесь? 
+MainCharacter: Эм.. Буквально второй день.
+@back NikkiSorry2 id:Hall5
+Nikki: Я же говорила. Не будь такой строгой. 
+Nikki: Второй день! Он толком не знает расположения комнат. 
+Margo: Да черт с этими комнатами! 
+@back MargoAngry4 id:Hall5
+Margo: Мы потеряли время, я и так схожу с ума от этой жары. 
+Nikki: Пойдем, дорогая. 
+Nikki: Тебе нужно выпить чего-нибудь успокаивающе прохладительного. А лучше поесть. 
+@back MargoGloomy id:Hall5
+Margo: Ракель здесь? 
+MainCharacter: Да. Она здесь. 
+Margo: Слава богу. Хоть одна хорошая новость. 
+@back NikkiMargoBy id:Hall5
+Nikki: Да. Отличная новость. 
+Nikki: Пошли, попросим Ракель приготовить нам что-нибудь особенно вкусное. 
+Margo: {MainCharacter}, пожалуйста, сейчас. Вот прямо сейчас, не через 30 минут.. 
+@back NikkiShoulder id:Hall5
+Nikki: Он понял, не злорадствуй. 
+Margo: Посмотри, где задерживается Стейси. 
+@back MargoAngry5 id:Hall5
+Margo: У нее скорей всего что-то опять случилось.
+Margo: Она или запуталась в воротах, или не может выйти из машины, или заблудилась во дворе. 
+@back NikkiMargoOut id:Hall5
+@sfx Sound157
+Margo: Пожалуйста, {MainCharacter}, найди ее и сопроводи в комнату. 
+@stopSfx Sound157
+ThoughtsMainCharacter: Когда ты на вершине прекрасного настроения, как же больно с нее падать. 
+ThoughtsMainCharacter: Даже вчерашняя пьяная Тереза была куда приятнее. 
+@stopBgm Hall
+;Улица (у ворот) 
+@spawn Fade
+@hidePrinter
+@bgm Yard
+@back Prohodka1 id:Yard2
+@despawn Fade
+[i]
+@back Prohodka2 id:Yard2
+[i]
+@back Prohodka3 id:Yard2
+[i]
+@back StacyCrying  id:Yard2
+@sfx Sound158
+MainCharacter: Привет!
+@stopSfx Sound158
+MainCharacter: Ты Стейси, верно? 
+Stacey: Ага. Я Стейси. И снова попала в дурацкое положение. 
+@sfx Sound159
+MainCharacter: Я думаю, это вполне себе исправимо. 
+@stopSfx Sound159
+Stacey: Ты поможешь мне? Буба не дает мне пошевелиться. 
+Stacey: Я могу испортить туфли и сумочку. Или вообще упаду! 
+@back StacyCrying1 id:Yard2
+MainCharacter: Как же так вышло? 
+Stacey: Буба очень радовался приезду. И стал прыгать и бегать. 
+Stacey: Я не смогла его удержать. 
+@back StacyCrying2 id:Yard2
+Stacey: Он вырвался и вот.. 
+MainCharacter: Пожалуйста, не расстраивайся так. Я мигом распутаю поводок. 
+MainCharacter: Туфли и сумочка останутся целыми. 
+Stacey: И я не упаду? 
+MainCharacter: Нет, конечно. В крайнем случае я тебя поймаю. 
+@set SavingStaceyIsStep1Done=false
+@tip key:"SavingStacey"
+# SavingStaceyStart
+@hidePrinter
+@back StacyCrying  id:Yard2
+@choice handler:InteractiveSavingStacey1 if:"!SavingStaceyIsStep1Done" goto:.SavingStaceyStep1
+@choice handler:InteractiveSavingStacey2 goto:.SavingStaceyStep2
+@stop
+# SavingStaceyStep1
+; Ошейник
+@hideAll wait:false
+@back MaxDog id:Yard2
+@sfx Sound160
+@set SavingStaceyIsStep1Done=true
+[i]
+@stopSfx Sound160
+@goto .SavingStaceyStart
+# SavingStaceyStep2
+; Поводок
+@if !SavingStaceyIsStep1Done
+    @goto .SavingStaceyStep2Fail
+@endif
+@hideAll wait:false
+@back MaxSquats id:Yard2
+@sfx Sound161
+MainCharacter: Подними ножку, пожалуйста. Так. Отлично..
+@stopSfx Sound161
+@back MaxCatchesStacy id:Yard2
+MainCharacter: А стянул он твои ноги сильно. Даже царапина есть. 
+MainCharacter: Стоит обработать. 
+@goto .SavingStaceyFinish
+# SavingStaceyStep2Fail
+; Поводок
+@hideAll wait:false
+@back MaxSquats id:Yard2
+MainCharacter: Буба может побежать, и тогда Стейси упадёт.
+[i]
+@goto .SavingStaceyStart
+# SavingStaceyFinish
+@tip
+@back StacyExtra id:Yard2
+Stacey: О боже!! Сильная? У меня течет кровь?? 
+MainCharacter: Нет. Не волнуйся так. Это небольшая царапина. 
+MainCharacter: Заживет мгновенно.
+@sfx Sound162
+@back MaxDog1 id:Yard2
+@stopSfx Sound162
+Stacey: Ох! Теперь мы его никогда не сможем остановить! 
+Stacey: Он очень быстро бегает и теряется. 
+MainCharacter: Никуда он далеко не убежит. Вилла закрытая.
+MainCharacter: Мы его легко поймаем.
+@back MaxSquats1 id:Yard2
+Stacey: А как же Буба? Ты поймаешь его? 
+MainCharacter: Да. Сразу после того, как помогу тебе обработать рану. 
+MainCharacter: Вот. Твои туфли целы, сумочка тоже. И ты не упала. Почти. 
+@back StacySad id:Yard2
+Stacey: Но Буба убежал. 
+@back StacySad1 id:Yard2
+MainCharacter: Вернем его обязательно. 
+Stacey: Я боюсь смотреть на рану. Там все сильно плохо? 
+MainCharacter: Нет. Совсем нет. Просто царапина. Пойдем, обработаем ее. 
+@stopBgm Yard
+;Ванная 
+@spawn Fade
+@bgm Hall1
+@back StacyLeg id:Bathroom1
+@despawn Fade
+Stacey: А потом мне исполнилось 16 и я выиграла свой первый конкурс красоты. 
+Stacey: Мне подарили большую такую диадему.
+Stacey: Я видела, как все смотрели и завидовали. 
+@back StacyMemory id:Bathroom1
+@sfx Sound163
+Stacey: Папа мной очень гордился. 
+@stopSfx Sound163
+Stacey: Он подошел ко мне и сказал, что я стою сотен миллионов таких диадем.
+Stacey:  И всегда буду самой красивой звездочкой для него. 
+@back StacyMemory1 id:Bathroom1
+MainCharacter: Это очень милая история. Много у тебя таких наград? 
+Stacey: Наверное нескромно говорить о своих наградах. 
+@back StacyMemory2 id:Bathroom1
+MainCharacter: Почему же? Я ведь сам спросил тебя об этом. 
+Stacey: Да, много. Я много раз побеждала конкурсы красоты. 
+@back MaxHand id:Bathroom1
+MainCharacter: Все готово. Больше никакой опасности. 
+Stacey: Спасибо. Ты очень добрый. И не оставил меня одну. 
+@back StacyStandsUp id:Bathroom1
+Stacey: Я тут совсем никого не знаю. 
+Stacey: Кроме Марго, конечно. Но она так занята. 
+Stacey: И если честно, я боюсь ей надоесть. И она меня прогонит.
+@back StaseyExtra id:Bathroom1
+MainCharacter: Я так не думаю. Показ меньше чем через неделю.
+MainCharacter:  И ты не делаешь ничего ужасного. 
+@back StacyKiss id:Bathroom1
+@sfx Sound153
+MainCharacter: Люблю поцелуи, но это было совершенно необязательно. 
+@stopSfx Sound153
+MainCharacter: Я помог просто так. 
+Stacey: Да, я понимаю. Но мне захотелось тебя поцеловать. 
+@back StacyT-Shirt id:Bathroom1
+Stacey: Ты давно здесь служишь? 
+MainCharacter: Служу? 
+@back StaseyExtra1 id:Bathroom1
+Stacey: Эмм.. Да. Работаешь помощником Альфреда. 
+MainCharacter: Я не работаю помощником Альфреда. 
+Stacey: Ой. Прости. Марго говорила, что...
+@back MaxEyebrows id:Bathroom1
+MainCharacter: А! Вот за кого она меня приняла. 
+MainCharacter: Это многое объясняет. Да, теперь я понял. 
+Stacey: А я ничего вот не поняла.
+@back StaseyExtra2 id:Bathroom1
+MainCharacter: Она подумала, что я дворецкий или новый помощник Альфреда и поэтому так разозлилась. 
+@back StacySurprise id:Bathroom1
+Stacey: А ты не помощник Альфреда? 
+MainCharacter: Нет. Я приехал участвовать в показе. Я модель! 
+@back StacySurprise1 id:Bathroom1
+MainCharacter: Неужели так сильно похож на дворецкого? 
+Stacey: Нет, что ты.. Просто чуть-чуть похож. 
+MainCharacter: Что? Чем? 
+@back JoinHands id:Bathroom1
+Stacey: Ты слишком любезный, будто тебе за это платят.
+MainCharacter: Серьезно?! 
+Stacey: Да. Но мне нравится. Ты не посмеялся надо мной. 
+Stacey: Что бывает нечасто. Обычно, когда я попадаю в нелепые ситуации, все смеются. 
+@back StacySad id:Bathroom1
+Stacey: Думают, что я специально. Но на самом деле, я правда теряюсь..
+Stacey: Лучше не будем о грустном!  
+Stacey: Пойдем искать песика? 
+@ach TouchOfBooba
+@stopBgm Hall1
+;Холл
+@bgm Hall1
+@back StacyMaxOut id:Hall8
+MainCharacter: Ох, черт! 
+Stacey: Буба?! 
+@back FunnyDog id:Hall8
+;@sfx Sound164
+Stacey: Какая бесстыжая собака. Отпусти. Фу! Брось! 
+;@stopSfx Sound164
+MainCharacter: Мне кажется, это был чей-то шейный платок. 
+MainCharacter: И кто-то явно расстроится. 
+@back FunnyDog1 id:Hall8
+Stacey: Нееет! Только не это. 
+Stacey: Мне так жаль. Ох. Папа говорил, что брать с собой Бубу - плохая идея. 
+Stacey: Но мне так хотелось, чтоб со мной было что-то из дома. 
+@back StacyCrying id:Hall8
+Stacey: Я оплачу все расходы. 
+Stacey: Ты не знаешь, чей это? 
+@back SueАngry id:Hall8
+Sue: Был мой. 
+Stacey: Привет. Меня зовут Стейси. Прости, пожалуйста, за это недоразумение. 
+@back SueHands id:Hall8
+Stacey: Я возмещу. Сколько он стоил? 
+Stacey: Буба очень любопытная собака, и я не всегда могу за ней уследить. 
+@back SueАngry1 id:Hall8
+Sue: Ничего возмещать не нужно. 
+MainCharacter: Сью, да ты чего? Это всего лишь платок. 
+MainCharacter: Я куплю тебе 10 разных, на каждый день.
+@back StacyCrying1 id:Hall8
+Sue: Это была просто очень памятная вещь. 
+Sue: Так что мне не нужны другие. 
+Sue: Стейси, постарайся следить за своей собакой впредь.
+Sue: Мистер Эдвард не любит животных. 
+@back FunnyDog2 id:Hall8
+Stacey: Прости, пожалуйста. 
+MainCharacter: Сью, взгляни, какой он милый. 
+MainCharacter: Как ты можешь на него сердиться? 
+Sue: Я не люблю животных. Они непредсказуемы. 
+@back SueАngry2 id:Hall8
+MainCharacter: Хм. А разве люди не более сложные, чем животные? 
+Sue: У людей есть язык, а у некоторых даже воспитание. 
+@back SueАngry3 id:Hall8
+@sfx Sound165
+Sue: Но вот животные, пусть и воспитанные, часто ведут себя совершенно неожиданным образом. 
+@stopSfx Sound165
+Stacey: Она теперь меня ненавидит? 
+@back StacySad id:Hall8
+MainCharacter: Я думаю, что может быть она взволнована сейчас. 
+MainCharacter: Приехала ведь Марго. И сегодня вернется домой еще и Эдвард. 
+@back FunnyDog3 id:Hall8
+MainCharacter: Не беспокойся об этом. Она остынет. 
+Stacey: Сегодня такой трудный день. 
+Stacey: Я наверное пойду скорее в свою комнату, чтоб ничего плохого больше не случилось. 
+@back StacyHugs id:Hall8
+MainCharacter: Ох..Стейси, не стоит так переживать. 
+Stacey: {MainCharacter}, ты невероятный подарок. 
+@back MaxCalm id:Hall8
+Stacey: Я так рада, что встретила тебя. 
+Stacey: Папа ошибался, говоря, что мужчины чаще всего злые и коварные.
+@back MaxSarcastic id:Hall8
+MainCharacter: Ты пока еще не знакома с Терезой. 
+MainCharacter: Думаю, она удивит тебя и удивила бы твоего папу. 
+@back StacyPose id:Hall8
+Stacey: Она такая же добрая, как ты? 
+MainCharacter: Ха-ха. Я бы сказал, что она неожиданная. 
+@back StacySmile id:Hall8
+Stacey: Теперь я еще больше хочу с ней познакомиться.
+Stacey: Ты не обидишься на меня, если я пойду к себе?
+Stacey:  Я чувствую себя такой уставшей после поездки. 
+@back StacyKiss1 id:Hall8
+@sfx Sound152
+MainCharacter: Разумеется. Если что-нибудь понадобится зови. 
+@stopSfx Sound152
+@back StacyOut id:Hall8
+ThoughtsMainCharacter: Стейси кажется такой напуганной и милой. 
+ThoughtsMainCharacter: Надеюсь, Сью не будет долго сердиться на нее.
+@back MaxOut id:Hall8
+ThoughtsMainCharacter: Это ведь всего лишь вещь. Ничего особенного. 
+@stopBgm Hall1
+;Кухня
+@spawn Fade
+@bgm Kitchen
+@back MaxKitchen id:Kitchen3
+@despawn Fade
+ThoughtsMainCharacter: Нужно позавтракать, хотелось бы вернуть силы после такого милого утра. 
+@back TheresaHeadache id:Kitchen3
+MainCharacter: Доброе утро. 
+MainCharacter: Удивительно, что ты бодрствуешь. 
+Theresa: Я буду признательна, если ты заткнешься навсегда.
+@back TheresaHeadache1 id:Kitchen3
+MainCharacter: Ха-ха. Может быть кофе? 
+Theresa: Может быть.  Ой. Уйди. Ты загораживаешь мне виды. 
+MainCharacter: На стол? 
+@back MaxCooking id:Kitchen3
+Theresa: Иногда зрение бывает слишком чувствительным. 
+Theresa: И мне больно смотреть на мир. 
+@back TheresaMax id:Kitchen3
+Theresa: Особенно, если где-то поблизости существует твое лицо. 
+MainCharacter: Спрашивать тебя про самочувствие нет смысла? 
+Theresa: Присмотрись повнимательнее, зрячий. 
+@back MaxCooking1 id:Kitchen3
+Theresa: Как тебе кажется, что у меня с самочувствием? 
+MainCharacter: Мне кажется, что ты  готова вот вот запеть. 
+@back TheresaHeadache2 id:Kitchen3
+@sfx Sound166
+Theresa: Будь любезным человеком, заткнись и достань мне таблетки. 
+@stopSfx Sound166
+Theresa: Они должны быть в верхнем ящике. 
+@back TheresaHeadache3 id:Kitchen3
+MainCharacter: А волшебное слово? 
+Theresa: Достань или пойдешь в задницу. 
+@back MaxCooking2 id:Kitchen3
+MainCharacter: Ты ведь отвратительно себя вела вчера на ужине, знаешь? 
+Theresa: Ты достанешь таблетки? 
+MainCharacter: Отвратительное поведение.
+@back MaxCooking3 id:Kitchen3
+@sfx Sound167
+@usfx Sound168 loop:true
+Theresa: Не занудствуй, а просто подай мне таблетки. 
+@stopSfx Sound167
+ThoughtsMainCharacter: Сразу после того, как ты скажешь Пожалуйста, {MainCharacter}, достань таблетки. 
+Theresa: Пошел в задницу. 
+@back TheresaHip id:Kitchen3
+MainCharacter: Значит, сиди и страдай. 
+MainCharacter: А я сейчас приготовлю отличный кофе и проведу день самым наилучшим образом. 
+Theresa: Это каким таким образом? Ах! Со своей новой подружкой. 
+@back MaxCooking4 id:Kitchen3
+MainCharacter: Ты ревнуешь? 
+@back TheresaHand id:Kitchen3
+Theresa: К кому? К этому двадцатилетнему недоразумению? 
+MainCharacter: Ха-ха. Нет в тебе ни грамма снисходительности.  
+@back MaxHand id:Kitchen3
+Theresa: Я видела тебя с твоей подружкой сегодня. 
+Theresa: Она мне понравилась. Такая первокурсница на летней практике. 
+@back MaxPills id:Kitchen3
+Theresa: И сотри эту противную улыбку с лица. 
+Theresa: Боюсь, я ослепну от этого блеска даже сквозь очки. 
+@back Extra1 id:Kitchen3
+@sfx Sound169
+Theresa: Ба! Так ты фокусник. 
+@stopSfx Sound169
+Theresa: Как скоро из твоих штанов ждать белого кролика? 
+@back TheresaPills id:Kitchen3
+MainCharacter: Перестань ехидничать. Лучше выпей таблетку и дождись кофе. 
+Theresa: Я слышала ночью какой-то шум. Что-то случилось? 
+@back TheresaGlass id:Kitchen3
+MainCharacter: А Ракель ничего тебе не сказала? 
+Theresa: Ах! Ракель! Подлая предательница. К черту ее! 
+@back MaxCooking5 id:Kitchen3
+@sfx Sound170
+MainCharacter: Почему? Вы поссорились? 
+@stopSfx Sound170
+Theresa: Как только приехала Марго, она тут же бросилась ей на шею. 
+@sfx Sound167
+Theresa: И наверняка сидит у нее в комнате и глаз не может оторвать. 
+@stopSfx Sound167
+@stopUsfx Sound168
+@back Extra2 id:Kitchen3
+MainCharacter: Они так близки? 
+@back TeresaUpset id:Kitchen3
+Theresa: Пф! Не удивлюсь, если Ракель и Никки подерутся за ласковые глазки Марго.
+MainCharacter: Тебя в самом деле это так ранит? 
+Theresa: А почему она к ней сразу побежала?! 
+@back MaxCooking6 id:Kitchen3
+MainCharacter: Вероятно, она соскучилась. 
+Theresa: Как же, соскучилась! 
+Theresa: Пытается уговорить Марго, чтоб она повлияла на Эда. 
+@sfx Sound171
+MainCharacter: Ей что-то нужно от мистера Эдварда? 
+@stopSfx Sound171
+@back MaxCooking7 id:Kitchen3
+Theresa: Не наше дело, что ей нужно. Просто обидно, черт возьми. 
+Theresa: Так что было ночью? Я хотела встать, но что-то приболела. 
+MainCharacter: Приболела, серьезно? 
+@back MaxCoffee id:Kitchen3
+@sfx Sound172
+Theresa: Да, знаешь, будто простудилась. 
+@stopSfx Sound172
+@back Extra3 id:Kitchen3
+MainCharacter: Ох уж эти хмельные простуды. Сочувствую.
+MainCharacter: Ночью случился потоп. 
+MainCharacter: Кто-то очень простуженный забыл закрыть кран в ванной. 
+MainCharacter: И не вынул пробку. 
+@back TeresaCoffee id:Kitchen3
+Theresa: Мне или кажется, или ты намекаешь на меня? 
+MainCharacter: Намекаю? Нет. Говорю в открытую. 
+@back Extra4 id:Kitchen3
+Theresa: Но я помню, что точно выключала воду. Хм. Как странно. 
+@back TeresaCoffee1 id:Kitchen3
+@sfx Sound173
+Theresa: Я не была настолько пьяной вчера, чтоб просто подняться из ванной и пойти спать, не обращая внимание на фонтан воды.
+@stopSfx Sound173
+Theresa: Нет. Быть такого не может. 
+Theresa: Наверняка в душе был кто-то после меня. 
+Theresa: Но я..нет, {MainCharacter}. Точно тебе говорю, я все выключала. 
+MainCharacter: Даже не знаю, что тебе на это сказать. 
+@back TeresaCoffee2 id:Kitchen3
+@sfx Sound174
+Theresa: Это заговор против меня. 
+@stopSfx Sound174
+MainCharacter: Вот этому я бы и не удивился. 
+@back Extra5 id:Kitchen3
+Theresa: Как тебе свеженькая девушка? 
+Theresa: То, как ты увивался за ней все утро по двору, наводит меня на определенные мысли. 
+@back MaxChin id:Kitchen3
+MainCharacter: Она очень милая. Но кажется растерянной. 
+Theresa: Еще бы. Она не представляет, куда попала. 
+MainCharacter: Может будешь с ней чуть поласковее? 
+@back Extra6 id:Kitchen3
+Theresa: Ты просишь меня быть с твоей подружкой ласковой? 
+Theresa: Хм.. А не боишься, что я заберу у тебя ее? 
+MainCharacter: Что? Она не моя - это для начала. 
+@back Extra7 id:Kitchen3
+Theresa: В самом деле? Уверен? 
+MainCharacter: И мне кажется, что ты ее больше испугаешь, чем заинтересуешь. 
+@back TeresaCoffee3 id:Kitchen3
+Theresa: Я могу быть невероятно обольстительной. 
+@back TeresaKnee id:Kitchen3
+Theresa: Ты даже не заметишь, как твоя маленькая девочка потеряет голову от того, какой ласковый подход я сумею подобрать к ней. 
+MainCharacter: Ты мне угрожаешь? 
+@back TeresaKnee1 id:Kitchen3
+Theresa: Ты это так расцениваешь. 
+Theresa: На твоем месте я предположила бы, что это предложение. 
+Theresa: Нам предстоит провести здесь целую неделю. 
+Theresa: Я бы не хотела заскучать. 
+@back TeresaKnee2 id:Kitchen3
+MainCharacter: Я бы тоже не хотел. 
+MainCharacter: Но что-то подсказывает мне, что с таким колоритным подбором леди, скучать и не придется. 
+MainCharacter: Кстати. Челси сейчас весело проводит время в бассейне с Грейс. 
+MainCharacter: Хотела бы присоединиться? 
+@back TeresaEar id:Kitchen3
+@sfx Sound175
+Theresa: Хм.. Дай-ка подумать. 
+@stopSfx Sound175
+Theresa: У меня были как-то планы поиграть во взрослые игры с тобой в бассейне. 
+@back TeresaKnee3 id:Kitchen3
+Theresa: Но у меня дико раскалывается голова. 
+Theresa: Я допью твой чудный кофе и попробую прийти в себя. 
+@back Extra8 id:Kitchen3
+Theresa: Тем более сегодня вечером приедет Эд. 
+Theresa: Я хотела бы быть готова. И его точно будут встречать вечеринкой.
+@back TeresaKnee4 id:Kitchen3
+Theresa: А не безмолвными воротами. 
+MainCharacter: Ты вездесущее око? 
+Theresa: Почти так, да. 
+@back Extra9 id:Kitchen3
+MainCharacter: Я ничего не слышал о вечеринке. 
+Theresa: Ты бы ее не пропустил. Она будет у бассейна. Не волнуйся. 
+@back TeresaCoffee4 id:Kitchen3
+@sfx Sound174
+Theresa: Эх. Пора сматываться и приводить себя в порядок. 
+@stopSfx Sound174
+Theresa: До того, как Марго найдет меня и начнет какое-либо дело. 
+MainCharacter: Мне вчера показалось, что ты говорила о своем желании сблизиться с Марго. 
+MainCharacter: Уже передумала? 
+@back TheresaSurprise1 id:Kitchen3
+Theresa: Я и такое говорила?!
+@back Extra10 id:Kitchen3
+Theresa: Ох, что только не придет в простуженную голову. 
+Theresa: Прекращай свои горячие посягательства на мое сногшибательное тело. 
+@back TheresaOut id:Kitchen3!
+Theresa: Могу и не устоять. 
+@printer Chat
+@sfx MessageSFX
+@back Extra11 id:Kitchen3
+@stopSfx MessageSFX
+Chelsea: Только не говори мне, что ты все еще спишь. 
+Theresa: Не-а. Я допивал свой кофе. 
+Theresa: И после такого, знаешь ли, спать совсем не хочется.
+Chelsea: Поторапливайся. Мы тебя ждем.
+Chelsea: <sprite="Photo2" index=0><br><br><br><br><br><br><br><br><br><br><br><br><br>
+@back GraceChelseaPhoto id:Kitchen3
+@hidePrinter
+[i]
+@back Extra11 id:Kitchen3
+Chelsea: И еще! Обходи стороной Марго. Иначе она придумает тебе глупые занятия. 
+Chelsea: И ты уже никогда не освободишься. 
+MainCharacter: Ладно тебе. Она у себя в комнате, ее нечего опасаться.
+@back MaxSmile1 id:Kitchen3
+Chelsea: Ты ее плохо знаешь. Я видела, на что она способна.
+@printer Dialogue
+@stopBgm Kitchen 
+;Двор - бассейн 
+@spawn Fade
+@bgm BathroomPublic
+@back ChelseaGracePool id:Yard3
+@despawn Fade
+ThoughtsMainCharacter: Вау. Не спугнуть бы. 
+ThoughtsMainCharacter: Челси не преувеличивала, говоря, что они очень нежны друг с другом. 
+ThoughtsMainCharacter: Интересно, как далеко они заходили?
+@back ChelseaGraceKiss id:Yard3
+@sfx Sound127
+ThoughtsMainCharacter: Было ли у них что-то большее, чем застенчивый девичий поцелуй?
+@stopSfx Sound127
+ThoughtsMainCharacter: Если судить по тому, как ловко Грейс сжимает грудь, то пару поцелуев точно было.
+@back ChelseaGraceKiss1 id:Yard3
+ThoughtsMainCharacter: Мне кажется, или она развязывает купальник? 
+ThoughtsMainCharacter: Это спланированная акция или я просто счастливчик?
+@back PoolExtra1 id:Yard3
+Chelsea: {MainCharacter}, мы заждались. Скажи ей, что она должна делать?
+Chelsea:  Мне кажется, Грейс никак не может с этим разобраться. 
+@back MaxFinger id:Yard3
+MainCharacter: Я? 
+Chelsea: Да, ты. Скажи, что ты хочешь, чтобы Грейс сделала со мной? 
+@back PoolExtra2 id:Yard3
+Grace: Долго не думай. Иначе я возьму инициативу в свои руки. 
+Grace: Или в свои губы. 
+MainCharacter: Я хочу, чтоб ты снов ее поцеловала. Но с языком. 
+@back ChelseaGraceKiss2 id:Yard3
+@sfx Sound176
+Chelsea: Мне нравится твой подход издалека. 
+@stopSfx Sound176
+MainCharacter: Да, толкай свой язык ей в рот. 
+@back PoolExtra3 id:Yard3
+MainCharacter: Пройдись по контуру губ языком.
+@back PoolExtra4 id:Yard3
+MainCharacter:  Или, если хочется очень, то укуси ее за нижнюю губу. Чуть потяни на себя.  
+MainCharacter: Всегда казалось, что девичьи поцелуи особенно нежные. 
+@back ChelseaGraceKiss3 id:Yard3
+Grace: Так и есть. В наших поцелуях нет доминирования.
+Grace: Только желание доставлять удовольствие и получать его. 
+MainCharacter: Поцелуй ее шею. Проведи языком по ней. 
+@back MaxPool id:Yard3
+@sfx Sound177
+Grace: Тебе стоит подойти ближе, чтоб видеть все в мельчайших подробностях.
+@stopSfx Sound177
+Grace: Так намного больше увидишь.
+MainCharacter: Грейс, проведи языком от ключицы до самой мочки уха. 
+@back ChelseaGraceKiss4 id:Yard3
+@usfx Sound204
+MainCharacter: Можешь рукой держать ее за волосы, отклоняя голову так, чтоб было тебе максимально удобно. 
+Grace: Мммм.. Будто мороженое. 
+Chelsea: Твой язык такой ласковый и горячий. 
+Chelsea: Его скольжение буквально сводит меня с ума. 
+@back ChelseaGraceKiss5 id:Yard3
+MainCharacter: Обхвати ее грудь. Сожми. 
+Chelsea: Ааах, да. Сильнее. Грейс, сделай так, как он просит, только сильнее. 
+Grace: Твой дерзкий сосок упирается мне в ладонь. 
+MainCharacter: Сними с нее купальник, Грейс. 
+@back ChelseaGraceKiss6 id:Yard3
+MainCharacter: И снова сожми, чтоб сосок был виден между твоими пальцами. 
+MainCharacter: Да, отлично. Катай его между ними. 
+Chelsea: Ммм.. Ах, да. Продолжай. 
+Grace: Думаю, что по сухой коже это не так приятно, как если бы было немного влаги. 
+@back ChelseaGraceKiss7 id:Yard3
+MainCharacter: Ты права. Зажми его между губ. Коснись его языком. 
+MainCharacter: Да, именно так. А теперь коснись так, чтоб я видел. 
+@spawn Fade
+@stopBgm BathroomPublic
+@hideAll
+@back Chelsea_Grace_Anim1 id:VideoBack1
+@unlock Chelsea_Grace_Anim1
+@despawn Fade
+@hidePrinter
+[i]
+MainCharacter: Кончиком языка проведи по окружности, а после вбери его полностью в рот.
+Chelsea: Ты такая нежная, Грейс. Ах.. Так хорошо. 
+Chelsea: Боюсь, что кончу еще до того, как {MainCharacter} придумает что-то еще для нас. 
+Chelsea: Тебе ведь нравится то, что ты видишь? 
+MainCharacter: Да. Мне очень нравится. 
+@back ChelseaGraceKiss8 id:Yard3
+@back Chelsea_Grace_Anim1 id:VideoBack1 visible:false
+@bgm BathroomPublic
+Grace: Я чувствую твой жар, дорогая. И чувствую твой запах. 
+Chelsea: Я хочу потереться о твою руку. Можно? Или я сойду с ума. 
+@back PoolExtra5 id:Yard3
+Grace: {MainCharacter}, что скажешь? Ей можно? 
+ThoughtsMainCharacter: Ясно, что они практиковали не только поцелуи.
+ThoughtsMainCharacter: Может даже вчера ночью, после того как Грейс вернулась из ванной. 
+@back ChelseaGraceKiss9 id:Yard3
+MainCharacter: Д-да.. Прижмись к ее руке. Но сделай это сама. 
+MainCharacter: Пусть Грейс не двигается тебе навстречу.
+Chelsea: Как жестоко, милый. Мне этого будет мало. Ааах...Ммм.
+@back ChelseaGraceKiss10 id:Yard3
+Grace: Ты насквозь промокла, детка. Такая скользкая. 
+Grace: {MainCharacter}, ты ведь представляешь, как это приятно ощущать?
+Grace: Девушка так сильно хочет тебя, что готова использовать для удовлетворения любую часть твоего тела. 
+@back ChelseaGraceKiss11 id:Yard3
+@usfx Sound205
+MainCharacter: Сними белье с нее. Коснись ее влажного, горячего места пальцами. 
+MainCharacter: Покажи мне, насколько она мокрая. 
+Chelsea: Дааа... Грейс, неужели. Даа. Надави на него. Хотя бы чуть чуть. 
+MainCharacter: Нет, Грейс не торопись. 
+@back ChelseaGraceKiss12 id:Yard3
+MainCharacter: Касайся ее осторожно, ласкай ее медленными и долгими движениями. 
+Chelsea: Аааахмм.Черт, Грейс. Дай мне больше. 
+Chelsea: Не останавливайся! 
+Chelsea: Боже, сильнее, Грейс, детка, сильнее, пожалуйста. 
+MainCharacter: Ты так красива, когда хочешь большего. 
+@back ChelseaGraceKiss13 id:Yard3
+MainCharacter: Войди в нее, не мучай. 
+Chelsea: Боже! Да! Как же приятно. Ааах.
+Grace: Такая узкая и такая мокрая. Это похоже на безумие. 
+@back ChelseaGraceKiss14 id:Yard3
+Grace: Я бы никогда не переставала так входить в тебя. 
+Chelsea: Еще. Добавь еще один. Я хочу быть наполненной. 
+Chelsea: Грейс, пожалуйста. 
+Chelsea: Никогда не прекращай трахать меня своими пальцами. 
+@sfx Sound178
+@back PoolExtra6 id:Yard3
+@stopSfx Sound178
+@back ChelseaGraceKiss15 id:Yard3
+Grace: Я хочу, чтоб ты была на моем языке и на моих пальцах одновременно. 
+Chelsea: О боже! 
+Grace: Ты ведь не против это увидеть, {MainCharacter}? 
+MainCharacter: Не против. Делай. 
+Grace: Думаешь, у тебя получится кончить, не прикасаясь к себе? 
+@back ChelseaGraceKiss16 id:Yard3
+@usfx Sound206
+MainCharacter: Смотря, насколько горячо ты будешь лизать ее. 
+Grace: Твоя горячая влага покрыла мои губы. Ты так заведена. 
+Grace: Твой вкус всегда напоминал мне какой-то кисло сладкий фрукт. Ммм.. 
+@spawn Fade
+@stopBgm BathroomPublic
+@hideAll
+@back Chelsea_Grace_Anim2 id:VideoBack1
+@unlock Chelsea_Grace_Anim2
+@despawn Fade
+@hidePrinter
+[i]
+Chelsea: Детка, пожалуйста.. 
+ThoughtsMainCharacter: Я вижу, как она проталкивает свой язык внутрь нее, задевая носиком клитор. 
+ThoughtsMainCharacter: Чеерт. Я в самом деле могу кончить только от этого вида. 
+Grace: Там узко даже для моего языка. 
+Grace: Представляю, как быстро кончают мужчины, находясь в тебе. 
+@back ChelseaGraceKiss17 id:Yard3
+@back Chelsea_Grace_Anim2 id:VideoBack1 visible:false
+@bgm BathroomPublic
+Grace: Когда их член так плотно обхватывают стенки. 
+MainCharacter: Выбери медленный, глубокий и чуть грубый темп. 
+@back PoolExtra7 id:Yard3
+MainCharacter: Не дай ей кончить слишком быстро. 
+Chelsea: Грейс! Да! О боже! Даааа! Ааах.. 
+@back ChelseaGraceKiss18 id:Yard3
+@usfx Sound207
+Chelsea: Я чувствую тебя, чувствую, как ты массируешь меня так глубоко. 
+Chelsea: ..такая открытая и податливая. Ммм.. 
+@back ChelseaGraceKiss19 id:Yard3
+Chelsea: Все! Я больше не могу! Я-я.. Ах. Черт! 
+Chelsea: О Боже мой! Дааааа! 
+ThoughtsMainCharacter: Никогда не видел ничего более красивого. 
+@back ChelseaGraceKiss20 id:Yard3
+Grace: Ты великолепна, дорогая. 
+Grace: {MainCharacter}, тебе понравилось? 
+@back PoolExtra8 id:Yard3
+Grace: Оооу. Твое тело говорит и без слов. 
+@back GCMax id:Yard3
+Chelsea: Покажи ей себя настоящего. Плыви к нам. 
+@sfx Sound179
+Chelsea: Ты будешь в восторге, дорогая. Я уверена.
+@stopSfx Sound179
+@back GCMax1 id:Yard3
+Chelsea: Я не сомневаюсь в твоем вкусе. 
+MainCharacter: Вы такие офигенные. У меня дух захватывает! 
+Chelsea: Не томи, {MainCharacter}. Моя милая Грейс тоже хочет получить удовольствие. 
+@back GCMax2 id:Yard3
+Chelsea: Будь щедрым. 
+Grace: Вау. Да, ты была права. Он идеальный. 
+MainCharacter: Мне придется очень постараться, чтоб не кончить раньше тебя. 
+@spawn Fade
+@stopBgm BathroomPublic
+@hideAll
+@back Chelsea_Grace_Anim3 id:VideoBack1
+@unlock Chelsea_Grace_Anim3
+@despawn Fade
+@hidePrinter
+[i]
+Chelsea: Постарайся. Или мы больше не пригласим тебя на наши маленькие вечеринки.
+MainCharacter: Хочешь сказать, что будет что-то еще, кроме.. 
+Chelsea: Я хочу сказать, что это только начало, {MainCharacter}. 
+Grace: Оох.. Его член такой горячий. Он скользит по моему клитору.
+Chelsea: Тебе нравится, дорогая? Тебе хорошо? 
+Grace: Дааа..Оочень. Он такой твердый. Мммм. 
+Grace: Хочу, чтоб ты вошел, {MainCharacter}. Я слишком долго возбужденная. 
+@back GCMax4 id:Yard3
+@back Chelsea_Grace_Anim3 id:VideoBack1 visible:false
+@bgm BathroomPublic
+@usfx Sound208
+Grace: Челси разыграла мой аппетит не на шутку. 
+Grace: Да! Боже. Как же приятно. И разу так глубоко. Да! 
+Chelsea: Я обожаю, когда на твоем лице выражение такого удовольствия. 
+@back GCMax5 id:Yard3
+Grace: Он так пульсирует во мне, Челси, я чувствую! Ааах. 
+Grace: ..такой большой. Он наполняет меня изнутри. 
+MainCharacter: Тебе нравится? 
+@back PoolExtra9 id:Yard3
+Grace: Да! Очень нравится. Ты можешь трахать меня, пока я не потеряю сознание. 
+Chelsea: Не позволяй себе думать, что это лучший секс в твоей жизни.
+@back GCMax6 id:Yard3
+@usfx Sound209
+Chelsea:  Тебя ждет еще слишком много всего, {MainCharacter}.
+MainCharacter: Прекрати обещать. Лучше покажи. Мммм. 
+Chelsea: Нетерпеливый какой. Не все сразу. Да, дорогая? 
+@spawn Fade
+@stopBgm BathroomPublic
+@hideAll
+@back Chelsea_Grace_Anim4 id:VideoBack1
+@unlock Chelsea_Grace_Anim4
+@despawn Fade
+@hidePrinter
+[i]
+Grace: Да! Но сейчас просто трахай меня в мою тесную, маленькую дырочку. 
+Chelsea: Ах, дорогая. Ты так сексуальна. 
+Chelsea: Видеть, как ты наслаждаешься - снова заводит меня. 
+Chelsea: Я хочу, чтоб ты кончала, не прекращая целовать меня. 
+Grace: Ах.. {MainCharacter}.. все так напряглось внизу живота..
+@back GCMax7 id:Yard3
+@back Chelsea_Grace_Anim4 id:VideoBack1 visible:false
+@bgm BathroomPublic
+Grace: Я хочу получить все это, хочу, чтоб ты кончил в меня. 
+MainCharacter: Твои бедра дрожат, ты сжимаешь меня плотнее, как же приятно, ооох! 
+MainCharacter: Я..сейчас уже кончу. 
+@back GCMax8 id:Yard3
+@usfx Sound210
+Grace: В меня! Не вынимай только. Сделай это в меня быстро и глубоко. 
+MainCharacter: О, боже! Да! Аааах! 
+Chelsea: Вы такие красивые оба. 
+@back PoolExtra10 id:Yard3
+Chelsea: Ну что? Возьмем его на наши сексуальные досуги? 
+Chelsea: Его член так же хорош в деле, как и на вид? 
+@back GCMax9 id:Yard3
+@usfx Sound211
+Grace: О, да. Я думаю, мы сможем осуществить с ним все, о чем так долго мечтали. 
+Grace: Если он, конечно, хочет. 
+Grace: {MainCharacter}, ты ведь хочешь стать инструментом для наших наслаждений? 
+@back PoolExtra11 id:Yard3
+@sfx Sound180
+Chelsea: Хочешь, чтоб мы вытрясли все твои мужские силы? 
+@stopSfx Sound180
+Chelsea: Объездили тебя по {MainCharacter}имуму? 
+@back GCMaxPool id:Yard3
+@sfx Sound181
+MainCharacter: Спрашиваешь! Конечно хочу. Можем уже сейчас пойти. 
+@stopSfx Sound181
+Grace: Нет, дорогой. Не сейчас. 
+@stopBgm BathroomPublic
+@bgm Hall
+@back GCMaxPool1 id:Yard3
+Chelsea: Нам нужно будет все подготовить. 
+Chelsea: Я заинтригован, что же такого вы там готовите? 
+Chelsea: Скоро увидишь, точнее почувствуешь. 
+@back PoolExtra12 id:Yard3
+Grace: Просто будь готов к полному раскрепощению. 
+MainCharacter: Оооу. Я уже готов. 
+@back PoolExtra13 id:Yard3
+Chelsea: Я хочу сидеть на твоем члене и видеть, как ты вылизываешь Грейс. 
+Chelsea: И пытаешься заставить меня двигаться на тебе, потому что тебя почти обжигает моя горячая киска. 
+@back MaxFantasy id:Yard3
+@usfx Sound212
+Chelsea: Но не можешь, ведь Грейс жестко обхватила бедрами твое лицо. 
+MainCharacter: О, Боже... 
+ThoughtsMainCharacter: Это заводит. Я хочу еще, будто бы сейчас в бассейне ничего и не происходило!
+@back ChelseaEar id:Yard3
+Grace: А я хочу лежать на Челси, сминая ее грудь своей.. 
+Grace: А ты был позади и входил в нас по очереди. Грубо, глубоко и резко. 
+@back MaxFantasy1 id:Yard3
+@usfx Sound213
+Grace: И ты бы не смог выбрать, в которой из нас тебе остаться. 
+Grace: А мы очень коварно сжимаем свои стенки, стараясь не выпустить тебя. Ммм.. Да. 
+@back PoolExtra14 id:Yard3
+MainCharacter: Если вы продолжите говорить мне о своих фантазиях..
+Chelsea: Это не фантазии, {MainCharacter}, это планы. 
+@back MaxHugs id:Yard3
+MainCharacter: Если вы продолжите говорить мне о своих планах, думаю, мы пойдем осуществлять их уже сейчас. 
+Grace: Прояви терпение, дорогой. 
+@back MaxHugs1 id:Yard3
+MainCharacter: Я буду очень стараться. Вы только предупредите меня чуть заранее. Хочу быть готов. 
+MainCharacter: Особенно, если вы запланировали это в вечеринку.
+Chelsea: Ой. Нет. Сегодня будет только вечеринка. Тем более приезжает Эдвард. 
+@back GraceDream id:Yard3
+Grace: Может Марго устроит предварительный показ коллекции? 
+Chelsea: Не думаю. Она, должно быть, сейчас еще дорабатывает ее. Ей не до показа. 
+Grace: Хм.. На вечеринку она тоже не явится? 
+@back ChelseaSmirk id:Yard3
+@sfx Sound182
+Chelsea: Не знаю. Хотя особой разницы не будет - с ней или без нее. 
+@stopSfx Sound182
+Grace: Не говори так. Это обидно.
+Chelsea: Ее ведь здесь нет. Если ты не передашь, она и не узнает. 
+@back MaxPerplexity id:Yard3
+MainCharacter: Почему она тебе так не нравится? 
+Chelsea: Она мне нравится. Просто она не умеет расслабляться. 
+Chelsea: И зачастую портит веселье своим постным лицом. 
+Chelsea: А еще Грейс на нее сильно реагирует. И тоже начинает грустить. 
+@back GraceDrink id:Yard3
+@sfx Sound183
+Grace: Вот! Ты опять! 
+@stopSfx Sound183
+Chelsea: Ты просто слишком много значения это придаешь. В этом вся проблема. 
+Grace: Ничего не много! Мне лишь не по себе, когда она грустит. 
+@back ChelseaTilt id:Yard3
+Chelsea: За что ты так ее любишь? 
+MainCharacter: Ты ревнуешь? 
+Chelsea: Нет. Вот еще! 
+@back MaxAwkwardness id:Yard3
+MainCharacter: А выглядит так, будто ревнуешь. 
+Chelsea: Я просто не понимаю, почему? Почему она так цепляет тебя?
+Chelsea:  Сью говорит, что с Марго надо держать ухо востро. 
+@back PoolExtra15 id:Yard3
+Grace: Она добрая, отзывчивая и понимающая. 
+Grace: А Сью просто бесится из-за Эда. 
+Chelsea: Сью? Нет! Просто Марго как обычно предвзята.
+Grace: Пф.. Наивная. 
+@back MaxAwkwardness1 id:Yard3
+MainCharacter: Кажется, самое главное, что вы есть друг у друга.
+MainCharacter:  И никто другой не должен ссорить вас на таком пустом месте. 
+@back PoolExtra16 id:Yard3
+Chelsea: Он прав. Давай прекратим спор. Я не хочу, чтоб ты дулась на меня. 
+Chelsea: И я всего лишь переживаю, что Марго расстроит тебя однажды. 
+@back PoolExtra17 id:Yard3
+Chelsea: Может даже случайно. 
+Grace: Главное, ты меня не расстраивай. 
+@back MaxGC id:Yard3
+MainCharacter: Лучше расскажите, что за вечеринка? Что будет? 
+Grace: Ох. Это все Тереза затеяла. Она хочет костюмированную вечеринку провести. 
+@back PoolExtra18 id:Yard3
+MainCharacter: Тереза?! Могу себе представить, что она подготовит.  И что за костюмы? 
+@back ChelseaSmile id:Yard3
+Chelsea: Только к вечеру станет ясно. 
+Chelsea: Тереза готовит что-то особенное, видимо. 
+Grace: Я думаю, будет очень весело. 
+@back PoolExtra19 id:Yard3
+Grace: Надеюсь, Ракель займет место за барной стойкой, а не Альфред.
+@back GraceAwkwardness id:Yard3
+MainCharacter: Он плохо готовит напитки? 
+Chelsea: Нет, он балансирует алкоголь таким образом, что добираться до веселья приходится долго. 
+@back PoolExtra20 id:Yard3
+Grace: У Ракель получается сделать веселья без сильного опьянения. 
+@back MaxSmile id:Yard3
+MainCharacter: Да. Она мастер своего дела. 
+Grace: Надеюсь, что и Никки присоединится к нам. 
+Chelsea: Хотелось бы. Она отлично танцует. 
+@back ChelseaHair id:Yard3
+Chelsea: Ты уже знаком с ней? 
+MainCharacter: Как сказать - она явно мягче, чем серьезная Марго. 
+MainCharacter: Но мы толком не успели пообщаться. 
+@back GraceKnee id:Yard3
+Grace: Тебе Никки понравится. 
+Grace: Она чем-то похожа по натуре на Терезу - такая же веселая и интересная, но гораздо добрее. 
+Chelsea: Это она с тобой такая. 
+@back GraceKnee1 id:Yard3
+Grace: Если б ты ей не говорила, что-то вроде - как ты в таком возрасте еще различаешь подиум и не падаешь ...
+Grace: ..она бы и к тебе была очень доброй. 
+@back PoolExtra21 id:Yard3
+Chelsea: Это же была шутка. 
+Grace: Грубая шутка. На тебя Тереза плохо влияет. 
+Grace: И все равно, ей хватило ума не обижаться на тебя. 
+@back ChelseaTeeth id:Yard3
+Chelsea: Думаешь, она все еще помнит об этом? 
+Grace: Думаю, что помнит. 
+Grace: Просто не говори ей больше ничего связанного с возрастом. 
+@back MaxSmile1 id:Yard3
+MainCharacter: Она мне не показалась какой-то старой. Напротив, очень красивая девушка. 
+Grace: Она очень ухаживает за собой.
+Grace:  Ты ведь знаешь, что у моделей не очень велик срок работы. 
+@back ChelseaShoulders id:Yard3
+Chelsea: Но после определенного возраста приглашений на показы все меньше. 
+Grace: Поэтому она так старается овладеть еще каким-нибудь навыком, чтоб продолжать иметь отношение к миру моды. 
+@back MaxSmile2 id:Yard3
+MainCharacter: Звучит как здравая мысль. 
+Grace: К нам ведь приехала еще новенькая девушка. 
+Grace: Ты ее уже видел?
+MainCharacter: Да, мы немного пообщались. 
+@back ChelseaKnee id:Yard3
+Chelsea: Как она тебе? 
+;-----------------------------------------
+;Выбор: (незначительный, есть последствия в рамках одной сцены) LINE: 2340
+@choice "Она немного неловкая." goto:.AwkwardSweetie1
+@choice "Она очень милая. " goto:.AwkwardSweetie2
+@stop
+;-----------------------------------------
+# AwkwardSweetie1
+MainCharacter: Она милая. Но может показаться даже чуть глупой. Но все же больше наивная и неловкая. 
+MainCharacter: Запуталась в поводке своей собаки. Ха-ха. 
+@back GraceHand id:Yard3
+Grace: Ты тоже грубишь. И торопишься с выводами.
+Chelsea: Прям во вкусе Эда, ха-ха. Маленькая, невинная, глуповатая девочка. 
+@back GraceHand1 id:Yard3
+Grace: Прекрати. Вы оба слишком много на себя берете.
+Grace:  Она может быть просто разнервничалась. А вы!?
+@back PoolExtra23 id:Yard3
+MainCharacter: Ты чего так завелась, Грейс. Никто не пытается ее обидеть. 
+Grace: Да ну? Будто бы вы всегда ловкие и уверенные в себе. 
+@back ChelseaWorry id:Yard3
+Chelsea: Грейс! Ты чего? Что с тобой? 
+Grace: Вы не понимаете ни Марго, ни эту девушку.
+@back PoolExtra24 id:Yard3
+Grace:  Вы беретесь делать выводы по первому впечатлению.
+MainCharacter: Напрасно ты так. Я говорил несерьезно. 
+@back GraceOut id:Yard3
+@sfx Sound186
+Grace: Да ну вас! 
+@stopSfx Sound186
+MainCharacter: Почему она так реагирует? 
+@back PoolExtra25 id:Yard3
+Chelsea: Думаю, это как-то связано с тем, что она невольно ассоциирует себя с ней. 
+@back ChelseaOut id:Yard3
+@sfx Sound185
+Chelsea: Не обращай внимания. Я ее успокою. 
+@stopSfx Sound185
+@goto .AwkwardSweetieExit
+# AwkwardSweetie2
+MainCharacter: Она очаровательная и забавная. Думаю, вам понравится. 
+@back ChelseaHand id:Yard3
+MainCharacter: Она так была так растеряна, что запуталась в поводке своей собаки. Эх.
+MainCharacter: Потом собака сбежала. И случайно испортила платок Сью. 
+MainCharacter: Ох. Вы бы видели лицо Стейси. 
+MainCharacter: Она была готова расплакаться. 
+@back GraceHair id:Yard3
+Grace: Бедная девочка. Ты ведь успокоил ее? 
+MainCharacter: Да, я сказал ей, что нет в этом ничего страшного. Что это просто вещь. 
+MainCharacter: И Сью обязательно простит ее. 
+@back ChelseaGlass id:Yard3
+Chelsea: Ооох! Какие вы неженки! Ей ведь не 5 лет! 
+@back PoolExtra27 id:Yard3
+Chelsea: Запутаться в поводке - боже мой, трагедия. 
+Chelsea: Еще и расплакалась. 
+MainCharacter: Ты чего? Она просто впечатлительная девушка.
+@back ChelseaGlass1 id:Yard3
+@sfx Sound184
+@stopSfx Sound184
+Chelsea: Все мы одна большая впечатлительная девушка, но с нами почему-то никто не сюсюкается. 
+Chelsea: А ей вот прям все обязаны. 
+@back PoolExtra28 id:Yard3
+MainCharacter: А что плохого в том, чтоб подбодрить человека? 
+Chelsea: Подбодрить? Что же такого случилось, чтоб ее бодрить? 
+@back GraceWorry id:Yard3
+Grace: Челси, дорогая, ты чего? 
+Grace: {MainCharacter} правильно сделал. Ты ведь тоже меня поддержала, когда я только пришла. 
+@back PoolExtra29 id:Yard3
+Chelsea: Это другое - я тебя позвала с собой. А значит, была ответственна за тебя. 
+@back ChelseaOut1 id:Yard3
+@sfx Sound185
+Chelsea: Да ну вас! 
+@stopSfx Sound185
+MainCharacter: Что с ней? 
+@back PoolExtra30 id:Yard3
+Grace: Думаю, это как-то связано с тем, что в свое время она не получила той поддержки, в которой нуждалась.
+@back GraceOut1 id:Yard3
+@sfx Sound186
+Grace: Не обращай внимание. Я ее успокою. 
+@stopSfx Sound186
+@goto .AwkwardSweetieExit
+# AwkwardSweetieExit
+ThoughtsMainCharacter: Как-то неловко вышло. 
+@back MaxOut id:Yard3
+ThoughtsMainCharacter: Надеюсь, она будет в порядке. Слишком чувствительная. 
+ThoughtsMainCharacter: Хм это может быть как-то связано с эмоциональным спадом после оргазма? 
+@stopBgm Hall
+; Вилла. Холл
+@spawn Fade
+@bgm Hall
+@back AlfredRaquel id:VillaHall1
+@despawn Fade
+Raquel: Ты говоришь глупости. 
+Alfred: Но его я отдал тебе, а потом ты пропала. Что я должен думать? 
+@back AlfredHands id:VillaHall1
+@sfx Sound187
+Alfred: Я уже не уверен, что виновата Тереза. 
+@stopSfx Sound187
+Alfred: Может быть это была ты? 
+@back RaquelHead id:VillaHall1
+Raquel: Ты хочешь обвинить меня в чем-то? 
+Alfred: Я..Нет. Я.. Хм. Я пытаюсь сказать, что ты ведешь себя неосторожно. 
+Alfred: И, прости, но местами даже глупо. 
+Raquel: Я ничего не сделала. 
+Raquel: К чему вообще весь этот разговор? 
+@back AlfredHands1 id:VillaHall1
+Alfred: К тому, что я не полный идиот. 
+Alfred: Я прекрасно вижу, что ты пытаешься сделать. 
+Raquel: Ты ошибаешься. 
+Alfred: Я утром был в кабинете.
+Alfred:  И заметил, что стопки бумаг на столе мистера Голда потеряли былую стройность. 
+@back RaquelAnxiety id:VillaHall1
+Alfred: И только у тебя была возможность войти туда. 
+Raquel: Не только у меня. Насколько я знаю, это сделать могла и Сью. 
+Alfred: У нее нет повода там быть. 
+@back RaquelHead1 id:VillaHall1
+Raquel: Ты в этом уверен? 
+Alfred: И какой же, по-твоему, у нее повод там быть? 
+Raquel: Не заставляй меня говорить это. Ты сама прекрасно знаешь. 
+@back AlfredHands2 id:VillaHall1
+Alfred: Пойми, Ракель, меня ранит то, как ты не доверяешь мне. 
+Alfred: Я же обещал помочь.
+Alfred: Но это не будет иметь результата, если ты продолжишь скрывать от меня свои планы. 
+@back RaquelShoulder id:VillaHall1
+Raquel: Я доверяю тебе настолько сейчас, насколько могу.
+Alfred: Этого недостаточно. 
+Alfred: Прежде чем мы сделаем что-то важное, ты можешь случайно все испортить. 
+@back RaquelAnxiety1 id:VillaHall1
+Raquel: Я уже говорила, что твои подозрения и обвинения беспочвенны. 
+Raquel: Мне неприятно это слушать.
+Alfred: Конечно! Но подписавшись на это, я тоже рискую. 
+Raquel: Никогда не поздно отказаться, ты же знаешь. 
+Raquel: Я насильно тебя не удерживаю. 
+@back AlfredSit id:VillaHall1
+Alfred: Не говори так. 
+Raquel: Как? 
+Alfred: Будто бы я тебе не нужен. 
+@back RaquelLook id:VillaHall1
+Raquel: Я пытаюсь сказать, что если ты очень переживаешь за свое положение здесь,
+Raquel: .. то может тебе не стоит и ввязываться в мою историю с Эдом. 
+Alfred: Есть более важные вещи, чем положение, репутация, работа или деньги. 
+Raquel: Мне вот интересно, а не вступлю ли я случайно в новый вид рабства, если разрешу тебе помочь? 
+Alfred: Зачем ты так меня обижаешь? 
+Alfred: Я ведь не требовал от тебя ничего за все время..
+Alfred:  Не требовал даже тогда, когда увидел тебя за...
+@back SueScared id:VillaHall1
+@sfx Sound188
+Sue: {MainCharacter}! Привет. Рада тебя видеть. Боже мой, как же хорошо, что ты здесь. 
+@stopSfx Sound188
+Sue: Что с тобой? У тебя лицо перекосило. 
+@back MaxHeart id:VillaHall1
+MainCharacter: Ты меня напугала. Я задумался.. и вдруг ты! 
+Sue: Задумался или заслушался? 
+MainCharacter: Фух. Чуть не отъехал. Ты уж осторожнее.
+@back SueSmileHand id:VillaHall1
+Sue: Пугливый, как Челси. 
+MainCharacter: Сумасшедший день. 
+Sue: Согласна. 
+MainCharacter: У тебя все в порядке? 
+@back SueTray id:VillaHall1
+Sue: Я бы не сказала. С раннего утра на ногах.
+Sue:  И все равно ничего не успеваю. 
+MainCharacter: Опять Альфред? 
+Sue: И не только он. 
+Sue: Марго погрузилась в работу, а это значит, что все вокруг должно быть в идеальном состоянии. 
+Sue: И подноситься ей по первому требованию. 
+@back MaxSurprise id:VillaHall1
+MainCharacter: Она приступила к работе? Она ведь только с дороги.
+MainCharacter:  Я думал, что она сначала отдохнет. 
+Sue: Ты ее не знаешь. Она безумный трудоголик.
+Sue:  И считает, что все вокруг тоже такие. 
+MainCharacter: Чем я тебе могу помочь? 
+@back SueTray id:VillaHall1
+Sue: Я буду очень очень очень тебе признательна, если ты отнесешь это Марго. 
+@hidePrinter
+@tip key:"Tray"
+@choice handler:InteractiveTakeTray do:"@sfx Sound189, @tip"
+@stop
+@stopSfx Sound189
+@back SueTray1 id:VillaHall1
+Sue: Мне нужно бежать на кухню. И успеть приготовить обед. 
+Sue: Тем более у Терезы были какие-то планы на вечер. 
+@back SueTray2 id:VillaHall1
+Sue: Она хочет что-то сделать с кухней самостоятельно. 
+Sue: А это может быть опасным для жизни и здоровья всех нас. 
+Sue: Я просто не могу оставить ее без присмотра. 
+Sue: Но если я попаду в комнату Марго снова, то выйду оттуда минимум через час.  
+Sue: От ее поручений уже голова кругом. 
+MainCharacter: Я тебя понял. Без проблем.
+@back SueCheek id:VillaHall1
+Sue: Ты себе и примерно не представляешь, как сильно выручаешь меня. 
+Sue: Я в долгу не останусь. 
+@back SueKiss id:VillaHall1
+Sue: Но это ты уже знаешь. Удачи. 
+@stopBgm Hall
+; Комната Марго 
+@bgm MargoRoom
+@back MaxDoorTray id:MargoRoom
+ThoughtsMainCharacter: Мне совсем не хочется заходить.
+ThoughtsMainCharacter: Столько о ней наговорили, что я даже не знаю, что и думать.
+@back Extra id:MargoRoom
+ThoughtsMainCharacter: В голове сложился образ - гениального, обезумевшего деспота.
+ThoughtsMainCharacter: А учитывая тот факт, что она приняла меня за помощника Альфреда..
+@back Extra1 id:MargoRoom
+ThoughtsMainCharacter: Что уже само по себе является вопиющей несправедливостью.. 
+@back MaxDoorTray1 id:MargoRoom
+@sfx Sound190
+ThoughtsMainCharacter: Очень сложно будет с подносом в руках переубедить ее в том, что все совершенно не так. 
+@stopSfx Sound190
+@back MargotTeapot id:MargoRoom
+Margo: В конце концов я могу сделать все сама. 
+Margo: Это будет гораздо быстрее, чем ждать. 
+MainCharacter: Горячо. Я занесу. 
+MainCharacter: И сам налью. 
+@back Margot_sRoom id:MargoRoom
+@sfx Sound191
+Margo: В тебе проснулось желание выполнять свои обязанности? 
+@stopSfx Sound191
+MainCharacter: Куда поставить? 
+@back Extra2 id:MargoRoom
+Margo: На столик у кровати. 
+Margo: Только не пролей. Будь осторожным. 
+Margo: Эти ткани дорогие. И заготовки, и вещи на доработке, и .. 
+@back MaxCabinet id:MargoRoom
+Margo: Ох.. Так много всего. 
+MainCharacter: У тебя все хорошо? Ты выглядишь сбитой с толку. 
+Margo: Нет-нет. Все в порядке. Я просто пытаюсь все удержать в голове.. 
+@back Extra3 id:MargoRoom
+Margo: А ты можешь идти. Спасибо за запоздалый чай. 
+MainCharacter: Может быть тебе нужна помощь? 
+@back Extra4 id:MargoRoom
+Margo: А ты умеешь кроить? 
+MainCharacter: Эм. Нет. 
+@back MaxDoor id:MargoRoom
+Margo: Тогда мне не нужна помощь. 
+Margo: Хм.. Как думаешь, мы успеем до показа? 
+@back MaxDoor1 id:MargoRoom
+MainCharacter: А разве коллекция не готова? 
+Margo: Она готова частично. Есть больше половины.
+Margo:  Но и даже эта половина требует коррекции. Боже.. 
+MainCharacter: Ты одна над этим работаешь? 
+@back MaxMargotNearby id:MargoRoom
+Margo: Нет. Основная часть работников осталась в Pink Star.
+Margo:  А я просто финализирую. 
+@back Extra5 id:MargoRoom
+MainCharacter: А выглядит так, будто ты пытаешься сделать все с нуля. 
+Margo: Понимаешь, они делают свою работу недостаточно хорошо. 
+Margo: Где-то упускают детали, которые есть на эскизе, где-то нарушают гармонию шва. 
+@back MargotSwimsuit id:MargoRoom
+Margo: Вот, взгляни! Как можно допустить такое? 
+MainCharacter: Где?
+@back Extra6 id:MargoRoom
+Margo: Ты не видишь? Вот же! 
+Margo: Смотри, откуда эта вытачка? 
+Margo: На моем эскизе ее нет. Почему она здесь? 
+@back MaxCabinet1 id:MargoRoom
+@sfx Sound192
+MainCharacter: Наверное, чтоб лучше он прилегал к груди? 
+@stopSfx Sound192
+Margo: Для этого я предусмотрела очень красивые лямки. 
+@back Extra7 id:MargoRoom
+Margo: В этом и был весь смысл. 
+Margo: Изделие благодаря этому становится не типичным. 
+@back MaxCup id:MargoRoom
+Margo: Боже! И таких ошибок так много, что в сердце становится мрачно. 
+MainCharacter: Может быть имело бы смысл пригласить пару кутюрье из дома моды? 
+@back Margot_sRoom1 id:MargoRoom
+Margo: Чтоб и к финалу работу они попортили? Нет уж. 
+Margo: Я лучше буду сходить с ума. Но их не пущу и близко к коллекции. 
+Margo: Только аккуратно садись. Здесь я рассыпала иголки. 
+@back Extra8 id:MargoRoom
+@sfx Sound113
+MainCharacter: Спасибо. Учту. 
+@stopSfx Sound113
+@back Margot_sRoom2 id:MargoRoom
+MainCharacter: Что тебе нужно сделать, чтоб не сойти с ума? 
+MainCharacter: Хотя бы для начала. 
+Margo: Мне нужно просмотреть все работы. 
+Margo: Нужно найти ошибки. И переделать. 
+@back Extra9 id:MargoRoom
+MainCharacter: И каков процент ошибок ты допускаешь? 
+Margo: Все 100. 
+@back MaxHorror id:MargoRoom
+MainCharacter: Это же чудовищно много! 
+Margo: Да, я знаю. Поэтому планирую сойти с ума. 
+@back MaxSketches id:MargoRoom
+@sfx Sound110
+MainCharacter: Слушай, если у тебя есть подробные эскизы, я бы мог помочь. 
+@stopSfx Sound110
+MainCharacter: Я бы начал сверять твои рисунки с изделиями.
+MainCharacter:  И так мы бы увеличили скорость. 
+@back MargotHorror id:MargoRoom
+MainCharacter: Ты могла бы сразу сесть за работу над ошибками. 
+Margo: Ты в самом деле сделаешь это? 
+MainCharacter: Да. Я ведь предложил. 
+@back MaxSmile id:MargoRoom
+Margo: И ты будешь внимательным? 
+MainCharacter: Буду внимательным. 
+Margo: Спасибо. Ты очень чуткий дворецкий. 
+@back MaxSadness id:MargoRoom
+MainCharacter: Эм..Нет, я не дворецкий. 
+Margo: А кто ты? Разве? По-моему очень похож на дворецкого. 
+@back Extra10 id:MargoRoom
+MainCharacter: Ты ведь несерьезно? 
+Margo: Очень серьезно. Если ты не дворецкий, тогда, кто? Садовник? 
+@back MaxGloomy id:MargoRoom
+MainCharacter: Нет! Я модель. 
+Margo: Модель? Ооу. Оооу! А я решила, что ты..
+MainCharacter: Да, я понял, что ты решила, что я дворецкий. Не повторяй это снова, пожалуйста. 
+@back MargotShoulder id:MargoRoom
+@sfx Sound193
+Margo: Извини, пожалуйста. Ты ведь не обижаешься? 
+@stopSfx Sound193
+Margo: Я могу уйти глубоко в себя и перестать замечать реальные вещи. 
+MainCharacter: Нет. Я совсем не обижаюсь. Но немного все же обижаюсь.
+@back Extra11 id:MargoRoom
+MainCharacter: Где твои работы? 
+Margo: Вот здесь все и даже больше. 
+@back Margot_sRoom3 id:MargoRoom
+Margo: Находишь рисунок, находишь одежду и сравниваешь. 
+Margo: Если все в порядке, нам повезло. Если не в порядке - откладывай в сторону. 
+@back Extra12 id:MargoRoom
+Margo: У тебя еще есть шанс отказаться. 
+MainCharacter: Ну уж нет. Я бы хотел, чтоб ты осталась в своем уме. 
+Margo: Тогда раскрой глаза максимально пошире и ищи ошибки. 
+@back MaxHorror1 id:MargoRoom
+MainCharacter: Почему ты не приглашаешь к себе кого-нибудь из девушек? 
+MainCharacter: Насколько я понял, вы с Никки хорошо общаетесь. 
+@back MargotSmile id:MargoRoom
+Margo: Ой, не делай так. Да-да.. 
+Margo: Она мне очень помогала все время. 
+Margo: И, если честно, мне кажется, я слишком злоупотребляю ее расположением. 
+@back Extra13 id:MargoRoom
+Margo: Хотя.. Раз она желает иметь отношение к созданию коллекций на более профессиональном уровне..
+Margo: ..она должна присутствовать на всех этапах дела. И участвовать тоже. 
+@back MargotThink id:MargoRoom
+Margo: Что скажешь? 
+MainCharacter: А она хочет быть кутюрье? 
+Margo: Да. Да. Участь моделей незавидная. 
+@back Extra14 id:MargoRoom
+Margo: Ты сияешь, пока молод. А потом ...пфф. 
+Margo: Но Никки очень способная. Не думаю, что у нее будут проблемы.
+Margo: Я решила, что возьму ее к себе. 
+Margo: И она не останется сброшенной с этого модного теплохода.
+@back Margot_sRoom4 id:MargoRoom
+MainCharacter: Очень мило с твоей стороны. 
+Margo: Да. Мило. Ведь нельзя быть без людей, которым можно доверять. Правда? 
+@back Extra15 id:MargoRoom
+MainCharacter: Думаю, что так. 
+MainCharacter: Но уверена ли ты, что в самом деле доверяешь? 
+@back MaxSketches1 id:MargoRoom
+Margo: Что ты имеешь в виду? 
+MainCharacter: Посмотри, чем мы занимаемся? 
+@back Extra0 id:MargoRoom
+MainCharacter: Мы переделываем работу твоих сотрудников. 
+MainCharacter: И ты не послала за помощью к тем, кто наделал ошибок. 
+@back MargotDress id:MargoRoom
+MainCharacter: Из этого несложно сделать вывод, что уровень доверия твой критически мал. 
+Margo: Я же не сказала, что людей, которым я передам свою работу, должно быть много.
+Margo:  Достаточно пары человек. Но надежных. 
+@back MaxSketches2 id:MargoRoom
+Margo: И знаешь ли, когда ты растешь в условиях вечной войны, не приходится широко раскрывать свое сердце.
+MainCharacter: В каком смысле - вечной войны? 
+@back MargotDress1 id:MargoRoom
+@sfx Sound194
+Margo: Ты же знаешь, что мой отец прекрасный Эдвард Голд - основатель Pink Star. 
+@stopSfx Sound194
+Margo: Чтоб поддерживать на плаву  такую империю необходимо не выключаться из работы. 
+@back Extra16 id:MargoRoom
+MainCharacter: Тогда вы очень похожи. 
+Margo: Нет! Я не похожа на него. 
+@back MargotDress2 id:MargoRoom
+Margo: Его оружие - хитрость. Мое же - трудолюбие. 
+Margo: Мы разные. 
+@back Extra17 id:MargoRoom
+MainCharacter: Вы не очень близки, так? 
+Margo: Хм.. ты пытаешься залезть мне в душу? 
+Margo: Там очень мало места, тебе негде будет развернуться. 
+@back MaxSketches3 id:MargoRoom
+MainCharacter: Я не пытаюсь залезть куда-то. Мне хочется узнать тебя получше. 
+MainCharacter: Чтоб понимать твои работы, твои цели. 
+@back Extra18 id:MargoRoom
+MainCharacter: И опережая твой вопрос, а зачем? Отвечу - просто общаться. 
+Margo: Да, мы не очень близки. 
+Margo: Были ситуации, которые с одной стороны печальны, а с другой  помогают все расставить на свои места. 
+@back MargotDress3 id:MargoRoom
+Margo: Точнее указывают - на каком именно месте ты находишься в жизни некоторых людей. 
+MainCharacter: И на каком месте ты у Эдварда? 
+@back MargotDress4 id:MargoRoom
+Margo: Где-то после его свежих пассий и новой машины. 
+MainCharacter: Ооу. Давай-ка еще чаю? 
+@back MargotDress5 id:MargoRoom
+Margo: Не хочется, спасибо. 
+Margo: Лучше помоги мне еще кое с чем.
+@back Extra19 id:MargoRoom
+MainCharacter: Давай. Я всегда готов. 
+Margo: Сними футболку. И встань в центр. 
+Margo: Только осторожно - не помни ткани. 
+@back MaxT-Shirt id:MargoRoom
+MainCharacter: Что ты хочешь со мной делать? 
+Margo: Не волнуйся. Это будет совсем не больно.
+Margo:  Если не станешь дергаться, конечно. 
+MainCharacter: Что? А если стану? 
+@back MaxT-Shirt1 id:MargoRoom
+@sfx Sound195
+Margo: Если станешь, проткну тебя булавками. Случайно, разумеется. 
+@stopSfx Sound195
+MainCharacter: Звучит как угроза, если честно. 
+@back MargotLenta id:MargoRoom
+Margo: Я хочу на тебе наметить кое-какие изменения. 
+MainCharacter: Давно ты занимаешься этим? 
+Margo: Сколько себя помню. 
+@back MargotLenta1 id:MargoRoom
+Margo: Мама научила меня пользоваться швейной машинкой. 
+MainCharacter: Она тоже кутюрье? 
+@back Extra20 id:MargoRoom
+Margo: Да, была, пока не умерла. 
+MainCharacter: Ой. Прости. 
+@back MargotLenta2 id:MargoRoom
+Margo: Ничего. Мама познакомилась с Эдом, когда он только вошел в мир моды. 
+Margo: Подними руки. 
+Margo: Фактически они вдвоем и создали этот дом. 
+@back Extra21 id:MargoRoom
+Margo: А потом я заняла ее место. И работаю на своего отца. 
+MainCharacter: Хм.. Понятно. 
+Margo: Так.. неплохо. 
+@back MaxBra id:MargoRoom
+MainCharacter: Ты надела на меня женский лифчик? 
+Margo: Это деми-бра. Очень красивая вещь. 
+Margo: Он идеален для пышной груди. 
+Margo: Придает ей очень сексуальню форму. 
+@back MargotBra id:MargoRoom
+MainCharacter: Но у меня нет вообще никакой груди. 
+Margo: И слава богу.
+Margo: Но сейчас это и не важно. Мне нужно проверить застежки. 
+@back MargotLenta3 id:MargoRoom
+MainCharacter: А ты когда-нибудь делала вещи на заказ? 
+Margo: Вся моя работа - один большой заказ. 
+MainCharacter: Нет. Я имею в виду, был ли когда-нибудь у тебя частный заказ, не связанный с коллекциями? 
+@back MaxBra1 id:MargoRoom
+Margo: Я таким не занимаюсь. 
+Margo: Но однажды я делала вещь для человека без просьбы. 
+@back Extra22 id:MargoRoom
+Margo: Я просто знала, что это будет смотреться очень красиво.
+MainCharacter: Это был кто-то особенный? 
+Margo: Да. Это было давно. 
+MainCharacter: А что ты создала для этого человека? 
+@back MargotBra1 id:MargoRoom
+Margo: Я сделала шелковый бэби-долл.
+MainCharacter: Что, прости? 
+@back Extra23 id:MargoRoom
+Margo: Ты - модель и ты не знаешь? 
+MainCharacter: Эм..нет. Впервые слышу. Это что-то детское? 
+@back MaxBra2 id:MargoRoom
+Margo: Это такой вариант нижнего белья
+Margo: Я расшила его роскошным кружевом черного цвета. 
+Margo: Добавила немного шнуровок. Это выглядело безумно привлекательно. 
+Margo: Мне даже казалось, что это мой шедевр. 
+@back MargotSadnessМ id:MargoRoom
+MainCharacter: Вы встречались? 
+Margo: Я бы не хотела об этом говорить. 
+MainCharacter: Понял. Можно уже снять твое бра? 
+@back MaxT-Shirt2 id:MargoRoom
+Margo: Да-да, конечно. 
+MainCharacter: Ты очень милая. И в твоих глазах есть этот удивительный свет. 
+@back MaxSketches4 id:MargoRoom
+MainCharacter: Он бывает у тех, кто отдается со всей страстью своему делу. 
+Margo: Это наверное бессонные ночи и покраснение глаз. 
+MainCharacter: А мне кажется, что это та самая движущая тобой сила. 
+@back MargotDress6 id:MargoRoom
+@sfx Sound194
+Margo: Если это какая-то новая форма ухаживания, то она отлично работает, я тебе скажу.
+@stopSfx Sound194
+MainCharacter: Я тоже совершенствуюсь в мастерстве. Каждый день. 
+@back Extra24 id:MargoRoom
+Margo: В мастерстве обольщения? 
+MainCharacter: Именно. 
+@back MaxSketches5 id:MargoRoom
+Margo: Тогда у тебя целая вилла для проб и ошибок.
+Margo:  Будь осторожен только с Терезой. Она кусается. 
+MainCharacter: Да, я успел заметить. Зубки у нее остренькие. 
+MainCharacter: Много еще нас осталось? 
+@back MargotFinger id:MargoRoom
+Margo: Вот. Еще 55 эскизов на проверку.
+Margo:  И я полностью погружаюсь в работу. 
+@back Extra25 id:MargoRoom
+MainCharacter: Хорошо. А полное погружение означает, что тебя лучше не беспокоить? 
+Margo: Беспокоить можно. Мешать не стоит. 
+@back Extra26 id:MargoRoom
+MainCharacter: Как скажешь! 
+@back Watch id:MargoRoom
+MainCharacter: Можно задать тебе личный вопрос? 
+@back MargotPencil id:MargoRoom
+Margo: Да. Слушаю. 
+MainCharacter: Что произошло между тобой и Сью? 
+@back Extra27 id:MargoRoom
+MainCharacter: Мне показалось, что у вас весьма напряженные отношения. 
+Margo: Тебе показалось. 
+MainCharacter: Разве?
+@back MargotFrowns id:MargoRoom
+Margo: Я никак и никогда не высказывалась по поводу Сью. 
+Margo: Я приняла тот факт, что теперь она работает в нашем доме.
+Margo:  И больше не думала об этом. 
+MainCharacter: Приняла факт? Изначально ты не одобряла эту идею? 
+@back MargotLips id:MargoRoom
+Margo: Я была не в восторге. Но только из соображений спокойствия Эдварда. 
+Margo: Да-да. Именно то самое спокойствие, о котором ты подумал.
+Margo:  Она молода и привлекательна. 
+@back MargotKnee id:MargoRoom
+Margo: И я меньше всего хотела бы видеть между ними роман. 
+Margo: Тем более о Сью ходят разные слухи. Но не будем об этом - грязные сплетни. 
+MainCharacter: А между ними роман? 
+Margo: Хм.. Не знаю. Собственными глазами я ничего не видела. 
+@sfx KnockSFX
+@sfx Sound196
+Margo: Может быть, что-то и было ..
+@stopSfx Sound196
+@stopSfx KnockSFX
+@back Stacy_sHead id:MargoRoom
+Margo: Да? 
+Stacey: Буба сбежал. 
+@back MargotChin id:MargoRoom
+Margo: Буба? Буба-Буба. Кто? 
+MainCharacter: Это ее собака. 
+@back MargotBrow id:MargoRoom
+Margo: Ах. Точно. Собака. Как сбежал?! 
+Stacey: Я отпустила его на секунду, а он опять. 
+Stacey: Он перевернул все миски в комнате, как-то открыл дверь и убежал.  
+MainCharacter: Открыл дверь? 
+@back Stacy_sHead1 id:MargoRoom
+Stacey: Я тоже удивилась. Какая умная у меня собака. 
+@back Extra28 id:MargoRoom
+MainCharacter: Ясно. Что ж.. Пойдем искать Бубу. 
+@ach SexySeamstress 
+@stopBgm MargoRoom
+; Коридор
+@bgm Hall
+@spawn Fade
+@back MaxStacyFootprints id:Hall6
+@despawn Fade
+MainCharacter: Я вижу следы от лап. Где он испачкался? 
+Stacey: Ой. Это он у меня в комнате цветок перевернул. 
+;@back Footprints id:Hall6
+MainCharacter: По следам я его быстро найду. 
+Stacey: Я схожу за поводком.
+Stacey:  И больше не буду отпускать его от себя ни на минуту. 
+@back MaxStacy id:Hall6
+MainCharacter: Может быть ты спросишь у Альфреда, есть ли вольер какой-нибудь или небольшая будка? 
+MainCharacter: Чтоб он больше не сбегал, а ты могла расслабиться. 
+@back StacyHandHorror id:Hall6
+Stacey: Хочешь его посадить на цепь?! Он же маленький! 
+MainCharacter: Хотя бы на какое-то время. Например, на время показа.
+MainCharacter:  У тебя ведь не будет возможности за ним следить. 
+@back MaxShoulder id:Hall6
+Stacey: Я могла бы передать ему кому-нибудь присмотреть. 
+MainCharacter: Не думаю, что во время показа у кого-нибудь найдется свободная минутка. 
+@back StacyOut id:Hall6
+Stacey: Ах.. Наверное, ты прав. Я спрошу Альфреда об этом. 
+@stopBgm Hall
+; Кухня 
+@bgm Hall
+@spawn Fade
+@back NikkiTheresaPan id:Kitchen4
+@despawn Fade
+Nikki: Она не твоя собственность! 
+Nikki: Сколько раз повторять?! Иди и сама с ней разговаривай. 
+Theresa: А она говорит, что это ты ее все время зовешь и отвлекаешь! 
+@back TeriNikki id:Kitchen4
+@sfx Sound197
+Nikki: Ты как ребенок, Тери! 
+@stopSfx Sound197
+Theresa: Ничего я не ребенок! 
+Theresa: Это ты ведешь себя так, будто тебе все должны. 
+@back MaxAwkwardness1 id:Kitchen4
+MainCharacter: Дамы, а тут собака не пробегала? 
+Theresa: Этот нелепый, грязный комок?! 
+Theresa: Да, определенно пробегал. И испортил мне все! 
+@back NikkiTheresaPan1 id:Kitchen4
+@sfx Sound198
+Nikki: Тери, пожалуйста, не расстраивайся. Я тебе помогу. 
+@stopSfx Sound198
+Nikki: Мы все успеем. 
+@back TeriNikki1 id:Kitchen4
+Theresa: Мне нужна Ракель! Она знает, как лучше это сделать. 
+Nikki: Ракель присоединится позже.
+Nikki:  И тоже поможет. Вечеринка будет грандиозной, обещаю.  
+@back NikkiPan id:Kitchen4
+Nikki: Эта безумная собака скатилась со второго этажа, разнесла кухню и убежала куда-то во двор. 
+Nikki: Такое сложилось впечатление, что она очень намеренно сбегала от своей хозяйки. 
+Nikki: Ни на какие крики и мольбы Буба не реагировал. 
+@back TeriNikki2 id:Kitchen4
+Theresa: Буба? Как можно было так назвать животное? Пф.
+@back NikkiPhone id:Kitchen4
+Nikki: Давай начнем сначала, Тери. 
+Nikki: Нам понадобится шоколадный ликер 25 миллилитров, сильно охлажденная водка..
+MainCharacter: Ооу.. Намечается что-то невероятно интересное? 
+@back TeriNikki3 id:Kitchen4
+Theresa: Иди искать своего Бубу, пожалуйста. 
+@back MaxGiveup id:Kitchen4
+MainCharacter: Ладно-ладно. Пойду искать Бубу. 
+@stopBgm Hall
+; Двор
+@spawn Fade
+@ubgm Yard1
+@back MaxDog id:Yard4
+@despawn Fade
+ThoughtsMainCharacter: Следы ведут к клумбе. 
+ThoughtsMainCharacter: Надеюсь, ты ничего больше не испортил.. 
+MainCharacter: Буба! Иди ко мне! Буба! 
+@back MaxFlowerbed id:Yard4
+MainCharacter: Буба! 
+ThoughtsMainCharacter: Если эта обезумевшая собака испортила цветы Сью, боюсь, прощенья Стейси так и не получит. 
+@back MaxFlowerbed1 id:Yard4
+ThoughtsMainCharacter: Его точно нужно держать под неусыпным контролем. 
+@hidePrinter
+@tip key:"Raft"
+@choice handler:InteractiveRaft do:"@tip, @sfx Sound251"
+@stop
+@stopSfx Sound251
+MainCharacter: О боже! Что это?
+@back MaxHandkerchief id:Yard4
+MainCharacter: Нет-нет-нет.. Ох. Сью, мне очень жаль. 
+MainCharacter: Буба оценил красоту твоего нашейного платка. 
+MainCharacter: Почему же ты его не убрала куда-нибудь подальше.
+@back OutdoorExtra1 id:Yard4
+MainCharacter: Что будет хуже, если она вообще его не найдет больше никогда или лучше вернуть? 
+;-----------------------------------------
+;Выбор: (значительный, есть последствия в последующих сценах: - 3306 - и - 4382 - и - 4391 - и - 4040 - и - 4444 -)  LINE: 2738
+@choice "Не возвращать платок Сью" goto:.ChoiceNotReturnRaft
+@choice "Вернуть" goto:.ChoiceReturnRaft
+@stop
+;-----------------------------------------
+# ChoiceNotReturnRaft
+MainCharacter: Лучше я спрячу его подальше. 
+MainCharacter: Она расстроится из-за пропажи, но не увидит растерзанного тела.
+@goto .ChoiceRaftFinish
+# ChoiceReturnRaft
+@set isRaftReturnToSue=true
+MainCharacter: Она говорила, что он памятный. 
+MainCharacter: Стоит вернуть. Его ведь можно постирать. И будет не так ужасно. Наверное. 
+@goto .ChoiceRaftFinish
+# ChoiceRaftFinish
+@sfx Sound253
+@back MaxAlfredDog id:Yard4
+MainCharacter: Ага! Буба! Черт бы тебя побрал! 
+@stopSfx Sound253
+MainCharacter: Я иду за тобой, маленький негодник! 
+MainCharacter: Вот ты и нашелся, засранец! 
+Alfred: Надеюсь, вы это говорите собаке. 
+Alfred: Уберите от меня это недоразумение. 
+@back MaxHandkerchief2 id:Yard4
+MainCharacter: Ладно тебе, Альф. Это всего лишь собака. 
+@back OutdoorExtra2 id:Yard4
+Alfred: Эта всего лишь собака испортила воду в бассейне, прыгнув грязной туда. 
+Alfred: Эта всего лишь собака разрыла клумбы, испортив цветы. 
+Alfred: Эта всего лишь собака напугала мисс Челси и мисс Грейс своим неприятным видом..
+@back AlfredDog id:Yard4
+Alfred: И эта всего лишь собака испачкала меня всего. 
+MainCharacter: Фу! Она мокрая?
+@back MaxDog1 id:Yard4
+Alfred: А вы часто покидаете бассейн сухим? Ох.. Придется менять воду. 
+MainCharacter: Оооу.. А это долго? 
+Alfred: Слить воду, почистить бассейн, залить воду - примерно 2 часа. 
+@back AlfredStrict id:Yard4
+MainCharacter: Тереза будет в ярости. 
+Alfred: Я успею все сделать до начала ее вечера. Это моя обязанность. 
+MainCharacter: Устраивать вечеринки, серьезно? 
+@back OutdoorExtra3 id:Yard4
+MainCharacter: А что еще входит в твои обязанности? 
+Alfred: Я обязан быть готов к приезду мистера Голда.
+@back MaxJoy id:Yard4
+MainCharacter: Ах. Точно. Мистер Голд. 
+Alfred: Поэтому вы можете успокоить Терезу. 
+Alfred: Убедите ее в том, что все будет сделано вовремя. 
+@back OutdoorExtra4 id:Yard4
+MainCharacter: А лучше не упоминайте вообще о происшествии. 
+MainCharacter: Она сегодня слишком чувствительная. 
+@back MaxSmileDog id:Yard4
+MainCharacter: А ты точно справишься один с бассейном?  
+MainCharacter: Тебе помощь не понадобится?
+@back AlfredChin id:Yard4
+Alfred: Помощь понадобится всем нам, если к приезду мистера Голда все останется в таком же ужасном состоянии. 
+ThoughtsMainCharacter: Он говорит как робот. 
+Alfred: И ваша помощь, мистер {MainCharacter}, мне не нужна. 
+@back OutdoorExtra5 id:Yard4
+MainCharacter: А как же ваша рука? Вы ведь недавно говорили, что повредили ее. 
+Alfred: Вы думаете, что я ведрами буду вычерпывать воду из бассейна? 
+@back AlfredChin1 id:Yard4
+Alfred: Нажать рычаг слива, вымыть бассейн и снова нажать рычаг я в состоянии. Спасибо.
+Alfred: Хорошего дня, мистер {MainCharacter}. 
+@back AlfredDelay id:Yard4
+MainCharacter: О! Хотел еще спросить.
+Alfred: О чем же, мистер {MainCharacter}? 
+MainCharacter: Может быть на вилле есть будка или вольер? 
+@back OutdoorExtra6 id:Yard4
+MainCharacter: Не хотелось бы, чтоб он мешал во время показа. 
+Alfred: Хм.. ни будки, ни вольера нет, мистер {MainCharacter}. 
+Alfred: Но я подумаю, как мы сможем решить эту проблему. 
+@back AlfredOut id:Yard4
+ThoughtsMainCharacter: Почему тебе хватила ума только испачкаться? 
+ThoughtsMainCharacter: Почему ты не укусил его за палец? 
+@back MaxBuba id:Yard4
+ThoughtsMainCharacter: Так был бы хоть какой-то толк. 
+@sfx Sound252
+ThoughtsMainCharacter: И наедине я называл бы тебя волкодав. 
+@stopSfx Sound252
+@back MaxBubaOut id:Yard4
+ThoughtsMainCharacter: Нравится? Да. Мне тоже. 
+@stopUbgm Yard1
+; Кухня
+@spawn Fade
+@bgm Hall
+@back NikkiDishes id:Kitchen5
+@despawn Fade
+@sfx Sound254
+MainCharacter: Неужели у тебя получилось справиться с Терезой? 
+Nikki: Не произноси это имя, не зови беду. 
+@back Nikki1 id:Kitchen5
+MainCharacter: Ха-ха-ха.. Что же вы готовили такого из водки, что пришлось использовать всю кухню? 
+@back NikkiDishes1 id:Kitchen5
+@stopSfx Sound254
+@sfx Sound255
+Nikki: Нам предстоит поучаствовать в вечеринке, которую полностью организовывает Тереза. 
+@stopSfx Sound255
+Nikki: Ракель, и это очевидно, должна организовывать бар. 
+Nikki: Но Тери распсиховалась, когда мы с Ракель болтали у качели. 
+@back MaxDogBubba id:Kitchen5
+@sfx Sound256
+MainCharacter: Она ревнует? 
+@stopSfx Sound256
+Nikki: Она валяет дурака. Это не ревность, а капризы. 
+Nikki: Тери наговорила глупостей в своей обыкновенной манере и не хочет видеть Ракель на вечеринке. 
+@back DogLick id:Kitchen5
+@sfx Sound257
+MainCharacter: О боже. Серьезно? 
+@stopSfx Sound257
+@back Nikki2 id:Kitchen5
+Nikki: Мы привыкли. Она успокоится.
+Nikki:  И Ракель не оставит бар без присмотра. 
+@back Nikki3 id:Kitchen5
+MainCharacter: Почему вы все так снисходительны к Тери? 
+MainCharacter: Позволяете ей так себя вести? 
+MainCharacter: Не спорю, местами она очень забавная. 
+MainCharacter: И немного нелепая. При всей своей красоте. 
+@back NikkiRegret id:Kitchen5
+Nikki: Наверное именно поэтому и позволяем. 
+Nikki: В ней нет искренней злобы.
+@back Nikki4 id:Kitchen5
+Nikki:  Она обижается, злится, скабрезничает как ребенок. 
+MainCharacter: Надеюсь, она ценит таких подруг, как вы. 
+@back NikkiLaughter id:Kitchen5
+@sfx Sound258
+Nikki: Это вряд ли. 
+@stopSfx Sound258
+Nikki: Смотри, как спокойно он сидит у тебя на руках. Даже не верится. 
+@back Buba id:Kitchen5
+MainCharacter: Ох.. а я и не заметил. Действительно, умаялся бегать. 
+Nikki: Ты ему нравишься. Выглядите очень мило вместе. 
+MainCharacter: Он изрядно грязный и мокрый. Надо отнести его Стейси. 
+@back NikiUpstairs id:Kitchen5
+Nikki: Уже скоро начнется вечеринка. Тебе бы в душ сходить. 
+Nikki: Альфред повесил костюм на дверь твоей комнаты. 
+@back MaxConfusion id:Kitchen5
+MainCharacter: Костюм? 
+Nikki: Да. А ты не знал? 
+@back Nikki5 id:Kitchen5
+MainCharacter: Возможно, я забыл или все же мне не сказали. 
+Nikki: Это будет костюмированная вечеринка. 
+Nikki: И Тереза взяла на себя заботу о костюмах. 
+MainCharacter: Она тоже шьет?? 
+@back  MaxShock  id:Kitchen5
+@back NikkiNose id:Kitchen5
+Nikki: Нет, конечно. Она у кого-то заказала.
+Nikki:  И я даже знать не хочу - у кого она это могла найти.
+MainCharacter: И в каком стиле будет вечеринка? 
+Nikki: Ох.. Тебе лучше это увидеть самому. 
+@back MaxOut id:Kitchen5
+MainCharacter: Мне уже страшно.
+@stopBgm Hall
+; Коридор. У комнаты Стейси. 
+@spawn Fade
+@bgm Hall
+@back MaxStacy_sDoor id:Hall7
+@despawn Fade
+@sfx Sound196
+MainCharacter: Стейси, я нашел его. Открывай скорее. 
+@stopSfx Sound196
+@sfx Sound252
+Stacey: Минутку! 
+@stopSfx Sound252
+@back MaxStacy_sDoor1 id:Hall7
+Stacey: Минутку!
+Stacey: Ооооу.. мой малыш, где же ты пропадал? 
+MainCharacter: Сначала на кухне, потом в клумбе и в бассейне.
+@back StacyExtra id:Hall7
+Stacey: Ой..фу.. Ты мокрый. И грязный. 
+@back MaxStacy_sDog id:Hall7
+MainCharacter: Да, его следовало бы искупать. 
+Stacey: Спасибо, {MainCharacter}. Ты мне невероятно помог. 
+Stacey: Я не смогла найти Альфреда, чтоб узнать о вольере. 
+@back DogRoom id:Hall7
+MainCharacter: Я уже сам его спросил, не волнуйся. 
+MainCharacter: Он пообещал что-нибудь придумать. 
+@back StacyExtra1 id:Hall7
+Stacey: Ты такой чудесный, {MainCharacter}. Спасибо тебе. 
+Stacey: И.. это прозвучит очень странно. 
+Stacey: Но можно я поцелую тебя? В губы. 
+@back MaxRed id:Hall7
+MainCharacter: Ты о таком всегда спрашиваешь? 
+Stacey: У меня не было парня никогда. И я не уверена, как правильно. 
+MainCharacter: Ты не обязана целовать меня из чувства благодарности. 
+@back StacyClose id:Hall7
+Stacey: Дело не только в этом. Мне хочется поцеловать тебя. 
+MainCharacter: Тогда просто сделай это! 
+Stacey: Прямо в губы? 
+@back StacyKissMax id:Hall7
+MainCharacter: Если ты этого хочешь. 
+@sfx Sound162
+Stacey: Мммм.. 
+@stopSfx Sound162
+@back StacyKissMax1 id:Hall7
+Stacey: Ах..прости. Я не очень опытная. 
+MainCharacter: Нет-нет. Все просто идеально. Не волнуйся. 
+@back StacyKissMax2 id:Hall7
+Stacey: Ты только скажи, если что-то будет не так. 
+MainCharacter: Мм..Очень приятно, когда ты касаешься меня руками здесь. 
+@sfx Sound252
+Stacey: И..и еще чуть выше. Ах. 
+@stopSfx Sound252
+@back StacyWalks  id:Hall7
+Stacey: Мне кажется, что Буба очень нервничает в одиночестве. 
+MainCharacter: Да..ты права, конечно. 
+Stacey: Тебе понравился мой поцелуй? 
+MainCharacter: Очень. Я бы целовался с тобой часами. 
+@back StacyWalksOut id:Hall7
+Stacey: Хах..Приятно слышать. Спасибо еще раз. До встречи. 
+@stopBgm Hall
+; Комната ГГ
+@spawn Fade
+@bgm MCRoom
+@back MaxTowelBed id:MCRoom3
+@despawn Fade
+ThoughtsMainCharacter: Это ж надо до такого додуматься?! 
+ThoughtsMainCharacter: Что происходит в ее безумной голове? 
+ThoughtsMainCharacter: Боюсь себе представить, что она приготовила остальным. 
+ThoughtsMainCharacter: Хм..я ведь могу и не надевать его. 
+ThoughtsMainCharacter: Но тогда буду как полный идиот среди остальных нарядных гостей.
+@sfx Sound128
+ThoughtsMainCharacter: А так буду таким же идиотом, как и остальные. 
+@stopSfx Sound128
+@sfx MessageSFX 
+@hidePrinter
+[i]
+@stopSfx MessageSFX 
+@back MaxSuit id:MCRoom3
+@printer Chat
+[i]
+Chelsea: Оценил костюмчик?
+MainCharacter: Я не знаю, как на это реагировать. 
+Chelsea: Реагируй энтузиазмом.
+Chelsea: А мне нравится, как это выглядит. 
+MainCharacter: Ты мой просто не видела. 
+@back MaxTowelBed1 id:MCRoom3
+Chelsea: Видела! Классный костюм. 
+Chelsea: Представляю, каким ты будешь строгим и безгрешным. Ммм.. Это даже заводит. 
+Chelsea: Если ты удачно войдешь в роль, я расскажу тебе, сколько раз за день я согрешила.
+MainCharacter: Хм. Ради этого я готов нарядиться. 
+MainCharacter: Хочу увидеть, какие у вас наряды. 
+@hidePrinter
+@usfx Sound268
+@back MaxFantasyChelsea1 id:MCRoom3
+[i]
+Chelsea: Не терпится? Понимаю. 
+Chelsea: Грейс такая горячая в этом облегающем платье. 
+Chelsea: Ты не способен это вообразить. 
+Chelsea: Я сама с трудом воспринимаю эту картинку. 
+Chelsea: Черт. Боюсь, что не смогу удержаться и облапаю ее на глазах у всех. 
+@hidePrinter
+@usfx Sound269
+@back MaxFantasyGrace1 id:MCRoom3
+[i]
+MainCharacter: Я определенно хочу это видеть. 
+Chelsea: Если ты нас узнаешь, конечно. 
+MainCharacter: В каком смысле? 
+Chelsea: Мы будем в масках.. Ох, {MainCharacter}. Эту ночь ты не забудешь. 
+@hidePrinter
+@back MaxMessage1 id:MCRoom3
+@printer Dialogue
+ThoughtsMainCharacter: Я утро забыть не могу, теперь еще и ночь..
+@hidePrinter
+@tip key:"Mask"
+@choice handler:InteractiveTakeMask do:"@sfx Sound165, @tip"
+@stop
+@stopSfx Sound165
+@back MaxSuit1 id:MCRoom3
+ThoughtsMainCharacter: Ладно, Тереза, я забираю свои слова обратно - не такая уж и плохая идея. 
+@stopBgm MCRoom
+; У бассейна 
+@spawn Fade
+@bgm Party1
+;-----------------------------------------
+;Выбор:(незначительный, есть последствия в рамках одной сцены) LINE: 2898
+@back Bar0 id:Bar
+@despawn Fade
+@choice "Бар" do:"@stopBgm Party1, @goto Day2Bar"
+@choice "Бассейн" do:"@stopBgm Party1, @goto Day2Pool"
+@stop
+# EndBarPoolChoice
+;Подиум
+@spawn Fade
+@ubgm Tusa4
+@back Podium id:Podium
+@despawn Fade
+ThoughtsMainCharacter: Хм.. Интересно, что они могут обсуждать? 
+ThoughtsMainCharacter: Скорый показ? Меню на завтрак или меню для гостей на показе? 
+@back Podium1 id:Podium
+ThoughtsMainCharacter: Сью не выглядит испуганной. Напротив. Очень бойко говорит с Марго. 
+ThoughtsMainCharacter: А вот Марго наоборот - будто подавлена. 
+@if isRaftReturnToSue
+    ThoughtsMainCharacter: Пока не забыл! Надо бы вернуть Сью платок.
+@endif
+@back MargotSueConflict id:Podium
+Margo: Ты ошибаешься.. 
+@back RunwayExtra1 id:Podium
+Sue: Нет. Всем было заметно, что она расположена к тебе больше, чем к своему мужу. 
+Margo: Зато ты отлично знаешь, когда чей-то муж лишается внимания своей жены. 
+@back RunwayExtra2 id:Podium
+Margo: Нет ничего более унизительного, чем бесконтрольное любопытство служанки. 
+@back MargotSueConflict1 id:Podium
+Sue: Мещанские замашки давно не в моде.  
+Sue: Более того, наивно с твоей стороны думать, что никто не замечал вашей связи.
+@back RunwayExtra3 id:Podium
+Margo: Советую тебе - помнить свое место. 
+@back MargotSueConflict2 id:Podium
+Sue: Это угроза? 
+MainCharacter: Я даже рад, что появился не вовремя. 
+@back SueJoy id:Podium
+Sue: Ты отлично выглядишь в этом наряде! 
+Margo: У Терезы как был специфический вкус, так стало еще хуже. 
+MainCharacter: А я уже привык. Мне даже начинает нравиться. 
+Margo: Серьезно? 
+@back MaxBrag id:Podium
+MainCharacter: А что? Смотри, как он подчеркивает мою осанку и рост. 
+MainCharacter: Сью, тебе тоже идет твой костюм. 
+@back MargotFatigue id:Podium
+Sue: Спасибо, {MainCharacter}. Тереза отлично постаралась. 
+MainCharacter: Думаю, тебе ты тоже подошел костюм. 
+MainCharacter: Тереза тебе не предлагала? 
+@back RunwayExtra7 id:Podium
+Margo: Предлагала. У меня нет времени на это баловство и есть вкус. 
+Margo: Более того! Коллекция требудет моего внимания. 
+@back MaxLaska id:Podium
+MainCharacter: Ты ведь не хочешь сказать, что собираешься работать сегодня? 
+Margo: Именно это и хочу сказать. И мне понадобится твоя помощь. 
+@back SueMargotHand id:Podium
+Sue: И ты не дождешься мистера Эдварда? 
+Margo: А это уже тебя не касается. 
+@back NikiPhone id:Podium
+@usfx Sound188
+Sue: Хм.. И почему же Никки не может тебе помочь? 
+Nikki: Я с чем угодно могу помочь. Что нужно? 
+@back RunwayExtra9 id:Podium
+Margo: Помощь включает в себя физическую нагрузку. 
+Margo: Я бы не хотела, чтоб Никки надорвалась. 
+@back SueMargotSmirk id:Podium
+Sue: А как насчет Альфреда? 
+MainCharacter: Он повредил руку. И просил меня разобраться с вашими чемоданами. 
+@back RunwayExtra10 id:Podium
+MainCharacter: Я помогу. Не проблема. 
+Margo: Спасибо, {MainCharacter}. 
+@back SueOut id:Podium
+Sue: Ладно. Мне пора...
+Margo: Давно пора выполнять свои обязанности. 
+@back SueOut1 id:Podium
+Sue: Рада была поболтать. 
+;-----------------------------------------
+;Последствия для выбора - если игрок выбрал вернуть Сью платок -  выбор 2                                                                 Примечание: если нет никаких последствия выбора, что на этой строке, что на строке 3351, то сцена просто продолжается после 3305 на 3360.                                   Если есть последствия только для какого-то одного выбора, то соответственно после него одного идет продолжение со строки 3360 LINE: 3338
+@if isRaftReturnToSue
+    @back MaxShawlSue id:Podium
+    MainCharacter: Ой! Погоди.. Я тут нашел в клумбе кое-что. 
+    @back MargotLaughter id:Podium
+    Margo: Ахаха.. Что это за убожество? 
+    MainCharacter: Мне очень жаль, что Буба снова сумел стащить твой платок.. 
+    MainCharacter: Я думал, что ты спрятала его надежнее. 
+    @back MaxShawlSue1 id:Podium
+    Sue: Верно. Он в самом деле у меня. В комнате. 
+    Sue: Я его постирала и нет на нем таких дырок. 
+    @back RunwayExtra12 id:Podium
+    Sue: Это не мой платок.
+    MainCharacter: Как это не твой? 
+    @back NikiShawl id:Podium
+    Nikki: Это мой. 
+    MainCharacter: Оооу.. Он абсолютно такой же, как у... 
+    @back RunwayExtra13 id:Podium
+    @usfx Sound272
+    Nikki: Да. Мы поняли. 
+    MainCharacter: Значит, у тебя такой же, Сью? Откуда он у тебя? 
+    @back NikiShawl1 id:Podium
+    Sue: Это подарок. Я не обязана говорить, от кого. 
+    Sue: А вот откуда у тебя такой же? 
+    @back RunwayExtra14 id:Podium
+    Nikki: Раз ты не считаешь себя обязанной сказать, то почему ты думаешь, что я скажу, кто мне его подарил.
+    @back SueSmirkSadness id:Podium
+    Sue: Ах.. Значит, тебе его тоже подарили. 
+    @back RunwayExtra15 id:Podium
+    Sue: Я даже догадываюсь, кто. Давненько это было, не так ли? 
+    Nikki: Прекрати! 
+    @back MargotArmShoulder id:Podium
+    Margo: О чем она говорит, Никки? 
+    Nikki: Не обращай внимание. Ты же знаешь, она всегда много болтает. 
+    @back RunwayExtra16 id:Podium
+    MainCharacter: Хм. Мне кажется, подобную вещицу легко купить во многих магазинах. 
+    MainCharacter: Значит, у вас очень похожие вкусы. Не здорово ли? 
+    @back MargotShawl id:Podium
+    Margo: Мне что-то так не кажется. 
+    Margo: Это не обычный шейный платок. 
+    Margo: Плотный шелк, ручная подшивка. И стежок едва заметный. 
+    @back MargotShawl1 id:Podium
+    Margo: Это очень дорогой подарок. Хм.. 
+    Margo: У тебя такие обеспеченные поклонники, Никки? 
+    @back RunwayExtra17 id:Podium
+    Margo: Ты никогда не рассказывала мне. 
+    Nikki: Это было очень давно. И сейчас не имеет значения. 
+    Sue: Видимо, определенные поклонники дарят определенные подарки. 
+    @back MaxSueConfusion id:Podium
+    MainCharacter: Что ты имеешь в виду? 
+    Nikki: Очередные глупости она имеет в виду. 
+    @back RunwayExtra18 id:Podium
+    Sue: Я говорю о том, как редко бывает, что у очень богатых людей хороший вкус. 
+    @back NikkiFormidable id:Podium
+    Nikki: А тебе не пора ли проверить гостей? 
+    Sue: Нет, не пора. У меня есть другие дела. 
+    Sue: А у гостей все отлично. Мне отсюда видно. 
+    @back SueOut2 id:Podium
+    Sue: Хорошего вам вечера. 
+    ThoughtsMainCharacter: Я телом ощущаю напряжение. 
+    @back RunwayExtra19 id:Podium
+    @usfx Sound273
+    ThoughtsMainCharacter: Значит, у Сью и Никки есть одинаковы платки. 
+    ThoughtsMainCharacter: Обеим кто-то их подарил. И обеих это расстроило. 
+    ThoughtsMainCharacter: Нетрудно предположить, что даритель - один и тот же человек.
+    @back MargotNikkiHair id:Podium
+    ThoughtsMainCharacter: Не факт. У меня нет веских доказательств так думать. 
+    ThoughtsMainCharacter: Но очень похоже, что все же один и тот же человек. 
+    @back RunwayExtra20 id:Podium
+    ThoughtsMainCharacter: Они бы так не расстроились. 
+@endif
+;-----------------------------------------
+;"Последствия для выбора - если игрок выбрал ""прочесть"" -  выбор 2" LINE: 3383
+@if isNoteRead
+    ThoughtsMainCharacter:  Но черт возьми!
+    ThoughtsMainCharacter: Если то письмо - не чья-то шутка, то возможно Никки имеет связь с мистером Голдом. 
+    @back RunwayExtra21 id:Podium
+    ThoughtsMainCharacter: А про Сью ходят такие же слухи. Н-да.. неприятная ситуация. 
+    ThoughtsMainCharacter: Интересно, а Марго понимает, что происходит?
+    @back MargotNikkiHair1 id:Podium
+    Margo: И все же скажи мне, Никки, что это сейчас было? 
+    ThoughtsMainCharacter: Не понимает. 
+    @back MargotNikkiHair2 id:Podium
+    Nikki: Очередная ее выходка. Я бы не хотела говорить об этом. В данный момент. 
+@endif
+Nikki: Хотите чего-нибудь выпить? 
+@back RunwayExtra22 id:Podium
+Margo: Только что-нибудь безалкогольное. 
+Margo: Кстати, что тебе сказали Майлзы? 
+@back MaxShock id:Podium
+MainCharacter: Майлзы!?! Вы общаетесь? 
+Margo: Разумеется. То, что они наши конкуренты не делает их общество закрытым от нас. 
+Margo: Мы часто ходим на показы друг друга. И хвастаемся, и соперничаем.
+@back MargotNikkiHair3 id:Podium
+Nikki: Да, здоровый дух здоровой конкуренции. 
+Margo: Почему это тебя так удивляет? 
+@back MaxShock1 id:Podium
+MainCharacter: Я давно наблюдал за ними! Некоторые их работы просто ошеломительны! 
+MainCharacter: Не обижайся, Рита. У тебя тоже много гениальных вещей. 
+@back RunwayExtra23 id:Podium
+Margo: Я и не думала обижаться. 
+Margo: Они больше специализируются на мужской одежде. 
+@back RunwayExtra24 id:Podium
+Margo: Так что не удивительно, что ты сходишь по ним с ума. 
+Nikki: У тебя будет возможность познакомиться с ними на показе. 
+@back MaxShock2 id:Podium
+MainCharacter: Боже! Я уже начинаю волноваться - Джеймс Майлз! 
+ThoughtsMainCharacter: Два года назад у меня чуть не случился нервный срыв, когда они выпустили коллекцию Бедный рыцарь.
+Margo: Дааа.. Я помню, это в самом деле был фурор. 
+@back MargotMemories id:Podium
+Margo: Тогда у мужчин забрали эполеты, галстуки, бабочки. Утянули плотными, белыми рубахами талии. 
+Margo: Это в самом деле было красиво. 
+Margo: Они были похожи на стройные клавиши рояля. 
+Margo: С не частыми черными лентами. 
+@back EdwardPhen id:Podium
+@usfx Sound274
+Margo: Даа.. Рыцари бедные. Я тоже рада, что они приедут на наш показ. 
+Nikki: Твой показ, Рита. 
+@back RunwayExtra25 id:Podium
+Nikki: Именно ты все продумала и сделала большую часть работы. 
+Margo: Хм..
+@back around id:Podium
+Edward: Еще никто в моем доме не позволял себе так расхваливать наших прямых конкурентов. 
+@back Edward1 id:Podium
+[i]
+@back Edward2 id:Podium
+[i]
+@back Edward3 id:Podium
+Margo: А вот и ты.. Мы тебя ждали. 
+Edward: А вот и я. И я рад, что вы меня ждали. 
+@back EdGreeting id:Podium
+Edward: Здравствуй, {MainCharacter}! Очень рад видеть тебя у себя.
+MainCharacter: И я рад быть здесь. Это честь для меня. 
+Edward: Никки, как поживаешь? 
+@back EdGreeting1 id:Podium
+Nikki: Отлично. Спасибо. Долго добирался? 
+Edward: Ужасающие пробки. Дорога изматывающая. 
+Edward: Альфред сообщил, что и вы долго ехали.
+@back NikkiOut id:Podium
+@usfx Sound273
+Margo: Да. Пляжный сезон в самом разгаре. 
+@back RunwayExtra26 id:Podium
+Edward: Как устроились? Что-нибудь нужно? 
+MainCharacter: Нет. Спасибо. Все просто отлично. 
+MainCharacter: Альфред и Сью обеспечивают всем необходимым. 
+@back EdShoulder id:Podium
+@usfx Sound274
+Edward: Рад слышать. 
+Edward: А как обстоят дела с...
+Margo: Отлично. Я скоро закончу. 
+Edward: Ты точно успеешь? Нужна помощь? 
+@back MargotNod id:Podium
+Margo: Нет, спасибо. У меня достаточно помощников.
+Edward: О! Ты заводишь друзей? 
+@back MargotFrown id:Podium
+Margo: Перестань. Я не в 6 классе. 
+Margo: {MainCharacter}, зайди ко мне, как освободишься, пожалуйста. 
+Edward: Ты не выпьешь со мной за приезд? 
+Margo: Нет. У меня много работы. 
+@back EdSmile id:Podium
+Edward: Хм. Ладно. {MainCharacter}, а ты составишь мне компанию? 
+Edward: Я надолго не задержусь. 
+@back RunwayExtra27 id:Podium
+Margo: Ты хотя бы поприветствуй остальных гостей. 
+Margo: Тереза очень старалась сделать эту вечеринку.
+Edward: Сразу как только выпью чего-нибудь расслабляющего. 
+Edward: Тем более за баром Ракель! 
+@back MargotFrown1 id:Podium
+Margo: Она всегда за баром. Будто у нее есть выбор. 
+Edward: Ты не в духе, дорогая? 
+@back MargotOut id:Podium
+Margo: Я просто устала. 
+Edward: Вот так всегда с ней. 
+@back RunwayExtra28 id:Podium
+Edward:  Всегда она устала. Всегда не рада меня видеть. 
+MainCharacter: Мне кажется, ты преувеличиваешь. Она в самом деле устала. 
+MainCharacter: После приезда тут же взялась за работу.
+@back EdMaxBar id:Podium
+Edward: Дааа.. Она у меня такая. Даже слишком трудолюбивая. 
+@stopUbgm Tusa4
+; Барная стойка
+@ubgm Tusa3
+@back EdMaxBarRaquel id:Bar1
+Edward: Если бы не эта стойка я бы не узнал тебя, дорогая.
+Raquel: Знаешь легенду про Сизифа? 
+Edward: Вот уж нет.. ты не будешь меня сейчас грузить этими сложностями. 
+@back EdGlass id:Bar1
+Edward: Я возьму? 
+Edward: Выглядит как всегда потрясающе. 
+@back EdBarRaquel id:Bar1
+Raquel: Эй! В очередь. Это для дам. 
+Edward: Но здесь нет никаких дам. Только мы - двое бравых мужчин. 
+@back RaquelPool id:Bar1
+Raquel: Для тех дам. 
+Edward: Ооох.. Еще бы разобрать, кто из них кто.
+MainCharacter: Думаю, они откроются только в танце.
+@back EdSmileShoulder id:Bar1
+Edward: А ты даром времени не теряешь. Молодец.
+Edward: Сейчас самое отличное время. Ты молод. 
+Edward: Возможно на заре своей карьеры, красив. 
+Edward: В твоих глазах сияют перспективы.
+@back RaquelBottle id:Bar1
+@usfx Sound275 volume:0.3
+Raquel: Будь осторожен, {MainCharacter}. 
+@stopUsfx Sound275
+Raquel: Он обрабатывает тебя. 
+Raquel: Ты и не заметишь, как ляжешь попкой кверху. Хахахах.
+@back RaquelBottle1 id:Bar1
+Edward: Откуда ты только знаешь? 
+Raquel: Так.. Слухи-слухи. 
+@back BarExtra1 id:Bar1
+Edward: Не обращай внимание. 
+Edward: Когда она называет себя Сизифом - значит, она смертельно устала стоять за баром.
+@back Raquel2Cups id:Bar1
+@usfx Sound264
+Raquel: Ты все-таки знаешь эту легенду. 
+Edward: Душа моя, мы так давно знакомы. Я знаю тебя лучше, чем ты думаешь. 
+@back Raquel2Cups1 id:Bar1
+@usfx Sound262
+Edward: Мммм.. Отлично. 
+Raquel: Это я знаю тебя лучше, чем ты думаешь. 
+@back BarExtra2 id:Bar1
+Edward: Пф! Итак. {MainCharacter}, расскажи мне, как тебе здесь? 
+Edward: Девчонки тебя не обижают? 
+MainCharacter: Нет. Все просто замечательно.
+@back BarExtra3 id:Bar1
+MainCharacter:  Я со всеми познакомился. 
+MainCharacter: Сначала было немного неловко. 
+Edward: Почему? Они могут смутить, понимаю. 
+@back EdDrink id:Bar1
+Raquel: Конечно, понимаешь. Кто, если не ты. 
+MainCharacter: Потому что я никого совсем не знал. 
+@back BarExtra4 id:Bar1
+@usfx Sound261
+MainCharacter: А все дамы были уже знакомы друг с другом.
+Edward: Кроме Стейси. Она такая же новенькая, как и ты. 
+@back EdRaquelWince id:Bar1
+Edward: Кстати, детка, вы хорошо ее приняли? 
+Edward: Не паясничали? Не доводили милое дитя до слез? 
+@back BarExtra5 id:Bar1
+Edward: Знаю я ваше гостеприимство. 
+Edward: Иной раз имя собственное забудешь, пока выберешься из случайной перестрелки словами. 
+@back EdPool id:Bar1
+Raquel: В этот раз ты на нас явно наговариваешь.
+Raquel:  Где-то в той толпе у бассейна Тереза и Стейси отжигают вместе. 
+Edward: Такую мирную картину доводится наблюдать нечасто. 
+@back EdRaquelCups id:Bar1
+Edward: Особенно от Терезы. 
+Edward: Слышал, вы поссорились. Что случилось? 
+Raquel: Да неужели? Как тебя быстро вводят в курс дела, однако. 
+Edward: Ты зря волнуешься. Альфред сказал, что вы чуть не разнесли кухню. 
+@back EdRaquelCups1 id:Bar1
+@usfx Sound276 volume:0.3
+Raquel: Знаешь, иногда ты бываешь таким невежливым хозяином. 
+@stopUsfx Sound276
+@back EdCups id:Bar1
+Edward: Ох, черт! Ты права. {MainCharacter}, прости. 
+Edward: Меня не было несколько дней. 
+Edward: Сам понимаешь, оставлять дам без присмотра - опасное дело. 
+;-----------------------------------------
+;Выбор (незначительный, есть последствия в рамках одной сцены) LINE: 3508
+@choice "Согласен " goto:.BarCounterChoice1
+@choice "Не согласен " goto:.BarCounterChoice2
+@stop
+;-----------------------------------------
+# BarCounterChoice1
+@usfx Sound277 volume:0.5
+MainCharacter: Да, могу себе представить твои переживания.
+@stopUsfx Sound277
+MainCharacter:  Или вилла разлетится на куски, или двор будет усыпан трупами. 
+@back BarExtra6 id:Bar1
+Edward: Именно, друг мой! 
+Edward: Все дни об этом переживал. 
+@back BarExtra7 id:Bar1
+Edward: Женщины - они ведь такие... какое бы слово подобрать.. ммм
+MainCharacter: Ветренные? 
+@back EdClink id:Bar1
+@usfx Sound266
+Edward: Да! Ветренные, неспокойные. 
+Edward: Какое точное слово. Именно. 
+@back BarExtra8 id:Bar1
+Edward: Сегодня она очарована тобой, говорит приятные вещи о твоей силе, красоте, почти могуществе! 
+Edward: А уже завтра ты пустое место.
+Edward:  И счастье - если она удостоит тебя хотя бы взглядом.
+@back BarExtra9 id:Bar1
+Raquel: Мне кажется, ты слишком много смотришь дешевого кино, снятого исключительно мужчинами. 
+Edward: Предлагаешь переключиться на феминистический канал? 
+Edward: Мне хватает сурового взгляда собственной дочери. Спасибо. 
+@back MaxDiscontent id:Bar1
+Raquel: Ты как всегда ее недооцениваешь. 
+@goto .BarCounterChoiceFinish
+# BarCounterChoice2
+MainCharacter: Я думаю, что у всех есть свои особенности характера. 
+MainCharacter: Помнишь, как мы познакомились? 
+@back BarExtra10 id:Bar1
+MainCharacter: Мне буквально врезали по лицу из-за какой-то глупой случайности. 
+MainCharacter: Сдержанность, воспитание, умение общаться - эти вещи никак не обосновываются полом. 
+@back EdDrinkCups id:Bar1
+Edward: Эх, друг мой. Они уже на тебя повлияли и взялись за твое воспитание. 
+Edward: Не стоит так просто им сдаваться. 
+@back BarExtra11 id:Bar1
+Edward: Глазом не успеешь моргнуть, как на тебя наденут короткий поводок. 
+Edward: И вторым именем твоим станет фраза - к ноге. 
+@back MaxCocktail id:Bar1
+MainCharacter: Мне кажется, ты очень преувеличиваешь. 
+Edward: Ладно. Тогда расскажи мне, как прошли эти два дня? 
+MainCharacter: Отлично прошли. 
+@back EdTrick id:Bar1
+Edward: Да, но расскажи мне именно про момент первого взгляда на тебя в момент знакомства с дамами. 
+Edward: Держу пари, первый взгляд был пренебрежительным. 
+Edward: На тебя смотрели так, будто бы ты вылез из помойки. 
+@back BarExtra12 id:Bar1
+MainCharacter: Эм. Вовсе нет. 
+MainCharacter: Я бы назвал этот взгляд скорее настороженным и недоверчивым. 
+@back RaquelTenderness1 id:Bar1
+MainCharacter: Но это вполне нормальная реакция на незнакомцев. 
+MainCharacter: Зато после краткого и даже милого диалога тревога уходила. 
+MainCharacter: И мы прекрасно болтали. 
+Edward: И неужели даже Тереза не показала особенности своего характера? 
+@back RaquelPour id:Bar1
+@usfx Sound264
+MainCharacter: Знаешь, я понял за этот вечер, что у Тери это своеобразная защита. Сложная и многогранная. 
+MainCharacter: Никки недавно сказала мне, что к ней они так снисходительны, потому что не видят в ней искренней злобы.
+@back EdDream id:Bar1
+Edward: Ох, Никки.. Она очень наивная девушка. Всегда была. 
+Raquel: Тебе это так хорошо известно? 
+@back BarExtra13 id:Bar1
+Edward: А разве ты не помнишь эту историю с внезапно появившимся братом? 
+@back Maxunhappy id:Bar1
+MainCharacter: У Никки есть брат? 
+@back RaquelMenacinglyEd id:Bar1
+Raquel: Не продолжай, Эд. Это лишнее. 
+Edward: Пару лет назад Никки пришло письмо о том, что нашелся ее младший брат..
+@back BarExtra14 id:Bar1
+Raquel: Эд, хватит. 
+@back EdDream id:Bar1
+Edward: Она поверила и поехала к нему через пол страны.
+Edward:  С деньгами, с вещами и огромным желанием привезти его скорее домой.
+@back EdHandsSides id:Bar1
+Edward: Оказалось, что это какой-то мутный тип, который видел ее старое интервью. 
+Edward: Она в нем рассказывала, что много лет назад они семьей ездили на каньоны и Майк пропал. 
+@back BarExtra15 id:Bar1
+Edward: Его искали год. 
+Edward: Но ни мальчика, ни даже его тела не нашли.
+MainCharacter: Ох. Это очень жестоко. 
+@back BarExtra16 id:Bar1
+Edward: Так вот..Если бы не моя прозорливость, она бы забрала этого оборванца к себе домой. 
+Edward: Я сразу же навел справки и все про него выяснил. 
+@back EdPuddle id:Bar1
+@usfx Sound261
+Edward: Поэтому на твоем бы месте я сильно не полагался на слова Никки. 
+@goto .BarCounterChoiceFinish
+# BarCounterChoiceFinish
+@back MaxRaquelSmile id:Bar1
+MainCharacter: Отличный напиток, спасибо. Ты превзошла саму себя. 
+Raquel: Спасибо, {MainCharacter}. 
+Edward: Аааа... Тебя тут учат и мастерству обольщения. Это хорошо. 
+@back EdTray id:Bar1
+Edward: Повтори еще раз, дорогая. 
+Edward: И пойду я проведаю остальных прекрасных леди у бассейна. 
+@back EdTray1 id:Bar1
+Edward: И давай-ка я отнесу это им. 
+Edward: Приятно было поболтать, {MainCharacter}. 
+MainCharacter: Ты уже уходишь? 
+@back EdTray2 id:Bar1
+Edward: Да. Сейчас поздороваюсь и пойду спать. Трудный был день. А завтра будет еще труднее. 
+@usfx Sound278
+MainCharacter: Как ты себя чувствуешь? 
+@back BarExtra17 id:Bar1
+Raquel: Хочу сделать еще пару коктейлей и пойти в душ. 
+MainCharacter: А что тебя останавливает сейчас это сделать. 
+MainCharacter: Ведь есть целое незагаданное желание. 
+@back BarExtra18 id:Bar1
+Raquel: Его стоит приберечь для более ярких событий. 
+Raquel: И тем более я слышала, что Челси собирается демонстрировать чудеса эзотерики. 
+@back RaquelHairFingers id:Bar1
+Raquel: Надо присмотреть за ними. 
+MainCharacter: Какие еще чудеса эзотерики? 
+Raquel: Это нужно увидеть. Так и не расскажешь. 
+@back MaxOut id:Bar1
+MainCharacter: Я схожу к Марго. Она просила помочь. 
+MainCharacter: И надеюсь вернуться до того, как начнется самое интересное. 
+Raquel: У тебя есть минут 30. Торопись. 
+@ach GoldRush
+@stopUbgm Tusa3
+; Вилла. Комната Марго. 
+@spawn Fade
+@bgm Hall
+@sfx KnockSFX
+@back MaxDoor id:MargoRoom1
+@despawn Fade
+@stopSfx KnockSFX
+@usfx Sound196
+Margo: Да, входи. 
+@back MaxDoor1 id:MargoRoom1
+MainCharacter: Я не очень поздно? 
+Margo: В самый раз. 
+@back MargotBedStuff id:MargoRoom1
+Margo: Бери эти ткани и идем. 
+MainCharacter: А куда? 
+Margo: В мое очень личное пространство. 
+@hidePrinter
+@tip key:"Tissue"
+@choice handler:InteractiveTakeTissue do:"@tip, @usfx Sound165"
+@stop
+@back BedStuff id:MargoRoom1
+ThoughtsMainCharacter: Я даже догадываюсь, в какое именно. 
+MainCharacter: Знаешь, тебе придется вести меня за руку. 
+MainCharacter: Я не могу проложить визуальный маршрут. 
+@back MargotBedStuff1 id:MargoRoom1
+Margo: Без проблем. 
+Margo: Как дела у девочек? 
+@back Extra id:MargoRoom1
+@usfx Sound190
+MainCharacter: Отлично. Продолжают отдыхать. 
+Margo: Ты поговорил с ним?
+@back MargoMaxCorridor id:MargoRoom1
+MainCharacter: С мистером Голдом?
+Margo: Да, с мистером Голдом.
+MainCharacter: Ага, чуть поболтали у бара.
+@back Extra1 id:MargoRoom1
+MainCharacter: Он направился к остальным у бассейна.
+MainCharacter: Но сказал, что только поздоровается и пойдет спать. Очень устал в дороге.
+Margo: Вот и хорошо.
+@back MargoMaxCorridor1 id:MargoRoom1
+MainCharacter: Звучит так, будто ты рада, что он не будет проводить с нами время.
+Margo: Да. Именно так и звучит. 
+MainCharacter: Почему? 
+Margo: Там, где появляется мой отец, там появляются и ссоры.
+@back MargoMaxCorridor3 id:MargoRoom1
+Margo: И если сейчас ты скажешь что-нибудь сексистское типа -  Cherchez la femme - я тебе врежу. 
+MainCharacter: Даже не думал! 
+Margo: Чудно. Идем.
+@stopBgm Hall
+; Потайная комната
+@bgm SecretRoom
+@back SecretRoom id:SecretRoom
+Margo: Кидай прям на пол. 
+MainCharacter: Просто на пол? 
+Margo: Да. Я так и сказала. 
+@back Extra id:SecretRoom
+MainCharacter: Не очень то осторожное обращение с тканями для величайшей коллекции. 
+Margo: Так и назову тебя в телефоне - подхалим. 
+@back SecretRoomStuff id:SecretRoom
+@usfx Sound279
+MainCharacter: Я серьезно. 
+Margo: Это будет величайшей коллекцией лишь через пару дней.
+Margo:  Сейчас можешь не рассыпаться в комплиментах. 
+@back MargotFace id:SecretRoom
+MainCharacter: Я видел эскизы.. 
+Margo: Хм.. интересно другое. 
+MainCharacter: Что? 
+@back MargotFace1 id:SecretRoom
+Margo: Я не сильна в психологии, но от тебя не было ни одной реакции, даже напоминающей удивление.
+Margo: Ты был здесь? 
+@back MaxRecoil id:SecretRoom
+Chelsea: Что? 
+Margo: Хм..Симптомы глухоты подтверждают мои догадки.
+Margo: {MainCharacter}, ты был здесь?
+@back Extra1 id:SecretRoom
+MainCharacter: Эээ..Был ли я зд..
+Margo: Не повторяй вопрос.
+@back MaxSurpriseRoom id:SecretRoom
+MainCharacter: Какая комната! Откуда она только взялась?! Ты волшебница? 
+Margo: Не валяй дурака. Это не смешно. 
+MainCharacter: Да, был.
+@back MargotT-Shirt id:SecretRoom
+Margo: Кто тебя сюда привел? 
+MainCharacter: Какая разница? 
+@back Extra2 id:SecretRoom
+Margo: Кто? - я спрашиваю. 
+MainCharacter: Да ну какая же разница? 
+Margo: Сью? 
+@back MargotT-Shirt1 id:SecretRoom
+Margo: Скажи мне, это была Сью? 
+Margo: Только она так хорошо знает виллу. 
+Margo: Альфред бы точно не стал устраивать тебе таких личных экскурсий.
+MainCharacter: Только не злись. Она не знает, что ты теперь знаешь. 
+@back MargotHandsBreasts id:SecretRoom
+Margo: А.. Значит, это розыгрыш над ней. 
+Margo: И из каких таких побуждений она привела тебя сюда? А? 
+Margo: За что тебе такое удовольствие и расположение? 
+@back MaxBackHead id:SecretRoom
+MainCharacter: На самом деле она привела меня сюда, чтоб разделить восторг со мной от готовых работ. 
+Margo: Она, что? 
+MainCharacter: Да-да. Она восхищается твоим талантом. 
+@back MaxBackHead1 id:SecretRoom
+@back MaxElbow id:SecretRoom
+@usfx Sound280
+MainCharacter: Мне кажется, что она решилась показать мне..
+MainCharacter: ..чтоб кто-то тоже так наполнился удовольствием, которое она испытывает, глядя на твои работы.
+@back MaxAround id:SecretRoom
+Margo: Она тебе так и сказала? 
+MainCharacter: Сью сказала, что она очарована этой красотой. 
+Margo: Хм..И все? 
+@back Extra3 id:SecretRoom
+MainCharacter: Еще сказала, что показывает это мне..
+MainCharacter: .. потому что во время репетиций и показа, мне вряд ли дадут насладиться тем, как это прекрасно. 
+MainCharacter: Разве не мило? 
+@back MargotHandsBreasts1 id:SecretRoom
+Margo: Мило, чтобы быть правдой. 
+MainCharacter: Ты слишком скептически настроена. 
+Margo: Нет, вовсе нет. 
+@back Extra4 id:SecretRoom
+MainCharacter: Ты не злишься? 
+Margo: Я еще не разобралась в своих чувствах. Спроси минут через 15.
+MainCharacter: Что ты собираешься делать с этой грудой вещей посередине комнаты? 
+@back Extra5 id:SecretRoom
+Margo: Пытаешься переключить меня? 
+MainCharacter: Да, немного. 
+@back MargotMannequins id:SecretRoom
+Margo: Я одену манекенов. И буду вносить правки. 
+MainCharacter: Я могу помочь одеть манекенов? 
+Margo: Нет, это нетрудно. Спасибо. 
+@back Extra6 id:SecretRoom
+Margo: Да и, если честно, мне бы не хотелось, чтоб моя склонность к трудоголизму лишала тебя вечеринки. 
+MainCharacter: Совсем не лишает. Мне здесь с тобой тоже хорошо. 
+@back MargotTender id:SecretRoom
+Margo: Правда? 
+MainCharacter: Да, правда. 
+Margo: Ты очень необычная девушка. Я бы даже сказал - невероятная. 
+@back MargotSmilelittle1 id:SecretRoom
+Margo: Я почти забыла о том, что ты уже был здесь. Продолжай.
+MainCharacter: И я очень рад знакомству с тобой. 
+@back MMNearby id:SecretRoom
+MainCharacter: Уверен, однажды ты треумфально обойдешь Майлзов в гениальности. 
+Margo: Они шьют мужскую одежду. Ты же знаешь.
+@back MargotGloomy id:SecretRoom
+MainCharacter: У тебя теперь есть я. Ты можешь шить одежду на меня и Эда. 
+@back Extra7 id:SecretRoom
+Margo: Я никогда не шила одежду ему. 
+MainCharacter: Оооу. Прости. 
+@back MargotOutStuff id:SecretRoom
+Margo: Да ничего. Я шью для моделей. Так что... 
+MainCharacter: Прости, Рита. Я не всегда понимаю, что вернее сказать..
+Margo: Забудь. Ты здесь совсем не при чем. 
+@back MaxCaution id:SecretRoom
+MainCharacter: Знаешь, почти весь вечер, я что-то такое говорю, из-за чего на меня сердятся. 
+MainCharacter: Но я искренне не понимаю, что именно не так. 
+@back Extra8 id:SecretRoom
+Margo: Пока тебя не начали бить, можешь смело не обращать внимание. 
+MainCharacter: Мне чертовски надоела эта фраза. 
+MainCharacter: Я хочу обращать внимание. Я хочу понимать. 
+@back MaxCaution1 id:SecretRoom
+MainCharacter: Во мне нет потребности в конфликте с кем бы то ни было. 
+MainCharacter: Мне нравится мир и согласие. А не война. 
+MainCharacter: Можешь считать меня после этого дураком, если хочешь.. 
+@back MargotSmilelittle2 id:SecretRoom
+Margo: Нет. На дурака ты не похож. 
+Margo: Ты просто еще более, только не обижайся, не чуткий. 
+MainCharacter: Более, чем кто? 
+@back Extra9 id:SecretRoom
+Margo: Чем я. 
+Margo: Каждая девушка, с которой ты здесь познакомился, кроме Стейси, разумеется, имеет свою непростую историю. 
+@back Extra10 id:SecretRoom
+MainCharacter: А что тебе сделала Стейси? 
+@back MargotShoulders0 id:SecretRoom
+Margo: Абсолютно ничего. 
+Margo: Просто я ее не знаю. И в обобщение не могу ее ставить. 
+MainCharacter: Ты очень дотошная. 
+@back MargotOutStuff1 id:SecretRoom
+@usfx Sound188
+Margo: Да. Так вот.. непростую свою историю. 
+Margo: И ты фактически знакомишься с тем итогом, которым кончилась история каждой из нас. 
+@back Extra11 id:SecretRoom
+Margo: А может даже еще не кончилась. 
+Margo: Мне иногда кажется, что мы каждый день новые. 
+@back Extra12 id:SecretRoom
+@usfx Sound157
+Margo: И каждый день являемся друг другу каким-то иным, незнакомым итогом себя вчерашних. 
+Margo: Наверное только смерть может остановить этот процесс. 
+@back MaxStupid id:SecretRoom
+MainCharacter: Аминь. 
+@back MargotShock id:SecretRoom
+Margo: Ты не мог этого сказать. Нет. 
+Margo: Ты просто не мог испортить такую лирическую минуту.
+@back MaxStupid1 id:SecretRoom
+MainCharacter: Прости-прости меня. 
+MainCharacter: Я не удержался. Это все мой наряд. 
+Margo: Хочешь переодеться? 
+@back MaxChest id:SecretRoom
+MainCharacter: Во что? Снова бюстгальтер я надевать не стану. 
+Margo: А может ты и в самом деле просто дурак? Хм... Мне надо подумать. 
+@back Extra13 id:SecretRoom
+MainCharacter: Ладно тебе! Я уже угадал, что ты не такая стерва, какой хочешь казаться.
+@back MaxClose id:SecretRoom
+Margo: А мы разве не выяснили это еще днем? 
+MainCharacter: Ты очень красиво улыбаешься. 
+Margo: А ты не оставляешь попыток меня закадрить. 
+@back MaxMargotSmile id:SecretRoom
+MainCharacter: Я совершенно искренне! 
+Margo: Знаю я эту искренность. 
+@back Extra14 id:SecretRoom
+Margo: Она обычно выше пупка не поднимается. 
+MainCharacter: Ага! Ты тоже вполне способна говорить глупости. 
+Margo: Это правда, а не глупость. 
+@back HideEyes id:SecretRoom
+Margo: Мне надо приниматься за работу. Ты не мог бы...
+MainCharacter: Оставить тебя? 
+Margo: Да. Мне нужно уединение. Только в нем я достаточно продуктивна.
+@back ThumbsUp id:SecretRoom
+MainCharacter: Без проблем. 
+MainCharacter: Мне Ракель сказала, что сегодня планируется еще что-то экзотическое. 
+@back Extra15 id:SecretRoom
+Chelsea: Что? 
+MainCharacter: В смысле эзотерическое. 
+MainCharacter: Я точно не знаю, что именно это будет. 
+Margo: Ох.. Понятно. Готовься. 
+@back MaxFist id:SecretRoom
+MainCharacter: Мне теперь страшно, знаешь ли .. 
+Margo: Присмотри за ними. На всякий случай.  
+MainCharacter: Ракель тоже полна решимости смотреть за порядком у бассейна. 
+@back MaxOut id:SecretRoom
+MainCharacter: Составлю ей компанию. 
+@back MaxAround1 id:SecretRoom
+Margo: {MainCharacter}? 
+MainCharacter: Да? 
+Margo: Спасибо тебе.
+@back Extra16 id:SecretRoom
+Margo: Ты второй раз берешься мне помогать. 
+Margo: Это дает мне надежду думать о том, что кому-то, кроме Никки, не все равно. 
+@back MaxMargotKiss id:SecretRoom
+@usfx Sound153
+MainCharacter: Я уверен, людей, которым не все равно, гораздо больше, чем тебе кажется. 
+Margo: Хорошего вечера, {MainCharacter}. 
+MainCharacter: И тебе доброй ночи. 
+@stopBgm SecretRoom
+; Холл. Спиритический сеанс 
+@spawn Fade
+@ubgm SpiritualistSeance
+@back Atmosphere id:SpiritualistSeance
+@despawn Fade
+[i]
+@back Session id:SpiritualistSeance
+MainCharacter: А что здесь происходит? 
+Raquel: То самое, дорогой. 
+MainCharacter: Это та часть с эзотерикой? 
+Raquel: Ага. 
+@back ChelseaFinger id:SpiritualistSeance
+Chelsea: А вот и святой отец! 
+Stacey: Ты собьешь весь настрой! 
+@back Session1 id:SpiritualistSeance
+Stacey: Соберись и не отвлекайся. Святой отец, вы присоединитесь к нам? 
+MainCharacter: Я буду тут, совсем рядом.
+@back ChelseaFinger1 id:SpiritualistSeance
+Chelsea: Хорошо. Тогда следите за всем внимательно. 
+Chelsea: Если придет злой дух, именно вы его и будете изгонять. 
+MainCharacter: Оооу. Я постараюсь быть к этому готовым. 
+@back MaxWhisper id:SpiritualistSeance
+MainCharacter: Они ведь не серьезно? 
+Raquel: Они очень серьезно. 
+@back Session2 id:SpiritualistSeance
+MainCharacter: И Никки? 
+Raquel: Я тоже в шоке. Видимо, коктейль пустая голова не только отключает сознание, но и вышибает мозги. 
+@back Atmosphere1 id:SpiritualistSeance
+Sue: Тшш! Мы как раз начали призыв.
+MainCharacter: А кого вы призываете? 
+Sue: Дух девушки с красными бусами.
+@back Session3 id:SpiritualistSeance
+MainCharacter: Кого?
+@back SueHistory id:SpiritualistSeance
+Sue: Есть легенда, что на месте виллы был ее дом. 
+Sue: Однажды один священник соблазнил ее. 
+@back Session4 id:SpiritualistSeance
+Sue: Недобрые жители узнали об этом и озлобились.
+Grace: Оооу..Это интересно. 
+@back Session5 id:SpiritualistSeance
+Theresa: Эта история стара как мир. 
+Sue: Короче говоря, ее обвинили и повесили ей на шею тяжелые бусы.
+Sue:  Кроваво красные. Чтоб все видели, что она коварная и порочная. 
+@back ChelseaRoughHands id:SpiritualistSeance
+Chelsea: Не очень понимаю. Если ее соблазнил священник, почему озлобились на нее? 
+Theresa: Как это - почему? 
+@back Session6 id:SpiritualistSeance
+Theresa: Потому что считалось, что исключительно женщина - сосуд дьявола. 
+@back TheresaJoke id:SpiritualistSeance
+Theresa: А священник не мог так поступить.  
+Theresa: Смотри, {MainCharacter}, сколько сосудов тебя окружает. Страшно? 
+Grace: И что потом? 
+@back Session7 id:SpiritualistSeance
+Sue: Потом она умерла.
+Grace: И все? 
+@back SueBeads id:SpiritualistSeance
+Sue: Она умерла в одиночестве и изгнании. Этого мало? 
+Sue: С уродливыми, тяжелыми бусами на шее. Фу. Всю жизнь с бусами! 
+@back Session8 id:SpiritualistSeance
+MainCharacter: Мне кажется, я эту историю где-то читал. 
+Sue: Еще бы не читал. Знаменитая местная легенда. 
+@back ChelseaStop id:SpiritualistSeance
+Chelsea: {MainCharacter}, не отвлекай нас! 
+Chelsea: Стейси, продолжай. 
+@back StacyCloseEyes id:SpiritualistSeance
+Stacey: О! Дева с красными бусами, мы просим тебя прийти. 
+Chelsea: Надо взяться за руки? 
+@back Session9 id:SpiritualistSeance
+Grace: Думаешь, так будет лучше? 
+Chelsea: Не знаю. Я в фильмах видела. 
+@back HoldHands id:SpiritualistSeance
+@usfx Sound281
+Grace: Давайте попробуем. 
+Chelsea: И глаза закройте. 
+@back Session10 id:SpiritualistSeance
+Stacey: О! Дева с красными бусами, мы просим тебя прийти. 
+Stacey: Мы хотим получить ответы. 
+Stacey: Дева с красными бусами, ты здесь? 
+@back CloseEyes id:SpiritualistSeance
+MainCharacter: Вычеркни из своего списка этот проклятый коктейль, пожалуйста. 
+Raquel: А может наоборот - сделать и тебе? Тогда ты сможешь присоединиться. 
+Stacey: Дева с красными бусами!! 
+@back MaxHeart id:SpiritualistSeance
+MainCharacter: О боже.. напугала.
+@back Session11 id:SpiritualistSeance
+Raquel: Ты же святой отец. Возьми себя в руки.
+@back Session12 id:SpiritualistSeance
+Sue: Слышите? 
+Chelsea: Что? 
+Sue: Будто что-то упало и покатилось по полу.
+@back BlackRoom id:SpiritualistSeance
+Chelsea: Это наверное ее бусы рассыпались. 
+Sue: Мне жутко. 
+Stacey: Но мы уже начали. 
+@back MaxWhisper1 id:SpiritualistSeance
+MainCharacter: Ты что-нибудь слышала? 
+Raquel: Нет, конечно. Сейчас начнется только игра воображения. Не поддавайся. 
+@back StacyPendulum id:SpiritualistSeance
+Stacey: Задавайте вопросы. Я чувствую, она здесь. 
+Chelsea: Дева с красными бусами, скажи, тебя убили или ты умерла своей смертью? 
+@back Session13 id:SpiritualistSeance
+Nikki: Так по легенде вроде бы своей. Зачем ты спрашиваешь? 
+Chelsea: Потому что невежливо начинать разговор с себя.
+Nikki: Ты думаешь, ее очень волнует этикет? 
+@back StacyPendulum1 id:SpiritualistSeance
+@usfx Sound282
+Stacey: Тихо! Мои пальцы начинают двигаться.
+@back Session14 id:SpiritualistSeance
+Theresa: Он показывает на меня!? 
+Theresa: Это так волнительно. 
+Theresa: Давно меня никто не выбирал. 
+@back StacyTheresaKiss id:SpiritualistSeance
+Theresa: Ладно. Я не против. Ты довольно красивая. 
+Nikki: Тери, это не игра в бутылочку. 
+Nikki: Здесь не надо никого целовать. Держи себя в руках. 
+@back StacyTheresaKiss1 id:SpiritualistSeance
+Nikki: Ты вообще понимаешь, что происходит? 
+Nikki: Маятник складывает слова по буквам, а не указывает на тебя.
+@back Session15 id:SpiritualistSeance
+Theresa: Вечно ты кайф ломаешь. 
+Stacey: Да! Она ответила - да. 
+Nikki: Что - да? Так своей или нет? 
+@back GraceHeart id:SpiritualistSeance
+Grace: О боже! Кто ее убил? Спроси! 
+Chelsea: Зачем? 
+Grace: Мы сейчас узнаем всю правду о легенде! 
+Grace: И сможем потом написать в твиттере об этом - Вся правда о деве с красными бусами! 
+@back MaxWhisper2 id:SpiritualistSeance
+MainCharacter: А Грейс тоже пила твой коктейль? Креативщик из нее так себе.
+Raquel: Я надеялась, что он просто всех вырубит. И на этом вечер кончится.
+MainCharacter: Значит, в этом всем винить тебя? 
+@back RaquelBlow id:SpiritualistSeance
+@usfx Sound283
+Raquel: Только посмей. 
+Sue: Двигается! Она отвечает. 
+@back Atmosphere2 id:SpiritualistSeance
+Sue: Б-У-Р-Д-А.
+@back Session17 id:SpiritualistSeance
+Theresa: Бурда? Еврей что ли? 
+Nikki: Тери! Не будь такой антисемиткой! Это отвратительно.
+@usfx Sound284
+Theresa: А что я такого сказала? 
+Stacey: Ты ее злишь, Тери. 
+@back TheresaRes id:SpiritualistSeance
+Theresa: Давайте, выгоните меня еще! 
+Stacey: Сиди тихо. Мы тебя не можем выгнать. 
+Stacey: Ты с нами создала кольцо, через которое она сюда вошла. 
+Stacey: Если разорвать круг, она не сможет вернуться обратно. 
+@back TheresaFear id:SpiritualistSeance
+Theresa: И что будет? 
+Stacey: Она останется неспокойной душой. 
+Theresa: Она может начать убивать? 
+@back NikkiPeace id:SpiritualistSeance
+Nikki: Не думаю, она же бесплотна. 
+@usfx Sound285
+Nikki: Но она может кого-то толкать на преступление. 
+Stacey: Хммм..Наверное.
+Stacey:  Но на всякий случай - строго запрещено вставать со своего места. 
+@back Candles id:SpiritualistSeance
+Stacey: Ах! Да! Она подтвердила это.
+Sue: Святой отец, зажгите свечи, пожалуйста.
+@hidePrinter
+@tip key:"Candle"
+@choice handler:InteractiveLightCandle0 do:"@tip, @usfx Sound287"
+@stop
+@back CandlesMax id:SpiritualistSeance
+Stacey: Продолжаем. Дева с красными бусами, нам очень жаль, что это произошло. 
+Chelsea: Да. Среди нас тоже есть святой отец. Но он хороший. 
+@back Session18 id:SpiritualistSeance
+Grace: Что ты несешь? 
+Chelsea: Пытаюсь подружиться. 
+Grace: С призраком? 
+@back Session19 id:SpiritualistSeance
+Stacey: Мы хотим узнать, тебя убил возлюбленный? 
+Stacey: Замрите. 
+@back MaxWhisper id:SpiritualistSeance
+MainCharacter: Я почти не верю, что все это в самом деле происходит. 
+@back RaquelHypnosis id:SpiritualistSeance
+Raquel: В прошлый раз они занимались гипнозом. Но это было просто весело. Но чтобы с серьезными лицами все это.. ох. 
+Grace: Двигается! Двигается.. 
+Grace: (хором)
+@back Atmosphere3 id:SpiritualistSeance
+@usfx Sound284
+Sue: Ах, какой ужас. Ее убил священник! 
+@back Candles1 id:SpiritualistSeance
+MainCharacter: Я не настоящий священник, вы чего? 
+Chelsea: А-а-а-а! 
+@hidePrinter
+@tip key:"Candle"
+@choice handler:InteractiveLightCandle1 do:"@tip, @usfx Sound287"
+@stop
+@back CandlesMax id:SpiritualistSeance
+Stacey: Тихо! Все в порядке. Так и должно быть. Она говорит с нами. 
+Stacey: О, дева с красными бусами, можем ли мы у тебя спросить про наше будущее? 
+@back Session20 id:SpiritualistSeance
+@usfx Sound282
+Theresa: Добавь, что каждой по очереди придется ответить. 
+Stacey: Не буду я добавлять. Это и так понятно. 
+@back StacyPendulum2 id:SpiritualistSeance
+Stacey: Отвечает
+Theresa: Что, опять? 
+@back StacyTheresaKiss id:SpiritualistSeance
+Theresa: Я и не против. 
+Nikki: Еще раз повторяю, мы не в бутылочку играем, Тери! 
+@back StacyTheresaKiss2 id:SpiritualistSeance
+Theresa: Да помню я, помню! 
+Theresa: Просто эта стрелочка все время показывает на меня! 
+@back Session21 id:SpiritualistSeance
+Nikki: Ты просто сидишь напротив ответа - Да. 
+Stacey: Спрашивайте ее скорее, а не болтайте. 
+@back Session22 id:SpiritualistSeance
+Stacey: Кто первый? 
+Grace: Я! О, дева с красными бусами, скажи, есть ли жизнь после смерти? 
+@back GraceBoard id:SpiritualistSeance
+Nikki: Это же не телефон. 
+Nikki: Можешь говорить не прямо в доску. 
+@back GraceChelseaAnxiety id:SpiritualistSeance
+Chelsea: Серьезно? Тебя это интересует? 
+Grace: Я бы хотела знать наверняка. 
+Chelsea: Ты помирать собралась? 
+@back Session23 id:SpiritualistSeance
+Grace: Нет. Мне просто любопытно. 
+Grace: И да, наверное, было бы не так страшно умирать.
+@back IndexFinger id:SpiritualistSeance
+Theresa: Святой отец, вы имеете полное право наказать ее за безверие. 
+@back Session24 id:SpiritualistSeance
+Nikki: Перестань ты. 
+Stacey: Д-А. 
+Grace: Фух. Так спокойнее. Можно смело умирать во время секса. 
+@back TheresaOutrage id:SpiritualistSeance
+Chelsea: Вместо того, чтоб спросить - станешь ты успешной моделью или нет? 
+Chelsea: Тебя интересуют глупости. 
+@back Session25 id:SpiritualistSeance
+Grace: Успешность - относительное понятие. 
+Grace: Я могу стать успешным кем-угодно. 
+Stacey: Следующий вопрос. 
+@back NikkiKnees id:SpiritualistSeance
+Nikki: О, дева с красными бусами, тайна, которая тяготит меня так долго, останется тайной? 
+@back Session26 id:SpiritualistSeance
+Theresa: Что за тайна? 
+Nikki: Полагаешь, я отвечу? 
+@back NikkiKnees1 id:SpiritualistSeance
+Theresa: Полагаю, тебе было бы легче. 
+Nikki: Это связано с давним прошлым и никак не касается тебя. Так то просто расслабься. 
+@back Session27 id:SpiritualistSeance
+Theresa: Как знаешь. Я могла бы помочь. 
+Stacey: Н-Е-Т.
+@back NikkiKnees2 id:SpiritualistSeance
+Nikki: Вот черт! 
+Nikki: А при каких обстоятельствах все вскроется? 
+Stacey: Только один вопрос на каждого. 
+Nikki: Ладно-ладно. 
+@back NikkiKnees3 id:SpiritualistSeance
+Theresa: А ты думала, она расскажет что-нибудь типа
+Theresa: Не ходи в банк. 
+Nikki: Что-то вроде того..
+@back MaxWhisper3 id:SpiritualistSeance
+MainCharacter: Эдвард это видел? 
+Raquel: Нет. Ему повезло. Он ушел раньше. И не видит, как Тери из кожи вон лезет, чтоб позлить меня. 
+@back SueKnees id:SpiritualistSeance
+Chelsea: Сью, ты чего молчишь? Спрашивай. 
+@usfx Sound288
+Sue: Мне жутко, если честно. 
+Grace: А-а-а-а! 
+@back Session28 id:SpiritualistSeance
+Stacey: Это она предупреждает, что бояться не стоит. 
+Stacey: Спрашивай ее. Она ждет. 
+@back SueKnees1 id:SpiritualistSeance
+Sue: О, дева с красными бусами, скажи, все ли у нас получится? 
+Stacey: Это очень абстрактный вопрос. 
+Stacey: Может быть она поймет иначе - приготовить чай, убрать комнату, выйти замуж. 
+@back SueKnees2 id:SpiritualistSeance
+Sue: Но ведь Никки задала тоже очень общий вопрос.
+Stacey: Нет. У нее речь шла про конкретную тайну. Она думала о ней.
+@back SueKnees1 id:SpiritualistSeance
+Sue: Ладно. О, дева с красными бусами, получится ли у Pink Star покорить публику новой коллекцией? 
+@back MaxWhisper3 id:SpiritualistSeance
+MainCharacter: Какой странный вопрос. Ее в самом деле это волнует? Хотя.. она ведь мечтает стать моделью.
+Raquel: А ты откуда знаешь? 
+@back Session29 id:SpiritualistSeance
+MainCharacter: А..Ээээ.. Она сама сказала как-то в разговоре. 
+Stacey: Она не может определиться. Говорит, что не видит ясно.
+Sue: Может быть еще раз спросить? 
+@back StacyKnow id:SpiritualistSeance
+Stacey: Нет. Дело тут в том, что слишком много препятствий. 
+Stacey: Значит, этот успех зависит от обстоятельств, которые даже она не может предвидеть.
+@back Session30 id:SpiritualistSeance
+Theresa: Какая-то демо версия духа. Никакого профессионализма.
+@back Session31 id:SpiritualistSeance
+Theresa: Но я все равно хочу спросить. 
+@usfx Sound284
+Stacey: Давай. 
+@back Candles1 id:SpiritualistSeance
+Stacey: О, дева с красными бусами...
+Sue: А-а-а-а! 
+Nikki: Мне кажется, она не хочет твой вопрос слышать. 
+@hidePrinter
+@tip key:"Candle"
+@choice handler:InteractiveLightCandle1 do:"@tip"
+@stop
+@back CandlesMax id:SpiritualistSeance
+Theresa: Это еще почему? 
+Nikki: Видишь, опять свечи погасли. 
+Theresa: О, дева с красными бусами...
+Stacey: О боже! Он уже начал двигаться! 
+@back Atmosphere4 id:SpiritualistSeance
+Theresa: Эй! Я еще не успела задать вопрос! 
+Sue: Что? Что она говорит?! 
+Stacey: Э-Т-В. 
+@back Session32 id:SpiritualistSeance
+Theresa: Этв? Что это значит? 
+Theresa: Этвард? А при чем тут он? 
+@back Session33 id:SpiritualistSeance
+Sue: Она знает Эда!? Откуда? Откуда она знает его? 
+Nikki: Если она дух, то, должно быть, часто сюда приходит и знает всех. 
+@back SueFaceHand id:SpiritualistSeance
+Sue: Она следит за нами? Жуть какая. Спроси, она следит за нами? 
+Theresa: Погоди ты. Сначала нужно выяснить причем тут Эдвард? Я вообще не об этом.. ооох. Ну как обычно! 
+@back RaquelWhisper id:SpiritualistSeance
+Raquel: Этв - вообще не одно и то же, что и Эдвард. 
+MainCharacter: Хочешь вмешаться? 
+Raquel: Нет-нет. Мне уже интересно, чем эта клиника кончится.
+@back TheresaMalice id:SpiritualistSeance
+Stacey: Тери, что ты хотела спросить? Может это был досрочный ответ. 
+Theresa: Я хотела спросить, стоит ли Ракель покупать лотерейные билеты? 
+Nikki: Не вижу связи между всем этим, если честно. 
+@back MaxWhisper id:SpiritualistSeance
+MainCharacter: Вы так и не помирились. 
+Raquel: Чего она такая жестокая? 
+MainCharacter: Тебя это в самом деле задевает? 
+Raquel: Дело в другом. 
+Theresa: Дама с бусами, ты еще здесь? Ответишь на мой вопрос нормально? 
+@back StaceyAngry id:SpiritualistSeance
+Stacey: Прекрати. Она может рассердиться. 
+Theresa: И что она сделает? Я ничего грубого не сказала. 
+@back StacyPendulum0 id:SpiritualistSeance
+Chelsea: Снова двигается стрелка. Смотрите! 
+Chelsea:  М-О-Н-С-Т-Р 
+Chelsea: О боже! Что это значит!? 
+@back NikkiSolace id:SpiritualistSeance
+Grace: Понятия не имею. 
+Nikki: Наверное, кто-то из нас монстр. 
+@back Session34 id:SpiritualistSeance
+Theresa: Ты намекаешь на на кого-то конкретного? 
+Nikki: Может Этв и есть монстр? 
+@back SueSchad id:SpiritualistSeance
+Sue: Эдвард то есть? 
+Nikki: Я не знаю. Может быть ее священника звали Этв и он монстр.
+Theresa: Этв с фамилией Бурда?
+@usfx Sound286
+@back AllCandles id:SpiritualistSeance
+@usfx Sound289
+Sue: А-а-а-а! 
+@usfx Sound290
+Nikki: Ааааа! ААааааа! 
+@usfx Sound291
+Stacey: Ты ее разозлила! 
+@usfx Sound292
+Grace: Стойте!
+@usfx Sound293
+Theresa: Меня кто-то схватил! Кто-то держит мою ногу!
+@usfx Sound294
+Theresa: Отпусти, бабка! Отпусти меня! 
+@usfx Sound139
+@back AlfredApp id:SpiritualistSeance
+Alfred: Вы разбудите мистера Голда. 
+Alfred: Прошу вас быть тише.
+@back StacyHairHorror id:SpiritualistSeance
+Stacey: Мы разорвали круг! 
+Stacey: О боже! Нам всем грозит теперь опасность. 
+MainCharacter: Да ладно вам.. Это же просто легенда. Нет никакой опасности. 
+Stacey: Ты не понимаешь. Она не смогла вернуться обратно! Она застряла теперь в нашем мире. 
+@back MaxHelp id:SpiritualistSeance
+MainCharacter: И что будет? 
+Stacey: Не знаю. Она может рассердиться на нас и начать мстить. 
+@back MaxHelp1 id:SpiritualistSeance
+MainCharacter: Я как священник призываю всех разойтись по комнатам. Я с ней разберусь. 
+Raquel: Я видела, как тебя чуть потряхивало во время сеанса. Уверен, что справишься? 
+MainCharacter: Я буду не один. Мне поможет Альфред. 
+@back AlfredBow id:SpiritualistSeance
+MainCharacter: Ведь так, Альф? 
+@stopUbgm SpiritualistSeance
+; Комната ГГ ___________ Адалт
+@spawn Fade
+@ubgm AdultRaquel
+@back MaxBed id:MCRoom4
+@despawn Fade
+ThoughtsMainCharacter: Завтра обязательно нужно будет поговорить с Эдвардом о показе.
+@usfx Sound295
+ThoughtsMainCharacter: Если программа будет слишком сложно, репетировать стоит уже сейчас.
+ThoughtsMainCharacter: Они все еще никак не успокоятся?
+@back RoomGGExtra1 id:MCRoom4
+ThoughtsMainCharacter: Ох.. Не завидую Альфу.
+@usfx Sound296
+ThoughtsMainCharacter: Всех успокоить, заставить разойтись по комнатам, а потом наводить порядок.
+ThoughtsMainCharacter: Будто мы в детском лагере со строгим вожатым.
+@back MaxBedSleep id:MCRoom4
+ThoughtsMainCharacter: Альф мог бы быть и потише. 
+@back OpenDoor id:MCRoom4
+@usfx Sound297
+Girl: А у тебя был какой-то вопрос? 
+MainCharacter: Мм? 
+@back RaquelRoom id:MCRoom4
+Girl: Ведь наверняка ты у меня тоже хотел что-то спросить. 
+Girl: Пусть ты и делал вид, что не веришь в происходящее. 
+@back MaxNapping id:MCRoom4
+MainCharacter: Мм? Спросить? 
+Girl: Представь, что я в самом деле знаю ответы на все вопросы.
+@back RoomGGExtra2 id:MCRoom4
+Girl: Начиная от кто убил меня? и заканчивая Чего ты желаешь этой ночью?
+MainCharacter: Аа..Желание, да. Есть еще желание. 
+@back RoomGGExtra3 id:MCRoom4
+;-----------------------------------------
+;Последствия выбора: фразу Ракель произносит, если игрок на все вопросы ответил. (если гг выиграл спор) LINE: 4016
+@if isWonBarFight
+    Girl: Так чего же ты желаешь, {MainCharacter}? 
+    @back RaquelBed id:MCRoom4
+    @usfx Sound298
+    MainCharacter: Мм..я желаю. Я желаю, чтобы.. 
+    Girl: Оооу.. у тебя не получается сказать? Бедняжка. 
+    @back RaquelHandGroin id:MCRoom4
+    Girl: Ничего. У меня есть пара предложений. 
+    MainCharacter: Ты - дева с красными бусами? 
+    @back MaxWakeUp id:MCRoom4
+    Girl: Если ты захочешь. 
+;-----------------------------------------
+;Последствия выбора: фразу Ракель произносит, если игрок НЕ на все вопросы ответил (если гг проиграл спор) LINE: 4023
+@else
+    @back RoomGGExtra2 id:MCRoom4
+    Girl: Я воспользуюсь сейчас своим желанием. 
+    MainCharacter: Опасным желанием? Мм..
+    @back RaquelBed id:MCRoom4
+    @usfx Sound298
+    Girl: Это тебе предстоит выяснить, дорогой. 
+    Girl: Хотя пара моих идей могут показаться тебе не особенно безопасными. 
+    @back RaquelHandGroin id:MCRoom4
+    Girl: Но выбора все равно нет. Мое желание будет исполнено. 
+    Girl: С первого дня мне терзает любопытство - он в самом деле такой большой? 
+    Girl: Каким я его видела тогда у бассейна. 
+    @back MaxWakeUp id:MCRoom4
+    Girl: Или мне только показалось? 
+@endif
+MainCharacter: Ракель? Что ты тут...
+@stopUbgm AdultRaquel
+@spawn Fade
+@hideAll
+@back Day2_Rakel_1 id:VideoBack1
+@unlock Day2_Rakel_1
+@despawn Fade
+@hidePrinter
+[i]
+Raquel: Тссс.. время выполнить условия проигрыша. 
+Raquel: И пусть в эту ночь я для тебя буду девой с красными бусами.. 
+MainCharacter: Эта шутка меня уже немного смущает.. Я бы хотел, чтоб это была ты. 
+@back RaquelClothes id:MCRoom4
+@back Day2_Rakel_1 id:VideoBack1 visible:false
+@usfx Sound214
+Raquel: Какое благородство. Мне приятно. 
+MainCharacter: Твое тело болезненно совершенный подарок. 
+@back RaquelBreastPalm id:MCRoom4
+MainCharacter: Ты так красива, Ракель. 
+@spawn Fade
+@hideAll
+@back Day2_Rakel_2 id:VideoBack1
+@unlock Day2_Rakel_2
+@despawn Fade
+@hidePrinter
+[i]
+Raquel: Да.. касайся меня. 
+Raquel: Ты чувствуешь, какая я мокрая для тебя? 
+Raquel: Чувствуешь, как я могу скользить по твоей коже.. 
+@back RaquelMaxKiss id:MCRoom4
+@back Day2_Rakel_2 id:VideoBack1 visible:false
+@usfx Sound215
+Raquel: Как пропитываю твое белье своими соками.. Ммм.. 
+Raquel: Да.. Твой член упирается мне в клитор. Это так приятно.
+MainCharacter: Ааах..Мм... Такие ночные посещения призраков мне очень нравятся. 
+@back RaquelMaxKiss1 id:MCRoom4
+Raquel: Я даже в этой темноте могу видеть, какими голодными глазами ты смотришь на меня. 
+Raquel: У тебя такие крепкие руки. 
+@back RoomGGExtra4 id:MCRoom4
+Raquel: А мне казалось, что ты неженка.. 
+Raquel: Мммм.. Сильнее прижми меня к себе. 
+@back RaquelNipple id:MCRoom4
+Raquel: Я хочу тебя чувствовать. 
+@spawn Fade
+@hideAll
+@back Day2_Rakel_3 id:VideoBack1
+@unlock Day2_Rakel_3
+@despawn Fade
+@hidePrinter
+[i]
+Raquel: Да.. так! 
+ThoughtsMainCharacter: Черт! Она сильнее давит киской на мой член.. Кажется, сейчас он прорвется через белье. 
+@back RoomGGExtra5 id:MCRoom4
+@back Day2_Rakel_3 id:VideoBack1 visible:false
+MainCharacter: Ты очень горячая там. Я чувствую это своим членом. 
+@back MaxBetweenLegs id:MCRoom4
+@usfx Sound216
+MainCharacter: Горячая и скользкая. 
+MainCharacter: Пока я не сошел с ума окончательно,  у меня есть срочная необходимость. 
+Raquel: Что? Ты о чем? 
+@back MaxBetweenLegs1 id:MCRoom4
+MainCharacter: Взять тебя в свой рот. 
+MainCharacter: Боже мой, ты так красива! 
+@back RoomGGExtra6 id:MCRoom4
+@usfx Sound217
+MainCharacter: И совершенно готова принять мои ласки. 
+@back MaxBetweenLegs2 id:MCRoom4
+Raquel: {MainCharacter}, не тяни, прошу! 
+@spawn Fade
+@hideAll
+@back Day2_Rakel_4 id:VideoBack1
+@unlock Day2_Rakel_4
+@despawn Fade
+@hidePrinter
+[i]
+Raquel: Аааах! Да! Продолжай.. 
+Raquel: Твой язык .. он невероятный. Ммммм. 
+@back MaxBetweenLegs3 id:MCRoom4
+@back Day2_Rakel_4 id:VideoBack1 visible:false
+ThoughtsMainCharacter: Думаю, это самый вкусный ее коктейль, из тех, что мне довелось попробовать. 
+Raquel: Да, пожалуйста! 
+Raquel: {MainCharacter}, это потрясающе! 
+@spawn Fade
+@hideAll
+@back Day2_Rakel_5 id:VideoBack1
+@unlock Day2_Rakel_5
+@despawn Fade
+@hidePrinter
+[i]
+Raquel: Коснись меня языком еще и не вынимай пальцы. 
+MainCharacter: Ты такая тугая, влажная и шелковистая внутри.
+MainCharacter: И жаждешь прикосновений. 
+MainCharacter: Я чувствую, как ты сжимаешь меня и удерживаешь внутри. 
+@back MaxBetweenLegs4 id:MCRoom4
+@back Day2_Rakel_5 id:VideoBack1 visible:false
+Raquel: Ах, да. Это почти так же, как в моем сне. Но намного чувственнее. 
+MainCharacter: Я тебе снился? 
+@back MaxBetweenLegs5 id:MCRoom4
+Raquel: Да-да.. Не отвлекайся. Продолжай, пожалуйста. 
+@spawn Fade
+@hideAll
+@back Day2_Rakel_6 id:VideoBack1
+@unlock Day2_Rakel_6
+@despawn Fade
+@hidePrinter
+[i]
+Raquel: Мне снилось, как ты трахал меня за барной стойкой..  
+Raquel: Аааах.. Да. Черт, да! 
+Raquel: Ты.. аах..Ты был так настойчив и так сексуален. 
+Raquel: Прям как сейчас. 
+@back MaxBetweenLegs6 id:MCRoom4
+@back Day2_Rakel_6 id:VideoBack1 visible:false
+MainCharacter: Ммм..Ракель, ты такая вкусная. 
+Raquel: Ааах..Я кончаю, {MainCharacter}! Ааааа! 
+ThoughtsMainCharacter: Она в оргазме просто невероятно красивая. Вау! 
+@back MaxMouthHand id:MCRoom4
+ThoughtsMainCharacter: Я подозревал, что за всей этой напускной осторожностью, существует такая нежность, отзывчивость. 
+Raquel: Аааахм.. Что ты так смотришь на меня? 
+MainCharacter: Ты потрясающая, знаешь? 
+@back MaxPenisHand id:MCRoom4
+Raquel: Уверена, ты это говоришь каждой девушке, которая легла с тобой в постель. 
+ThoughtsMainCharacter: Хм. Я знаю чуть больше вариаций фразы ты красивая. 
+MainCharacter: И стараюсь не повторяться. 
+Raquel: Как это мило.
+@back MaxPenisHand1 id:MCRoom4
+Raquel: Я даже не знаю, радоваться мне или огорчаться. 
+@spawn Fade
+@hideAll
+@back Day2_Rakel_7 id:VideoBack1
+@unlock Day2_Rakel_7
+@despawn Fade
+@hidePrinter
+[i]
+MainCharacter: Из-за формулировки? 
+MainCharacter: Я могу кхм..предложить тебе.. ммм великолепная, чарующая .. Ааах..
+MainCharacter: С твоей рукой на моем члене как-то сложно думать. 
+@back MaxPenisHand2 id:MCRoom4
+@back Day2_Rakel_7 id:VideoBack1 visible:false
+Raquel: Я не о том, какие неумелые комплименты ты отвешиваешь.
+Raquel: А о том, что мой оргазм только уменьшил желание с 10 до едва терпимых 8 баллов. 
+@back MaxPenis id:MCRoom4
+Raquel: Придется тебе с этим что-то сделать, {MainCharacter}. 
+@spawn Fade
+@hideAll
+@back Day2_Rakel_8 id:VideoBack1
+@unlock Day2_Rakel_8
+@despawn Fade
+@hidePrinter
+[i]
+Raquel: Вероятно, ты тоже сходишь с ума от желания. 
+Raquel: Мне безумно хочется помочь тебе справиться с ним. 
+MainCharacter: Боже, Ракель.. Твоя грудь потрясающе мягкая.. Ааа. 
+MainCharacter: Будь хорошей девочкой, обхвати плотнее ее руками..
+@back MaxPenis1 id:MCRoom4
+@back Day2_Rakel_8 id:VideoBack1 visible:false
+MainCharacter: Я хочу сильнее почувствовать сжатие. 
+MainCharacter: Такое, как я чувствовал, когда был языком в тебе. 
+Raquel: Твой член и в самом деле такой большой. 
+@spawn Fade
+@hideAll
+@back Day2_Rakel_9 id:VideoBack1
+@unlock Day2_Rakel_9
+@despawn Fade
+@hidePrinter
+[i]
+Raquel: Я в восторге. 
+MainCharacter: Боже, Ракель.. Это невероятно приятно. Чеееерт... Ах.
+MainCharacter: Чем глубже ты его будешь вбирать в рот, тем скорее я кончу.
+Raquel:  Не беспокойся об этом, {MainCharacter}. 
+Raquel: Мы не остановимся, даже если ты кончишь на мои сиськи. 
+@back MaxPenis2 id:MCRoom4
+@back Day2_Rakel_9 id:VideoBack1 visible:false
+@usfx Sound218
+Raquel: Я слишком хочу почувствовать тебя внутри.
+MainCharacter: Чеееерт!! 
+ThoughtsMainCharacter: Ее язык так плотно прилегает к нему.. ох!
+MainCharacter: Ракель! Я сейчас .. Я сейчас кончу.
+@back MaxPenis3 id:MCRoom4
+@usfx Sound219
+Raquel: Не сдерживайся, {MainCharacter}. Кончи на меня. 
+Raquel: Мммм.. твоя сперма такая горячая. 
+Raquel: Это снова меня заводит.
+MainCharacter: Угу.. 
+@back RaquelSitting id:MCRoom4
+Raquel: Но тебя нужно подготовить к следующему заходу. 
+Raquel: Я ведь хочу, чтоб ты как следует оттрахал меня. 
+@back RaquelHips id:MCRoom4
+MainCharacter: Придвинься ко мне еще выше, дорогая. 
+MainCharacter: Мой рот наполняется слюной от предвкушения снова попробовать тебя на вкус. 
+@back RoomGGExtra7 id:MCRoom4
+Raquel: Ааахм.. Согласна. Это лучшее применение для твоего языка. 
+@back RaquelHorseRacing id:MCRoom4
+MainCharacter: Я в полной мере еще не насытился тобой. 
+MainCharacter: Ты чертовски влажная..
+Raquel: Боже.. я ощущаю твое дыхание на своей киске.
+MainCharacter: ..и чертовски отзывчивая. 
+@back RaquelHorseRacing1 id:MCRoom4
+MainCharacter: Мне нравится, как ты реагируешь даже на малейшее прикосновение. 
+MainCharacter: Черт! Ракель, ты стекаешь мне на подбородок.
+Raquel: Прижмись ко мне ртом прямо сейчас! 
+@spawn Fade
+@hideAll
+@back Day2_Rakel_10 id:VideoBack1
+@unlock Day2_Rakel_10
+@despawn Fade
+@hidePrinter
+[i]
+Raquel: Не мучай меня.. Ааах. Да! 
+ThoughtsMainCharacter: Она толкается мне прямо в рот..
+ThoughtsMainCharacter: Черт! Да она же буквально трахает мое лицо! 
+Raquel: Просто высунь язык.. Я сама все сделаю.Мммм..
+@back RaquelHorseRacing2 id:MCRoom4
+@back Day2_Rakel_10 id:VideoBack1 visible:false
+MainCharacter: Вот уж нет! Я слишком хочу тебя.
+Raquel: Ааа! Боже. Боже! Это невыносимо. 
+@back RoomGGExtra8 id:MCRoom4
+Raquel: Мне нужен твой член. 
+Raquel: Сейчас же! 
+@if isWonBarFight
+    MainCharacter: Я выполню твое желание, не раздумывая.
+    MainCharacter: Разворачивайся и становись на четвереньки.
+@endif 
+@back RaquelPose id:MCRoom4
+Raquel: Боже, да! 
+Raquel: {MainCharacter}? 
+@back RaquelPose1 id:MCRoom4
+MainCharacter: Ты безумно сексуальна в таком открытом положении.
+MainCharacter: Эта потрясающая задница..Ммм.. перед моими глазами.
+@back RoomGGExtra9 id:MCRoom4
+MainCharacter: Ноги раздвинуты и ждешь.. 
+MainCharacter: Ждешь, когда я трахну тебя. 
+@back RaquelPose2 id:MCRoom4
+MainCharacter: Черт! Ты настолько мокрая, что стекаешь по бедрам! 
+Raquel: Да! Черт возьми, да! 
+Raquel: Трахни меня. 
+@spawn Fade
+@hideAll
+@back Day2_Rakel_11 id:VideoBack1
+@unlock Day2_Rakel_11
+@despawn Fade
+@hidePrinter
+[i]
+Raquel: Двигайся глубже. Я готова к тебе, {MainCharacter}! 
+Raquel: Аааах! {MainCharacter}! 
+Raquel: Двигайся, ну же! Сильнее! 
+MainCharacter: Такая требовательная. Вау. 
+@back RaquelPose3 id:MCRoom4
+@back Day2_Rakel_11 id:VideoBack1 visible:false
+Raquel: Я хочу слышать, как ты ударяешься бедрами о мою задницу. 
+@spawn Fade
+@hideAll
+@back Day2_Rakel_12 id:VideoBack1
+@unlock Day2_Rakel_12
+@despawn Fade
+@hidePrinter
+[i]
+Raquel: Да! Так! {MainCharacter}, не останавливайся! 
+Raquel: Не прекращай трахать меня! 
+Raquel: Никогда не прекращай так трахать меня! 
+Raquel: Я чувствую себя такой растянутой и наполненной. 
+ThoughtsMainCharacter: Какая она невероятно горячая.
+@back RaquelPose4 id:MCRoom4
+@back Day2_Rakel_12 id:VideoBack1 visible:false
+ThoughtsMainCharacter: Я готов кончить только от такой просьбы. 
+@spawn Fade
+@hideAll
+@back Day2_Rakel_13 id:VideoBack1
+@unlock Day2_Rakel_13
+@despawn Fade
+@hidePrinter
+[i]
+MainCharacter: Скажи, так я тебя трахал  в твоем сне? 
+MainCharacter: За барной стойкой.
+Raquel: Здесь.. Ааах.. Здесь, в реальности, лучше. 
+Raquel: Ты делаешь это лучше. 
+@back RoomGGExtra10 id:MCRoom4
+@back Day2_Rakel_13 id:VideoBack1 visible:false
+Raquel: Твой горячий, потрясающий член.. О боже! 
+Raquel: Да! Я скоро, {MainCharacter}.. Ааах.. 
+Raquel: Во сне ты так же удерживал меня. 
+@back RaquelPose5 id:MCRoom4
+Raquel: И все жестче и жестче насаживал меня на свой член. 
+MainCharacter: А так тоже было в твоем сне? 
+@spawn Fade
+@hideAll
+@back Day2_Rakel_14 id:VideoBack1
+@unlock Day2_Rakel_14
+@despawn Fade
+@hidePrinter
+[i]
+Raquel: Аааааа! {MainCharacter}! Черт! Это слишком.. 
+ThoughtsMainCharacter: Она невероятно горячая внутри.
+ThoughtsMainCharacter: Она сжимается все сильнее и сильнее. 
+ThoughtsMainCharacter: Мой член полностью в ее власти.. Я больше не могу!
+@back RaquelPose6 id:MCRoom4
+@back Day2_Rakel_14 id:VideoBack1 visible:false
+MainCharacter: Черт, Ракель! 
+ThoughtsMainCharacter: Я хочу кончить, но также хочется, чтоб это удовольствие длилось вечность! 
+@back RoomGGExtra11 id:MCRoom4
+@usfx Sound220
+MainCharacter: Ракель, ты как жидкий бархат. Тугой и горячий. 
+Raquel: Наполняй меня, {MainCharacter}. Не останавливайся. Я уже скоро... 
+MainCharacter: Я хочу.. 
+Raquel: Чего? 
+MainCharacter: Я хочу видеть твой оргазм. Пожалуйста.. 
+@back MaxPose id:MCRoom4
+Raquel: Такой ласковой просьбе я не могу отказать. 
+MainCharacter: Никогда не видел, чтоб в чьей-то улыбке предвкушения так идеально сочеталась дьявольская нотка с нежностью.
+@back MaxPose1 id:MCRoom4
+MainCharacter: Ааах.. в этот раз ты приспособилась к нему гораздо быстрее.. 
+@spawn Fade
+@hideAll
+@back Day2_Rakel_15 id:VideoBack1
+@unlock Day2_Rakel_15
+@despawn Fade
+@hidePrinter
+[i]
+Raquel: Ты так даже сильнее меня заполняешь.. 
+Raquel: Мне нравится чувствовать тебя так глубоко внутри. 
+MainCharacter: Мне тоже нравится. Очень. 
+MainCharacter: Так я смогу увидеть удовольствие на твоем лице. 
+MainCharacter: Смогу увидеть, как твои глаза застилает волна оргазма. 
+@back MaxPoseKiss id:MCRoom4
+@back Day2_Rakel_15 id:VideoBack1 visible:false
+[i]
+@back RoomGGExtra12 id:MCRoom4
+MainCharacter: Почти болезненно идеально. 
+MainCharacter: Ничего в мире не имеет значения сейчас. 
+@spawn Fade
+@hideAll
+@back Day2_Rakel_16 id:VideoBack1
+@unlock Day2_Rakel_16
+@despawn Fade
+@hidePrinter
+[i]
+MainCharacter: Только эти точки касания, скользкое тепло, сжимающееся вокруг моего члена. 
+MainCharacter: Ааах, Ракель.. Я больше не могу. Я сейчас кончу! 
+Raquel: Аааах.. Да. Боже, как же ты глубоко. Боже! 
+@back MaxRaquelFinish id:MCRoom4
+@back Day2_Rakel_16 id:VideoBack1 visible:false
+@bgm BathroomPublic
+@usfx Sound221
+Raquel: Даааа! Аааа! 
+@usfx Sound299
+@back Black id:MCRoom4
+[i]
+@back MaxSleepy id:MCRoom4
+MainCharacter: Ты это слышала? 
+MainCharacter: Ракель? 
+MainCharacter: Кто-то бегает по коридору? 
+@back RaquelNo id:MCRoom4
+Stacey: Мммм.. Челси не преувеличивала, говоря, что они очень нежны друг с 
+MainCharacter: Ракель? Хммм.. ушла.
+@usfx Sound193
+MainCharacter: А могли бы утром пообниматься еще. 
+MainCharacter: Если шумит дева с красными бусами, то ...
+@back MaxPillow id:MCRoom4
+MainCharacter: ...властью данной мне. ..
+MainCharacter: ..уходит. И не смей шуметь. 
+MainCharacter: А Ракель была во сне или наяву? Может это все только ..пффф
+@back MaxPillow1 id:MCRoom4
+MainCharacter: Аааах.. Наяву все-таки. 
+@usfx Sound290
+MainCharacter: Как-то шумно она бежит по лестнице. 
+MainCharacter: Все услышат и поймут, откуда бежит. 
+@back MaxPillow2 id:MCRoom4
+MainCharacter: Горячая штучка -  Ракель.
+@ach SpiritualAwakening
+@stopBgm BathroomPublic
+@goto Day3

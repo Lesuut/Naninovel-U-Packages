@@ -20,6 +20,7 @@ namespace Naninovel.U.BSSNaniBugNamesReplaseParser
         private SerializedProperty namesProperty;
 
         private int replaceCounter = 0;
+        private string replaseLineList = "";
 
         private const string InputScriptPathKey = "InputScriptPath";
         private const string InputNarrativePathKey = "InputNarrativePath";
@@ -166,6 +167,7 @@ namespace Naninovel.U.BSSNaniBugNamesReplaseParser
                 string narrativeContent = File.ReadAllText(inputNarrativePath);
 
                 replaceCounter = 0;
+                replaseLineList = "";
 
                 // Replace logic
                 string parsedContent = ReplaceBugNames(scriptContent, narrativeContent);
@@ -177,6 +179,7 @@ namespace Naninovel.U.BSSNaniBugNamesReplaseParser
 
                 File.WriteAllText(outputScriptPath, parsedContent);
                 EditorUtility.DisplayDialog("Success", $"The script has been parsed and saved successfully. Replace Count: {replaceCounter}", "OK");
+                Debug.Log($"Replase List:\n{replaseLineList}");
             }
             catch (System.Exception ex)
             {
@@ -200,6 +203,7 @@ namespace Naninovel.U.BSSNaniBugNamesReplaseParser
             for (int i = 0; i < scriptLines.Length; i++)
             {
                 bool foundMatch = false;
+                string lastFindNewLine = "";
 
                 if (IsLineIsMessage(scriptLines[i]))
                 {
@@ -209,11 +213,14 @@ namespace Naninovel.U.BSSNaniBugNamesReplaseParser
                             FormatNamesInLine(SplitLineItems(narrativeLines[q])[1]) == SplitLineItems(scriptLines[i])[1]
                             && IsCorrectLine(scriptLines, i, narrativeLines, q))
                         {
-                            Debug.Log($"{scriptLines[i]} Nar: {SplitLineItems(narrativeLines[q])[0]} Input: {SplitLineItems(scriptLines[i])[0]}");
-                            replaceCounter++;
+                            if (SplitLineItems(narrativeLines[q])[0] != SplitLineItems(scriptLines[i])[0])
+                            {
+                                replaceCounter++;
+                                replaseLineList += $"{scriptLines[i]} => {SplitLineItems(narrativeLines[q])[0]}: {SplitLineItems(scriptLines[i])[1]} [{i+1}]\n";
+                            }
 
                             // Добавляем строку из нарратива
-                            newNaniScriptLines.Add($"{SplitLineItems(narrativeLines[q])[0]}: {SplitLineItems(scriptLines[i])[1]}");
+                            lastFindNewLine = $"{SplitLineItems(narrativeLines[q])[0]}: {SplitLineItems(scriptLines[i])[1]}";
 
                             // Отмечаем, что совпадение найдено
                             foundMatch = true;
@@ -224,10 +231,8 @@ namespace Naninovel.U.BSSNaniBugNamesReplaseParser
                 }
 
                 // Если совпадения не найдено, добавляем оригинальную строку
-                if (!foundMatch)
-                {
-                    newNaniScriptLines.Add(scriptLines[i]);
-                }
+
+                newNaniScriptLines.Add(foundMatch ? lastFindNewLine : scriptLines[i]);
             }
 
             return string.Join("\n", newNaniScriptLines);
