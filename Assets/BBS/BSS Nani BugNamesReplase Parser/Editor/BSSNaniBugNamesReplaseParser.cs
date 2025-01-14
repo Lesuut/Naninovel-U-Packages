@@ -1,4 +1,5 @@
 ﻿using Codice.Client.BaseCommands.Changelist;
+using Naninovel.Parsing;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,8 +14,7 @@ namespace Naninovel.U.BSSNaniBugNamesReplaseParser
         private string inputNarrativePath = "";
         private string outputScriptPath = "";
 
-        // Массив строк, которые будем редактировать в окне
-        public string[] names;
+        public string[] names = Array.Empty<string>();
 
         private SerializedObject serializedObject;
         private SerializedProperty namesProperty;
@@ -34,49 +34,59 @@ namespace Naninovel.U.BSSNaniBugNamesReplaseParser
 
         private void OnEnable()
         {
-            // Инициализация SerializedObject и SerializedProperty для работы с массивом
             serializedObject = new SerializedObject(this);
             namesProperty = serializedObject.FindProperty("names");
 
-            // Загрузка данных из EditorPrefs
             inputScriptPath = EditorPrefs.GetString(InputScriptPathKey, "");
             inputNarrativePath = EditorPrefs.GetString(InputNarrativePathKey, "");
             outputScriptPath = EditorPrefs.GetString(OutputScriptPathKey, "");
+
             string namesString = EditorPrefs.GetString(NamesKey, "");
-            if (!string.IsNullOrEmpty(namesString))
-            {
-                names = namesString.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-            }
+            names = !string.IsNullOrEmpty(namesString)
+                ? namesString.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries)
+                : Array.Empty<string>();
         }
 
         private void OnDisable()
         {
-            // Применить изменения, если они были сделаны
             serializedObject.ApplyModifiedProperties();
 
-            // Сохранение данных в EditorPrefs
             EditorPrefs.SetString(InputScriptPathKey, inputScriptPath);
             EditorPrefs.SetString(InputNarrativePathKey, inputNarrativePath);
             EditorPrefs.SetString(OutputScriptPathKey, outputScriptPath);
-            if (names != null)
-            {
-                EditorPrefs.SetString(NamesKey, string.Join(";", names));
-            }
+            EditorPrefs.SetString(NamesKey, string.Join(";", names));
         }
 
         private void OnGUI()
         {
             GUILayout.Label("Nani Bug Names Replace Parser", EditorStyles.boldLabel);
 
-            // Добавление и редактирование массива строк
-            EditorGUILayout.PropertyField(namesProperty, new GUIContent("Extracted Names"), true);
+            EditorGUILayout.Space();
 
-            // Применение изменений после редактирования массива
-            serializedObject.ApplyModifiedProperties();
+            // Массив строк с возможностью редактирования
+            GUILayout.Label("Names to Replace", EditorStyles.label);
+            if (names != null)
+            {
+                for (int i = 0; i < names.Length; i++)
+                {
+                    GUILayout.BeginHorizontal();
+                    names[i] = EditorGUILayout.TextField($"Name {i + 1}", names[i]);
+                    if (GUILayout.Button("-", GUILayout.Width(20)))
+                    {
+                        RemoveNameAtIndex(i);
+                        break;
+                    }
+                    GUILayout.EndHorizontal();
+                }
+            }
+
+            if (GUILayout.Button("Add Name"))
+            {
+                AddNewName();
+            }
 
             EditorGUILayout.Space();
 
-            // Ввод путей к файлам
             GUILayout.Label("Input Nani Script Path", EditorStyles.label);
             inputScriptPath = EditorGUILayout.TextField(inputScriptPath);
             if (GUILayout.Button("Browse Input Script"))
@@ -88,8 +98,6 @@ namespace Naninovel.U.BSSNaniBugNamesReplaseParser
                 }
             }
 
-            EditorGUILayout.Space();
-
             GUILayout.Label("Input Narrative Nani Path", EditorStyles.label);
             inputNarrativePath = EditorGUILayout.TextField(inputNarrativePath);
             if (GUILayout.Button("Browse Input Narrative"))
@@ -100,8 +108,6 @@ namespace Naninovel.U.BSSNaniBugNamesReplaseParser
                     inputNarrativePath = selectedPath;
                 }
             }
-
-            EditorGUILayout.Space();
 
             GUILayout.Label("Output Parsed Script Path", EditorStyles.label);
             outputScriptPath = EditorGUILayout.TextField(outputScriptPath);
@@ -116,7 +122,6 @@ namespace Naninovel.U.BSSNaniBugNamesReplaseParser
 
             EditorGUILayout.Space();
 
-            // Кнопка для конвертации
             if (GUILayout.Button("Convert"))
             {
                 if (ValidatePaths())
@@ -128,21 +133,29 @@ namespace Naninovel.U.BSSNaniBugNamesReplaseParser
                     EditorUtility.DisplayDialog("Error", "Please ensure all paths are set correctly and files are .nani.", "OK");
                 }
             }
+        }
 
-            EditorGUILayout.Space();
+        private void AddNewName()
+        {
+            var namesList = new List<string>(names) { string.Empty };
+            names = namesList.ToArray();
+        }
+
+        private void RemoveNameAtIndex(int index)
+        {
+            var namesList = new List<string>(names);
+            if (index >= 0 && index < namesList.Count)
+            {
+                namesList.RemoveAt(index);
+                names = namesList.ToArray();
+            }
         }
 
         private bool ValidatePaths()
         {
-            bool isValid = !string.IsNullOrEmpty(inputScriptPath) && File.Exists(inputScriptPath) && Path.GetExtension(inputScriptPath) == ".nani" &&
-                           !string.IsNullOrEmpty(inputNarrativePath) && File.Exists(inputNarrativePath) && Path.GetExtension(inputNarrativePath) == ".nani" &&
-                           !string.IsNullOrEmpty(outputScriptPath) && Path.GetExtension(outputScriptPath) == ".nani";
-
-            if (!isValid)
-            {
-                EditorUtility.DisplayDialog("Error", "Some paths are invalid. Please check if the files exist and are .nani.", "OK");
-            }
-            return isValid;
+            return !string.IsNullOrEmpty(inputScriptPath) && File.Exists(inputScriptPath) && Path.GetExtension(inputScriptPath) == ".nani" &&
+                   !string.IsNullOrEmpty(inputNarrativePath) && File.Exists(inputNarrativePath) && Path.GetExtension(inputNarrativePath) == ".nani" &&
+                   !string.IsNullOrEmpty(outputScriptPath) && Path.GetExtension(outputScriptPath) == ".nani";
         }
 
         private void ConvertScript()
@@ -184,54 +197,106 @@ namespace Naninovel.U.BSSNaniBugNamesReplaseParser
 
             List<string> newNaniScriptLines = new List<string>();
 
-            foreach (string naniScriptLine in scriptLines)
+            for (int i = 0; i < scriptLines.Length; i++)
             {
-                string modifiedLine = naniScriptLine; // Начинаем с оригинальной строки
-                bool replaced = false; // Флаг для отслеживания, была ли строка изменена
+                bool foundMatch = false;
 
-                if (isLineIsMessage(GetLineItems(naniScriptLine)))
+                if (IsLineIsMessage(scriptLines[i]))
                 {
-                    string[] massageLine = GetLineItems(naniScriptLine);
-
-                    foreach (string narativeLine in narrativeLines)
+                    for (int q = 0; q < narrativeLines.Length; q++)
                     {
-                        if (isLineIsMessage(GetLineItems(narativeLine)))
+                        if (IsLineIsMessage(narrativeLines[q]) &&
+                            FormatNamesInLine(SplitLineItems(narrativeLines[q])[1]) == SplitLineItems(scriptLines[i])[1]
+                            && IsCorrectLine(scriptLines, i, narrativeLines, q))
                         {
-                            string[] narrativeLineItems = GetLineItems(narativeLine);
-                            if (massageLine.Length > 1 && narrativeLineItems.Length > 1)
-                            {
-                                if (massageLine[1] == narrativeLineItems[1].Replace("Макс", "{MainCharacter}").Replace("Эванс", "{MainCharacter}"))
-                                {
-                                    replaceCounter++;
-                                    modifiedLine = $"{narrativeLineItems[0]}:{massageLine[1]}"; // Изменяем строку
-                                    replaced = true; // Устанавливаем флаг, что произошла замена
-                                    break; // Прерываем цикл, так как мы уже нашли совпадение
-                                }
-                            }
+                            Debug.Log($"{scriptLines[i]} Nar: {SplitLineItems(narrativeLines[q])[0]} Input: {SplitLineItems(scriptLines[i])[0]}");
+                            replaceCounter++;
+
+                            // Добавляем строку из нарратива
+                            newNaniScriptLines.Add($"{SplitLineItems(narrativeLines[q])[0]}: {SplitLineItems(scriptLines[i])[1]}");
+
+                            // Отмечаем, что совпадение найдено
+                            foundMatch = true;
+
+                            // Не прерываем цикл, чтобы продолжить добавление других совпадений
                         }
                     }
                 }
 
-                // Добавляем измененную или оригинальную строку
-                newNaniScriptLines.Add(modifiedLine);
+                // Если совпадения не найдено, добавляем оригинальную строку
+                if (!foundMatch)
+                {
+                    newNaniScriptLines.Add(scriptLines[i]);
+                }
             }
 
             return string.Join("\n", newNaniScriptLines);
         }
-
-        private bool isLineIsMessage(string[] lineItems)
+        private bool IsCorrectLine(string[] scriptLines, int scriptIndex, string[] narrativeLines, int narrativeIndex)
         {
-            if (lineItems.Length == 2 && !string.IsNullOrEmpty(lineItems[0]))
+            // Проверка на корректность начальных индексов
+            if (scriptIndex < 0 || scriptIndex >= scriptLines.Length ||
+                narrativeIndex < 0 || narrativeIndex >= narrativeLines.Length)
             {
-                var nameSet = new HashSet<string>(names);  // предполагается, что names - это список
-                return nameSet.Contains(lineItems[0]);
+                return false;
             }
+
+            while (narrativeIndex >= 0) // Проверка, чтобы не выйти за пределы массива
+            {
+                narrativeIndex--;
+
+                if (narrativeIndex < 0) break; // Если индекс становится отрицательным, выходим из цикла
+
+                if (IsLineIsMessage(narrativeLines[narrativeIndex]))
+                {
+                    while (scriptIndex >= 0) // Проверка, чтобы не выйти за пределы массива
+                    {
+                        scriptIndex--;
+
+                        if (scriptIndex < 0) break; // Если индекс становится отрицательным, выходим из цикла
+
+                        if (IsLineIsMessage(scriptLines[scriptIndex]))
+                        {
+                            // Проверяем совпадение имен
+                            if (FormatNamesInLine(SplitLineItems(narrativeLines[narrativeIndex])[1]) ==
+                                SplitLineItems(scriptLines[scriptIndex])[1])
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return false; // Возвращаем false, если совпадений не найдено
+        }
+
+        private bool IsLineIsMessage(string scriptLine)
+        {
+            string[] scriptLineSplited = SplitLineItems(scriptLine);
+
+            if (scriptLineSplited.Length > 1)
+            {
+                foreach (var name in names)
+                {
+                    if (scriptLineSplited[0] == name)
+                    {
+                        return true;
+                    }
+                }
+            }
+
             return false;
         }
 
-        private string[] GetLineItems(string line)
+        private string[] SplitLineItems(string line)
         {
-            return line.Split(':');
+            return line.Split(": ");
+        }
+
+        private string FormatNamesInLine(string line)
+        {
+            return line.Replace("мистер Эванс", "{MainCharacter}").Replace("Мистер Эванс", "{MainCharacter}").Replace("Макс", "{MainCharacter}");
         }
     }
 }
