@@ -1,6 +1,8 @@
 using Naninovel.UI;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace Naninovel.U.%CORENAME%
 {

@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Naninovel.U.%CORENAME%
 {
     public interface I%CORENAME%%SM% : IEngineService<%CORENAME%Configuration>
