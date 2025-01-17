@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8baaf91b3ac855428cf36675734c8e2, type: 3}
+  m_Name: MusicChainPlayerConfiguration
+  m_EditorClassIdentifier: 
+  AudioMixer: {fileID: 0}
+  MusicItems:
+  - Key: 1
+    AudioClip: {fileID: 8300000, guid: 450dd4d1d91d1034a808c0c5fba646dc, type: 3}
+  - Key: 2
+    AudioClip: {fileID: 8300000, guid: 0338d758c3591ae4eabe3cbefdc42f4d, type: 3}
+  - Key: 3
+    AudioClip: {fileID: 8300000, guid: a2a67c48cfb239c4085fdd45287ba58b, type: 3}
