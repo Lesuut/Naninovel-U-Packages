@@ -108,7 +108,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
 
             if (GUILayout.Button("Generate Service"))
             {
-                if (!useService && !useUI)
+                if (!useService && !useUI && commands.Replace(" ", "").Split(",").Length > 0 && functions.Replace(" ", "").Split(",").Length > 0)
                 {
                     EditorUtility.DisplayDialog("Nice Try", "You should decide what to do.)", "OK");
                     return;
@@ -129,7 +129,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
         {
             TemplateServiceGeneratorInfo templateServiceGeneratorInfo = LoadTemplateServiceGeneratorInfo();
 
-            string serviceFolderName = $"Naninovel_{coreName}";
+            string serviceFolderName = $"Naninovel_U_{coreName}";
             string serviceFolderPath = Path.Combine(servicePath, serviceFolderName);
             string sm = isService ? "Service" : "Manager";
 
@@ -141,15 +141,12 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
 
             CreateEmptyFolder(serviceFolderPath, "Runtime");
 
-            if (useUIdata || useService)
+            if (useService)
             {
                 GenerateCSharpScript(runtimePath, $"{coreName}State",
                         ReplaceKeys(templateServiceGeneratorInfo.BaseState.text,
                         coreName, sm));
-            }
 
-            if (useService)
-            {
                 GenerateCSharpScript(runtimePath, $"I{coreName}{sm}",
                         ReplaceKeys(templateServiceGeneratorInfo.IBaseService.text,
                         coreName, sm));

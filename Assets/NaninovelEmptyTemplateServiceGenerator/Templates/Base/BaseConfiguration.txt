@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Naninovel.U.%CORENAME%
 {
     /// <summary>
-    /// Contains configuration data for the inventory-related systems.
+    /// Contains configuration data for the %CORENAME% systems.
     /// </summary>
     [EditInProjectSettings]
     public class %CORENAME%Configuration : Configuration

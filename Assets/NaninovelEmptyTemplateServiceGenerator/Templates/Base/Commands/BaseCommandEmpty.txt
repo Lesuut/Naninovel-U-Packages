@@ -1,4 +1,4 @@
-namespace Naninovel.U.%CORENAME%
+namespace Naninovel.U.%CORENAME%.Commands
 {
     [CommandAlias("%COMMANDNAME%")]
     public class %COMMANDNAMEHEAD%Command : Command
