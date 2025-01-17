@@ -27,9 +27,21 @@ namespace Naninovel.U.MusicChainPlayer
                 return;
             }
 
-            StopMusicChain(); // Останавливаем текущую кураутину, если она запущена
-            isPlaying = true;
-            musicCoroutine = StartCoroutine(PlayMusicChainCoroutine(clips));
+            // Если музыка уже играет, плавно затушим текущую музыку
+            if (musicCoroutine != null)
+            {
+                StopCoroutine(musicCoroutine);
+                StartCoroutine(StopWithFadeOut(() =>
+                {
+                    isPlaying = true;
+                    musicCoroutine = StartCoroutine(PlayMusicChainCoroutine(clips));
+                }));
+            }
+            else
+            {
+                isPlaying = true;
+                musicCoroutine = StartCoroutine(PlayMusicChainCoroutine(clips));
+            }
         }
 
         public void StopMusicChain()
@@ -51,11 +63,13 @@ namespace Naninovel.U.MusicChainPlayer
             }
         }
 
-        private IEnumerator StopWithFadeOut()
+        private IEnumerator StopWithFadeOut(System.Action onComplete = null)
         {
             isPlaying = false; // Прекращаем основное воспроизведение
             yield return StartCoroutine(FadeVolume(musicSource.volume, 0f)); // Затухание громкости
             musicSource.Stop(); // Полная остановка
+
+            onComplete?.Invoke(); // Вызовем коллбек для начала новой музыки
         }
 
         public void DestoryObj()
