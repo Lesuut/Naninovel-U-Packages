@@ -1,4 +1,4 @@
-// Copyright 2022 ReWaffle LLC. All rights reserved.
+﻿// Copyright 2022 ReWaffle LLC. All rights reserved.
 
 namespace Naninovel.UI
 {
@@ -15,5 +15,10 @@ namespace Naninovel.UI
         /// <param name="appearance">Appearance variant of the toast; default is used when not specified.</param>
         /// <param name="duration">Seconds to wait before hiding the toast; default is used when not specified.</param>
         void Show (string text, string appearance = default, float? duration = default);
+
+        /// <summary>
+        /// Немедленно скрывает активный тост (если он есть).
+        /// </summary>
+        void HideToastImmediately();
     }
 }

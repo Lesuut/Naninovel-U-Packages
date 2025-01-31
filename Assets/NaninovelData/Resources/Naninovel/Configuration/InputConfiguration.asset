@@ -54,7 +54,7 @@ MonoBehaviour:
     Swipes: []
   - Name: Skip
     AlwaysProcess: 0
-    Keys: 32010000310100004b010000
+    Keys: 32010000310100004b01000012010000
     Axes: []
     Swipes: []
   - Name: ToggleSkip
@@ -118,4 +118,9 @@ MonoBehaviour:
     - AxisName: Mouse Y
       TriggerMode: 0
       TriggerTolerance: 0.001
+    Swipes: []
+  - Name: My
+    AlwaysProcess: 0
+    Keys: 11010000
+    Axes: []
     Swipes: []

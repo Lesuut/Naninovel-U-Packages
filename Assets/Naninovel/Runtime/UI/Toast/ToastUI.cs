@@ -1,6 +1,4 @@
-// Copyright 2022 ReWaffle LLC. All rights reserved.
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,7 +15,7 @@ namespace Naninovel.UI
         private readonly Dictionary<string, ToastAppearance> appearances = new Dictionary<string, ToastAppearance>(StringComparer.OrdinalIgnoreCase);
         private Timer hideTimer;
 
-        protected override void Awake ()
+        protected override void Awake()
         {
             base.Awake();
 
@@ -29,7 +27,7 @@ namespace Naninovel.UI
                 appearances[appearance.name] = appearance;
         }
 
-        public void Show (string text, string appearance = default, float? duration = default)
+        public void Show(string text, string appearance = default, float? duration = default)
         {
             if (!TrySelectAppearance(appearance, out var selectedAppearance)) return;
             if (hideTimer.Running) hideTimer.Stop();
@@ -38,7 +36,7 @@ namespace Naninovel.UI
             base.Show();
         }
 
-        private bool TrySelectAppearance (string appearanceName, out ToastAppearance selectedAppearance)
+        private bool TrySelectAppearance(string appearanceName, out ToastAppearance selectedAppearance)
         {
             var appearanceId = appearanceName ?? defaultAppearance.name;
             if (!appearances.TryGetValue(appearanceId, out selectedAppearance))
@@ -54,6 +52,14 @@ namespace Naninovel.UI
             selectedAppearance.SetSelected(true);
 
             return true;
+        }
+
+        public void HideToastImmediately()
+        {
+            // Останавливаем таймер, если он работает
+            if (hideTimer.Running) hideTimer.Stop();
+            // Скрываем тост сразу
+            base.Hide();
         }
     }
 }
