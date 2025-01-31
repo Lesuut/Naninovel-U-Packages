@@ -1,0 +1,7 @@
+﻿/* MyNodeStyles.uss */
+.flow-node {
+    background-color: #D32F2F;
+    border-radius: 0; /* Убираем скругление углов */
+    border-width: 1px;
+    border-color: #000000;
+}
