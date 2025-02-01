@@ -9,6 +9,7 @@ namespace Naninovel.UFlow.Data
     {
         public NodeType NodeType;
         public Vector2 NodePosition;
+        public int NodeId;
         public List<FlowPortData> OutputPorts;
         public List<FlowPortData> InputPorts;
 
