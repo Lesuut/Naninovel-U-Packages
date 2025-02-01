@@ -7,6 +7,7 @@ namespace Naninovel.UFlow.Enumeration
     {
         Start,
         Waypoint,
-        End
+        End,
+        PlayScript,
     }
 }

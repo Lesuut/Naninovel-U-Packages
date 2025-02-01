@@ -1,12 +1,11 @@
-﻿using Naninovel.UFlow.Data;
-using System.Linq;
-using UnityEditor.Experimental.GraphView;
+﻿using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 
 namespace Naninovel.UFlow.Elements
 {
     using Enumeration;
     using Naninovel.UFlow.Utility;
+    using System.Collections.Generic;
 
     public class StartFlowNode : FlowNode
     {
@@ -21,6 +20,7 @@ namespace Naninovel.UFlow.Elements
 
         protected override void OutputContainer()
         {
+            base.OutputContainer();
             AddOutputPort();
         }
 
@@ -54,12 +54,32 @@ namespace Naninovel.UFlow.Elements
         {
             if (outputContainer.childCount > 0)
             {
-                // Удаляем последний порт
-                var lastPort = outputContainer.ElementAt(outputContainer.childCount - 1);
-                outputContainer.Remove(lastPort);
-                outputPortCount--;
-                RefreshExpandedState();
-                RefreshPorts(); // Обновляем порты
+                // Получаем последний порт
+                var lastPort = outputContainer.ElementAt(outputContainer.childCount - 1) as Port;
+
+                if (lastPort != null)
+                {
+                    // Удаляем все соединения (Edges), связанные с этим портом
+                    var edgesToRemove = new List<Edge>();
+                    foreach (var edge in lastPort.connections)
+                    {
+                        edgesToRemove.Add(edge);
+                    }
+
+                    foreach (var edge in edgesToRemove)
+                    {
+                        edge.input.Disconnect(edge);
+                        edge.output.Disconnect(edge);
+                        edge.RemoveFromHierarchy();
+                    }
+
+                    // Удаляем сам порт
+                    outputContainer.Remove(lastPort);
+                    outputPortCount--;
+
+                    RefreshExpandedState();
+                    RefreshPorts(); // Обновляем порты
+                }
             }
         }
     }

@@ -14,7 +14,7 @@ namespace Naninovel.U.Flow
         [Header("Backgrounds")]
         public string BackgroundCommand = "@back %ID%";
         [Space]
-        public string[] Backgrounds;
+        public BackgroundItem[] Backgrounds;
         [Header("Buttons")]
         public TransferButton[] TransferButtons;
     }
@@ -24,5 +24,13 @@ namespace Naninovel.U.Flow
     {
         public string Name;
         public GameObject Button;
+    }
+
+    [Serializable]
+    public struct BackgroundItem
+    {
+        public string Name;
+        [Tooltip("Optional")]
+        public Texture2D Icone;
     }
 }

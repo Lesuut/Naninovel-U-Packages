@@ -42,6 +42,11 @@ namespace Naninovel.UFlow.Editor
                     return;
                 }
 
+                if (startPort.portType != port.portType)
+                {
+                    return;
+                }
+
                 compatiblePorts.Add(port);
             });
 
@@ -59,6 +64,9 @@ namespace Naninovel.UFlow.Editor
             this.AddManipulator(CreateNodeContextualMenu("Add Node", "FlowNode"));
             this.AddManipulator(CreateNodeContextualMenu("Add Node Test", "TestFlowNode"));
             this.AddManipulator(CreateNodeContextualMenu("Add Node Start", NodeType.Start));
+            this.AddManipulator(CreateNodeContextualMenu("Add Node Waypoint", NodeType.Waypoint));
+            this.AddManipulator(CreateNodeContextualMenu("Add Node End", NodeType.End));
+            this.AddManipulator(CreateNodeContextualMenu("Add Node PlayScript", NodeType.PlayScript));
         }
 
         private IManipulator CreateNodeContextualMenu(string actionTitle, string ClassName)

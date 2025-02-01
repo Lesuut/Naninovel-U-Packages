@@ -14,12 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackgroundCommand: '@back %ID%'
   Backgrounds:
-  - A
-  - B
-  - C
-  - D
-  - E
-  - F
+  - Name: A
+    Icone: {fileID: 0}
+  - Name: B
+    Icone: {fileID: 2800000, guid: 8e43ad7fbd905de4abfc75d629fe6c89, type: 3}
+  - Name: C
+    Icone: {fileID: 2800000, guid: 77715c7282d055b4093fdd732ec53c60, type: 3}
+  - Name: D
+    Icone: {fileID: 2800000, guid: 21274a17ac7f0ef498b55896770f1ff4, type: 3}
+  - Name: E
+    Icone: {fileID: 0}
+  - Name: F
+    Icone: {fileID: 0}
   TransferButtons:
   - Name: Button Left
     Button: {fileID: 0}

@@ -7,6 +7,7 @@ namespace Naninovel.UFlow.Utility
     using Data;
     using Naninovel.U.Flow;
     using System;
+    using System.IO;
     using System.Linq;
 
     public static class FlowUtility
@@ -97,13 +98,22 @@ namespace Naninovel.UFlow.Utility
             return nodeAsset;
         }
 
-        public static List<string> GetAllMaps()
+        public static List<BackgroundItem> GetAllMaps()
         {
             return LoadScriptableObject<FlowConfiguration>().Backgrounds.ToList();
         }
         public static List<string> GetAllButtons()
         {
             return LoadScriptableObject<FlowConfiguration>().TransferButtons.Select(item => item.Name).ToList();
+        }
+
+        /// <summary>
+        /// Ищет все файлы с расширением .nani в проекте и возвращает их имена.
+        /// </summary>
+        public static List<string> GetAllNaniFiles()
+        {
+            string[] files = Directory.GetFiles(Application.dataPath, "*.nani", SearchOption.AllDirectories);
+            return files.Select(Path.GetFileName).ToList();
         }
     }
 }

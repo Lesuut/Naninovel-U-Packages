@@ -27,6 +27,8 @@ namespace Naninovel.UFlow.Editor
         {
             AddGraphView();
             AddToolbar();
+
+            UnityEngine.Debug.Log(string.Join(", ", FlowUtility.GetAllNaniFiles()));
         }
 
         private void AddGraphView()

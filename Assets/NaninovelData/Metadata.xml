@@ -16,6 +16,11 @@
         &lt;/Appearances&gt;
       &lt;/Actor&gt;
       &lt;Actor&gt;
+        &lt;Id&gt;Test&lt;/Id&gt;
+        &lt;Type&gt;Backgrounds&lt;/Type&gt;
+        &lt;Appearances /&gt;
+      &lt;/Actor&gt;
+      &lt;Actor&gt;
         &lt;Id&gt;ButtonList&lt;/Id&gt;
         &lt;Type&gt;ChoiceHandlers&lt;/Type&gt;
         &lt;Appearances /&gt;
