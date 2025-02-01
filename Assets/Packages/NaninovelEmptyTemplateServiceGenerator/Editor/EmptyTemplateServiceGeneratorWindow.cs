@@ -332,7 +332,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
         private TemplateServiceGeneratorInfo LoadTemplateServiceGeneratorInfo()
         {
             // Путь к ScriptableObject относительно папки "Assets"
-            string path = "Assets/NaninovelEmptyTemplateServiceGenerator/Templates/TemplateServiceGeneratorInfo.asset";
+            string path = "Assets/Packages/NaninovelEmptyTemplateServiceGenerator/Templates/TemplateServiceGeneratorInfo.asset";
 
             // Загружаем ScriptableObject по указанному пути
             TemplateServiceGeneratorInfo templateServiceGeneratorInfo = AssetDatabase.LoadAssetAtPath<TemplateServiceGeneratorInfo>(path);

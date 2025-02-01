@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
@@ -8,6 +8,8 @@ using System.Collections.Generic;
 namespace Naninovel.UFlow.Editor
 {
     using Elements;
+    using System.Linq;
+    using Enumeration;
 
     public class FlowGraphView : GraphView
     {
@@ -54,7 +56,9 @@ namespace Naninovel.UFlow.Editor
             this.AddManipulator(new SelectionDragger());
             this.AddManipulator(new RectangleSelector());
 
-            this.AddManipulator(CreateNodeContextualMenu("Add Node Start", "FlowNode"));
+            this.AddManipulator(CreateNodeContextualMenu("Add Node", "FlowNode"));
+            this.AddManipulator(CreateNodeContextualMenu("Add Node Test", "TestFlowNode"));
+            this.AddManipulator(CreateNodeContextualMenu("Add Node Start", NodeType.Start));
         }
 
         private IManipulator CreateNodeContextualMenu(string actionTitle, string ClassName)
@@ -66,6 +70,20 @@ namespace Naninovel.UFlow.Editor
             return contextualMenuManipulator;
         }
 
+        private IManipulator CreateNodeContextualMenu(string actionTitle, NodeType nodeType)
+        {
+            ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
+                menuEvent => menuEvent.menu.AppendAction(actionTitle, actionEvent => AddElement(CreateNode($"{nodeType}FlowNode", actionEvent.eventInfo.localMousePosition)))
+            );
+
+            return contextualMenuManipulator;
+        }
+
+        public void CreateNode(NodeType nodeType, Vector2 position)
+        {
+            CreateNode($"{nodeType}FlowNode", position);
+        }
+
         private FlowNode CreateNode(string ClassName, Vector2 position)
         {
             Type nodeType = Type.GetType($"Naninovel.UFlow.Elements.{ClassName}, Assembly-CSharp");
@@ -74,6 +92,8 @@ namespace Naninovel.UFlow.Editor
 
             node.Initialize(position);
             node.Draw();
+
+            AddElement(node);
 
             return node;
         }
@@ -94,6 +114,22 @@ namespace Naninovel.UFlow.Editor
 
             styleSheets.Add(graphStyleSheet);
             styleSheets.Add(nodeStyleSheet);
+        }
+
+        /// <summary>
+        /// Получить список всех нодов в графе.
+        /// </summary>
+        public List<FlowNode> GetAllNodes()
+        {
+            return nodes.ToList().Cast<FlowNode>().ToList();
+        }
+
+        /// <summary>
+        /// Получить список всех соединений (Edges) в графе.
+        /// </summary>
+        public List<Edge> GetAllEdges()
+        {
+            return edges.ToList();
         }
     }
 }

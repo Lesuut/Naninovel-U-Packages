@@ -1,7 +1,23 @@
 ﻿/* MyNodeStyles.uss */
-.flow-node {
+.flow-node-start {
     background-color: #D32F2F;
     border-radius: 0; /* Убираем скругление углов */
     border-width: 1px;
     border-color: #000000;
+}
+
+.enum-field {
+    width: 75px; /* Установите желаемую ширину */
+    height: 15px; /* Установите желаемую высоту */
+    font-size: 14px; /* Размер шрифта */
+    color: #FFFFFF; /* Цвет текста */
+    background-color: #3E3E40; /* Цвет фона */
+    border-color: #4CAF50; /* Цвет границы */
+    border-radius: 4px; /* Скругление углов */
+    margin: 7px; /* Внешние отступы от соседних элементов (все четыре стороны) */
+}
+
+/* Стили для каждого выходного порта */
+.port {
+    margin-bottom: 5px; /* Отступ между портами */
 }
