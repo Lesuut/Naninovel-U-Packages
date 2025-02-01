@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ba113c70126c84a89734382bb5c2e2, type: 3}
   m_Name: NewFlowNodeAsset
   m_EditorClassIdentifier: 
-  flowNodeDatas:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  flowNodeDatas: []

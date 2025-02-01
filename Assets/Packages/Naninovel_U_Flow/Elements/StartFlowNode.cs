@@ -1,20 +1,48 @@
-﻿using UnityEditor.Experimental.GraphView;
+﻿using Naninovel.UFlow.Data;
+using System.Linq;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine.UIElements;
 
 namespace Naninovel.UFlow.Elements
 {
     using Enumeration;
-    using UnityEngine.UIElements;
+    using Naninovel.UFlow.Utility;
 
     public class StartFlowNode : FlowNode
     {
         private int outputPortCount = 1;
-        private enum OutputType { TypeA, TypeB, TypeC }
+        private string[] outputTypes = { "TypeA", "TypeB", "TypeC" }; // Список строк вместо enum
 
         protected override void SetBaseStyle()
         {
             NodeType = NodeType.Start;
             title = "Start Node";
             mainContainer.AddToClassList("flow-node-start");
+        }
+
+        public override FlowNodeData Serialization()
+        {
+            var data = base.Serialization(); // Сначала получаем общие данные о ноде
+
+            foreach (var port in outputContainer.Query<Port>().ToList())
+            {
+                // Находим первый PopupField в контент-контейнере порта
+                var popupField = port.contentContainer.Query<PopupField<string>>().ToList()[0];
+                if (popupField != null)
+                {
+                    // Извлекаем выбранный тип из PopupField
+                    string selectedType = popupField.value;
+
+                    // Сериализуем порты, добавляя тип и имя порта
+                    data.OutputPorts.Add(new FlowPortData()
+                    {
+                        PortName = port.portName,
+                        PortType = selectedType // Сохраняем строковое представление типа
+                    });
+                }
+            }
+
+            return data;
         }
 
         protected override void OutputContainer()
@@ -37,9 +65,10 @@ namespace Naninovel.UFlow.Elements
             outputPort.portName = $"Output {outputPortCount}";
             outputPort.AddToClassList("port");
 
-            EnumField enumField = new EnumField(OutputType.TypeA);
-            enumField.AddToClassList("enum-field"); // Применяем стиль
-            outputPort.contentContainer.Add(enumField);
+            // Создаём PopupField для строк
+            var popupField = new PopupField<string>("Output Type", FlowUtility.GetAllButtons(), 0); // Список строк и индекс по умолчанию
+            popupField.AddToClassList("popup-field"); // Применяем стиль
+            outputPort.contentContainer.Add(popupField);
 
             outputContainer.Add(outputPort);
             outputPortCount++;

@@ -61,6 +61,14 @@ namespace Naninovel.UFlow.Editor
             rootVisualElement.Add(toolbar);
         }
 
+        private void ClearAllNodes()
+        {
+            flowGraphView.Clear();
+            rootVisualElement.Clear();
+            AddGraphView();
+            AddToolbar();
+        }
+
         private void SaveNodes()
         {
             if(currentFilePath == string.Empty)
@@ -95,11 +103,11 @@ namespace Naninovel.UFlow.Editor
 
         private void LoadNodes(FlowAsset flowNodeAsset)
         {
-            //flowGraphView.();
+            ClearAllNodes();
 
             foreach (var item in flowNodeAsset.flowNodeDatas)
             {
-                flowGraphView.CreateNode(item.NodeType, item.NodePosition);                
+                flowGraphView.CreateNode(item.NodeType, item.NodePosition);
             }
         }
 

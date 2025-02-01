@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Naninovel.UFlow.Elements
 {
     using Enumeration;
+    using Naninovel.UFlow.Utility;
     using UnityEngine.UIElements;
 
     public class FlowNode : Node
@@ -54,9 +55,9 @@ namespace Naninovel.UFlow.Elements
 
         protected virtual void TitleContainer() 
         {
-            EnumField enumField = new EnumField(NodeType.Start);
-            enumField.AddToClassList("enum-field"); // Применяем стиль
-            titleContainer.Add(enumField);
+            var popupField = new PopupField<string>("Map ->", FlowUtility.GetAllMaps(), 0); // Список строк и индекс по умолчанию
+            popupField.AddToClassList("popup-field-map"); // Применяем стиль
+            titleContainer.contentContainer.Add(popupField);
         }
         protected virtual void InputContainer() { }
         protected virtual void OutputContainer() { }      

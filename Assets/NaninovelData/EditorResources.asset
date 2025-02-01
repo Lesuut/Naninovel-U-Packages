@@ -182,6 +182,23 @@ MonoBehaviour:
   - Id: Backgrounds/fcfa90a2-27a1-47f4-aae9-1f74d9c1136c
     Resources: []
   - Id: Backgrounds/94c4d06a-ff5f-4560-8dfe-2f6ae5753b4f
-    Resources: []
+    Resources:
+    - name: Map1
+      pathPrefix: Backgrounds/MainBackground
+      guid: 97d2cf7913d1ed245b31984642ba645b
+    - name: Map2
+      pathPrefix: Backgrounds/MainBackground
+      guid: 97d2cf7913d1ed245b31984642ba645b
+    - name: MapTest
+      pathPrefix: Backgrounds/MainBackground
+      guid: 97d2cf7913d1ed245b31984642ba645b
+    - name: ABC
+      pathPrefix: Backgrounds/MainBackground
+      guid: 97d2cf7913d1ed245b31984642ba645b
   - Id: Unlockables
     Resources: []
+  - Id: Backgrounds/364dd871-0f91-40be-baf1-0343a427bf31
+    Resources:
+    - name: Test
+      pathPrefix: Backgrounds/Test
+      guid: 

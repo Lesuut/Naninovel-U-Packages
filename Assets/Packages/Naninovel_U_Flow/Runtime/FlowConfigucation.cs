@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Naninovel.U.Flow
@@ -10,8 +11,18 @@ namespace Naninovel.U.Flow
     {
         public const string DefaultPathPrefix = "Flow";
 
-        /// <summary>
-        /// Write here the body of the configuration for Flow.
-        /// </summary>
+        [Header("Backgrounds")]
+        public string BackgroundCommand = "@back %ID%";
+        [Space]
+        public string[] Backgrounds;
+        [Header("Buttons")]
+        public TransferButton[] TransferButtons;
+    }
+
+    [Serializable]
+    public struct TransferButton
+    {
+        public string Name;
+        public GameObject Button;
     }
 }

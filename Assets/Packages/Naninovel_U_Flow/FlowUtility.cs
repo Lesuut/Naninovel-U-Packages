@@ -1,12 +1,13 @@
-﻿using Naninovel.UFlow.Elements;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using System.Linq;
 
 namespace Naninovel.UFlow.Utility
 {
     using Data;
+    using Naninovel.U.Flow;
+    using System;
+    using System.Linq;
 
     public static class FlowUtility
     {
@@ -94,6 +95,15 @@ namespace Naninovel.UFlow.Utility
 
             // Возвращаем список нодов
             return nodeAsset;
+        }
+
+        public static List<string> GetAllMaps()
+        {
+            return LoadScriptableObject<FlowConfiguration>().Backgrounds.ToList();
+        }
+        public static List<string> GetAllButtons()
+        {
+            return LoadScriptableObject<FlowConfiguration>().TransferButtons.Select(item => item.Name).ToList();
         }
     }
 }

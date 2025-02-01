@@ -12,3 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f463d96f4420e2247af57fa7a84e6f05, type: 3}
   m_Name: FlowConfiguration
   m_EditorClassIdentifier: 
+  BackgroundCommand: '@back %ID%'
+  Backgrounds:
+  - A
+  - B
+  - C
+  - D
+  - E
+  - F
+  TransferButtons:
+  - Name: Button Left
+    Button: {fileID: 0}
+  - Name: Button Right
+    Button: {fileID: 0}
+  - Name: Button Top
+    Button: {fileID: 0}
+  - Name: Button Bottom
+    Button: {fileID: 0}
