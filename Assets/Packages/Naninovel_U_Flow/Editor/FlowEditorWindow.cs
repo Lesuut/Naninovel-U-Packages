@@ -27,8 +27,6 @@ namespace Naninovel.UFlow.Editor
         {
             AddGraphView();
             AddToolbar();
-
-            UnityEngine.Debug.Log(string.Join(", ", FlowUtility.GetAllNaniFiles()));
         }
 
         private void AddGraphView()
@@ -109,7 +107,7 @@ namespace Naninovel.UFlow.Editor
 
             foreach (var item in flowNodeAsset.flowNodeDatas)
             {
-                flowGraphView.CreateNode(item.NodeType, item.NodePosition);
+                flowGraphView.CreateNode(item.NodeType, item.NodePosition).Deserialization(item);
             }
         }
 

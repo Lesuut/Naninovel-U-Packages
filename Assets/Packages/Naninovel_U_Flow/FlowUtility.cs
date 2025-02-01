@@ -6,9 +6,12 @@ namespace Naninovel.UFlow.Utility
 {
     using Data;
     using Naninovel.U.Flow;
+    using Naninovel.UFlow.Elements;
     using System;
     using System.IO;
     using System.Linq;
+    using UnityEditor.Experimental.GraphView;
+    using UnityEngine.UIElements;
 
     public static class FlowUtility
     {
@@ -114,6 +117,39 @@ namespace Naninovel.UFlow.Utility
         {
             string[] files = Directory.GetFiles(Application.dataPath, "*.nani", SearchOption.AllDirectories);
             return files.Select(Path.GetFileName).ToList();
+        }
+
+        /// <summary>
+        /// Сериализует подключения нодов и возвращает список связанных нодов.
+        /// </summary>
+        public static List<FlowPortData> SerializeFlowNodeConnections(VisualElement outputContainer)
+        {
+            List<FlowPortData> connectedNodeIds = new List<FlowPortData>();
+
+            foreach (var port in outputContainer.Children())
+            {
+                if (port is Port outputPort)
+                {
+                    bool hasConnections = false;
+
+                    foreach (var edge in outputPort.connections)
+                    {
+                        if (edge.input.node is FlowNode connectedNode)
+                        {
+                            connectedNodeIds.Add(new FlowPortData() { NodeId = connectedNode.ID });
+                            hasConnections = true;
+                        }
+                    }
+
+                    // Если у данного порта нет соединений, добавляем -1
+                    if (!hasConnections)
+                    {
+                        connectedNodeIds.Add(new FlowPortData() { NodeId = -1 });
+                    }
+                }
+            }
+
+            return connectedNodeIds;
         }
     }
 }

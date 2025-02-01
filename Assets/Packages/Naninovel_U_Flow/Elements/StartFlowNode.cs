@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 namespace Naninovel.UFlow.Elements
 {
     using Enumeration;
+    using Naninovel.UFlow.Data;
     using Naninovel.UFlow.Utility;
     using System.Collections.Generic;
 
@@ -16,6 +17,27 @@ namespace Naninovel.UFlow.Elements
             NodeType = NodeType.Start;
             title = "Start Node";
             mainContainer.AddToClassList("flow-node-start");
+        }
+
+        public override FlowNodeData Serialization()
+        {
+            var flowNodePortsData = new FlowNodePortsData(base.Serialization())
+            {
+                inputPorts = FlowUtility.SerializeFlowNodeConnections(inputContainer),
+                outputPorts = FlowUtility.SerializeFlowNodeConnections(outputContainer)
+            };
+
+            return flowNodePortsData;
+        }
+
+        public override void Deserialization(FlowNodeData flowNodeData)
+        {
+            base.Deserialization(flowNodeData);
+
+            for (int i = 0; i < ((FlowNodePortsData)flowNodeData).outputPorts.Count - 1; i++)
+            {
+                AddOutputPort();
+            }
         }
 
         protected override void OutputContainer()

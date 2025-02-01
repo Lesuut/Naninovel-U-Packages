@@ -16,6 +16,9 @@ namespace Naninovel.UFlow.Elements
     public class FlowNode : Node
     {
         public NodeType NodeType { get; set; }
+        public int ID;
+        private string selectedMapName; // Поле для хранения выбранного значения
+        private PopupField<string> popupField;
 
         public virtual void Initialize(Vector2 position)
         {
@@ -27,13 +30,22 @@ namespace Naninovel.UFlow.Elements
         {
             return new FlowNodeData()
             {
+                NodeId = ID,
                 NodePosition = GetPosition().position,
-                NodeType = NodeType
+                NodeType = NodeType,
+                MapName = selectedMapName // Сохранение выбранного значения
             };
         }
+
         public virtual void Deserialization(FlowNodeData flowNodeData)
         {
+            NodeType = flowNodeData.NodeType;
             SetPosition(new Rect(flowNodeData.NodePosition, Vector2.zero));
+
+            // Устанавливаем значение в popupField после его создания
+            selectedMapName = flowNodeData.MapName;
+            if (popupField != null)
+                popupField.value = selectedMapName;
         }
 
         protected virtual void SetBaseStyle()
@@ -43,16 +55,9 @@ namespace Naninovel.UFlow.Elements
 
         public virtual void Draw()
         {
-            /* TITLE CONTAINER */
             TitleContainer();
-
-            /* INPUT CONTAINER */
             InputContainer();
-
-            /* OUTPUT CONTAINER */
             OutputContainer();
-
-            /* EXTENSIONS CONTAINER */
             ExtensionsContainer();
 
             RefreshExpandedState();
@@ -60,46 +65,45 @@ namespace Naninovel.UFlow.Elements
 
         protected virtual void TitleContainer()
         {
-            // Получаем список всех элементов
             List<BackgroundItem> backgroundItems = FlowUtility.GetAllMaps();
+            List<string> mapNames = backgroundItems.Select(item => item.Name).ToList();
 
-            // Создаем элемент для выпадающего списка
-            var popupField = new PopupField<string>("Map ->", backgroundItems.Select(item => item.Name).ToList(), 0);
-            popupField.AddToClassList("popup-field-map"); // Применяем стиль
+            if (mapNames.Count > 0 && string.IsNullOrEmpty(selectedMapName))
+                selectedMapName = mapNames[0]; // Устанавливаем первое значение списка по умолчанию
 
-            // Обработчик изменения значения в выпадающем списке
+            popupField = new PopupField<string>("Map ->", mapNames, selectedMapName);
+            popupField.AddToClassList("popup-field-map");
+
             popupField.RegisterValueChangedCallback(evt =>
             {
-                // Удаляем старое изображение (если есть)
-                var oldImage = titleContainer.contentContainer.Query<Image>().First();  // Получаем первое изображение
+                selectedMapName = evt.newValue;
+
+                var oldImage = titleContainer.contentContainer.Query<Image>().First();
                 if (oldImage != null)
                     oldImage.RemoveFromHierarchy();
 
-                // Ищем выбранный элемент по имени
                 BackgroundItem selectedItem = backgroundItems.FirstOrDefault(item => item.Name == evt.newValue);
 
-                if (selectedItem.Icone != null && selectedItem.Icone != null)
+                if (selectedItem.Icone != null)
                 {
-                    // Создаем новый элемент для изображения
                     var nodeImage = new Image();
                     nodeImage.image = selectedItem.Icone;
-                    nodeImage.AddToClassList("node-image"); // Применяем стиль
-                    titleContainer.contentContainer.Add(nodeImage); // Добавляем изображение в контейнер
+                    nodeImage.AddToClassList("node-image");
+                    titleContainer.contentContainer.Add(nodeImage);
                 }
             });
 
-            // Добавляем выпадающий список в контейнер
             titleContainer.contentContainer.Add(popupField);
         }
 
         protected virtual void InputContainer() { }
-        protected virtual void OutputContainer() 
-        { 
+        protected virtual void OutputContainer()
+        {
             Port portAction = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(Action));
-            portAction.portName = $"Actions";
+            portAction.portName = "Actions";
             portAction.AddToClassList("port-action");
             outputContainer.Add(portAction);
-        }      
+        }
         protected virtual void ExtensionsContainer() { }
     }
 }

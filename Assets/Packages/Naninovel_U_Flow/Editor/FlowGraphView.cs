@@ -87,9 +87,9 @@ namespace Naninovel.UFlow.Editor
             return contextualMenuManipulator;
         }
 
-        public void CreateNode(NodeType nodeType, Vector2 position)
+        public FlowNode CreateNode(NodeType nodeType, Vector2 position)
         {
-            CreateNode($"{nodeType}FlowNode", position);
+            return CreateNode($"{nodeType}FlowNode", position);
         }
 
         private FlowNode CreateNode(string ClassName, Vector2 position)
