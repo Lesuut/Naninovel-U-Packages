@@ -1,17 +1,16 @@
 ﻿using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
+using Naninovel.UFlow.Elements;
+using Naninovel.UFlow.Utility;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using Naninovel.UFlow.Data;
+using UnityEditor.Experimental.GraphView;
 
 namespace Naninovel.UFlow.Editor
 {
-    using Naninovel.UFlow.Data;
-    using Naninovel.UFlow.Elements;
-    using Naninovel.UFlow.Utility;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using UnityEngine;
-
     public class FlowEditorWindow : EditorWindow
     {
         private string defoultFileName = "New Flow Graph";
@@ -95,6 +94,9 @@ namespace Naninovel.UFlow.Editor
             {
                 List<FlowNode> flowNodes = flowGraphView.GetAllNodes();
 
+                int currentId = 0;
+                flowNodes.ForEach(node => { node.ID = currentId++; });
+
                 FlowUtility.SaveNodesToAsset(currentFilePath, flowNodes.Select(item => item.Serialization()).ToList());
             }
             catch (System.Exception ex)
@@ -112,10 +114,18 @@ namespace Naninovel.UFlow.Editor
             if (string.IsNullOrEmpty(flowNodeAsset.JsonData))
                 return;
 
+            var nodeDict = new Dictionary<int, FlowNode>();
+
             foreach (var item in flowNodeAsset.flowNodeDatas)
             {
-                flowGraphView.CreateNode(item.NodeType, new Vector2(item.NodePositionX, item.NodePositionY)).Deserialization(item);
+                // Создание ноды на основе данных
+                var newNode = flowGraphView.CreateNode(item.NodeType, new Vector2(item.NodePositionX, item.NodePositionY));
+                newNode.Deserialization(item);
+
+                nodeDict.Add(item.NodeId, newNode);
             }
+
+            SetConnections(nodeDict, flowNodeAsset.flowNodeDatas);
         }
 
         public void OpenWindowWithAsset(FlowAsset flowNodeAsset, string assetPath)
@@ -138,6 +148,57 @@ namespace Naninovel.UFlow.Editor
             currentFilePath = path;
 
             LoadNodes(FlowUtility.LoadNodesFromAsset(currentFilePath));
+        }
+        private void SetConnections(Dictionary<int, FlowNode> nodeDict, List<FlowNodeData> nodeDataList)
+        {
+            // Проходим по всем данным узлов
+            foreach (var data in nodeDataList)
+            {
+                // Проверяем, что данные узла содержат информацию о портах
+                if (data is FlowNodePortsData portsData)
+                {
+                    // Получаем узел из словаря по его ID
+                    if (nodeDict.TryGetValue(portsData.NodeId, out var currentNode))
+                    {
+                        // Обрабатываем выходные порты
+                        if (portsData.outputPorts != null)
+                        {
+                            foreach (var outputPortData in portsData.outputPorts)
+                            {
+                                // Находим узел, который подключен к текущему выходному порту
+                                if (nodeDict.TryGetValue(outputPortData.NodeId, out var connectedNode))
+                                {
+                                    // Создаем соединение между портами
+                                    CreateConnection(currentNode, outputPortData.PortId, connectedNode, 0);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void CreateConnection(FlowNode outputNode, int outputPortId, FlowNode inputNode, int inputPortId)
+        {
+            // Получаем выходной порт из узла-источника
+            var outputPort = outputNode.outputContainer.Query<Port>().ToList()[outputPortId];
+
+            // Получаем входной порт из узла-приемника
+            var inputPort = inputNode.inputContainer.Query<Port>().ToList()[inputPortId];
+
+            // Создаем соединение (Edge) между портами
+            var edge = new Edge
+            {
+                output = outputPort,
+                input = inputPort
+            };
+
+            // Добавляем соединение в GraphView
+            flowGraphView.AddElement(edge);
+
+            // Обновляем соединения
+            edge.input.Connect(edge);
+            edge.output.Connect(edge);
         }
     }
 }

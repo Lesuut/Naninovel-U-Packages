@@ -10,7 +10,7 @@ namespace Naninovel.UFlow.Elements
         protected override void SetBaseStyle()
         {
             NodeType = NodeType.Waypoint;
-            title = "Waypoint Node";
+            title = $"{ID} Waypoint Node";
             mainContainer.AddToClassList("flow-node-waypoint");
         }
 

@@ -8,5 +8,6 @@ namespace Naninovel.UFlow.Data
         public FlowPortData() { }
 
         public int NodeId;
+        public int PortId;
     }
 }

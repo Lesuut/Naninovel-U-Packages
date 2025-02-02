@@ -8,7 +8,7 @@ namespace Naninovel.UFlow.Elements
         protected override void SetBaseStyle()
         {
             NodeType = NodeType.End;
-            title = "End Node";
+            title = $"{ID} End Node";
             mainContainer.AddToClassList("flow-node-edn");
         }
 

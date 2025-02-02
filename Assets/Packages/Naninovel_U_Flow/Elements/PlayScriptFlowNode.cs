@@ -12,7 +12,7 @@ namespace Naninovel.UFlow.Elements
         protected override void SetBaseStyle()
         {
             NodeType = NodeType.PlayScript;
-            title = "Play Script Node";
+            title = $"{ID} Play Script Node";
             mainContainer.AddToClassList("flow-node-action");
         }
 

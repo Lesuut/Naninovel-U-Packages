@@ -1,21 +1,23 @@
 ﻿using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
+using System.Collections.Generic;
 
 namespace Naninovel.UFlow.Elements
 {
     using Enumeration;
     using Naninovel.UFlow.Data;
     using Naninovel.UFlow.Utility;
-    using System.Collections.Generic;
+    using System.Linq;
 
     public class StartFlowNode : FlowNode
     {
         private int outputPortCount = 1;
+        private List<PopupField<string>> popupFields = new List<PopupField<string>>(); // Список для хранения PopupField
 
         protected override void SetBaseStyle()
         {
             NodeType = NodeType.Start;
-            title = "Start Node";
+            title = $"{ID} Start Node";
             mainContainer.AddToClassList("flow-node-start");
         }
 
@@ -23,8 +25,9 @@ namespace Naninovel.UFlow.Elements
         {
             var flowNodePortsData = new FlowNodePortsData(base.Serialization())
             {
-                inputPorts = FlowUtility.SerializeFlowNodeConnections(inputContainer),
-                outputPorts = FlowUtility.SerializeFlowNodeConnections(outputContainer)
+                inputPorts = FlowUtility.SerializeFlowNodeConnections(inputContainer, false),
+                outputPorts = FlowUtility.SerializeFlowNodeConnections(outputContainer, true),
+                outputButtonsNames = popupFields.Select(item => item.value).ToList()
             };
 
             return flowNodePortsData;
@@ -37,6 +40,10 @@ namespace Naninovel.UFlow.Elements
             for (int i = 0; i < ((FlowNodePortsData)flowNodeData).outputPorts.Count - 2; i++)
             {
                 AddOutputPort();
+            }
+            for (int i = 0; i < popupFields.Count; i++)
+            {
+                popupFields[i].value = ((FlowNodePortsData)flowNodeData).outputButtonsNames[i];
             }
         }
 
@@ -65,6 +72,9 @@ namespace Naninovel.UFlow.Elements
             var popupField = new PopupField<string>("Output Type", FlowUtility.GetAllButtons(), 0); // Список строк и индекс по умолчанию
             popupField.AddToClassList("popup-field"); // Применяем стиль
             outputPort.contentContainer.Add(popupField);
+
+            // Сохраняем порты и popupField в соответствующие списки
+            popupFields.Add(popupField);
 
             outputContainer.Add(outputPort);
             outputPortCount++;
@@ -95,14 +105,25 @@ namespace Naninovel.UFlow.Elements
                         edge.RemoveFromHierarchy();
                     }
 
-                    // Удаляем сам порт
+                    // Удаляем сам порт и popupField
                     outputContainer.Remove(lastPort);
+                    popupFields.RemoveAt(popupFields.Count - 1);
                     outputPortCount--;
 
                     RefreshExpandedState();
                     RefreshPorts(); // Обновляем порты
                 }
             }
+        }
+
+        // Метод для получения значения из popupField
+        public string GetPopupFieldValue(int portIndex)
+        {
+            if (portIndex >= 0 && portIndex < popupFields.Count)
+            {
+                return popupFields[portIndex].value; // Получаем значение выбранное в PopupField
+            }
+            return null;
         }
     }
 }

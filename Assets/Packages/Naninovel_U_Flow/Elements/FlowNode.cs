@@ -20,6 +20,8 @@ namespace Naninovel.UFlow.Elements
         private string selectedMapName; // Поле для хранения выбранного значения
         private PopupField<string> popupField;
 
+        protected Port portAction;
+
         public virtual void Initialize(Vector2 position)
         {
             SetBaseStyle();
@@ -41,17 +43,20 @@ namespace Naninovel.UFlow.Elements
         public virtual void Deserialization(FlowNodeData flowNodeData)
         {
             NodeType = flowNodeData.NodeType;
+            ID = flowNodeData.NodeId;
             SetPosition(new Rect(new Vector2(flowNodeData.NodePositionX, flowNodeData.NodePositionY), Vector2.zero));
 
             // Устанавливаем значение в popupField после его создания
             selectedMapName = flowNodeData.MapName;
             if (popupField != null)
                 popupField.value = selectedMapName;
+
+            SetBaseStyle();
         }
 
         protected virtual void SetBaseStyle()
         {
-            title = "Node";
+            title = $"{ID} Node";
         }
 
         public virtual void Draw()
@@ -100,7 +105,7 @@ namespace Naninovel.UFlow.Elements
         protected virtual void InputContainer() { }
         protected virtual void OutputContainer()
         {
-            Port portAction = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(Action));
+            portAction = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(Action));
             portAction.portName = "Actions";
             portAction.AddToClassList("port-action");
             outputContainer.Add(portAction);

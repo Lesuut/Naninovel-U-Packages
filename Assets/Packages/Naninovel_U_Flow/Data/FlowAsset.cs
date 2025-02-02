@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 [CreateAssetMenu(fileName = "NewFlowNodeAsset", menuName = "FlowGraph/FlowNodeAsset")]
 public class FlowAsset : ScriptableObject
 {
-    [SerializeField, TextArea(5, 100)] private string jsonData;
+    [SerializeField, TextArea(5, 1000)] private string jsonData;
 
     public string JsonData
     {
@@ -23,7 +23,6 @@ public class FlowAsset : ScriptableObject
             new JsonSerializerSettings
             {
                 TypeNameHandling = TypeNameHandling.All, // Включаем полиморфизм
-                                                         // Также можно указать дополнительные настройки, если нужно
             });
     }
 
@@ -33,7 +32,7 @@ public class FlowAsset : ScriptableObject
         {
             if (string.IsNullOrEmpty(jsonData))
             {
-                Debug.LogWarning("jsonData is null or empty. Unable to load data.");
+                //Debug.LogWarning("jsonData is null or empty. Unable to load data.");
                 return;
             }
 

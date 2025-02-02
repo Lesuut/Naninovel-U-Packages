@@ -7,6 +7,7 @@ public class FlowNodePortsData : FlowNodeData
 {
     public List<FlowPortData> inputPorts;
     public List<FlowPortData> outputPorts;
+    public List<string> outputButtonsNames;
 
     public FlowNodePortsData() { }
 

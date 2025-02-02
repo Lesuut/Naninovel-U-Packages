@@ -114,34 +114,91 @@ namespace Naninovel.UFlow.Utility
         /// <summary>
         /// Сериализует подключения нодов и возвращает список связанных нодов.
         /// </summary>
-        public static List<FlowPortData> SerializeFlowNodeConnections(VisualElement outputContainer)
+        /// <summary>
+        /// Сериализует подключения нодов (входных или выходных портов) и возвращает список связанных нодов.
+        /// </summary>
+        public static List<FlowPortData> SerializeFlowNodeConnections(VisualElement container, bool isOutputPort)
         {
             List<FlowPortData> connectedNodeIds = new List<FlowPortData>();
 
-            foreach (var port in outputContainer.Children())
+            // Проходим по всем портам в контейнере
+            foreach (var port in container.Children())
             {
-                if (port is Port outputPort)
+                if (port is Port portElement)
                 {
                     bool hasConnections = false;
 
-                    foreach (var edge in outputPort.connections)
+                    // В зависимости от флага обрабатываем либо выходной, либо входной порт
+                    foreach (var edge in portElement.connections)
                     {
-                        if (edge.input.node is FlowNode connectedNode)
+                        if (isOutputPort)
                         {
-                            connectedNodeIds.Add(new FlowPortData() { NodeId = connectedNode.ID });
-                            hasConnections = true;
+                            if (edge.input.node is FlowNode connectedNode)
+                            {
+                                // Добавляем данные порта с NodeId и PortId
+                                connectedNodeIds.Add(new FlowPortData()
+                                {
+                                    NodeId = connectedNode.ID,
+                                    PortId = container.IndexOf(port) // Порядковый номер порта
+                                });
+                                hasConnections = true;
+                            }
+                        }
+                        else
+                        {
+                            if (edge.output.node is FlowNode connectedNode)
+                            {
+                                // Добавляем данные порта с NodeId и PortId
+                                connectedNodeIds.Add(new FlowPortData()
+                                {
+                                    NodeId = connectedNode.ID,
+                                    PortId = container.IndexOf(port) // Порядковый номер порта
+                                });
+                                hasConnections = true;
+                            }
                         }
                     }
 
-                    // Если у данного порта нет соединений, добавляем -1
+                    // Если у данного порта нет соединений, добавляем -1 для NodeId и сохраняем PortId
                     if (!hasConnections)
                     {
-                        connectedNodeIds.Add(new FlowPortData() { NodeId = -1 });
+                        connectedNodeIds.Add(new FlowPortData()
+                        {
+                            NodeId = -1,
+                            PortId = container.IndexOf(port) // Порядковый номер порта
+                        });
                     }
                 }
             }
 
             return connectedNodeIds;
         }
+
+        public static FlowNode[] GetConnectedNodes(Port port)
+        {
+            // Список для хранения всех подключенных узлов
+            List<FlowNode> connectedNodes = new List<FlowNode>();
+
+            // Проходим по всем соединениям, связанным с этим портом
+            foreach (var edge in port.connections)
+            {
+                // Получаем целевой порт
+                var targetPort = edge.input;  // Для входных соединений используем edge.input, для выходных edge.output
+
+                // Проверяем, если порт подключен, то добавляем его узел в список
+                if (targetPort != null)
+                {
+                    var connectedNode = targetPort.node as FlowNode;
+                    if (connectedNode != null)
+                    {
+                        connectedNodes.Add(connectedNode);
+                    }
+                }
+            }
+
+            // Возвращаем массив узлов
+            return connectedNodes.ToArray();
+        }
+
     }
 }
