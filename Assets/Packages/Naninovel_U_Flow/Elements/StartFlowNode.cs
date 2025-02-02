@@ -34,7 +34,7 @@ namespace Naninovel.UFlow.Elements
         {
             base.Deserialization(flowNodeData);
 
-            for (int i = 0; i < ((FlowNodePortsData)flowNodeData).outputPorts.Count - 1; i++)
+            for (int i = 0; i < ((FlowNodePortsData)flowNodeData).outputPorts.Count - 2; i++)
             {
                 AddOutputPort();
             }

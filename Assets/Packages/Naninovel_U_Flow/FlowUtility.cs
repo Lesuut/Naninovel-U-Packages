@@ -7,9 +7,10 @@ namespace Naninovel.UFlow.Utility
     using Data;
     using Naninovel.U.Flow;
     using Naninovel.UFlow.Elements;
-    using System;
+    using Newtonsoft.Json;
     using System.IO;
     using System.Linq;
+    using System.Xml;
     using UnityEditor.Experimental.GraphView;
     using UnityEngine.UIElements;
 
@@ -54,23 +55,17 @@ namespace Naninovel.UFlow.Utility
 
 
         /// <summary>
-        /// Сохраняет список нодов в ScriptableObject-ассет по указанному пути.
+        /// Сохраняет список нодов в ScriptableObject-ассет с сериализацией в JSON.
         /// </summary>
-        /// <param name="path">Путь, по которому будет сохранен ассет.</param>
-        /// <param name="nodes">Список нодов, который необходимо сохранить.</param>
-        /// <remarks>
-        /// Этот метод создает ScriptableObject, которое хранит список нодов.
-        /// Он сериализует ноды и сохраняет их в ассет в проекте.
-        /// Все типы нодов, включая наследуемые, сохраняются корректно.
-        /// </remarks>
         public static void SaveNodesToAsset(string path, List<FlowNodeData> nodes)
         {
-            // Создаем ассет, который будет хранить список нодов
             FlowAsset nodeAsset = ScriptableObject.CreateInstance<FlowAsset>();
-            nodeAsset.flowNodeDatas = nodes;
 
-            // Сохраняем ассет
+            nodeAsset.flowNodeDatas = nodes;
+            nodeAsset.SaveData(); // Сохраняем данные через SaveData
+
             AssetDatabase.CreateAsset(nodeAsset, path);
+            EditorUtility.SetDirty(nodeAsset);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
 
@@ -78,26 +73,23 @@ namespace Naninovel.UFlow.Utility
         }
 
         /// <summary>
-        /// Загружает и возвращает список нодов из указанного ассета.
+        /// Загружает и десериализует список нодов из ассета.
         /// </summary>
-        /// <param name="path">Путь, по которому находится ассет.</param>
-        /// <returns>Список нодов, загруженных из ассета. Если ассет не найден, возвращает null.</returns>
-        /// <remarks>
-        /// Этот метод загружает ассет, который хранит список нодов, и восстанавливает их с учетом наследования.
-        /// Если в ассете присутствуют наследуемые классы, они будут правильно десериализованы.
-        /// </remarks>
         public static FlowAsset LoadNodesFromAsset(string path)
         {
-            // Загружаем ассет по пути
             FlowAsset nodeAsset = AssetDatabase.LoadAssetAtPath<FlowAsset>(path);
+
+            Debug.Log($"{nodeAsset} path: {path}");
 
             if (nodeAsset == null)
             {
-                Debug.LogError("Failed to load node asset.");
+                Debug.LogError($"Failed to load node asset at path: {path}");
                 return null;
             }
 
-            // Возвращаем список нодов
+            nodeAsset.LoadData(); // Загружаем данные через LoadData
+
+            Debug.Log($"Successfully loaded FlowAsset from: {path}, nodes count: {nodeAsset.flowNodeDatas?.Count ?? 0}");
             return nodeAsset;
         }
 

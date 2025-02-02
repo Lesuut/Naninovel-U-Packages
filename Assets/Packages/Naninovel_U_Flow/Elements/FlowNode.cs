@@ -31,7 +31,8 @@ namespace Naninovel.UFlow.Elements
             return new FlowNodeData()
             {
                 NodeId = ID,
-                NodePosition = GetPosition().position,
+                NodePositionX = GetPosition().position.x,
+                NodePositionY = GetPosition().position.y,
                 NodeType = NodeType,
                 MapName = selectedMapName // Сохранение выбранного значения
             };
@@ -40,7 +41,7 @@ namespace Naninovel.UFlow.Elements
         public virtual void Deserialization(FlowNodeData flowNodeData)
         {
             NodeType = flowNodeData.NodeType;
-            SetPosition(new Rect(flowNodeData.NodePosition, Vector2.zero));
+            SetPosition(new Rect(new Vector2(flowNodeData.NodePositionX, flowNodeData.NodePositionY), Vector2.zero));
 
             // Устанавливаем значение в popupField после его создания
             selectedMapName = flowNodeData.MapName;

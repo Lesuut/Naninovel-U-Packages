@@ -7,8 +7,10 @@ namespace Naninovel.UFlow.Editor
     using Naninovel.UFlow.Data;
     using Naninovel.UFlow.Elements;
     using Naninovel.UFlow.Utility;
+    using System;
     using System.Collections.Generic;
     using System.Linq;
+    using UnityEngine;
 
     public class FlowEditorWindow : EditorWindow
     {
@@ -53,7 +55,7 @@ namespace Naninovel.UFlow.Editor
             };
 
             buttonSave.clicked += SaveNodes;
-            //buttonLoad.clicked += LoadNodes;
+            buttonLoad.clicked += LoadNodes;
 
             toolbar.Add(buttonSave);
             toolbar.Add(buttonLoad);
@@ -105,9 +107,14 @@ namespace Naninovel.UFlow.Editor
         {
             ClearAllNodes();
 
+            flowNodeAsset.LoadData();
+
+            if (string.IsNullOrEmpty(flowNodeAsset.JsonData))
+                return;
+
             foreach (var item in flowNodeAsset.flowNodeDatas)
             {
-                flowGraphView.CreateNode(item.NodeType, item.NodePosition).Deserialization(item);
+                flowGraphView.CreateNode(item.NodeType, new Vector2(item.NodePositionX, item.NodePositionY)).Deserialization(item);
             }
         }
 
@@ -116,6 +123,21 @@ namespace Naninovel.UFlow.Editor
             currentFilePath = assetPath;
 
             LoadNodes(flowNodeAsset);
+        }
+        private void LoadNodes()
+        {
+            string path = EditorUtility.OpenFilePanel("Load Flow Graph", "Assets", "asset");
+
+            if (string.IsNullOrEmpty(path))
+            {
+                // User canceled or didn't select a file
+                UnityEngine.Debug.LogWarning("No file path selected for loading.");
+                return;
+            }          
+
+            currentFilePath = path;
+
+            LoadNodes(FlowUtility.LoadNodesFromAsset(currentFilePath));
         }
     }
 }

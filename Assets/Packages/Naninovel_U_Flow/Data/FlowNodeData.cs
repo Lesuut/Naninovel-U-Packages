@@ -3,11 +3,16 @@ using UnityEngine;
 namespace Naninovel.UFlow.Data
 {
     using Enumeration;
+    using System;
 
-    public class FlowNodeData : ScriptableObject
+    [Serializable]
+    public class FlowNodeData
     {
+        public FlowNodeData() { }
+
         public NodeType NodeType;
-        public Vector2 NodePosition;
+        public float NodePositionX;
+        public float NodePositionY;
         public int NodeId;
         public string MapName;
     }
