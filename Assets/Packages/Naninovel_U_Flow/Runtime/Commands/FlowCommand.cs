@@ -13,6 +13,8 @@ namespace Naninovel.U.Flow.Commands
         {
             var FlowManager = Engine.GetService<IFlowManager>();
 
+            FlowManager.StartFlow();
+
             return UniTask.CompletedTask;
         }
     }

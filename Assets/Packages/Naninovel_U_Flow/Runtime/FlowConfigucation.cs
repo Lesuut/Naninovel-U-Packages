@@ -17,6 +17,7 @@ namespace Naninovel.U.Flow
         public BackgroundItem[] Backgrounds;
         [Header("Buttons")]
         public TransferButton[] TransferButtons;
+        public GameObject ReturnButton;
         [Header("Flows")]
         public FlowAsset[] flowAssetsWay;
     }

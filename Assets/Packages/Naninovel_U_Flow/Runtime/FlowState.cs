@@ -6,23 +6,27 @@ namespace Naninovel.U.Flow
     [Serializable]
     public class FlowState
     {
-        public List<string> Value;
+        public int currentFlowWayIndex;
+
+        public bool isFlowActive;
+        public int currentFlowIndex;
+        public int currentActiveFlowNodeId;
 
         public FlowState()
         {
-            // Initialization Values
-            Value = new List<string>
-            {
-               "Value1",
-               "Value2",
-               "Value3"
-            };
+            currentFlowWayIndex = 0;
+            isFlowActive = false;
+            currentFlowIndex = 0;
+            currentActiveFlowNodeId = 0;
         }
 
         public FlowState(FlowState other)
         {
             // Load and set Data
-            Value = new List<string>(other.Value);
+            currentFlowWayIndex = other.currentFlowWayIndex;
+            isFlowActive |= other.isFlowActive;
+            currentFlowIndex = other.currentFlowIndex;
+            currentActiveFlowNodeId = other.currentActiveFlowNodeId;
         }
     }
 }

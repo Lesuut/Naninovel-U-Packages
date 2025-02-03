@@ -22,12 +22,9 @@ MonoBehaviour:
     Icone: {fileID: 2800000, guid: 0fdc692d26afb8f4293672aecdff7899, type: 3}
   TransferButtons:
   - Name: Button Left
-    Button: {fileID: 6306036015961478139, guid: 795aab52bb6311a459778375b307bfe9, type: 3}
+    Button: {fileID: 2594818225812908668, guid: 521bfc398cdeac84db06a27c5278879d, type: 3}
   - Name: Button Right
-    Button: {fileID: 0}
-  - Name: Button Top
-    Button: {fileID: 0}
-  - Name: Button Bottom
-    Button: {fileID: 0}
+    Button: {fileID: 2594818225812908668, guid: afe29a15d81c65e4d9f478eadd769dde, type: 3}
+  ReturnButton: {fileID: 3505029127542694396, guid: 58def0da2b1cd854f836dd2ce326bec5, type: 3}
   flowAssetsWay:
-  - {fileID: 11400000, guid: 859ff918932430142b400080c28db158, type: 2}
+  - {fileID: 11400000, guid: 48bee9cbff5737f4b9c45efe38151d9d, type: 2}

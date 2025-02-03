@@ -1,6 +1,7 @@
 ﻿namespace Naninovel.UFlow.Elements
 {
     using Enumeration;
+    using UnityEngine.UIElements;
 
     public class StartFlowNode : PortsFlowNode
     {

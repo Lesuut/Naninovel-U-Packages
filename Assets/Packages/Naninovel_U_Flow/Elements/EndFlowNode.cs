@@ -3,7 +3,7 @@ namespace Naninovel.UFlow.Elements
     using Enumeration;
     using UnityEditor.Experimental.GraphView;
 
-    public class EndFlowNode : StartFlowNode
+    public class EndFlowNode : PortsFlowNode
     {
         protected override void SetBaseStyle()
         {

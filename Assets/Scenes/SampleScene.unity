@@ -224,6 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1090145241}
   - component: {fileID: 1090145242}
+  - component: {fileID: 1090145243}
   m_Layer: 0
   m_Name: TestInput
   m_TagString: Untagged
@@ -258,6 +259,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1187792cc253c9f468db6f0e5c2836c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1090145243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090145240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5975c9748a52c8d43b34c8d7c428cacd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptName: 
+  scriptText: 
+  playOnAwake: 0
+  disableWaitInput: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

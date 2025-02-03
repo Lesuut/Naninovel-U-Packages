@@ -4,8 +4,7 @@ namespace Naninovel.U.Flow
 {
     public interface IFlowManager : IEngineService
     {
-        /// <summary>
-        /// Write the body of your Flow interface here
-        /// </summary>
+        public void StartFlow();
+        public void StartFlow(string FlowAssetName);
     }
 }
