@@ -8,6 +8,7 @@ namespace Naninovel.U.Flow
         public virtual FlowConfiguration Configuration { get; }
 
         private readonly IStateManager stateManager;
+        private IUIManager uIManager;
         private FlowState state;
 
         public FlowManager(FlowConfiguration config, IStateManager stateManager)
@@ -20,6 +21,8 @@ namespace Naninovel.U.Flow
             state = new FlowState();
             stateManager.AddOnGameSerializeTask(Serialize);
             stateManager.AddOnGameDeserializeTask(Deserialize);
+
+            uIManager = Engine.GetService<IUIManager>();          
 
             return UniTask.CompletedTask;
         }

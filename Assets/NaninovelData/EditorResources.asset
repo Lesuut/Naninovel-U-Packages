@@ -183,22 +183,14 @@ MonoBehaviour:
     Resources: []
   - Id: Backgrounds/94c4d06a-ff5f-4560-8dfe-2f6ae5753b4f
     Resources:
-    - name: Map1
+    - name: Station
       pathPrefix: Backgrounds/MainBackground
-      guid: 97d2cf7913d1ed245b31984642ba645b
-    - name: Map2
+      guid: 095154bdcce213f489b1542453cecffa
+    - name: Park
       pathPrefix: Backgrounds/MainBackground
-      guid: 97d2cf7913d1ed245b31984642ba645b
-    - name: MapTest
+      guid: 99a0d02b8b124b44cbf49e5296dc24bb
+    - name: Bridge
       pathPrefix: Backgrounds/MainBackground
-      guid: 97d2cf7913d1ed245b31984642ba645b
-    - name: ABC
-      pathPrefix: Backgrounds/MainBackground
-      guid: 97d2cf7913d1ed245b31984642ba645b
+      guid: 0fdc692d26afb8f4293672aecdff7899
   - Id: Unlockables
     Resources: []
-  - Id: Backgrounds/364dd871-0f91-40be-baf1-0343a427bf31
-    Resources:
-    - name: Test
-      pathPrefix: Backgrounds/Test
-      guid: 

@@ -3,17 +3,37 @@
 namespace Naninovel.UFlow.Elements
 {
     using Enumeration;
+    using Naninovel.UFlow.Data;
     using System;
     using UnityEditor.Experimental.GraphView;
     using UnityEngine.UIElements;
 
     public class PlayScriptFlowNode : FlowNode
     {
+        private TextField textField;
+
         protected override void SetBaseStyle()
         {
             NodeType = NodeType.PlayScript;
             title = $"{ID} Play Script Node";
             mainContainer.AddToClassList("flow-node-action");
+        }
+
+        public override FlowNodeData Serialization()
+        {
+            var flowNodePortsData = new FlowNodePortsSkriptPlayerData(base.Serialization())
+            {
+                ScriptText = textField.value,
+            };
+
+            return flowNodePortsData;
+        }
+
+        public override void Deserialization(FlowNodeData flowNodeData)
+        {
+            base.Deserialization(flowNodeData);
+
+            textField.value = ((FlowNodePortsSkriptPlayerData)flowNodeData).ScriptText;
         }
 
         protected override void TitleContainer() { }
@@ -30,9 +50,9 @@ namespace Naninovel.UFlow.Elements
 
         protected override void ExtensionsContainer()
         {
-            TextField textField = new TextField()
+            textField = new TextField()
             {
-                value = "123"                     
+                value = ""                     
             };
 
             textField.multiline = true;

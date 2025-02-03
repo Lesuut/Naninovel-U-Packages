@@ -14,24 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackgroundCommand: '@back %ID%'
   Backgrounds:
-  - Name: A
-    Icone: {fileID: 0}
-  - Name: B
-    Icone: {fileID: 2800000, guid: 8e43ad7fbd905de4abfc75d629fe6c89, type: 3}
-  - Name: C
-    Icone: {fileID: 2800000, guid: 77715c7282d055b4093fdd732ec53c60, type: 3}
-  - Name: D
-    Icone: {fileID: 2800000, guid: 21274a17ac7f0ef498b55896770f1ff4, type: 3}
-  - Name: E
-    Icone: {fileID: 0}
-  - Name: F
-    Icone: {fileID: 0}
+  - Name: Station
+    Icone: {fileID: 2800000, guid: 095154bdcce213f489b1542453cecffa, type: 3}
+  - Name: Park
+    Icone: {fileID: 2800000, guid: 99a0d02b8b124b44cbf49e5296dc24bb, type: 3}
+  - Name: Bridge
+    Icone: {fileID: 2800000, guid: 0fdc692d26afb8f4293672aecdff7899, type: 3}
   TransferButtons:
   - Name: Button Left
-    Button: {fileID: 0}
+    Button: {fileID: 6306036015961478139, guid: 795aab52bb6311a459778375b307bfe9, type: 3}
   - Name: Button Right
     Button: {fileID: 0}
   - Name: Button Top
     Button: {fileID: 0}
   - Name: Button Bottom
     Button: {fileID: 0}
+  flowAssetsWay:
+  - {fileID: 11400000, guid: 859ff918932430142b400080c28db158, type: 2}

@@ -17,6 +17,8 @@ namespace Naninovel.U.Flow
         public BackgroundItem[] Backgrounds;
         [Header("Buttons")]
         public TransferButton[] TransferButtons;
+        [Header("Flows")]
+        public FlowAsset[] flowAssetsWay;
     }
 
     [Serializable]
