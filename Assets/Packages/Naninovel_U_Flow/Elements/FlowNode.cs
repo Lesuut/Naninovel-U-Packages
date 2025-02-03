@@ -105,7 +105,7 @@ namespace Naninovel.UFlow.Elements
         protected virtual void InputContainer() { }
         protected virtual void OutputContainer()
         {
-            portAction = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(Action));
+            portAction = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(Action));
             portAction.portName = "Actions";
             portAction.AddToClassList("port-action");
             outputContainer.Add(portAction);

@@ -66,7 +66,7 @@ namespace Naninovel.U.Flow
 
         public void StartFlow()
         {
-            state.isFlowActive  = true;
+            state.isFlowActive = true;
             scriptPlayer.Stop();
 
             if (flowUI == null)
@@ -103,31 +103,57 @@ namespace Naninovel.U.Flow
                 else
                 {
                     ActivateFlowNodeScene(
-                        flowAsset.flowNodeDatas.FirstOrDefault(item => item.NodeId == state.currentActiveFlowNodeId), 
+                        flowAsset.flowNodeDatas.FirstOrDefault(item => item.NodeId == state.currentActiveFlowNodeId),
                         flowAsset);
                 }
             }
         }
         private void ActivateFlowNodeScene(FlowNodeData nodeForActivation, FlowAsset flowAsset)
         {
-            SetBackground("@hidePrinter");
+            PlayScript("@hidePrinter");
             state.currentActiveFlowNodeId = nodeForActivation.NodeId;
 
             flowUI.HideAllButtons();
-            SetBackground($"{Configuration.BackgroundCommand.Replace("%ID%", nodeForActivation.MapName)}");
+            PlayScript($"{Configuration.BackgroundCommand.Replace("%ID%", nodeForActivation.MapName)}");
+
+            if (nodeForActivation is FlowNodePortsData)
+            {
+                FlowNodePortsData flowNodePortsData = nodeForActivation as FlowNodePortsData;
+
+                if (flowNodePortsData.NodeType != NodeType.End)
+                {
+                    if (flowNodePortsData.outputPorts[0].NodeId != -1)
+                    {
+                        foreach (var node in flowAsset.flowNodeDatas)
+                        {
+                            if (node.NodeType == NodeType.PlayScript)
+                            {
+                                if (flowNodePortsData.outputPorts[0].NodeId == node.NodeId)
+                                {
+                                    if (node is FlowNodePortsSkriptPlayerData)
+                                    {
+                                        PlayScript(((FlowNodePortsSkriptPlayerData)node).ScriptText + "\n[i]\n@hidePrinter");
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
             if (nodeForActivation.NodeType == NodeType.Start || nodeForActivation.NodeType == NodeType.Waypoint)
             {
                 FlowNodePortsData flowNodePortsData = nodeForActivation as FlowNodePortsData;
 
-                for (int i = 0; i < flowNodePortsData.outputPorts.Count; i++)
+                for (int i = 1; i < flowNodePortsData.outputPorts.Count; i++)
                 {
                     if (flowNodePortsData.outputPorts[i].NodeId != -1)
                     {
                         FlowNodeData gotoNode = flowAsset.flowNodeDatas.FirstOrDefault(item => item.NodeId == flowNodePortsData.outputPorts[i].NodeId);
 
                         flowUI.CreateTransitionButton(Configuration.TransferButtons.FirstOrDefault(
-                            item => item.Name == flowNodePortsData.outputButtonsNames[i - 1]).Button, 
+                            item => item.Name == flowNodePortsData.outputButtonsNames[i - 1]).Button,
                             () => ActivateFlowNodeScene(gotoNode, flowAsset));
                     }
                 }
@@ -161,10 +187,11 @@ namespace Naninovel.U.Flow
                 state.isFlowActive = false;
                 flowUI.HideAllButtons();
                 scriptPlayer.Play(scriptPlayer.Playlist, scriptPlayer.PlayedIndex + 1);
+                PlayScript("@showPrinter");
                 return;
-            }
+            }         
         }
-        private async void SetBackground(string scriptText)
+        private async void PlayScript(string scriptText)
         {
             var script = Script.FromScriptText($"Generated script", scriptText);
             var playlist = new ScriptPlaylist(script);

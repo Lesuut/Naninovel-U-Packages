@@ -36,7 +36,7 @@ MonoBehaviour:
     },\r\n      \"outputPorts\": {\r\n        \"$type\": \"System.Collections.Generic.List`1[[Naninovel.UFlow.Data.FlowPortData,
     Assembly-CSharp]], mscorlib\",\r\n        \"$values\": [\r\n          {\r\n           
     \"$type\": \"Naninovel.UFlow.Data.FlowPortData, Assembly-CSharp\",\r\n           
-    \"NodeId\": -1,\r\n            \"PortId\": 0\r\n          },\r\n          {\r\n           
+    \"NodeId\": 4,\r\n            \"PortId\": 0\r\n          },\r\n          {\r\n           
     \"$type\": \"Naninovel.UFlow.Data.FlowPortData, Assembly-CSharp\",\r\n           
     \"NodeId\": 3,\r\n            \"PortId\": 1\r\n          }\r\n        ]\r\n     
     },\r\n      \"outputButtonsNames\": {\r\n        \"$type\": \"System.Collections.Generic.List`1[[System.String,
@@ -69,4 +69,7 @@ MonoBehaviour:
     mscorlib]], mscorlib\",\r\n        \"$values\": [\r\n          \"Button Left\"\r\n       
     ]\r\n      },\r\n      \"NodeType\": 1,\r\n      \"NodePositionX\": 1081.0,\r\n     
     \"NodePositionY\": 151.0,\r\n      \"NodeId\": 3,\r\n      \"MapName\": \"Bridge\"\r\n   
-    }\r\n  ]\r\n}"
+    },\r\n    {\r\n      \"$type\": \"Naninovel.UFlow.Data.FlowNodePortsSkriptPlayerData,
+    Assembly-CSharp\",\r\n      \"ScriptText\": \"Hello World\",\r\n      \"NodeType\":
+    3,\r\n      \"NodePositionX\": 1035.0,\r\n      \"NodePositionY\": -109.0,\r\n     
+    \"NodeId\": 4,\r\n      \"MapName\": null\r\n    }\r\n  ]\r\n}"
