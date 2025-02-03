@@ -11,6 +11,8 @@ namespace Naninovel.U.Flow
     {
         public const string DefaultPathPrefix = "Flow";
 
+        public GameObject FlowUI;
+        [Space]
         [Header("Backgrounds")]
         public string BackgroundCommand = "@back %ID%";
         [Space]

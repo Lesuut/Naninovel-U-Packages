@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f463d96f4420e2247af57fa7a84e6f05, type: 3}
   m_Name: FlowConfiguration
   m_EditorClassIdentifier: 
+  FlowUI: {fileID: 6306036015961478139, guid: 94590a56102045749bb52a0058d62a73, type: 3}
   BackgroundCommand: '@back %ID%'
   Backgrounds:
   - Name: Station

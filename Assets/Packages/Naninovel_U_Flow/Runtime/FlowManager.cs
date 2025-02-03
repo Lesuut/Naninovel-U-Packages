@@ -1,4 +1,4 @@
-using Naninovel.UFlow.Data;
+﻿using Naninovel.UFlow.Data;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -17,16 +17,14 @@ namespace Naninovel.U.Flow
 
         private readonly IStateManager stateManager;
         private IUIManager uIManager;
-        private IScriptPlayer scriptPlayer;
         private FlowState state;
 
-        private List<IManagedUI> managedUIButtons;
+        private FlowUI flowUI;
 
         public FlowManager(FlowConfiguration config, IStateManager stateManager)
         {
             Configuration = config;
             this.stateManager = stateManager;
-            managedUIButtons = new List<IManagedUI>();
         }
         public UniTask InitializeServiceAsync()
         {
@@ -34,7 +32,7 @@ namespace Naninovel.U.Flow
             stateManager.AddOnGameSerializeTask(Serialize);
             stateManager.AddOnGameDeserializeTask(Deserialize);
 
-            uIManager = Engine.GetService<IUIManager>();          
+            uIManager = Engine.GetService<IUIManager>();
 
             return UniTask.CompletedTask;
         }
@@ -60,7 +58,13 @@ namespace Naninovel.U.Flow
         public void StartFlow()
         {
             state.isFlowActive  = true;
-            //uIManager.AddUIAsync(Configuration.TransferButtons[0].Button);
+
+            if (flowUI == null)
+            {
+                uIManager.AddUIAsync(Configuration.FlowUI);
+                flowUI = uIManager.GetUI<FlowUI>();
+            }
+
             UpdateFlowScene();
         }
         public void StartFlow(string FlowAssetName)
@@ -94,13 +98,11 @@ namespace Naninovel.U.Flow
                 }
             }
         }
-        private async void ActivateFlowNodeScene(FlowNodeData nodeForActivation, FlowAsset flowAsset)
+        private void ActivateFlowNodeScene(FlowNodeData nodeForActivation, FlowAsset flowAsset)
         {
             state.currentActiveFlowNodeId = nodeForActivation.NodeId;
 
             SetBackground(nodeForActivation.MapName);
-
-            Debug.Log($"MovieUI: {uIManager.GetUI<MovieUI>()}");
 
             if (nodeForActivation.NodeType == NodeType.Start || nodeForActivation.NodeType == NodeType.Waypoint)
             {
@@ -110,13 +112,8 @@ namespace Naninovel.U.Flow
                 {
                     if (flowNodePortsData.outputPorts[i].NodeId != -1)
                     {
-                        Debug.Log(flowNodePortsData.outputButtonsNames[i - 1]);
-
-                        /*IManagedUI newButton = await uIManager.AddUIAsync(Configuration.TransferButtons.FirstOrDefault(
-                            item => item.Name == flowNodePortsData.outputButtonsNames[i] + 1).Button,
-                            flowNodePortsData.outputButtonsNames[i]);
-
-                        managedUIButtons.Add(newButton);*/
+                        flowUI.CreateTransitionButton(Configuration.TransferButtons.FirstOrDefault(
+                            item => item.Name == flowNodePortsData.outputButtonsNames[i - 1]).Button, () => Debug.Log("Hi"));
                     }
                 }
             }
