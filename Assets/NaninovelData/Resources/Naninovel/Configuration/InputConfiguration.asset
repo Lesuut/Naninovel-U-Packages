@@ -49,7 +49,7 @@ MonoBehaviour:
       ActivateOnMove: 0
   - Name: Pause
     AlwaysProcess: 0
-    Keys: 0800000051010000
+    Keys: 08000000510100001b000000
     Axes: []
     Swipes: []
   - Name: Skip

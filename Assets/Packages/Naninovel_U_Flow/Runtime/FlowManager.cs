@@ -19,6 +19,7 @@ namespace Naninovel.U.Flow
 
         private readonly IStateManager stateManager;
         private IUIManager uIManager;
+        private IScriptPlayer scriptPlayer;
         private FlowState state;
 
         private FlowUI flowUI;
@@ -35,6 +36,8 @@ namespace Naninovel.U.Flow
             stateManager.AddOnGameDeserializeTask(Deserialize);
 
             uIManager = Engine.GetService<IUIManager>();
+            scriptPlayer = Engine.GetService<IScriptPlayer>();
+
             return UniTask.CompletedTask;
         }
 
@@ -53,12 +56,18 @@ namespace Naninovel.U.Flow
             state = map.GetState<FlowState>();
             state = state == null ? new FlowState() : new FlowState(state);
 
+            if (state.isFlowActive)
+            {
+                UpdateFlowScene();
+            }
+
             return UniTask.CompletedTask;
         }
 
         public void StartFlow()
         {
             state.isFlowActive  = true;
+            scriptPlayer.Stop();
 
             if (flowUI == null)
             {
@@ -97,12 +106,11 @@ namespace Naninovel.U.Flow
                         flowAsset.flowNodeDatas.FirstOrDefault(item => item.NodeId == state.currentActiveFlowNodeId), 
                         flowAsset);
                 }
-
-                SetBackground("@hidePrinter");
             }
         }
         private void ActivateFlowNodeScene(FlowNodeData nodeForActivation, FlowAsset flowAsset)
         {
+            SetBackground("@hidePrinter");
             state.currentActiveFlowNodeId = nodeForActivation.NodeId;
 
             flowUI.HideAllButtons();
@@ -143,11 +151,17 @@ namespace Naninovel.U.Flow
                                 }
                             }
                         }
-
-                        /*flowUI.CreateTransitionButton(Configuration.ReturnButton,
-                        () => ActivateFlowNodeScene(gotoNode, flowAsset));*/
                     }
                 }
+            }
+
+            if (nodeForActivation.NodeType == NodeType.End)
+            {
+                state.currentFlowIndex++;
+                state.isFlowActive = false;
+                flowUI.HideAllButtons();
+                scriptPlayer.Play(scriptPlayer.Playlist, scriptPlayer.PlayedIndex + 1);
+                return;
             }
         }
         private async void SetBackground(string scriptText)
