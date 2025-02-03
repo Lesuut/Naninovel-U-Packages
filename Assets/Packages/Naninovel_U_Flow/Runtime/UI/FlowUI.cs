@@ -2,6 +2,7 @@
 using Naninovel.UI;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using UnityEditor.Experimental.GraphView;
 
 namespace Naninovel.U.Flow
 {
@@ -17,10 +18,6 @@ namespace Naninovel.U.Flow
 
         public void CreateTransitionButton(GameObject prefab, UnityAction action)
         {
-            Debug.Log($"prefab: {prefab}");
-            Debug.Log($"action: {action}");
-            Debug.Log($"buttons: {buttons}");
-
             // Проверяем, если кнопка с таким ключом уже существует
             if (buttons.ContainsKey(prefab.name))
             {
@@ -32,6 +29,8 @@ namespace Naninovel.U.Flow
 
                 // Добавляем новый слушатель
                 existingButton.TransitionButton.onClick.AddListener(action);
+
+                existingButton.Show();
 
                 return; // Выходим из метода, так как новая кнопка не требуется
             }

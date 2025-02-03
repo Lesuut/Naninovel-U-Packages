@@ -9,6 +9,8 @@ namespace Naninovel.U.Flow
     using Naninovel.UI;
     using System;
     using System.Collections.Generic;
+    using UnityEditor.Experimental.GraphView;
+    using UnityEngine.Events;
 
     [InitializeAtRuntime()]
     public class FlowManager : IFlowManager
@@ -33,7 +35,6 @@ namespace Naninovel.U.Flow
             stateManager.AddOnGameDeserializeTask(Deserialize);
 
             uIManager = Engine.GetService<IUIManager>();
-
             return UniTask.CompletedTask;
         }
 
@@ -96,13 +97,16 @@ namespace Naninovel.U.Flow
                         flowAsset.flowNodeDatas.FirstOrDefault(item => item.NodeId == state.currentActiveFlowNodeId), 
                         flowAsset);
                 }
+
+                SetBackground("@hidePrinter");
             }
         }
         private void ActivateFlowNodeScene(FlowNodeData nodeForActivation, FlowAsset flowAsset)
         {
             state.currentActiveFlowNodeId = nodeForActivation.NodeId;
 
-            SetBackground(nodeForActivation.MapName);
+            flowUI.HideAllButtons();
+            SetBackground($"{Configuration.BackgroundCommand.Replace("%ID%", nodeForActivation.MapName)}");
 
             if (nodeForActivation.NodeType == NodeType.Start || nodeForActivation.NodeType == NodeType.Waypoint)
             {
@@ -112,15 +116,43 @@ namespace Naninovel.U.Flow
                 {
                     if (flowNodePortsData.outputPorts[i].NodeId != -1)
                     {
+                        FlowNodeData gotoNode = flowAsset.flowNodeDatas.FirstOrDefault(item => item.NodeId == flowNodePortsData.outputPorts[i].NodeId);
+
                         flowUI.CreateTransitionButton(Configuration.TransferButtons.FirstOrDefault(
-                            item => item.Name == flowNodePortsData.outputButtonsNames[i - 1]).Button, () => Debug.Log("Hi"));
+                            item => item.Name == flowNodePortsData.outputButtonsNames[i - 1]).Button, 
+                            () => ActivateFlowNodeScene(gotoNode, flowAsset));
+                    }
+                }
+
+                if (flowNodePortsData is FlowNodePortsReturnButtonData)
+                {
+                    if (((FlowNodePortsReturnButtonData)flowNodePortsData).useReturnButton)
+                    {
+                        foreach (var node in flowAsset.flowNodeDatas)
+                        {
+                            if (node is FlowNodePortsData)
+                            {
+                                foreach (var item in ((FlowNodePortsData)node).outputPorts)
+                                {
+                                    if (item.NodeId == nodeForActivation.NodeId)
+                                    {
+                                        flowUI.CreateTransitionButton(Configuration.ReturnButton,
+                                        () => ActivateFlowNodeScene(node, flowAsset));
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+
+                        /*flowUI.CreateTransitionButton(Configuration.ReturnButton,
+                        () => ActivateFlowNodeScene(gotoNode, flowAsset));*/
                     }
                 }
             }
         }
-        private async void SetBackground(string backgroundName)
+        private async void SetBackground(string scriptText)
         {
-            var script = Script.FromScriptText($"SetBackground {backgroundName} generated script", $"{Configuration.BackgroundCommand.Replace("%ID%", backgroundName)}");
+            var script = Script.FromScriptText($"Generated script", scriptText);
             var playlist = new ScriptPlaylist(script);
             await playlist.ExecuteAsync();
         }
