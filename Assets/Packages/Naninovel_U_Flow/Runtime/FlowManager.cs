@@ -96,6 +96,8 @@ namespace Naninovel.U.Flow
         {
             if (state.isFlowActive)
             {
+                Debug.Log($"Start {flowAsset.name}");
+
                 scriptPlayer.Stop();
 
                 flowAsset.LoadData();

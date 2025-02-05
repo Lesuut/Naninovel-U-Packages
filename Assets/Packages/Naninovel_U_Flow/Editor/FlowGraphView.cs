@@ -61,8 +61,8 @@ namespace Naninovel.UFlow.Editor
             this.AddManipulator(new SelectionDragger());
             this.AddManipulator(new RectangleSelector());
 
-            this.AddManipulator(CreateNodeContextualMenu("Add Node", "FlowNode"));
-            this.AddManipulator(CreateNodeContextualMenu("Add Node Test", "TestFlowNode"));
+            /*this.AddManipulator(CreateNodeContextualMenu("Add Node", "FlowNode"));
+            this.AddManipulator(CreateNodeContextualMenu("Add Node Test", "TestFlowNode"));*/
             this.AddManipulator(CreateNodeContextualMenu("Add Node Start", NodeType.Start));
             this.AddManipulator(CreateNodeContextualMenu("Add Node Waypoint", NodeType.Waypoint));
             this.AddManipulator(CreateNodeContextualMenu("Add Node End", NodeType.End));

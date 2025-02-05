@@ -1,3 +1,5 @@
+using Unity.VisualScripting;
+
 namespace Naninovel.U.Flow.Commands
 {
     [CommandAlias("flow")]
@@ -13,7 +15,14 @@ namespace Naninovel.U.Flow.Commands
         {
             var FlowManager = Engine.GetService<IFlowManager>();
 
-            FlowManager.StartFlow();
+            if (firstValue.IsUnityNull())
+            {
+                FlowManager.StartFlow();
+            }
+            else
+            {
+                FlowManager.StartFlow(firstValue.Value);
+            }
 
             return UniTask.CompletedTask;
         }
