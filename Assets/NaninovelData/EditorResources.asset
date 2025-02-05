@@ -174,9 +174,6 @@ MonoBehaviour:
     - name: Main
       pathPrefix: Scripts
       guid: b7ed052f02e8a15439d3753dc68acafe
-    - name: Test
-      pathPrefix: Scripts
-      guid: ad56325ad7e4f6845b21ad33613c4e82
   - Id: Audio
     Resources:
     - name: BadPig
