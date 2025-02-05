@@ -8,16 +8,30 @@ namespace Naninovel.U.Flow
     {
         public int currentFlowWayIndex;
 
+        public string currentFlowAssetName;
+
         public bool isFlowActive;
         public int currentFlowIndex;
         public int currentActiveFlowNodeId;
 
+        public bool hideFlowButtonsStatus;
+
+        public string startScriptName;
+        public int startScriptPlayedIndex;
+
         public FlowState()
         {
             currentFlowWayIndex = 0;
+
+            currentFlowAssetName = string.Empty;
+
             isFlowActive = false;
             currentFlowIndex = 0;
-            currentActiveFlowNodeId = 0;
+            currentActiveFlowNodeId = -1;
+            hideFlowButtonsStatus = false;
+
+            startScriptName = string.Empty;
+            startScriptPlayedIndex = 0;
         }
 
         public FlowState(FlowState other)
@@ -27,6 +41,10 @@ namespace Naninovel.U.Flow
             isFlowActive |= other.isFlowActive;
             currentFlowIndex = other.currentFlowIndex;
             currentActiveFlowNodeId = other.currentActiveFlowNodeId;
+            hideFlowButtonsStatus = other.hideFlowButtonsStatus;
+            startScriptName = other.startScriptName;
+            startScriptPlayedIndex = other.startScriptPlayedIndex;
+            currentFlowAssetName = other.currentFlowAssetName;
         }
     }
 }

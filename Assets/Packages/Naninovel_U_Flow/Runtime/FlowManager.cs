@@ -1,16 +1,12 @@
 ﻿using Naninovel.UFlow.Data;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Naninovel.U.Flow
 {
     using Naninovel.UFlow.Enumeration;
-    using Naninovel.UI;
     using System;
-    using System.Collections.Generic;
-    using UnityEditor.Experimental.GraphView;
-    using UnityEngine.Events;
+    using Unity.VisualScripting;
 
     [InitializeAtRuntime()]
     public class FlowManager : IFlowManager
@@ -27,7 +23,7 @@ namespace Naninovel.U.Flow
         public FlowManager(FlowConfiguration config, IStateManager stateManager)
         {
             Configuration = config;
-            this.stateManager = stateManager;
+            this.stateManager = stateManager;            
         }
         public UniTask InitializeServiceAsync()
         {
@@ -47,9 +43,18 @@ namespace Naninovel.U.Flow
             stateManager.RemoveOnGameDeserializeTask(Deserialize);
         }
 
-        public void ResetService() { }
+        public void ResetService() 
+        {
+            if (flowUI != null)
+                flowUI.HideAllButtons();
 
-        private void Serialize(GameStateMap map) => map.SetState(new FlowState(state));
+            state.currentActiveFlowNodeId = -1;
+        }
+
+        private void Serialize(GameStateMap map)
+        {
+            map.SetState(new FlowState(state));
+        }
 
         private UniTask Deserialize(GameStateMap map)
         {
@@ -58,7 +63,9 @@ namespace Naninovel.U.Flow
 
             if (state.isFlowActive)
             {
-                UpdateFlowScene();
+                UpdateFlowScene(state.currentFlowAssetName.IsUnityNull() ? 
+                    Configuration.flowAssetsWay[state.currentFlowIndex] : 
+                    Configuration.flowAssetsWay.FirstOrDefault(item => item.name == state.currentFlowAssetName));
             }
 
             return UniTask.CompletedTask;
@@ -67,29 +74,33 @@ namespace Naninovel.U.Flow
         public void StartFlow()
         {
             state.isFlowActive = true;
-            scriptPlayer.Stop();
 
-            if (flowUI == null)
-            {
-                uIManager.AddUIAsync(Configuration.FlowUI);
-                flowUI = uIManager.GetUI<FlowUI>();
-            }
+            state.startScriptName = scriptPlayer.Playlist.ScriptName;
+            state.startScriptPlayedIndex = scriptPlayer.PlayedIndex;
 
-            UpdateFlowScene();
+            UpdateFlowScene(Configuration.flowAssetsWay[state.currentFlowIndex]);
         }
         public void StartFlow(string FlowAssetName)
         {
-            throw new NotImplementedException();
+            state.isFlowActive = true;
+
+            state.startScriptName = scriptPlayer.Playlist.ScriptName;
+            state.startScriptPlayedIndex = scriptPlayer.PlayedIndex;
+
+            state.currentFlowAssetName = FlowAssetName;
+
+            UpdateFlowScene(Configuration.flowAssetsWay.FirstOrDefault(item => item.name == FlowAssetName));
         }
 
-        private void UpdateFlowScene()
+        private void UpdateFlowScene(FlowAsset flowAsset)
         {
             if (state.isFlowActive)
             {
-                FlowAsset flowAsset = Configuration.flowAssetsWay[state.currentFlowIndex];
+                scriptPlayer.Stop();
+
                 flowAsset.LoadData();
 
-                if (state.currentActiveFlowNodeId == 0)
+                if (state.currentActiveFlowNodeId == -1)
                 {
                     var startNode = flowAsset.flowNodeDatas.FirstOrDefault(item => item.NodeType == NodeType.Start);
 
@@ -108,39 +119,14 @@ namespace Naninovel.U.Flow
                 }
             }
         }
-        private void ActivateFlowNodeScene(FlowNodeData nodeForActivation, FlowAsset flowAsset)
+        private async void ActivateFlowNodeScene(FlowNodeData nodeForActivation, FlowAsset flowAsset)
         {
+            TrySpawnFlowUI();
             PlayScript("@hidePrinter");
             state.currentActiveFlowNodeId = nodeForActivation.NodeId;
 
             flowUI.HideAllButtons();
-            PlayScript($"{Configuration.BackgroundCommand.Replace("%ID%", nodeForActivation.MapName)}");
-
-            if (nodeForActivation is FlowNodePortsData)
-            {
-                FlowNodePortsData flowNodePortsData = nodeForActivation as FlowNodePortsData;
-
-                if (flowNodePortsData.NodeType != NodeType.End)
-                {
-                    if (flowNodePortsData.outputPorts[0].NodeId != -1)
-                    {
-                        foreach (var node in flowAsset.flowNodeDatas)
-                        {
-                            if (node.NodeType == NodeType.PlayScript)
-                            {
-                                if (flowNodePortsData.outputPorts[0].NodeId == node.NodeId)
-                                {
-                                    if (node is FlowNodePortsSkriptPlayerData)
-                                    {
-                                        PlayScript(((FlowNodePortsSkriptPlayerData)node).ScriptText + "\n[i]\n@hidePrinter");
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            PlayScript($"{Configuration.BackgroundCommand.Replace("%ID%", nodeForActivation.MapName)}");          
 
             if (nodeForActivation.NodeType == NodeType.Start || nodeForActivation.NodeType == NodeType.Waypoint)
             {
@@ -181,21 +167,76 @@ namespace Naninovel.U.Flow
                 }
             }
 
+            if (nodeForActivation is FlowNodePortsData)
+            {
+                FlowNodePortsData flowNodePortsData = nodeForActivation as FlowNodePortsData;
+
+                if (flowNodePortsData.NodeType != NodeType.End)
+                {
+                    if (flowNodePortsData.outputPorts[0].NodeId != -1)
+                    {
+                        foreach (var node in flowAsset.flowNodeDatas)
+                        {
+                            if (node.NodeType == NodeType.PlayScript)
+                            {
+                                if (flowNodePortsData.outputPorts[0].NodeId == node.NodeId)
+                                {
+                                    if (node is FlowNodePortsSkriptPlayerData)
+                                    {
+                                        PlayScript(((FlowNodePortsSkriptPlayerData)node).ScriptText);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
             if (nodeForActivation.NodeType == NodeType.End)
             {
-                state.currentFlowIndex++;
+                if (state.currentFlowAssetName.IsUnityNull())
+                {
+                    state.currentFlowIndex++;
+                }
+                else
+                {
+                    state.currentFlowAssetName = string.Empty;
+                }
+
                 state.isFlowActive = false;
                 flowUI.HideAllButtons();
-                scriptPlayer.Play(scriptPlayer.Playlist, scriptPlayer.PlayedIndex + 1);
-                PlayScript("@showPrinter");
-                return;
-            }         
+
+                await scriptPlayer.PreloadAndPlayAsync(state.startScriptName);
+                scriptPlayer.Play(scriptPlayer.Playlist, state.startScriptPlayedIndex + 1);
+            }
         }
         private async void PlayScript(string scriptText)
         {
             var script = Script.FromScriptText($"Generated script", scriptText);
             var playlist = new ScriptPlaylist(script);
             await playlist.ExecuteAsync();
+        }
+        private void TrySpawnFlowUI()
+        {
+            if (flowUI == null)
+            {
+                uIManager.AddUIAsync(Configuration.FlowUI);
+                flowUI = uIManager.GetUI<FlowUI>();
+            }
+            else
+            {
+                flowUI.Show();
+            }
+        }
+
+        public void SetButtonsHideStatus(bool hideStatus)
+        {
+            state.hideFlowButtonsStatus = hideStatus;
+            flowUI.SetHideButtonsStatus(hideStatus);
+
+            if (!hideStatus)
+                PlayScript("@hidePrinter");
         }
     }
 }

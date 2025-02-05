@@ -93,7 +93,7 @@ MonoBehaviour:
   saveVisibilityState: 1
   blockInputWhenVisible: 0
   allowedSamplers: []
-  modalUI: 0
+  modalUI: 1
   fontChangeConfiguration: []
 --- !u!225 &6306036015961478118
 CanvasGroup:

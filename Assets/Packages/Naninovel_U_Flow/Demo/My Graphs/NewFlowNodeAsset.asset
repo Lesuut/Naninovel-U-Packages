@@ -70,6 +70,6 @@ MonoBehaviour:
     ]\r\n      },\r\n      \"NodeType\": 1,\r\n      \"NodePositionX\": 1081.0,\r\n     
     \"NodePositionY\": 151.0,\r\n      \"NodeId\": 3,\r\n      \"MapName\": \"Bridge\"\r\n   
     },\r\n    {\r\n      \"$type\": \"Naninovel.UFlow.Data.FlowNodePortsSkriptPlayerData,
-    Assembly-CSharp\",\r\n      \"ScriptText\": \"Hello World\",\r\n      \"NodeType\":
-    3,\r\n      \"NodePositionX\": 1035.0,\r\n      \"NodePositionY\": -109.0,\r\n     
-    \"NodeId\": 4,\r\n      \"MapName\": null\r\n    }\r\n  ]\r\n}"
+    Assembly-CSharp\",\r\n      \"ScriptText\": \"@flowButtonsHide true\\n@goto Test.test\",\r\n     
+    \"NodeType\": 3,\r\n      \"NodePositionX\": 1035.0,\r\n      \"NodePositionY\":
+    -109.0,\r\n      \"NodeId\": 4,\r\n      \"MapName\": null\r\n    }\r\n  ]\r\n}"

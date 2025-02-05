@@ -2,17 +2,18 @@
 using Naninovel.UI;
 using System.Collections.Generic;
 using UnityEngine.Events;
-using UnityEditor.Experimental.GraphView;
 
 namespace Naninovel.U.Flow
 {
     public class FlowUI : CustomUI
     {
         private Dictionary<string, TransitionButtonUI> buttons;
+        private List<string> currentHideButtonKeys;
 
         public override UniTask InitializeAsync()
         {
             buttons = new Dictionary<string, TransitionButtonUI>();
+            currentHideButtonKeys = new List<string>();
             return UniTask.CompletedTask;
         }
 
@@ -36,6 +37,7 @@ namespace Naninovel.U.Flow
             }
 
             TransitionButtonUI transitionButtonUI = Instantiate(prefab, transform.parent).GetComponent<TransitionButtonUI>();
+            transitionButtonUI.Show();
 
             // Сохраняем локальные позиции и масштаб
             Vector2 originalAnchoredPosition = transitionButtonUI.RectTransform.anchoredPosition;
@@ -55,19 +57,35 @@ namespace Naninovel.U.Flow
         }
         public void HideAllButtons()
         {
+            if (buttons.Count == 0)
+                return;
+
             foreach (var item in buttons)
             {
-                item.Value.Hide();
+                if (item.Value != null && item.Value.Visible)
+                {
+                    item.Value.Hide();
+                }
             }
         }
-        public void ClearAllButtons()
+        public void SetHideButtonsStatus(bool hideStatus)
         {
-            foreach (var item in buttons)
+            if (hideStatus)
             {
-                item.Value.Destroy();
+                foreach (var item in buttons)
+                {
+                    if (item.Value.Visible)
+                    {
+                        currentHideButtonKeys.Add(item.Key);
+                        item.Value.Hide();
+                    }
+                }
             }
-
-            buttons = new Dictionary<string, TransitionButtonUI>();
+            else
+            {
+                currentHideButtonKeys.ForEach(item => buttons[item].Show());
+                currentHideButtonKeys.Clear();
+            }
         }
     }
 }

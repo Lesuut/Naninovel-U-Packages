@@ -6,5 +6,6 @@ namespace Naninovel.U.Flow
     {
         public void StartFlow();
         public void StartFlow(string FlowAssetName);
+        public void SetButtonsHideStatus(bool hideStatus);
     }
 }
