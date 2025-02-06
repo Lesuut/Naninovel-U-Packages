@@ -7,7 +7,7 @@ namespace Naninovel.U.Parameters
         {
             var ParametersManager = Engine.GetService<IParametersManager>();
 
-            UnityEngine.Debug.Log($"{key}: {ParametersManager.GetParametrOperation(key)}");
+            //UnityEngine.Debug.Log($"{key}: {ParametersManager.GetParametrOperation(key)}");
 
             return ParametersManager.GetParametrOperation(key);
         }
