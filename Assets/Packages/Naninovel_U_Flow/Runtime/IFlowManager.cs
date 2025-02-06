@@ -5,7 +5,8 @@ namespace Naninovel.U.Flow
     public interface IFlowManager : IEngineService
     {
         public void StartFlow();
-        public void StartFlow(string FlowAssetName);
+        public void StartFlowByName(string FlowAssetName);
         public void SetButtonsHideStatus(bool hideStatus);
+        public void SetFlowWayIndex(int newIndex);
     }
 }

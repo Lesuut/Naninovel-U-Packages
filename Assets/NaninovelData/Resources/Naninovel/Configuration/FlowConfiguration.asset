@@ -29,4 +29,3 @@ MonoBehaviour:
   ReturnButton: {fileID: 3505029127542694396, guid: 58def0da2b1cd854f836dd2ce326bec5, type: 3}
   flowAssetsWay:
   - {fileID: 11400000, guid: 48bee9cbff5737f4b9c45efe38151d9d, type: 2}
-  - {fileID: 11400000, guid: f203e64b7beb11e4695db13891b572de, type: 2}

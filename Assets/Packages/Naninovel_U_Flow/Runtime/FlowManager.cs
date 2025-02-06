@@ -63,7 +63,7 @@ namespace Naninovel.U.Flow
 
             if (state.isFlowActive)
             {
-                UpdateFlowScene(state.currentFlowAssetName.IsUnityNull() ? 
+                UpdateFlowScene(state.currentFlowAssetName == "" ? 
                     Configuration.flowAssetsWay[state.currentFlowIndex] : 
                     Configuration.flowAssetsWay.FirstOrDefault(item => item.name == state.currentFlowAssetName));
             }
@@ -80,14 +80,18 @@ namespace Naninovel.U.Flow
 
             UpdateFlowScene(Configuration.flowAssetsWay[state.currentFlowIndex]);
         }
-        public void StartFlow(string FlowAssetName)
+        public void StartFlowByName(string FlowAssetName)
         {
+            Debug.Log($"StartFlowByName: {FlowAssetName}");
+
             state.isFlowActive = true;
 
             state.startScriptName = scriptPlayer.Playlist.ScriptName;
             state.startScriptPlayedIndex = scriptPlayer.PlayedIndex;
 
             state.currentFlowAssetName = FlowAssetName;
+
+            Debug.Log(Configuration.flowAssetsWay.FirstOrDefault(item => item.name == FlowAssetName).name);
 
             UpdateFlowScene(Configuration.flowAssetsWay.FirstOrDefault(item => item.name == FlowAssetName));
         }
@@ -203,7 +207,7 @@ namespace Naninovel.U.Flow
                 }
                 else
                 {
-                    state.currentFlowAssetName = string.Empty;
+                    state.currentFlowAssetName = "";
                 }
 
                 state.isFlowActive = false;
@@ -239,6 +243,11 @@ namespace Naninovel.U.Flow
 
             if (!hideStatus)
                 PlayScript("@hidePrinter");
+        }
+
+        public void SetFlowWayIndex(int newIndex)
+        {
+            state.currentFlowWayIndex = newIndex;
         }
     }
 }

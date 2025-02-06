@@ -15,13 +15,13 @@ namespace Naninovel.U.Flow.Commands
         {
             var FlowManager = Engine.GetService<IFlowManager>();
 
-            if (firstValue.IsUnityNull())
+            if (firstValue.Value.IsUnityNull())
             {
                 FlowManager.StartFlow();
             }
             else
             {
-                FlowManager.StartFlow(firstValue.Value);
+                FlowManager.StartFlowByName(firstValue.Value);
             }
 
             return UniTask.CompletedTask;

@@ -1,17 +1,19 @@
-namespace Naninovel.U.ParametersChoice.Commands
+﻿namespace Naninovel.U.Flow.Commands
 {
-    [CommandAlias("addchoice")]
-    public class AddChoiceCommand : Command
+    [CommandAlias("setFlowWayIndex")]
+    public class SetFlowWayIndexCommand : Command
     {
         [ParameterAlias(NamelessParameterAlias)]
-        public StringParameter firstValue;
+        public IntegerParameter firstValue;
 
         /*[ParameterAlias("id"), LocalizableParameter]
         public StringParameter text = "Hello World!";*/
 
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
-            var ParametersChoiceManager = Engine.GetService<IParametersChoiceManager>();
+            var FlowManager = Engine.GetService<IFlowManager>();
+
+            FlowManager.SetFlowWayIndex(firstValue);
 
             return UniTask.CompletedTask;
         }
