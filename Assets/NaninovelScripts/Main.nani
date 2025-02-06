@@ -1,4 +1,9 @@
 Hi
-@flow
-End Flow
-@stop
+@setparameter Reputation value:+5
+@if GetParameter("Reputation") 
+@endif
+[i]
+Load
+@setparameter Reputation value:-2
+@if GetParameter("Reputation")
+@endif
