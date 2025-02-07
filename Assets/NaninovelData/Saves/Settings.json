@@ -10,7 +10,7 @@
         ],
         "values": [
             "{\"QualityLevel\":5}",
-            "{\"SelectedLocale\":\"ru\"}",
+            "{\"SelectedLocale\":\"en\"}",
             "{\"SkipMode\":0}",
             "{\"BaseRevealSpeed\":0.5,\"BaseAutoDelay\":0.5}",
             "{\"MasterVolume\":0.11490682512521744,\"BgmVolume\":1.0,\"SfxVolume\":1.0,\"VoiceVolume\":1.0,\"VoiceLocale\":\"\",\"AuthorVolume\":[]}",

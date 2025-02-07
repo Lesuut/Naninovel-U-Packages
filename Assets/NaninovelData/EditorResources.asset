@@ -169,6 +169,9 @@ MonoBehaviour:
     - name: SideTipUI
       pathPrefix: UI
       guid: 6b57e49387a7e864c9ed2c635c4134a8
+    - name: ChoiceBox
+      pathPrefix: UI
+      guid: 72e5ee3010ab5424cbf137ab7bf3d809
   - Id: Scripts
     Resources:
     - name: Main

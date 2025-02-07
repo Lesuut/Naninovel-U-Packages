@@ -66,7 +66,7 @@ namespace Naninovel.UFlow.Elements
             outputPort.AddToClassList("port");
 
             // Создаём PopupField для строк
-            var popupField = new PopupField<string>("Output Type", FlowUtility.GetAllButtons(), 0); // Список строк и индекс по умолчанию
+            var popupField = new PopupField<string>("Output Button", FlowUtility.GetAllButtons(), 0); // Список строк и индекс по умолчанию
             popupField.AddToClassList("popup-field"); // Применяем стиль
             outputPort.contentContainer.Add(popupField);
 

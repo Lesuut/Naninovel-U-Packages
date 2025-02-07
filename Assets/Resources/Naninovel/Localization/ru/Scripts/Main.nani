@@ -1,9 +1,21 @@
 ; English <en> to Russian <ru> localization document for `Main` naninovel script
 
-# 506fd3be
-; @toast Hello
-@toast Привет
+# cf4c5c61
+; Hello
+Привет
 
-# cfc5a0
-; @test Hello
-@test Привет
+# 3cc89ad
+; @addChoiceBoxTitle "What is the main advantage of using dependency injection in Unity?"
+@addChoiceBoxTitle "Какое основное преимущество использования внедрения зависимостей в Unity?"
+
+# aafd9e6d
+; @addChoiceBoxOption "It improves code maintainability and testability." todo:"@setparameter Reputation value:+1"
+@addChoiceBoxOption "Это улучшает поддерживаемость и тестируемость кода." todo:"@setparameter Reputation value:+1"
+
+# 3928b7ee
+; @addChoiceBoxOption "It makes the game run faster." todo:"@setparameter Reputation value:-1"
+@addChoiceBoxOption "Это ускоряет работу игры." todo:"@setparameter Reputation value:-1"
+
+# 4db9108a
+; End
+Конец

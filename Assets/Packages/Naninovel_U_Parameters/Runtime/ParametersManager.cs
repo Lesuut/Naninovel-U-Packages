@@ -45,6 +45,8 @@ namespace Naninovel.U.Parameters
         public void SetParametrOperation(string key, int value)
         {
             state.Parameters.FirstOrDefault(item => item.Key == key).Value += value;
+
+            UnityEngine.Debug.Log($"{key}: {state.Parameters.FirstOrDefault(item => item.Key == key).Value}");
         }
 
         public float GetParametrOperation(string key)
