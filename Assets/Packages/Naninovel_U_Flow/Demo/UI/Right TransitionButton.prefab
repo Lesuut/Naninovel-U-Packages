@@ -121,6 +121,10 @@ PrefabInstance:
       value: Right TransitionButton
       objectReference: {fileID: 0}
     - target: {fileID: 7715778851860949107, guid: 795aab52bb6311a459778375b307bfe9, type: 3}
+      propertyPath: m_text
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715778851860949107, guid: 795aab52bb6311a459778375b307bfe9, type: 3}
       propertyPath: m_fontSize
       value: 60
       objectReference: {fileID: 0}
