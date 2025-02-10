@@ -1,11 +1,13 @@
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using Naninovel.UI;
+using UnityEngine.Events;
 
 namespace Naninovel.U.SmartQuest
 {
     public class SmartQuestUI : CustomUI
     {
+        [SerializeField] private UnityEvent<string> updateQuestTextAction;
+
         private ISmartQuestService SmartQuestService;
 
         protected override void Awake()
@@ -13,10 +15,8 @@ namespace Naninovel.U.SmartQuest
             base.Awake();
 
             SmartQuestService = Engine.GetService<ISmartQuestService>();
-        }
 
-        /// <summary>
-        /// Write the body for the SmartQuest UI here
-        /// </summary>
+            SmartQuestService.UpdateQuestTextAction += text => updateQuestTextAction?.Invoke(text);
+        }
     }
 }

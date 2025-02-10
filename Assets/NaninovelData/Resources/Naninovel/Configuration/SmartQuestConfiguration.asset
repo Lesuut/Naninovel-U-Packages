@@ -14,11 +14,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TitleActiveCoding: '%TEXT%'
   TitleCompletedCoding: '%TEXT% +'
-  TitleActiveColor: {r: 1, g: 1, b: 1, a: 0}
-  TitleCompletedColor: {r: 0.23350063, g: 0.4245283, b: 0.17021182, a: 0}
+  TitleActiveColor: {r: 0.6, g: 0.8705883, b: 1, a: 1}
+  TitleCompletedColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   OptionActiveCoding: "\u2022 %TEXT%"
   OptionCompletedCoding: "\u2022 <s>%TEXT%</s>"
-  OptionActiveColor: {r: 1, g: 1, b: 1, a: 0}
-  OptionCompletedColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0}
+  OptionActiveColor: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
+  OptionCompletedColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+  ProgressGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 0.47202042, b: 0, a: 1}
+    key2: {r: 0.9772253, g: 1, b: 0, a: 0}
+    key3: {r: 0.68142533, g: 1, b: 0, a: 0}
+    key4: {r: 0.27962732, g: 1, b: 0, a: 0}
+    key5: {r: 0.12834764, g: 1, b: 0, a: 0}
+    key6: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 10409
+    ctime2: 24865
+    ctime3: 40285
+    ctime4: 48766
+    ctime5: 62837
+    ctime6: 65535
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: 0
+    m_NumColorKeys: 7
+    m_NumAlphaKeys: 2
   DescriptionActiveCoding: '%TEXT%'
   DescriptionCompletedCoding: '%TEXT%'
+  DescriptionActiveColor: {r: 1, g: 1, b: 1, a: 1}
+  DescriptionCompletedColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}

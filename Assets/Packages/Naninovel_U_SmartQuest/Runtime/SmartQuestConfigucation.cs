@@ -17,8 +17,12 @@ namespace Naninovel.U.SmartQuest
         public string OptionCompletedCoding = "• <s>%TEXT%</s>";
         public Color OptionActiveColor;
         public Color OptionCompletedColor;
+        [Tooltip("Color of progress, like 2/5")]
+        public Gradient ProgressGradient;
         [Header("Description")]
         public string DescriptionActiveCoding = "%TEXT%";
         public string DescriptionCompletedCoding = "%TEXT%";
+        public Color DescriptionActiveColor;
+        public Color DescriptionCompletedColor;
     }
 }

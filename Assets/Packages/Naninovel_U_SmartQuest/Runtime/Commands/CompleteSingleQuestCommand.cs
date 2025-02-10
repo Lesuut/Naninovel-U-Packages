@@ -1,17 +1,16 @@
 namespace Naninovel.U.SmartQuest.Commands
 {
-    [CommandAlias("completesinglequest")]
+    [CommandAlias("completeSingleQuest")]
     public class CompleteSingleQuestCommand : Command
     {
-        [ParameterAlias(NamelessParameterAlias)]
-        public StringParameter firstValue;
-
-        /*[ParameterAlias("id"), LocalizableParameter]
-        public StringParameter text = "Hello World!";*/
+        [ParameterAlias(NamelessParameterAlias), RequiredParameter]
+        public StringParameter id;
 
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
             var SmartQuestService = Engine.GetService<ISmartQuestService>();
+
+            SmartQuestService.CompleteSingleQuest(id.Value);
 
             return UniTask.CompletedTask;
         }

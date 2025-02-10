@@ -172,6 +172,9 @@ MonoBehaviour:
     - name: ChoiceBox
       pathPrefix: UI
       guid: 72e5ee3010ab5424cbf137ab7bf3d809
+    - name: QuestWindow
+      pathPrefix: UI
+      guid: f2fdc8b3034666f459c749c7f31dd0a4
   - Id: Scripts
     Resources:
     - name: Main

@@ -1,17 +1,22 @@
 namespace Naninovel.U.SmartQuest.Commands
 {
-    [CommandAlias("executemultiquestoption")]
+    [CommandAlias("executeMultiQuestOption")]
     public class ExecuteMultiQuestOptionCommand : Command
     {
-        [ParameterAlias(NamelessParameterAlias)]
-        public StringParameter firstValue;
+        [ParameterAlias(NamelessParameterAlias), RequiredParameter]
+        public StringParameter idQuest;
 
-        /*[ParameterAlias("id"), LocalizableParameter]
-        public StringParameter text = "Hello World!";*/
+        [ParameterAlias("option"), RequiredParameter]
+        public StringParameter idOption;
+
+        [ParameterAlias("value"), RequiredParameter]
+        public IntegerParameter value;
 
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
             var SmartQuestService = Engine.GetService<ISmartQuestService>();
+
+            SmartQuestService.ExecuteMultiQuestOption(idQuest.Value, idOption.Value, value.Value);
 
             return UniTask.CompletedTask;
         }

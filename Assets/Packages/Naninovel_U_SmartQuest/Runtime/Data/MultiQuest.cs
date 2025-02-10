@@ -1,19 +1,29 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace Naninovel.U.SmartQuest
 {
-    public class MultiQuest : Quest
+    [Serializable]
+    public class MultiQuest : SingleQuest
     {
         public List<QuestOption> Options;
 
-        public MultiQuest(string title, SmartQuestConfiguration smartQuestConfiguration) : base(title, smartQuestConfiguration)
+        public MultiQuest(string id, string title, string description) : base(id, title, description)
         {
             Options = new List<QuestOption>();
         }
 
         public override string GetQuestInfo()
         {
-            throw new System.NotImplementedException();
+            string title = $"<color=#{ColorUtility.ToHtmlStringRGBA(IsQuestComplete() ? smartQuestConfiguration.TitleCompletedColor : smartQuestConfiguration.TitleActiveColor)}><b>{(IsQuestComplete() ? smartQuestConfiguration.TitleCompletedCoding.Replace("%TEXT%", Title) : smartQuestConfiguration.TitleActiveCoding.Replace("%TEXT%", Title))}</b></color>";
+
+            string options = string.Join("\n", Options.Select(item => $"\t{item.GetOptionText()}")) + "\n";
+
+            string description = $"<color=#{ColorUtility.ToHtmlStringRGBA(IsQuestComplete() ? smartQuestConfiguration.DescriptionCompletedColor : smartQuestConfiguration.DescriptionActiveColor)}>{(IsQuestComplete() ? smartQuestConfiguration.DescriptionCompletedCoding.Replace("%TEXT%", Description) : smartQuestConfiguration.DescriptionActiveCoding.Replace("%TEXT%", Description))}</color>";
+
+            return $"{title}\n{options}\n{description}";
         }
 
         public override bool IsQuestComplete()
