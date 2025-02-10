@@ -39,5 +39,11 @@ createMultiQuest
 [i]
 @executeMultiQuestOption multi option:option3 value:1
 
+@if GetQuestStatus("multi")
+True
+@else
+False
+@endif
+
 End
 @stop
