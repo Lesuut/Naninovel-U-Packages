@@ -17,7 +17,7 @@ namespace Naninovel.U.SmartQuest
 
         public override string GetQuestInfo()
         {
-            string title = $"<color=#{ColorUtility.ToHtmlStringRGBA(IsQuestComplete() ? smartQuestConfiguration.TitleCompletedColor : smartQuestConfiguration.TitleActiveColor)}><b>{(IsQuestComplete() ? smartQuestConfiguration.TitleCompletedCoding.Replace("%TEXT%", Title) : smartQuestConfiguration.TitleActiveCoding.Replace("%TEXT%", Title))}</b></color>";
+            string title = $"<color=#{ColorUtility.ToHtmlStringRGBA(IsQuestComplete() ? smartQuestConfiguration.TitleCompletedColor : smartQuestConfiguration.TitleActiveColor)}>{(IsQuestComplete() ? smartQuestConfiguration.TitleCompletedCoding.Replace("%TEXT%", Title) : smartQuestConfiguration.TitleActiveCoding.Replace("%TEXT%", Title))}</color>";
 
             string options = string.Join("\n", Options.Select(item => $"\t{item.GetOptionText()}")) + "\n";
 

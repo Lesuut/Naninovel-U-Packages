@@ -20,7 +20,7 @@ namespace Naninovel.U.SmartQuest
         public override string GetQuestInfo()
         {
             return 
-                $"<color=#{ColorUtility.ToHtmlStringRGBA(Complete ? smartQuestConfiguration.TitleCompletedColor : smartQuestConfiguration.TitleActiveColor)}><b>{(Complete ? smartQuestConfiguration.TitleCompletedCoding.Replace("%TEXT%", Title) : smartQuestConfiguration.TitleActiveCoding.Replace("%TEXT%", Title))}</b></color>\n\t" +
+                $"<color=#{ColorUtility.ToHtmlStringRGBA(Complete ? smartQuestConfiguration.TitleCompletedColor : smartQuestConfiguration.TitleActiveColor)}>{(Complete ? smartQuestConfiguration.TitleCompletedCoding.Replace("%TEXT%", Title) : smartQuestConfiguration.TitleActiveCoding.Replace("%TEXT%", Title))}</color>\n\t" +
                 $"<color=#{ColorUtility.ToHtmlStringRGBA(Complete ? smartQuestConfiguration.DescriptionCompletedColor : smartQuestConfiguration.DescriptionActiveColor)}>{(Complete ? smartQuestConfiguration.DescriptionCompletedCoding.Replace("%TEXT%", Description) : smartQuestConfiguration.DescriptionActiveCoding.Replace("%TEXT%", Description))}</color>";
         }
 

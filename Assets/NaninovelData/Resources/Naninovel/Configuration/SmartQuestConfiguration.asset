@@ -12,31 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5acec5f7c3aae924897e8cbc265c807d, type: 3}
   m_Name: SmartQuestConfiguration
   m_EditorClassIdentifier: 
-  TitleActiveCoding: '%TEXT%'
-  TitleCompletedCoding: '%TEXT% +'
-  TitleActiveColor: {r: 0.6, g: 0.8705883, b: 1, a: 1}
-  TitleCompletedColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+  TitleActiveCoding: <b>%TEXT%</b>
+  TitleCompletedCoding: <b>%TEXT%</b> +
+  TitleActiveColor: {r: 1, g: 1, b: 1, a: 1}
+  TitleCompletedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   OptionActiveCoding: "\u2022 %TEXT%"
   OptionCompletedCoding: "\u2022 <s>%TEXT%</s>"
-  OptionActiveColor: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
-  OptionCompletedColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+  OptionActiveColor: {r: 1, g: 1, b: 1, a: 1}
+  OptionCompletedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   ProgressGradient:
     serializedVersion: 2
     key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 1, g: 0.47202042, b: 0, a: 1}
-    key2: {r: 0.9772253, g: 1, b: 0, a: 0}
-    key3: {r: 0.68142533, g: 1, b: 0, a: 0}
-    key4: {r: 0.27962732, g: 1, b: 0, a: 0}
-    key5: {r: 0.12834764, g: 1, b: 0, a: 0}
-    key6: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0}
+    key1: {r: 1, g: 1, b: 0, a: 1}
+    key2: {r: 0, g: 1, b: 0, a: 0}
+    key3: {r: 0.5, g: 0.5, b: 0.5, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 10409
-    ctime2: 24865
-    ctime3: 40285
-    ctime4: 48766
-    ctime5: 62837
-    ctime6: 65535
+    ctime1: 32768
+    ctime2: 58982
+    ctime3: 65535
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
     ctime7: 0
     atime0: 0
     atime1: 65535
@@ -47,10 +47,10 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_ColorSpace: 0
-    m_NumColorKeys: 7
+    m_ColorSpace: -1
+    m_NumColorKeys: 4
     m_NumAlphaKeys: 2
   DescriptionActiveCoding: '%TEXT%'
   DescriptionCompletedCoding: '%TEXT%'
   DescriptionActiveColor: {r: 1, g: 1, b: 1, a: 1}
-  DescriptionCompletedColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+  DescriptionCompletedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
