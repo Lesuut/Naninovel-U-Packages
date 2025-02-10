@@ -1,20 +1,44 @@
 ; English <en> to Russian <ru> localization document for `Main` naninovel script
 
-# cf4c5c61
-; Hello
-Привет
+# 7a5fe0ec
+; Start
+Начать
 
-# 3cc89ad
-; @addChoiceBoxTitle "What is the main advantage of using dependency injection in Unity?"
-@addChoiceBoxTitle "Какое основное преимущество использования внедрения зависимостей в Unity?"
+# 4d428fdc
+; createSingleQuest
+createSingleQuest
 
-# aafd9e6d
-; @addChoiceBoxOption "It improves code maintainability and testability." todo:"@setparameter Reputation value:+1"
-@addChoiceBoxOption "Это улучшает поддерживаемость и тестируемость кода." todo:"@setparameter Reputation value:+1"
+# 3cc4c2d2
+; @createSingleQuest single title:"First Single Quest" description:"Complete the task by doing something specific to progress further"
+@createSingleQuest single title:"Первый одиночный квест" description:"Выполните задание, сделав что-то определенное, чтобы продвинуться дальше"
 
-# 3928b7ee
-; @addChoiceBoxOption "It makes the game run faster." todo:"@setparameter Reputation value:-1"
-@addChoiceBoxOption "Это ускоряет работу игры." todo:"@setparameter Reputation value:-1"
+# 3acafa77
+; completeSingleQuest
+completeSingleQuest
+
+# 43581f3a
+; createMultiQuest
+createMultiQuest
+
+# 3312335
+; @createMultiQuest multi title:"Design Weather System Architecture." description:"This task is just an example, and it can be adapted to fit different types of game development projects!"
+@createMultiQuest multi title:"Разработать архитектуру погодной системы" description:"Это задание - лишь пример, и его можно адаптировать под разные типы проектов по разработке игр!"
+
+# ea29fe4b
+; @addMultiQuestOption multi option:option1 description:"Research and define the structure of the weather system."
+@addMultiQuestOption multi option:option1 description:"Исследуйте и определите структуру погодной системы"
+
+# e05d3254
+; @addMultiQuestOption multi option:option2 maxProgressUnits:2 description:"Create weather data structures that will store weather conditions, transitions, and effects."
+@addMultiQuestOption multi option:option2 maxProgressUnits:2 description:"Создайте структуры данных о погоде, которые будут хранить погодные условия, переходы и эффекты"
+
+# 847b3f6c
+; @addMultiQuestOption multi option:option3 description:"Research and define the structure of the weather system."
+@addMultiQuestOption multi option:option3 description:"Исследуйте и определите структуру погодной системы"
+
+# cc8852f0
+; @addMultiQuestOption multi option:option4 maxProgressUnits:5 description:"Define rules for how different weather states affect the game world"
+@addMultiQuestOption multi option:option4 maxProgressUnits:5 description:"Определите правила, как различные погодные состояния влияют на игровой мир"
 
 # 4db9108a
 ; End
