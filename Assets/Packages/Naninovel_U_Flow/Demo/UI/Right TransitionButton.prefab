@@ -118,7 +118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6306036015961478139, guid: 795aab52bb6311a459778375b307bfe9, type: 3}
       propertyPath: m_Name
-      value: TransitionButton Variant
+      value: Right TransitionButton
       objectReference: {fileID: 0}
     - target: {fileID: 7715778851860949107, guid: 795aab52bb6311a459778375b307bfe9, type: 3}
       propertyPath: m_fontSize
@@ -147,6 +147,10 @@ PrefabInstance:
     - target: {fileID: 7715778851860949107, guid: 795aab52bb6311a459778375b307bfe9, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715778851860949107, guid: 795aab52bb6311a459778375b307bfe9, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 7715778851860949107, guid: 795aab52bb6311a459778375b307bfe9, type: 3}
       propertyPath: m_enableWordWrapping
