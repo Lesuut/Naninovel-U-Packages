@@ -136,6 +136,19 @@ namespace Naninovel.U.Flow
 
             Debug.Log($"Flow current scene node id: {nodeForActivation.NodeId}");
 
+            if (state.customEndNodeID != -1 && nodeForActivation.NodeId == state.customEndNodeID)
+            {
+                state.currentFlowAssetName = "";
+                state.customEndNodeID = -1;
+
+                state.isFlowActive = false;
+                flowUI.HideAllButtons();
+
+                await scriptPlayer.PreloadAndPlayAsync(state.startScriptName);
+                scriptPlayer.Play(scriptPlayer.Playlist, state.startScriptPlayedIndex + 1);
+                return;
+            }
+
             if (nodeForActivation.NodeType == NodeType.Start || nodeForActivation.NodeType == NodeType.Waypoint)
             {
                 FlowNodePortsData flowNodePortsData = nodeForActivation as FlowNodePortsData;
@@ -250,6 +263,11 @@ namespace Naninovel.U.Flow
         public void SetFlowWayIndex(int newIndex)
         {
             state.currentFlowWayIndex = newIndex;
+        }
+
+        public void SetCustomFLowEndID(int endNodeId)
+        {
+            state.customEndNodeID = endNodeId;
         }
     }
 }

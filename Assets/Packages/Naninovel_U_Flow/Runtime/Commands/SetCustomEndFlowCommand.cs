@@ -1,16 +1,16 @@
 ﻿namespace Naninovel.U.Flow.Commands
 {
-    [CommandAlias("setFlowWayIndex")]
-    public class SetFlowWayIndexCommand : Command
+    [CommandAlias("flowSetCustomEnd")]
+    public class SetCustomEndFlowCommand : Command
     {
         [ParameterAlias(NamelessParameterAlias), RequiredParameter]
-        public IntegerParameter index;
+        public IntegerParameter id;
 
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
             var FlowManager = Engine.GetService<IFlowManager>();
 
-            FlowManager.SetFlowWayIndex(index);
+            FlowManager.SetCustomFLowEndID(id);
 
             return UniTask.CompletedTask;
         }

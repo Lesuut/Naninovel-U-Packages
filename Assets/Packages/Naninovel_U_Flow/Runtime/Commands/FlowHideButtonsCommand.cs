@@ -3,11 +3,8 @@ namespace Naninovel.U.Flow.Commands
     [CommandAlias("flowButtonsHide")]
     public class FlowHideButtonsCommand : Command
     {
-        [ParameterAlias(NamelessParameterAlias)]
+        [ParameterAlias(NamelessParameterAlias), RequiredParameter]
         public BooleanParameter firstValue;
-
-        /*[ParameterAlias("id"), LocalizableParameter]
-        public StringParameter text = "Hello World!";*/
 
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {

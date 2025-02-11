@@ -8,5 +8,6 @@ namespace Naninovel.U.Flow
         public void StartFlowByName(string FlowAssetName);
         public void SetButtonsHideStatus(bool hideStatus);
         public void SetFlowWayIndex(int newIndex);
+        public void SetCustomFLowEndID(int endNodeId);
     }
 }

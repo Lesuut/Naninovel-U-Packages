@@ -8,9 +8,6 @@ namespace Naninovel.U.Flow.Commands
         [ParameterAlias(NamelessParameterAlias)]
         public StringParameter firstValue;
 
-        /*[ParameterAlias("id"), LocalizableParameter]
-        public StringParameter text = "Hello World!";*/
-
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
             var FlowManager = Engine.GetService<IFlowManager>();

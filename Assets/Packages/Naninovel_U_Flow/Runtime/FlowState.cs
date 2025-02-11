@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace Naninovel.U.Flow
 {
@@ -19,6 +18,8 @@ namespace Naninovel.U.Flow
         public string startScriptName;
         public int startScriptPlayedIndex;
 
+        public int customEndNodeID;
+
         public FlowState()
         {
             currentFlowWayIndex = 0;
@@ -32,6 +33,8 @@ namespace Naninovel.U.Flow
 
             startScriptName = string.Empty;
             startScriptPlayedIndex = 0;
+            
+            customEndNodeID = -1;
         }
 
         public FlowState(FlowState other)
@@ -45,6 +48,7 @@ namespace Naninovel.U.Flow
             startScriptName = other.startScriptName;
             startScriptPlayedIndex = other.startScriptPlayedIndex;
             currentFlowAssetName = other.currentFlowAssetName;
+            customEndNodeID = other.customEndNodeID;
         }
     }
 }
