@@ -5,6 +5,7 @@
 ;@showChoiceBox
 Start
 
+@hideAll
 @showUI PazzleUI
 
 End

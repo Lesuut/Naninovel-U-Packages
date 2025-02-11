@@ -7,7 +7,7 @@ namespace Naninovel.U.UIInteractionToolkit
     {
         public virtual UIInteractionToolkitConfiguration Configuration { get; }
 
-        private GameObject currentGameObject;
+        private Texture2D lastCursor;
 
         public UIInteractionToolkitManager(UIInteractionToolkitConfiguration config)
         {
@@ -42,26 +42,29 @@ namespace Naninovel.U.UIInteractionToolkit
             {
                 case CursorPointingTypes.Defoult:
                     Cursor.SetCursor(Configuration.DefoultCursor, Vector2.zero, CursorMode.Auto);
+                    lastCursor = Configuration.DefoultCursor;
                     break;
                 case CursorPointingTypes.Hover:
                     Cursor.SetCursor(Configuration.HoverCursor, Vector2.zero, CursorMode.Auto);
+                    lastCursor = Configuration.HoverCursor;
                     break;
                 case CursorPointingTypes.Interactive:
                     Cursor.SetCursor(Configuration.InteractiveCursor, Vector2.zero, CursorMode.Auto);
+                    lastCursor = Configuration.InteractiveCursor;
                     break;
                 case CursorPointingTypes.Action:
                     Cursor.SetCursor(Configuration.ActionCursor, Vector2.zero, CursorMode.Auto);
+                    lastCursor = Configuration.ActionCursor;
                     break;
                 default:
                     Cursor.SetCursor(Configuration.DefoultCursor, Vector2.zero, CursorMode.Auto);
+                    lastCursor = Configuration.DefoultCursor;
                     break;
             }
         }
 
         public void OnPointerEnter(CursorPointingTypes cursorPointingTypes)
         {
-            if (currentGameObject != null) return;
-
             switch (cursorPointingTypes)
             {
                 case CursorPointingTypes.Hover:
@@ -80,8 +83,6 @@ namespace Naninovel.U.UIInteractionToolkit
 
         public void OnPointerExit(CursorPointingTypes cursorType)
         {
-            if (currentGameObject != null) return;
-
             switch (cursorType)
             {
                 case CursorPointingTypes.Hover:
@@ -102,19 +103,40 @@ namespace Naninovel.U.UIInteractionToolkit
         {
             if (useCatch)
             {
-                currentGameObject = gameObject;
                 Cursor.SetCursor(Configuration.CatchCursor, Vector2.zero, CursorMode.Auto);
+            }
+
+            switch (cursorType)
+            {
+                case CursorPointingTypes.Hover:
+                    PlayScript(Configuration.HoverCursorSoundDownNanicode);
+                    break;
+                case CursorPointingTypes.Interactive:
+                    PlayScript(Configuration.InteractiveCursorSoundDownNanicode);
+                    break;
+                case CursorPointingTypes.Action:
+                    PlayScript(Configuration.ActionCursorSoundDownNanicode);
+                    break;
             }
         }
 
         public void OnPointerUp(CursorPointingTypes cursorType, GameObject gameObject)
         {
-            if (currentGameObject != null && currentGameObject.GetHashCode() != gameObject.GetHashCode())
-                return;
+            switch (cursorType)
+            {
+                case CursorPointingTypes.Hover:
+                    PlayScript(Configuration.HoverCursorSoundUpNanicode);
+                    break;
+                case CursorPointingTypes.Interactive:
+                    PlayScript(Configuration.InteractiveCursorSoundUpNanicode);
+                    break;
+                case CursorPointingTypes.Action:
+                    PlayScript(Configuration.ActionCursorSoundUpNanicode);
+                    break;
+            }
 
-            SetCursor(CursorPointingTypes.Defoult);
-
-            currentGameObject = null;
+            if (lastCursor != null)
+                Cursor.SetCursor(lastCursor, Vector2.zero, CursorMode.Auto);
         }
     }
 }
