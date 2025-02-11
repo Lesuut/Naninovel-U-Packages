@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Naninovel.U.SmartQuest
 {
@@ -108,7 +107,12 @@ namespace Naninovel.U.SmartQuest
         }
         private string GetQuestsTextInfo()
         {
-            return string.Join("\n\n", state.Quests.Select(q => q.GetQuestInfo()));
+            var sortedQuests = state.Quests
+                .OrderBy(q => !q.IsQuestComplete())
+                .Reverse()
+                .Select(q => q.GetQuestInfo());
+
+            return string.Join("\n\n", sortedQuests);
         }
 
         public Action<string> GetUpdateQuestTextAction() => UpdateQuestTextAction;     

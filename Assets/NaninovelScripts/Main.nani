@@ -39,6 +39,23 @@ createMultiQuest
 [i]
 @executeMultiQuestOption multi option:option3 value:1
 
+@createSingleQuest single1 title:"First Single Quest 1" description:"Complete the task by doing something specific to progress further"
+[i]
+@completeSingleQuest single1
+[i]
+@createSingleQuest single2 title:"First Single Quest 2" description:"Complete the task by doing something specific to progress further"
+[i]
+@completeSingleQuest single2
+[i]
+@createSingleQuest single3 title:"First Single Quest 3" description:"Complete the task by doing something specific to progress further"
+[i]
+@completeSingleQuest single3
+[i]
+@createSingleQuest single4 title:"First Single Quest 4" description:"Complete the task by doing something specific to progress further"
+[i]
+@completeSingleQuest single4
+[i]
+
 @if GetQuestStatus("multi")
 True
 @else
