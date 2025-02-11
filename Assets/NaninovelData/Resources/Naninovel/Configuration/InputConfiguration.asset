@@ -119,8 +119,3 @@ MonoBehaviour:
       TriggerMode: 0
       TriggerTolerance: 0.001
     Swipes: []
-  - Name: My
-    AlwaysProcess: 0
-    Keys: 11010000
-    Axes: []
-    Swipes: []
