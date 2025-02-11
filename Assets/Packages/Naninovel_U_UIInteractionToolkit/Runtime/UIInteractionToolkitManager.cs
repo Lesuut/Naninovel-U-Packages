@@ -7,6 +7,8 @@ namespace Naninovel.U.UIInteractionToolkit
     {
         public virtual UIInteractionToolkitConfiguration Configuration { get; }
 
+        private GameObject currentGameObject;
+
         public UIInteractionToolkitManager(UIInteractionToolkitConfiguration config)
         {
             Configuration = config;
@@ -47,8 +49,8 @@ namespace Naninovel.U.UIInteractionToolkit
                 case CursorPointingTypes.Interactive:
                     Cursor.SetCursor(Configuration.InteractiveCursor, Vector2.zero, CursorMode.Auto);
                     break;
-                case CursorPointingTypes.Examine:
-                    Cursor.SetCursor(Configuration.ExamineCursor, Vector2.zero, CursorMode.Auto);
+                case CursorPointingTypes.Action:
+                    Cursor.SetCursor(Configuration.ActionCursor, Vector2.zero, CursorMode.Auto);
                     break;
                 default:
                     Cursor.SetCursor(Configuration.DefoultCursor, Vector2.zero, CursorMode.Auto);
@@ -58,6 +60,8 @@ namespace Naninovel.U.UIInteractionToolkit
 
         public void OnPointerEnter(CursorPointingTypes cursorPointingTypes)
         {
+            if (currentGameObject != null) return;
+
             switch (cursorPointingTypes)
             {
                 case CursorPointingTypes.Hover:
@@ -66,8 +70,8 @@ namespace Naninovel.U.UIInteractionToolkit
                 case CursorPointingTypes.Interactive:
                     PlayScript(Configuration.InteractiveCursorSoundEnterNanicode);
                     break;
-                case CursorPointingTypes.Examine:
-                    PlayScript(Configuration.ExamineCursorSoundEnterNanicode);
+                case CursorPointingTypes.Action:
+                    PlayScript(Configuration.ActionCursorSoundEnterNanicode);
                     break;
             }
 
@@ -76,6 +80,8 @@ namespace Naninovel.U.UIInteractionToolkit
 
         public void OnPointerExit(CursorPointingTypes cursorType)
         {
+            if (currentGameObject != null) return;
+
             switch (cursorType)
             {
                 case CursorPointingTypes.Hover:
@@ -84,48 +90,31 @@ namespace Naninovel.U.UIInteractionToolkit
                 case CursorPointingTypes.Interactive:
                     PlayScript(Configuration.InteractiveCursorSoundExitNanicode);
                     break;
-                case CursorPointingTypes.Examine:
-                    PlayScript(Configuration.ExamineCursorSoundExitNanicode);
+                case CursorPointingTypes.Action:
+                    PlayScript(Configuration.ActionCursorSoundExitNanicode);
                     break;
             }
 
             SetCursor(CursorPointingTypes.Defoult);
         }
 
-        public void OnPointerDown(CursorPointingTypes cursorType)
+        public void OnPointerDown(CursorPointingTypes cursorType, bool useCatch, GameObject gameObject)
         {
-            switch (cursorType)
+            if (useCatch)
             {
-                case CursorPointingTypes.Hover:
-                    PlayScript(Configuration.HoverCursorSoundDownNanicode);
-                    break;
-                case CursorPointingTypes.Interactive:
-                    PlayScript(Configuration.InteractiveCursorSoundDownNanicode);
-                    break;
-                case CursorPointingTypes.Examine:
-                    PlayScript(Configuration.ExamineCursorSoundDownNanicode);
-                    break;
+                currentGameObject = gameObject;
+                Cursor.SetCursor(Configuration.CatchCursor, Vector2.zero, CursorMode.Auto);
             }
-
-            SetCursor(cursorType);
         }
 
-        public void OnPointerUp(CursorPointingTypes cursorType)
+        public void OnPointerUp(CursorPointingTypes cursorType, GameObject gameObject)
         {
-            switch (cursorType)
-            {
-                case CursorPointingTypes.Hover:
-                    PlayScript(Configuration.HoverCursorSoundUpNanicode);
-                    break;
-                case CursorPointingTypes.Interactive:
-                    PlayScript(Configuration.InteractiveCursorSoundUpNanicode);
-                    break;
-                case CursorPointingTypes.Examine:
-                    PlayScript(Configuration.ExamineCursorSoundUpNanicode);
-                    break;
-            }
+            if (currentGameObject != null && currentGameObject.GetHashCode() != gameObject.GetHashCode())
+                return;
 
             SetCursor(CursorPointingTypes.Defoult);
+
+            currentGameObject = null;
         }
     }
 }

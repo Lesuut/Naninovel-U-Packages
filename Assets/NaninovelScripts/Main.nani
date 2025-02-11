@@ -5,41 +5,7 @@
 ;@showChoiceBox
 Start
 
-@showUI QuestWindow wait:false
-@createSingleQuest single title:"Single Quest" description:"Complete the task by doing something specific to progress further"
-[i]
-@completeSingleQuest single
-[i]
-@createMultiQuest multi title:"Multi Quest." description:"This task is just an example, and it can be adapted to fit different types of game development projects!"
-@addMultiQuestOption multi option:option1 description:"Research and define the structure of the weather system."
-@addMultiQuestOption multi option:option2 maxProgressUnits:2 description:"Create weather data structures that will store weather conditions, transitions, and effects."
-@addMultiQuestOption multi option:option3 description:"Research and define the structure of the weather system."
-@addMultiQuestOption multi option:option4 maxProgressUnits:5 description:"Define rules for how different weather states affect the game world"
-@bakeMultiQuest
-[i]
-@executeMultiQuestOption multi option:option2 value:1
-[i]
-@executeMultiQuestOption multi option:option2 value:1
-[i]
-@executeMultiQuestOption multi option:option4 value:1
-[i]
-@executeMultiQuestOption multi option:option4 value:1
-[i]
-@executeMultiQuestOption multi option:option4 value:1
-[i]
-@executeMultiQuestOption multi option:option4 value:1
-[i]
-@executeMultiQuestOption multi option:option4 value:1
-[i]
-@executeMultiQuestOption multi option:option1 value:1
-[i]
-@executeMultiQuestOption multi option:option3 value:1
-
-@if GetQuestStatus("multi")
-True
-@else
-False
-@endif
+@showUI PazzleUI
 
 End
 @stop

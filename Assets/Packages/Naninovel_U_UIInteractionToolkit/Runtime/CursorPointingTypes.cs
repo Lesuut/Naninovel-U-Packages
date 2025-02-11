@@ -5,6 +5,6 @@ namespace Naninovel.U.UIInteractionToolkit
         Defoult,
         Hover,
         Interactive,
-        Examine
+        Action
     }
 }

@@ -11,6 +11,7 @@ namespace Naninovel.U.UIInteractionToolkit
         public Texture2D DefoultCursor;
         [Header("Hover")]
         public Texture2D HoverCursor;
+        public Texture2D CatchCursor;
         public string HoverCursorSoundEnterNanicode;
         public string HoverCursorSoundExitNanicode;
         public string HoverCursorSoundDownNanicode;
@@ -21,11 +22,11 @@ namespace Naninovel.U.UIInteractionToolkit
         public string InteractiveCursorSoundExitNanicode;
         public string InteractiveCursorSoundDownNanicode;
         public string InteractiveCursorSoundUpNanicode;
-        [Header("Examine")]
-        public Texture2D ExamineCursor;
-        public string ExamineCursorSoundEnterNanicode;
-        public string ExamineCursorSoundExitNanicode;
-        public string ExamineCursorSoundDownNanicode;
-        public string ExamineCursorSoundUpNanicode;
+        [Header("Action")]
+        public Texture2D ActionCursor;
+        public string ActionCursorSoundEnterNanicode;
+        public string ActionCursorSoundExitNanicode;
+        public string ActionCursorSoundDownNanicode;
+        public string ActionCursorSoundUpNanicode;
     }
 }

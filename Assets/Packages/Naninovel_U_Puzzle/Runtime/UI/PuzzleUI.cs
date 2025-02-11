@@ -1,54 +1,59 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using Naninovel.UI;
 using System;
-using System.Collections.Generic;
 
 namespace Naninovel.U.Puzzle
 {
     public class PuzzleUI : CustomUI
     {
+        [SerializeField] private Canvas canvas;
+
+        private RectTransform currentSelectPiceRectTransform;
+        private Vector2 offset; // Смещение между позицией мыши и объектом
+
         [Serializable]
         private new class GameState
         {
             public string Value;
         }
 
-        protected override void Awake()
+        private void Update()
         {
-            base.Awake();
+            if (currentSelectPiceRectTransform == null || canvas == null) return;
+
+            Vector2 mousePosition = Input.mousePosition;
+
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                canvas.transform as RectTransform,
+                mousePosition,
+                canvas.worldCamera,
+                out Vector2 localPoint
+            );
+
+            // Учитываем смещение
+            currentSelectPiceRectTransform.anchoredPosition = localPoint - offset;
         }
 
-        /// <summary>
-        /// Write the body for the Puzzle UI here
-        /// </summary>
-
-        protected override void SerializeState(GameStateMap stateMap)
+        public void SelectPice(RectTransform rectTransform)
         {
-            // Invoked when the game is saved.
+            currentSelectPiceRectTransform = rectTransform;
 
-            base.SerializeState(stateMap);
+            // Сохраняем смещение в момент захвата
+            Vector2 mousePosition = Input.mousePosition;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                canvas.transform as RectTransform,
+                mousePosition,
+                canvas.worldCamera,
+                out Vector2 localPoint
+            );
 
-            // Serialize UI state.
-            var state = new GameState
-            {
-                Value = "Value1"
-            };
-            stateMap.SetState(state);
+            offset = localPoint - currentSelectPiceRectTransform.anchoredPosition;
         }
 
-        protected override async UniTask DeserializeState(GameStateMap stateMap)
+        public void UnselectPice()
         {
-            // Invoked when the game is loaded.
-
-            await base.DeserializeState(stateMap);
-
-            var state = stateMap.GetState<GameState>();
-            if (state is null) return; // empty state, do nothing
-
-            // Set data state here
-
-            UnityEngine.Debug.Log($"Exemple: {state.Value}!");
+            currentSelectPiceRectTransform = null;
         }
     }
 }

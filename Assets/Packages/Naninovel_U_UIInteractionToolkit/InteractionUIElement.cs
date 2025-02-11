@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Naninovel.U.UIInteractionToolkit
 {
@@ -8,10 +9,8 @@ namespace Naninovel.U.UIInteractionToolkit
     {
         [SerializeField] protected CursorPointingTypes cursorPointingType = CursorPointingTypes.Hover;
         [Space]
-        [SerializeField] protected bool useOnPointerDown = true;
-        [SerializeField] protected bool useOnPointerUp = true;
-        [SerializeField] protected bool useOnPointerEnter = true;
-        [SerializeField] protected bool useOnPointerExit = true;
+        [SerializeField] protected bool useHover = true;
+        [SerializeField] protected bool useCatch = false;
         [Space]
         [SerializeField] protected UnityEvent onPointerDown;
         [SerializeField] protected UnityEvent onPointerUp;
@@ -21,50 +20,44 @@ namespace Naninovel.U.UIInteractionToolkit
         protected IUIInteractionToolkitManager interactionToolkitManager;
         private bool isPressed = false;
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             interactionToolkitManager = Engine.GetService<IUIInteractionToolkitManager>();
         }
       
         public void OnPointerDown(PointerEventData eventData)
         {
-            if (!useOnPointerDown) return;
+            onPointerDown?.Invoke();
 
             isPressed = true;
-            interactionToolkitManager.OnPointerDown(cursorPointingType);
-
-            onPointerDown?.Invoke();
+            interactionToolkitManager.OnPointerDown(cursorPointingType, useCatch, gameObject);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            if (!useOnPointerUp) return;
+            onPointerUp?.Invoke();
 
             if (isPressed)
             {
                 isPressed = false;
-                interactionToolkitManager.OnPointerUp(cursorPointingType);
+                interactionToolkitManager.OnPointerUp(cursorPointingType, gameObject);
             }
-
-            onPointerUp?.Invoke();
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (!useOnPointerEnter) return;
+            onPointerEnter?.Invoke();
+
+            if (!useHover) return;
 
             interactionToolkitManager.OnPointerEnter(cursorPointingType);
-
-            onPointerEnter?.Invoke();
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            if (!useOnPointerExit) return;
+            onPointerExit?.Invoke();
 
             interactionToolkitManager.OnPointerExit(cursorPointingType);
-
-            onPointerExit?.Invoke();
-        }
+        }      
     }
 }
