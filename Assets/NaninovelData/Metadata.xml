@@ -357,7 +357,7 @@
             &lt;Id&gt;description&lt;/Id&gt;
             &lt;Alias&gt;description&lt;/Alias&gt;
             &lt;Nameless&gt;false&lt;/Nameless&gt;
-            &lt;Required&gt;true&lt;/Required&gt;
+            &lt;Required&gt;false&lt;/Required&gt;
             &lt;Localizable&gt;true&lt;/Localizable&gt;
             &lt;ValueContainerType&gt;Single&lt;/ValueContainerType&gt;
             &lt;ValueType&gt;String&lt;/ValueType&gt;
@@ -1317,6 +1317,10 @@
       &lt;/Resource&gt;
       &lt;Resource&gt;
         &lt;Path&gt;QuestWindow&lt;/Path&gt;
+        &lt;Type&gt;UI&lt;/Type&gt;
+      &lt;/Resource&gt;
+      &lt;Resource&gt;
+        &lt;Path&gt;TestInput&lt;/Path&gt;
         &lt;Type&gt;UI&lt;/Type&gt;
       &lt;/Resource&gt;
       &lt;Resource&gt;

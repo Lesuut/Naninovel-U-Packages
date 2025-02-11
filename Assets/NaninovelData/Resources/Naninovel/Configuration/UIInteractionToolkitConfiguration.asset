@@ -12,3 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e046cf067ab3c04a92b98b34fe9c907, type: 3}
   m_Name: UIInteractionToolkitConfiguration
   m_EditorClassIdentifier: 
+  DefoultCursor: {fileID: 0}
+  HoverCursor: {fileID: 0}
+  HoverCursorSoundEnterNanicode: 
+  HoverCursorSoundExitNanicode: 
+  HoverCursorSoundDownNanicode: 
+  HoverCursorSoundUpNanicode: 
+  InteractiveCursor: {fileID: 0}
+  InteractiveCursorSoundEnterNanicode: 
+  InteractiveCursorSoundExitNanicode: 
+  InteractiveCursorSoundDownNanicode: 
+  InteractiveCursorSoundUpNanicode: 
+  ExamineCursor: {fileID: 0}
+  ExamineCursorSoundEnterNanicode: 
+  ExamineCursorSoundExitNanicode: 
+  ExamineCursorSoundDownNanicode: 
+  ExamineCursorSoundUpNanicode: 

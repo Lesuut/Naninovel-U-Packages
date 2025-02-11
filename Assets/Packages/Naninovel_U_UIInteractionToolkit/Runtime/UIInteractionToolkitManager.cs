@@ -13,6 +13,7 @@ namespace Naninovel.U.UIInteractionToolkit
         }
         public UniTask InitializeServiceAsync()
         {
+            SetCursor(CursorPointingTypes.Defoult);
             return UniTask.CompletedTask;
         }
 
@@ -88,7 +89,7 @@ namespace Naninovel.U.UIInteractionToolkit
                     break;
             }
 
-            SetCursor(cursorType);
+            SetCursor(CursorPointingTypes.Defoult);
         }
 
         public void OnPointerDown(CursorPointingTypes cursorType)
@@ -124,7 +125,7 @@ namespace Naninovel.U.UIInteractionToolkit
                     break;
             }
 
-            SetCursor(cursorType);
+            SetCursor(CursorPointingTypes.Defoult);
         }
     }
 }
