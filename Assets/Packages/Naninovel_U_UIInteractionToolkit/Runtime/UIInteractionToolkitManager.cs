@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Naninovel.U.UIInteractionToolkit
 {
@@ -7,43 +7,124 @@ namespace Naninovel.U.UIInteractionToolkit
     {
         public virtual UIInteractionToolkitConfiguration Configuration { get; }
 
-        private readonly IStateManager stateManager;
-        private UIInteractionToolkitState state;
-
-        public UIInteractionToolkitManager(UIInteractionToolkitConfiguration config, IStateManager stateManager)
+        public UIInteractionToolkitManager(UIInteractionToolkitConfiguration config)
         {
             Configuration = config;
-            this.stateManager = stateManager;
         }
         public UniTask InitializeServiceAsync()
         {
-            state = new UIInteractionToolkitState();
-            stateManager.AddOnGameSerializeTask(Serialize);
-            stateManager.AddOnGameDeserializeTask(Deserialize);
-
             return UniTask.CompletedTask;
         }
 
         public void DestroyService()
         {
-            stateManager.RemoveOnGameSerializeTask(Serialize);
-            stateManager.RemoveOnGameDeserializeTask(Deserialize);
+            SetCursor(CursorPointingTypes.Defoult);
         }
 
-        public void ResetService() { }
-
-        private void Serialize(GameStateMap map) => map.SetState(new UIInteractionToolkitState(state));
-
-        private UniTask Deserialize(GameStateMap map)
+        public void ResetService() 
         {
-            state = map.GetState<UIInteractionToolkitState>();
-            state = state == null ? new UIInteractionToolkitState() : new UIInteractionToolkitState(state);
-
-            return UniTask.CompletedTask;
+            SetCursor(CursorPointingTypes.Defoult);
         }
 
-        /// <summary>
-        /// Write the body for the UIInteractionToolkit service here
-        /// </summary>
+        private async void PlayScript(string scriptText)
+        {
+            if (string.IsNullOrEmpty(scriptText)) return;
+            var script = Script.FromScriptText($"Generated UIInteractionToolkitManager script", scriptText);
+            var playlist = new ScriptPlaylist(script);
+            await playlist.ExecuteAsync();
+        }
+        private void SetCursor(CursorPointingTypes cursorPointingTypes)
+        {
+            switch (cursorPointingTypes)
+            {
+                case CursorPointingTypes.Defoult:
+                    Cursor.SetCursor(Configuration.DefoultCursor, Vector2.zero, CursorMode.Auto);
+                    break;
+                case CursorPointingTypes.Hover:
+                    Cursor.SetCursor(Configuration.HoverCursor, Vector2.zero, CursorMode.Auto);
+                    break;
+                case CursorPointingTypes.Interactive:
+                    Cursor.SetCursor(Configuration.InteractiveCursor, Vector2.zero, CursorMode.Auto);
+                    break;
+                case CursorPointingTypes.Examine:
+                    Cursor.SetCursor(Configuration.ExamineCursor, Vector2.zero, CursorMode.Auto);
+                    break;
+                default:
+                    Cursor.SetCursor(Configuration.DefoultCursor, Vector2.zero, CursorMode.Auto);
+                    break;
+            }
+        }
+
+        public void OnPointerEnter(CursorPointingTypes cursorPointingTypes)
+        {
+            switch (cursorPointingTypes)
+            {
+                case CursorPointingTypes.Hover:
+                    PlayScript(Configuration.HoverCursorSoundEnterNanicode);
+                    break;
+                case CursorPointingTypes.Interactive:
+                    PlayScript(Configuration.InteractiveCursorSoundEnterNanicode);
+                    break;
+                case CursorPointingTypes.Examine:
+                    PlayScript(Configuration.ExamineCursorSoundEnterNanicode);
+                    break;
+            }
+
+            SetCursor(cursorPointingTypes);
+        }
+
+        public void OnPointerExit(CursorPointingTypes cursorType)
+        {
+            switch (cursorType)
+            {
+                case CursorPointingTypes.Hover:
+                    PlayScript(Configuration.HoverCursorSoundExitNanicode);
+                    break;
+                case CursorPointingTypes.Interactive:
+                    PlayScript(Configuration.InteractiveCursorSoundExitNanicode);
+                    break;
+                case CursorPointingTypes.Examine:
+                    PlayScript(Configuration.ExamineCursorSoundExitNanicode);
+                    break;
+            }
+
+            SetCursor(cursorType);
+        }
+
+        public void OnPointerDown(CursorPointingTypes cursorType)
+        {
+            switch (cursorType)
+            {
+                case CursorPointingTypes.Hover:
+                    PlayScript(Configuration.HoverCursorSoundDownNanicode);
+                    break;
+                case CursorPointingTypes.Interactive:
+                    PlayScript(Configuration.InteractiveCursorSoundDownNanicode);
+                    break;
+                case CursorPointingTypes.Examine:
+                    PlayScript(Configuration.ExamineCursorSoundDownNanicode);
+                    break;
+            }
+
+            SetCursor(cursorType);
+        }
+
+        public void OnPointerUp(CursorPointingTypes cursorType)
+        {
+            switch (cursorType)
+            {
+                case CursorPointingTypes.Hover:
+                    PlayScript(Configuration.HoverCursorSoundUpNanicode);
+                    break;
+                case CursorPointingTypes.Interactive:
+                    PlayScript(Configuration.InteractiveCursorSoundUpNanicode);
+                    break;
+                case CursorPointingTypes.Examine:
+                    PlayScript(Configuration.ExamineCursorSoundUpNanicode);
+                    break;
+            }
+
+            SetCursor(cursorType);
+        }
     }
 }

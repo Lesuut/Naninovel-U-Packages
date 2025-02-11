@@ -4,8 +4,9 @@ namespace Naninovel.U.UIInteractionToolkit
 {
     public interface IUIInteractionToolkitManager : IEngineService
     {
-        /// <summary>
-        /// Write the body of your UIInteractionToolkit interface here
-        /// </summary>
+        public void OnPointerEnter(CursorPointingTypes cursorPointingTypes);
+        public void OnPointerExit(CursorPointingTypes cursorPointingTypes);
+        public void OnPointerDown(CursorPointingTypes cursorPointingTypes);
+        public void OnPointerUp(CursorPointingTypes cursorPointingTypes);
     }
 }

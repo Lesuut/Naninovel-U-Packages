@@ -177,7 +177,7 @@ MonoBehaviour:
       guid: f2fdc8b3034666f459c749c7f31dd0a4
     - name: TestInput
       pathPrefix: UI
-      guid: 017eb6ddc31216e48ab2d8de1df17d39
+      guid: df89489c66433224b926558cf53bde7a
   - Id: Scripts
     Resources:
     - name: Main

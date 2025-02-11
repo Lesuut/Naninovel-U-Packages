@@ -2,9 +2,6 @@ using UnityEngine;
 
 namespace Naninovel.U.UIInteractionToolkit
 {
-    /// <summary>
-    /// Contains configuration data for the UIInteractionToolkit systems.
-    /// </summary>
     [EditInProjectSettings]
     public class UIInteractionToolkitConfiguration : Configuration
     {
@@ -16,13 +13,19 @@ namespace Naninovel.U.UIInteractionToolkit
         public Texture2D HoverCursor;
         public string HoverCursorSoundEnterNanicode;
         public string HoverCursorSoundExitNanicode;
+        public string HoverCursorSoundDownNanicode;
+        public string HoverCursorSoundUpNanicode;
         [Header("Interactive")]
         public Texture2D InteractiveCursor;
         public string InteractiveCursorSoundEnterNanicode;
         public string InteractiveCursorSoundExitNanicode;
+        public string InteractiveCursorSoundDownNanicode;
+        public string InteractiveCursorSoundUpNanicode;
         [Header("Examine")]
         public Texture2D ExamineCursor;
         public string ExamineCursorSoundEnterNanicode;
         public string ExamineCursorSoundExitNanicode;
+        public string ExamineCursorSoundDownNanicode;
+        public string ExamineCursorSoundUpNanicode;
     }
 }

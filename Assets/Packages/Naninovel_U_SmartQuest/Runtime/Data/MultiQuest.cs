@@ -23,7 +23,7 @@ namespace Naninovel.U.SmartQuest
 
             string description = $"<color=#{ColorUtility.ToHtmlStringRGBA(IsQuestComplete() ? smartQuestConfiguration.DescriptionCompletedColor : smartQuestConfiguration.DescriptionActiveColor)}>{(IsQuestComplete() ? smartQuestConfiguration.DescriptionCompletedCoding.Replace("%TEXT%", Description) : smartQuestConfiguration.DescriptionActiveCoding.Replace("%TEXT%", Description))}</color>";
 
-            return $"{title}\n{options}\n{description}";
+            return $"{title}\n{options}{(Description != "" ? $"\n{description}" : "")}";
         }
 
         public override bool IsQuestComplete()
