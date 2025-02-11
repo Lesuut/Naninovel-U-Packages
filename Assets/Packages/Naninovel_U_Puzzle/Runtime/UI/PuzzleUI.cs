@@ -1,0 +1,54 @@
+using UnityEngine;
+using UnityEngine.UI;
+using Naninovel.UI;
+using System;
+using System.Collections.Generic;
+
+namespace Naninovel.U.Puzzle
+{
+    public class PuzzleUI : CustomUI
+    {
+        [Serializable]
+        private new class GameState
+        {
+            public string Value;
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
+        }
+
+        /// <summary>
+        /// Write the body for the Puzzle UI here
+        /// </summary>
+
+        protected override void SerializeState(GameStateMap stateMap)
+        {
+            // Invoked when the game is saved.
+
+            base.SerializeState(stateMap);
+
+            // Serialize UI state.
+            var state = new GameState
+            {
+                Value = "Value1"
+            };
+            stateMap.SetState(state);
+        }
+
+        protected override async UniTask DeserializeState(GameStateMap stateMap)
+        {
+            // Invoked when the game is loaded.
+
+            await base.DeserializeState(stateMap);
+
+            var state = stateMap.GetState<GameState>();
+            if (state is null) return; // empty state, do nothing
+
+            // Set data state here
+
+            UnityEngine.Debug.Log($"Exemple: {state.Value}!");
+        }
+    }
+}
