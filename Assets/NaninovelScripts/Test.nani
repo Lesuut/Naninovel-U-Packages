@@ -1,5 +1,5 @@
 # test
-@flowButtonsHide true
+@flowPause
 Hi
 I'm test
-@flowButtonsHide false
+@flowContinue

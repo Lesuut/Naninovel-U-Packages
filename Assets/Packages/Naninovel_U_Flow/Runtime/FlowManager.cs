@@ -132,7 +132,9 @@ namespace Naninovel.U.Flow
             state.currentActiveFlowNodeId = nodeForActivation.NodeId;
 
             flowUI.HideAllButtons();
-            PlayScript($"{Configuration.BackgroundCommand.Replace("%ID%", nodeForActivation.MapName)}");          
+            PlayScript($"{Configuration.BackgroundCommand.Replace("%ID%", nodeForActivation.MapName)}");
+
+            Debug.Log($"Flow current scene node id: {nodeForActivation.NodeId}");
 
             if (nodeForActivation.NodeType == NodeType.Start || nodeForActivation.NodeType == NodeType.Waypoint)
             {
