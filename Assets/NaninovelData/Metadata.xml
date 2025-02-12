@@ -699,7 +699,7 @@
             &lt;Id&gt;firstValue&lt;/Id&gt;
             &lt;Alias /&gt;
             &lt;Nameless&gt;true&lt;/Nameless&gt;
-            &lt;Required&gt;false&lt;/Required&gt;
+            &lt;Required&gt;true&lt;/Required&gt;
             &lt;Localizable&gt;false&lt;/Localizable&gt;
             &lt;ValueContainerType&gt;Single&lt;/ValueContainerType&gt;
             &lt;ValueType&gt;String&lt;/ValueType&gt;

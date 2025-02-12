@@ -84,6 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3316852552680350886}
+  - component: {fileID: 4600886970782153016}
   m_Layer: 5
   m_Name: StarryNight
   m_TagString: Untagged
@@ -113,6 +114,29 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4600886970782153016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881510616889377707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 518c9e31b5001a14a9997bf839b0a6f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StarryNight
+  parts:
+  - {fileID: 2352039437625509244}
+  - {fileID: 5265168327310207923}
+  - {fileID: 6059333951431667049}
+  - {fileID: 7638435234333225704}
+  - {fileID: 2246503938742795516}
+  - {fileID: 4086960748925649997}
+  - {fileID: 2017654903847562981}
+  collectedImage: {fileID: 845852040527812624}
+  canvasGroup: {fileID: 7259820021224524302}
 --- !u!1 &5128643718295928699
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +584,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &3597895963706227420
 MonoBehaviour:
@@ -595,6 +619,7 @@ MonoBehaviour:
   modalUI: 1
   fontChangeConfiguration: []
   canvas: {fileID: 6306036015961478112}
+  magnetRadius: 50
 --- !u!225 &6306036015961478118
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1062,6 +1087,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4706369841778646466}
+  - component: {fileID: 7259820021224524302}
   m_Layer: 5
   m_Name: Parts
   m_TagString: Untagged
@@ -1095,6 +1121,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &7259820021224524302
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8024095231019793460}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8090610595097666971
 GameObject:
   m_ObjectHideFlags: 0

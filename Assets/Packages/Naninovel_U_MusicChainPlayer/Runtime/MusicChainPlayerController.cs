@@ -23,7 +23,7 @@ namespace Naninovel.U.MusicChainPlayer
         {
             if (clips == null || clips.Length == 0)
             {
-                Debug.LogWarning("MusicChainPlayerController: No clips provided to play.");
+                //Debug.LogWarning("MusicChainPlayerController: No clips provided to play.");
                 return;
             }
 

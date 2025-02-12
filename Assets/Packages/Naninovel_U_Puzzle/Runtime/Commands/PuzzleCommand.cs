@@ -3,14 +3,13 @@ namespace Naninovel.U.Puzzle.Commands
     [CommandAlias("puzzle")]
     public class PuzzleCommand : Command
     {
-        [ParameterAlias(NamelessParameterAlias)]
+        [ParameterAlias(NamelessParameterAlias), RequiredParameter]
         public StringParameter firstValue;
-
-        /*[ParameterAlias("id"), LocalizableParameter]
-        public StringParameter text = "Hello World!";*/
 
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
+            Engine.GetService<IUIManager>().GetUI<PuzzleUI>().StartPuzzleMiniGame(firstValue);
+
             return UniTask.CompletedTask;
         }
     }
