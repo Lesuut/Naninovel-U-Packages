@@ -1357,10 +1357,6 @@
         &lt;Type&gt;UI&lt;/Type&gt;
       &lt;/Resource&gt;
       &lt;Resource&gt;
-        &lt;Path&gt;TestInput&lt;/Path&gt;
-        &lt;Type&gt;UI&lt;/Type&gt;
-      &lt;/Resource&gt;
-      &lt;Resource&gt;
         &lt;Path&gt;PazzleUI&lt;/Path&gt;
         &lt;Type&gt;UI&lt;/Type&gt;
       &lt;/Resource&gt;

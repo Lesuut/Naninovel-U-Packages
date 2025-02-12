@@ -30,7 +30,7 @@ namespace Naninovel.U.UIInteractionToolkit
             onPointerDown?.Invoke();
 
             isPressed = true;
-            interactionToolkitManager.OnPointerDown(cursorPointingType, useCatch, gameObject);
+            interactionToolkitManager.OnPointerDown(cursorPointingType, useCatch);
         }
 
         public void OnPointerUp(PointerEventData eventData)
@@ -40,7 +40,7 @@ namespace Naninovel.U.UIInteractionToolkit
             if (isPressed)
             {
                 isPressed = false;
-                interactionToolkitManager.OnPointerUp(cursorPointingType, gameObject);
+                interactionToolkitManager.OnPointerUp(cursorPointingType);
             }
         }
 

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using Unity.VisualScripting;
+using UnityEngine;
 
 namespace Naninovel.U.UIInteractionToolkit
 {
@@ -8,10 +10,12 @@ namespace Naninovel.U.UIInteractionToolkit
         public virtual UIInteractionToolkitConfiguration Configuration { get; }
 
         private Texture2D lastCursor;
+        private bool nowButtonPress;
 
         public UIInteractionToolkitManager(UIInteractionToolkitConfiguration config)
         {
             Configuration = config;
+            nowButtonPress = false;
         }
         public UniTask InitializeServiceAsync()
         {
@@ -26,6 +30,7 @@ namespace Naninovel.U.UIInteractionToolkit
 
         public void ResetService() 
         {
+            nowButtonPress = false;
             SetCursor(CursorPointingTypes.Defoult);
         }
 
@@ -38,101 +43,71 @@ namespace Naninovel.U.UIInteractionToolkit
         }
         private void SetCursor(CursorPointingTypes cursorPointingTypes)
         {
-            switch (cursorPointingTypes)
+            if (cursorPointingTypes == CursorPointingTypes.Defoult)
             {
-                case CursorPointingTypes.Defoult:
-                    Cursor.SetCursor(Configuration.DefoultCursor, Vector2.zero, CursorMode.Auto);
-                    lastCursor = Configuration.DefoultCursor;
-                    break;
-                case CursorPointingTypes.Hover:
-                    Cursor.SetCursor(Configuration.HoverCursor, Vector2.zero, CursorMode.Auto);
-                    lastCursor = Configuration.HoverCursor;
-                    break;
-                case CursorPointingTypes.Interactive:
-                    Cursor.SetCursor(Configuration.InteractiveCursor, Vector2.zero, CursorMode.Auto);
-                    lastCursor = Configuration.InteractiveCursor;
-                    break;
-                case CursorPointingTypes.Action:
-                    Cursor.SetCursor(Configuration.ActionCursor, Vector2.zero, CursorMode.Auto);
-                    lastCursor = Configuration.ActionCursor;
-                    break;
-                default:
-                    Cursor.SetCursor(Configuration.DefoultCursor, Vector2.zero, CursorMode.Auto);
-                    lastCursor = Configuration.DefoultCursor;
-                    break;
+                Cursor.SetCursor(Configuration.DefoultCursor, Vector2.zero, CursorMode.Auto);
+                lastCursor = Configuration.DefoultCursor;
+            }
+            else
+            {
+                var item = Configuration.UIInteractionItems.FirstOrDefault(item => item.Type == cursorPointingTypes);
+                Cursor.SetCursor(item.Cursor, Vector2.zero, CursorMode.Auto);
+                lastCursor = item.Cursor;
             }
         }
 
         public void OnPointerEnter(CursorPointingTypes cursorPointingTypes)
         {
-            switch (cursorPointingTypes)
+            if (!nowButtonPress)
             {
-                case CursorPointingTypes.Hover:
-                    PlayScript(Configuration.HoverCursorSoundEnterNanicode);
-                    break;
-                case CursorPointingTypes.Interactive:
-                    PlayScript(Configuration.InteractiveCursorSoundEnterNanicode);
-                    break;
-                case CursorPointingTypes.Action:
-                    PlayScript(Configuration.ActionCursorSoundEnterNanicode);
-                    break;
-            }
+                if (cursorPointingTypes != CursorPointingTypes.Defoult)
+                {
+                    var item = Configuration.UIInteractionItems.FirstOrDefault(item => item.Type == cursorPointingTypes);
+                    PlayScript(item.SoundEnterNanicode);
+                }
 
-            SetCursor(cursorPointingTypes);
+                SetCursor(cursorPointingTypes);
+            }
         }
 
-        public void OnPointerExit(CursorPointingTypes cursorType)
+        public void OnPointerExit(CursorPointingTypes cursorPointingTypes)
         {
-            switch (cursorType)
+            if (!nowButtonPress)
             {
-                case CursorPointingTypes.Hover:
-                    PlayScript(Configuration.HoverCursorSoundExitNanicode);
-                    break;
-                case CursorPointingTypes.Interactive:
-                    PlayScript(Configuration.InteractiveCursorSoundExitNanicode);
-                    break;
-                case CursorPointingTypes.Action:
-                    PlayScript(Configuration.ActionCursorSoundExitNanicode);
-                    break;
-            }
+                if (cursorPointingTypes != CursorPointingTypes.Defoult)
+                {
+                    var item = Configuration.UIInteractionItems.FirstOrDefault(item => item.Type == cursorPointingTypes);
+                    PlayScript(item.SoundExitNanicode);
+                }
 
-            SetCursor(CursorPointingTypes.Defoult);
+                SetCursor(CursorPointingTypes.Defoult);
+            }
         }
 
-        public void OnPointerDown(CursorPointingTypes cursorType, bool useCatch, GameObject gameObject)
+        public void OnPointerDown(CursorPointingTypes cursorPointingTypes, bool useCatch)
         {
+            nowButtonPress = true;
+
             if (useCatch)
             {
                 Cursor.SetCursor(Configuration.CatchCursor, Vector2.zero, CursorMode.Auto);
             }
 
-            switch (cursorType)
+            if (cursorPointingTypes != CursorPointingTypes.Defoult)
             {
-                case CursorPointingTypes.Hover:
-                    PlayScript(Configuration.HoverCursorSoundDownNanicode);
-                    break;
-                case CursorPointingTypes.Interactive:
-                    PlayScript(Configuration.InteractiveCursorSoundDownNanicode);
-                    break;
-                case CursorPointingTypes.Action:
-                    PlayScript(Configuration.ActionCursorSoundDownNanicode);
-                    break;
+                var item = Configuration.UIInteractionItems.FirstOrDefault(item => item.Type == cursorPointingTypes);
+                PlayScript(item.SoundDownNanicode);
             }
         }
 
-        public void OnPointerUp(CursorPointingTypes cursorType, GameObject gameObject)
+        public void OnPointerUp(CursorPointingTypes cursorPointingTypes)
         {
-            switch (cursorType)
+            nowButtonPress = false;
+
+            if (cursorPointingTypes != CursorPointingTypes.Defoult)
             {
-                case CursorPointingTypes.Hover:
-                    PlayScript(Configuration.HoverCursorSoundUpNanicode);
-                    break;
-                case CursorPointingTypes.Interactive:
-                    PlayScript(Configuration.InteractiveCursorSoundUpNanicode);
-                    break;
-                case CursorPointingTypes.Action:
-                    PlayScript(Configuration.ActionCursorSoundUpNanicode);
-                    break;
+                var item = Configuration.UIInteractionItems.FirstOrDefault(item => item.Type == cursorPointingTypes);
+                PlayScript(item.SoundUpNanicode);
             }
 
             if (lastCursor != null)

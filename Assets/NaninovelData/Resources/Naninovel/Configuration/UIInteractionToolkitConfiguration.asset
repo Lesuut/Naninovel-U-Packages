@@ -12,20 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e046cf067ab3c04a92b98b34fe9c907, type: 3}
   m_Name: UIInteractionToolkitConfiguration
   m_EditorClassIdentifier: 
-  DefoultCursor: {fileID: 0}
-  HoverCursor: {fileID: 2800000, guid: 48d386dbf702aba4b9cf73c3cc14f101, type: 3}
+  DefoultCursor: {fileID: 2800000, guid: 10eb9369c7856de4da836ceb664dc53a, type: 3}
   CatchCursor: {fileID: 2800000, guid: 4366425f6639836429c87ec6a94f2c76, type: 3}
-  HoverCursorSoundEnterNanicode: 
-  HoverCursorSoundExitNanicode: 
-  HoverCursorSoundDownNanicode: 
-  HoverCursorSoundUpNanicode: 
-  InteractiveCursor: {fileID: 0}
-  InteractiveCursorSoundEnterNanicode: 
-  InteractiveCursorSoundExitNanicode: 
-  InteractiveCursorSoundDownNanicode: 
-  InteractiveCursorSoundUpNanicode: 
-  ActionCursor: {fileID: 0}
-  ActionCursorSoundEnterNanicode: 
-  ActionCursorSoundExitNanicode: 
-  ActionCursorSoundDownNanicode: 
-  ActionCursorSoundUpNanicode: 
+  UIInteractionItems:
+  - Type: 1
+    Cursor: {fileID: 2800000, guid: 48d386dbf702aba4b9cf73c3cc14f101, type: 3}
+    SoundEnterNanicode: 
+    SoundExitNanicode: 
+    SoundDownNanicode: 
+    SoundUpNanicode: 
