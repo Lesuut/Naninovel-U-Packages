@@ -7,6 +7,7 @@ namespace Naninovel.UFlow.Elements
 {
     using Naninovel.UFlow.Data;
     using Naninovel.UFlow.Utility;
+    using UnityEngine;
 
     public class PortsFlowNode : FlowNode
     {
@@ -33,21 +34,28 @@ namespace Naninovel.UFlow.Elements
         public override void Deserialization(FlowNodeData flowNodeData)
         {
             base.Deserialization(flowNodeData);
+            var portsData = (FlowNodePortsData)flowNodeData;
 
-            for (int i = 0; i < ((FlowNodePortsData)flowNodeData).outputPorts.Count - 2; i++)
+            // Восстанавливаем нужное количество портов
+            for (int i = 0; i < portsData.outputPorts.Count - 1; i++)
             {
                 AddOutputPort();
             }
-            for (int i = 0; i < popupFields.Count; i++)
+
+            //Debug.Log($"popupFields: {popupFields.Count}, outputButtonsNames: {portsData.outputButtonsNames.Count}");
+
+            // Проверяем, что у нас есть данные для восстановления значений popupFields
+            int minCount = Mathf.Min(popupFields.Count, portsData.outputButtonsNames.Count);
+            for (int i = 0; i < minCount; i++)
             {
-                popupFields[i].value = ((FlowNodePortsData)flowNodeData).outputButtonsNames[i];
+                popupFields[i].value = portsData.outputButtonsNames[i];
             }
         }
 
         protected override void OutputContainer()
         {
             base.OutputContainer();
-            AddOutputPort();
+            //AddOutputPort();
         }
 
         protected override void ExtensionsContainer()

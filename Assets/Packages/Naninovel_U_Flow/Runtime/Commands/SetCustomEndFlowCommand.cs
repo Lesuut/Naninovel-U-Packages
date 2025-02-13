@@ -4,13 +4,13 @@
     public class SetCustomEndFlowCommand : Command
     {
         [ParameterAlias(NamelessParameterAlias), RequiredParameter]
-        public IntegerParameter id;
+        public StringParameter endBackground;
 
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
             var FlowManager = Engine.GetService<IFlowManager>();
 
-            FlowManager.SetCustomFLowEndID(id);
+            FlowManager.SetCustomFLowEndBack(endBackground.Value);
 
             return UniTask.CompletedTask;
         }

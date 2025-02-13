@@ -6,19 +6,22 @@ namespace Naninovel.U.Flow.Commands
     public class FlowCommand : Command
     {
         [ParameterAlias(NamelessParameterAlias)]
-        public StringParameter firstValue;
+        public StringParameter assetName;
+
+        [ParameterAlias("back"), ParameterDefaultValue("")]
+        public StringParameter startBackground;
 
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
             var FlowManager = Engine.GetService<IFlowManager>();
 
-            if (firstValue.Value.IsUnityNull())
+            if (assetName.Value.IsUnityNull())
             {
                 FlowManager.StartFlow();
             }
             else
             {
-                FlowManager.StartFlowByName(firstValue.Value);
+                FlowManager.StartFlowByName(assetName.Value, startBackground);
             }
 
             return UniTask.CompletedTask;

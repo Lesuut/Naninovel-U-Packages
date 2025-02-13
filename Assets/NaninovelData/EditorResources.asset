@@ -195,13 +195,25 @@ MonoBehaviour:
     Resources: []
   - Id: Backgrounds/94c4d06a-ff5f-4560-8dfe-2f6ae5753b4f
     Resources:
-    - name: Station
+    - name: 0
       pathPrefix: Backgrounds/MainBackground
       guid: 095154bdcce213f489b1542453cecffa
-    - name: Park
+    - name: 1
+      pathPrefix: Backgrounds/MainBackground
+      guid: e0a4266454074f24b8fdd0a4adfc4846
+    - name: 2
+      pathPrefix: Backgrounds/MainBackground
+      guid: 12213805512d7cc4aaadad9595057be9
+    - name: 3
+      pathPrefix: Backgrounds/MainBackground
+      guid: 0589e0039f1e370488344f40cfb71d49
+    - name: 4
       pathPrefix: Backgrounds/MainBackground
       guid: 99a0d02b8b124b44cbf49e5296dc24bb
-    - name: Bridge
+    - name: 5
+      pathPrefix: Backgrounds/MainBackground
+      guid: ce56bbae797817242987f09c8d3ada47
+    - name: 6
       pathPrefix: Backgrounds/MainBackground
       guid: 0fdc692d26afb8f4293672aecdff7899
   - Id: Unlockables

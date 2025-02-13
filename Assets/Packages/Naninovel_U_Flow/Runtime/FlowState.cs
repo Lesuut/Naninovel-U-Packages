@@ -18,7 +18,7 @@ namespace Naninovel.U.Flow
         public string startScriptName;
         public int startScriptPlayedIndex;
 
-        public int customEndNodeID;
+        public string customEndBackground;
 
         public FlowState()
         {
@@ -34,7 +34,7 @@ namespace Naninovel.U.Flow
             startScriptName = string.Empty;
             startScriptPlayedIndex = 0;
             
-            customEndNodeID = -1;
+            customEndBackground = string.Empty;
         }
 
         public FlowState(FlowState other)
@@ -48,7 +48,7 @@ namespace Naninovel.U.Flow
             startScriptName = other.startScriptName;
             startScriptPlayedIndex = other.startScriptPlayedIndex;
             currentFlowAssetName = other.currentFlowAssetName;
-            customEndNodeID = other.customEndNodeID;
+            customEndBackground = other.customEndBackground;
         }
     }
 }

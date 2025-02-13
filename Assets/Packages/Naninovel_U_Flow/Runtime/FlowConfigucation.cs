@@ -22,6 +22,8 @@ namespace Naninovel.U.Flow
         public GameObject ReturnButton;
         [Header("Flows")]
         public FlowAsset[] flowAssetsWay;
+
+        public string API;
     }
 
     [Serializable]

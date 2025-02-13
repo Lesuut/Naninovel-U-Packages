@@ -7,6 +7,7 @@ namespace Naninovel.U.Flow
     using Naninovel.UFlow.Enumeration;
     using System;
     using Unity.VisualScripting;
+    using UnityEditor;
 
     [InitializeAtRuntime()]
     public class FlowManager : IFlowManager
@@ -64,8 +65,8 @@ namespace Naninovel.U.Flow
             if (state.isFlowActive)
             {
                 UpdateFlowScene(state.currentFlowAssetName == "" ? 
-                    Configuration.flowAssetsWay[state.currentFlowIndex] : 
-                    Configuration.flowAssetsWay.FirstOrDefault(item => item.name == state.currentFlowAssetName));
+                    Configuration.flowAssetsWay[state.currentFlowIndex] :
+                    FindFlowAssetByName(state.currentFlowAssetName));
             }
 
             return UniTask.CompletedTask;
@@ -80,23 +81,40 @@ namespace Naninovel.U.Flow
 
             UpdateFlowScene(Configuration.flowAssetsWay[state.currentFlowIndex]);
         }
-        public void StartFlowByName(string FlowAssetName)
+
+        public void StartFlowByName(string FlowAssetName, string startBackground)
         {
             Debug.Log($"StartFlowByName: {FlowAssetName}");
 
             state.isFlowActive = true;
-
             state.startScriptName = scriptPlayer.Playlist.ScriptName;
             state.startScriptPlayedIndex = scriptPlayer.PlayedIndex;
-
             state.currentFlowAssetName = FlowAssetName;
 
-            Debug.Log(Configuration.flowAssetsWay.FirstOrDefault(item => item.name == FlowAssetName).name);
+            // Поиск во всем проекте
+            FlowAsset flowAsset = FindFlowAssetByName(FlowAssetName);
 
-            UpdateFlowScene(Configuration.flowAssetsWay.FirstOrDefault(item => item.name == FlowAssetName));
+            if (flowAsset != null)
+            {
+                Debug.Log($"FlowAsset найден: {flowAsset.name}");
+                UpdateFlowScene(flowAsset, startBackground);
+            }
+            else
+            {
+                Debug.LogError($"FlowAsset с именем '{FlowAssetName}' не найден!");
+            }
         }
 
-        private void UpdateFlowScene(FlowAsset flowAsset)
+        private FlowAsset FindFlowAssetByName(string assetName)
+        {
+            string[] guids = AssetDatabase.FindAssets("t:FlowAsset");
+            return guids
+                .Select(AssetDatabase.GUIDToAssetPath)
+                .Select(AssetDatabase.LoadAssetAtPath<FlowAsset>)
+                .FirstOrDefault(asset => asset.name == assetName);
+        }
+
+        private void UpdateFlowScene(FlowAsset flowAsset, string startBack = "")
         {
             if (state.isFlowActive)
             {
@@ -108,7 +126,8 @@ namespace Naninovel.U.Flow
 
                 if (state.currentActiveFlowNodeId == -1)
                 {
-                    var startNode = flowAsset.flowNodeDatas.FirstOrDefault(item => item.NodeType == NodeType.Start);
+                    var startNode = (startBack == "") ? flowAsset.flowNodeDatas.FirstOrDefault(item => item.NodeType == NodeType.Start)
+                        : flowAsset.flowNodeDatas.FirstOrDefault(item => item.MapName == startBack);
 
                     if (startNode == null)
                     {
@@ -136,10 +155,10 @@ namespace Naninovel.U.Flow
 
             Debug.Log($"Flow current scene node id: {nodeForActivation.NodeId}");
 
-            if (state.customEndNodeID != -1 && nodeForActivation.NodeId == state.customEndNodeID)
+            if (state.customEndBackground != "" && nodeForActivation.MapName == state.customEndBackground)
             {
                 state.currentFlowAssetName = "";
-                state.customEndNodeID = -1;
+                state.customEndBackground = "";
 
                 state.isFlowActive = false;
                 flowUI.HideAllButtons();
@@ -265,9 +284,9 @@ namespace Naninovel.U.Flow
             state.currentFlowWayIndex = newIndex;
         }
 
-        public void SetCustomFLowEndID(int endNodeId)
+        public void SetCustomFLowEndBack(string endBackground)
         {
-            state.customEndNodeID = endNodeId;
+            state.customEndBackground = endBackground;
         }
     }
 }
