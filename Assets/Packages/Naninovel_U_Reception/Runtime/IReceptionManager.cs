@@ -4,8 +4,6 @@ namespace Naninovel.U.Reception
 {
     public interface IReceptionManager : IEngineService
     {
-        /// <summary>
-        /// Write the body of your Reception interface here
-        /// </summary>
+        public void PlayReceptionMiniGame(int cardCound);
     }
 }

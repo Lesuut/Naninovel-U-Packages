@@ -178,6 +178,9 @@ MonoBehaviour:
     - name: PazzleUI
       pathPrefix: UI
       guid: 5842d06b4c71c1e4293d90656343d7a0
+    - name: ReceptionUI
+      pathPrefix: UI
+      guid: f07acacae6f2bd642bef7c74301d0b2b
   - Id: Scripts
     Resources:
     - name: Main

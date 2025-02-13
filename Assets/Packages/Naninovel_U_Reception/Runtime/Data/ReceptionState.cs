@@ -6,23 +6,19 @@ namespace Naninovel.U.Reception
     [Serializable]
     public class ReceptionState
     {
-        public List<string> Value;
+        public string scriptName;
+        public int scriptPlayedIndex;
 
         public ReceptionState()
         {
-            // Initialization Values
-            Value = new List<string>
-            {
-               "Value1",
-               "Value2",
-               "Value3"
-            };
+            scriptName = "";
+            scriptPlayedIndex = 0;
         }
 
         public ReceptionState(ReceptionState other)
         {
-            // Load and set Data
-            Value = new List<string>(other.Value);
+            scriptName= other.scriptName;
+            scriptPlayedIndex= other.scriptPlayedIndex;
         }
     }
 }

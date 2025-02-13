@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c4bb2915b89124b9ff93d56d5dbe9a, type: 3}
   m_Name: ReceptionConfiguration
   m_EditorClassIdentifier: 
-  Names: {fileID: 4900000, guid: 682141f2c8d6cb143a6b18d779689136, type: 3}
+  Pairs: 0100

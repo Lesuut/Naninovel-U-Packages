@@ -42,8 +42,9 @@ namespace Naninovel.U.Reception
             return UniTask.CompletedTask;
         }
 
-        /// <summary>
-        /// Write the body for the Reception service here
-        /// </summary>
+        public void PlayReceptionMiniGame(int cardCound)
+        {
+            
+        }
     }
 }
