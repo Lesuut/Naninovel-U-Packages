@@ -6,7 +6,7 @@ public static class SyntaxHighlighter
     private const string CommandColor = "#6cb2ed";   // Синий — для @команд (например, @tip, @if)
     private const string KeyColor = "#cd8843";       // Оранжевый — для ключей (часть перед двоеточием, например, key:)
     private const string ValueColor = "#e2be7f";     // Желтый — для значений (текст в кавычках, например, "key_value")
-    private const string ArgumentColor = "#dfb3ff";  // Фиолетовый — для аргументов после @ (например, showTip, hideTip)
+    private const string ArgumentColor = "#e2be7f";  // Фиолетовый #dfb3ff — для аргументов после @
     private const string FlowCommentColor = "#579f3c"; // Зеленый — для комментариев, начинающихся с //
 
     public static string ColorizeSyntax(string input)
@@ -23,7 +23,6 @@ public static class SyntaxHighlighter
                 continue;
             }
 
-            // Проверяем, содержит ли строка // (начиная с flow-комментария)
             int commentIndex = trimmedLine.IndexOf("//", StringComparison.Ordinal);
             if (commentIndex != -1)
             {
@@ -56,7 +55,7 @@ public static class SyntaxHighlighter
 
         if (hasAtSymbol)
         {
-            sb.Append($"<color={CommandColor}>{words[0]}</color>"); // Красим команду в синий
+            sb.Append($"<color={CommandColor}>{words[0]}</color>");
             bool isFirstWordAfterAt = true;
 
             for (int i = 1; i < words.Length; i++)
