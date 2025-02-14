@@ -9,5 +9,6 @@ namespace Naninovel.U.Flow
         public void SetButtonsHideStatus(bool hideStatus);
         public void SetFlowWayIndex(int newIndex);
         public void SetCustomFLowEndBack(string endBackground);
+        public void StopFlow();
     }
 }

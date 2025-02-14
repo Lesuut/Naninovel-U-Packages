@@ -83,6 +83,11 @@
         &lt;Type&gt;TextPrinters&lt;/Type&gt;
         &lt;Appearances /&gt;
       &lt;/Actor&gt;
+      &lt;Actor&gt;
+        &lt;Id&gt;ReceptionPrinter&lt;/Id&gt;
+        &lt;Type&gt;TextPrinters&lt;/Type&gt;
+        &lt;Appearances /&gt;
+      &lt;/Actor&gt;
     &lt;/Actors&gt;
     &lt;Commands&gt;
       &lt;Command&gt;
@@ -1454,6 +1459,10 @@
       &lt;Resource&gt;
         &lt;Path&gt;6&lt;/Path&gt;
         &lt;Type&gt;Backgrounds/MainBackground&lt;/Type&gt;
+      &lt;/Resource&gt;
+      &lt;Resource&gt;
+        &lt;Path&gt;ReceptionPrinter&lt;/Path&gt;
+        &lt;Type&gt;TextPrinters&lt;/Type&gt;
       &lt;/Resource&gt;
     &lt;/Resources&gt;
     &lt;Constants /&gt;

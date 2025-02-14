@@ -126,7 +126,7 @@ namespace Naninovel.U.Flow
 
                 if (state.currentActiveFlowNodeId == -1)
                 {
-                    var startNode = (startBack == "") ? flowAsset.flowNodeDatas.FirstOrDefault(item => item.NodeType == NodeType.Start)
+                    var startNode = (string.IsNullOrEmpty(startBack)) ? flowAsset.flowNodeDatas.FirstOrDefault(item => item.NodeType == NodeType.Start)
                         : flowAsset.flowNodeDatas.FirstOrDefault(item => item.MapName == startBack);
 
                     if (startNode == null)
@@ -144,7 +144,7 @@ namespace Naninovel.U.Flow
                 }
             }
         }
-        private async void ActivateFlowNodeScene(FlowNodeData nodeForActivation, FlowAsset flowAsset)
+        private void ActivateFlowNodeScene(FlowNodeData nodeForActivation, FlowAsset flowAsset)
         {
             TrySpawnFlowUI();
             PlayScript("@hidePrinter");
@@ -160,11 +160,8 @@ namespace Naninovel.U.Flow
                 state.currentFlowAssetName = "";
                 state.customEndBackground = "";
 
-                state.isFlowActive = false;
-                flowUI.HideAllButtons();
+                StopFlow();
 
-                await scriptPlayer.PreloadAndPlayAsync(state.startScriptName);
-                scriptPlayer.Play(scriptPlayer.Playlist, state.startScriptPlayedIndex + 1);
                 return;
             }
 
@@ -235,20 +232,7 @@ namespace Naninovel.U.Flow
 
             if (nodeForActivation.NodeType == NodeType.End)
             {
-                if (state.currentFlowAssetName.IsUnityNull())
-                {
-                    state.currentFlowIndex++;
-                }
-                else
-                {
-                    state.currentFlowAssetName = "";
-                }
-
-                state.isFlowActive = false;
-                flowUI.HideAllButtons();
-
-                await scriptPlayer.PreloadAndPlayAsync(state.startScriptName);
-                scriptPlayer.Play(scriptPlayer.Playlist, state.startScriptPlayedIndex + 1);
+                StopFlow();
             }
         }
         private async void PlayScript(string scriptText)
@@ -287,6 +271,22 @@ namespace Naninovel.U.Flow
         public void SetCustomFLowEndBack(string endBackground)
         {
             state.customEndBackground = endBackground;
+        }
+
+        public async void StopFlow()
+        {
+            if (!state.isFlowActive) return;
+
+            if (state.currentFlowAssetName.IsUnityNull())
+                state.currentFlowIndex++;
+            else
+                state.currentFlowAssetName = "";
+
+            state.isFlowActive = false;
+            flowUI.HideAllButtons();
+
+            await scriptPlayer.PreloadAndPlayAsync(state.startScriptName);
+            scriptPlayer.Play(scriptPlayer.Playlist, state.startScriptPlayedIndex + 1);
         }
     }
 }

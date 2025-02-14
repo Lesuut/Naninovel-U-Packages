@@ -8,8 +8,9 @@ Start
 ;@hideAll
 ;@puzzle StarryNight
 
-@flowSetCustomEnd 2
-@flow Main back:6
+@flow Main
+
+;@showUI ReceptionUI
 
 End
 @stop
