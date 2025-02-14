@@ -3,14 +3,19 @@
 ;@addChoiceBoxOption "It improves code maintainability and testability." todo:"@setparameter Reputation value:+1"
 ;@addChoiceBoxOption "It makes the game run faster." todo:"@setparameter Reputation value:-1"
 ;@showChoiceBox
+;@printer ReceptionPrinter
 Start
 
 ;@hideAll
 ;@puzzle StarryNight
 
-@flow Main
+@reception 7
 
-;@showUI ReceptionUI
+@if IsReceptionWin()
+    Win
+@else
+    Fail
+@endif
 
 End
 @stop

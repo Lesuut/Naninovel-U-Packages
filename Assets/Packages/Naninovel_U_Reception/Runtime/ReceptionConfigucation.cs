@@ -5,7 +5,7 @@
     {
         public const string DefaultPathPrefix = "Reception";
 
-        public string printerName = "ReceptionPrinter";
+        public string textCategory = "Reception";
 
         public bool[] Pairs;
     }

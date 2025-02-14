@@ -221,8 +221,3 @@ MonoBehaviour:
       guid: 0fdc692d26afb8f4293672aecdff7899
   - Id: Unlockables
     Resources: []
-  - Id: TextPrinters/242c7338-c04d-45cf-9cbd-d5e13c8ab97f
-    Resources:
-    - name: ReceptionPrinter
-      pathPrefix: TextPrinters
-      guid: 9e8475abb82fa9544a32aed2742b9fef
