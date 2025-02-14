@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.Collections.Generic;
 
 namespace Naninovel.U.Puzzle
 {
@@ -14,6 +15,18 @@ namespace Naninovel.U.Puzzle
         [SerializeField] private Image collectedImage;
         [SerializeField] private CanvasGroup canvasGroup;
 
+        private List<Vector2> startPos;
+
+        public void Init()
+        {
+            startPos = new List<Vector2>();
+
+            foreach (var part in parts)
+            {
+                startPos.Add(new Vector2(part.anchoredPosition.x, part.anchoredPosition.y));
+            }
+        }
+
         public void Show()
         {
             gameObject.SetActive(true);
@@ -22,6 +35,11 @@ namespace Naninovel.U.Puzzle
         public void Hide()
         {
             gameObject.SetActive(false);
+
+            for (int i = 0; i < parts.Length; i++)
+            {
+                parts[i].anchoredPosition = startPos[i];
+            }
         }
 
         public Vector2[] GetPartsPositions()

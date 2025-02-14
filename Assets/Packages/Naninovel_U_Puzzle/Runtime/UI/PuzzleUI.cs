@@ -30,6 +30,7 @@ namespace Naninovel.U.Puzzle
         [SerializeField] private UnityEvent finish;
 
         private IScriptPlayer scriptPlayer;
+        private IStateManager stateManager;
 
         private PuzzlePartsKit[] puzzlePartsKits;
         private RectTransform currentSelectPiceRectTransform;
@@ -37,14 +38,32 @@ namespace Naninovel.U.Puzzle
         private PuzzlePartsKit currentPuzzlePartsKit;
 
         private bool mixAnim = false;
+        private bool init = false;
 
         protected override void OnEnable()
         {
             puzzlePartsKits = GetComponentsInChildren<PuzzlePartsKit>();
+
+            if (!init)
+            {
+                foreach (var item in puzzlePartsKits)
+                    item.Init();
+                init = true;
+            }
+
             foreach (var item in puzzlePartsKits)
                 item.Hide();
 
             scriptPlayer = Engine.GetService<IScriptPlayer>();
+            stateManager = Engine.GetService<IStateManager>();
+
+            stateManager.OnResetFinished += () =>
+            {
+                foreach (var item in puzzlePartsKits)
+                {
+                    item.Hide();
+                }
+            };
 
             base.OnEnable();
         }

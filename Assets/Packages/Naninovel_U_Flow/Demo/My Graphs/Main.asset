@@ -121,5 +121,5 @@ MonoBehaviour:
     \"NodeId\": 6,\r\n      \"MapName\": \"6\"\r\n    },\r\n    {\r\n      \"$type\":
     \"Naninovel.UFlow.Data.FlowNodePortsSkriptPlayerData, Assembly-CSharp\",\r\n     
     \"ScriptText\": \"@flowStop\",\r\n      \"NodeType\": 3,\r\n      \"NodePositionX\":
-    1566.0,\r\n      \"NodePositionY\": -277.0,\r\n      \"NodeId\": 7,\r\n     
+    1496.0,\r\n      \"NodePositionY\": -127.0,\r\n      \"NodeId\": 7,\r\n     
     \"MapName\": null\r\n    }\r\n  ]\r\n}"

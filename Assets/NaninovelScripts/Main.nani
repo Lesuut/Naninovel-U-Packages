@@ -5,17 +5,11 @@
 ;@showChoiceBox
 ;@printer ReceptionPrinter
 
-;Puzzle
-;@puzzle StarryNight
+Puzzle
+@puzzle StarryNight
 
-Reception
-@reception 7
-
-@if IsReceptionWin()
-    Win
-@else
-    Fail
-@endif
+;Reception
+;@reception 7
 
 End
 @stop
