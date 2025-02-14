@@ -5,11 +5,11 @@
 ;@showChoiceBox
 ;@printer ReceptionPrinter
 
-Puzzle
-@puzzle StarryNight
+;Puzzle
+;@puzzle StarryNight
 
-;Reception
-;@reception 7
+Reception
+@reception 7
 
 End
 @stop

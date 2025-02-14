@@ -202,7 +202,8 @@ namespace Naninovel.U.Puzzle
 
             currentSelectPiceRectTransform = null;
 
-            StartCoroutine(TryFinish());
+            if (!mixAnim)
+                StartCoroutine(TryFinish());
         }
 
         protected override void SerializeState(GameStateMap stateMap)

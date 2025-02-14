@@ -81,7 +81,7 @@ namespace Naninovel.U.Reception
         {
             authorPrinter.text = author;
             if (coroutinePrinter != null) StopCoroutine(coroutinePrinter);
-            coroutinePrinter = StartCoroutine(TypeText(textPrinter, text, 2.5f));
+            coroutinePrinter = StartCoroutine(TypeText(textPrinter, text, 1.5f));
         }
     }
 }
