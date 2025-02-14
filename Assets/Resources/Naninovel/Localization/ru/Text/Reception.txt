@@ -1,0 +1,82 @@
+; English <en> to Russian <ru> localization document for `Reception` managed text document
+
+Reception.Screen.Name.0: Джейн Доу -
+Reception.Screen.DateOfBirth.0: 01/01/2000
+Reception.Screen.RoomDescription.0: Номер эконом-класса с видом на задний двор
+Reception.Screen.Date.0: 3 января - 5 января
+Reception.Human.Name.0: Джейн Доу
+Reception.Human.DateOfBirth.0: 01/01/2000
+Reception.Human.RoomDescription.0: Я хочу любой номер эконом-класса
+Reception.Human.Date.0: 3 янв.
+Reception.Screen.Name.1: Джон Смит +
+Reception.Screen.DateOfBirth.1: 15/03/1985
+Reception.Screen.RoomDescription.1: Номер люкс с видом на город
+Reception.Screen.Date.1: 10 февраля - 15 февраля
+Reception.Human.Name.1: Джон Смит
+Reception.Human.DateOfBirth.1: 15/03/1985
+Reception.Human.RoomDescription.1: Номер Делюкс с видом на город
+Reception.Human.Date.1: 10 февраля - 15 февраля
+Reception.Screen.Name.2: Элис Браун
+Reception.Screen.DateOfBirth.2: 21/07/1992
+Reception.Screen.RoomDescription.2: Номер люкс с видом на море
+Reception.Screen.Date.2: 5 марта - 10 марта
+Reception.Human.Name.2: Элис Браун
+Reception.Human.DateOfBirth.2: 21/07/1992
+Reception.Human.RoomDescription.2: Номер люкс с видом на море
+Reception.Human.Date.2: 5 марта - 9 марта
+Reception.Screen.Name.3: Роберт Блэк +
+Reception.Screen.DateOfBirth.3: 11/11/1980
+Reception.Screen.RoomDescription.3: Стандартный номер с видом на горы
+Reception.Screen.Date.3: 12 апреля - 14 апреля
+Reception.Human.Name.3: Роберт Блэк
+Reception.Human.DateOfBirth.3: 11/11/1980
+Reception.Human.RoomDescription.3: Стандартный номер с видом на горы
+Reception.Human.Date.3: 12 апреля - 14 апреля
+Reception.Screen.Name.4: Эмили Уайт +
+Reception.Screen.DateOfBirth.4: 03/06/1990
+Reception.Screen.RoomDescription.4: Номер премиум с видом на сад
+Reception.Screen.Date.4: 1 мая - 5 мая
+Reception.Human.Name.4: Эмили Уайт
+Reception.Human.DateOfBirth.4: 03/06/1990
+Reception.Human.RoomDescription.4: Номер премиум с видом на сад
+Reception.Human.Date.4: 1 мая - 5 мая
+Reception.Screen.Name.5: Дэниел Грин -
+Reception.Screen.DateOfBirth.5: 09/09/1987
+Reception.Screen.RoomDescription.5: Стандартный номер с видом на бассейн
+Reception.Screen.Date.5: 10 июня - 15 июня
+Reception.Human.Name.5: Дэниел Грин
+Reception.Human.DateOfBirth.5: 09/09/1987
+Reception.Human.RoomDescription.5: Стандартный номер с видом на бассейн
+Reception.Human.Date.5: 10 июня - 16 июня
+Reception.Screen.Name.6: Лаура Блю
+Reception.Screen.DateOfBirth.6: 30/05/1983
+Reception.Screen.RoomDescription.6: Номер эконом-класса с видом на город
+Reception.Screen.Date.6: Июль 1 - Июль 4
+Reception.Human.Name.6: Лаура Блю
+Reception.Human.DateOfBirth.6: 30/05/1983
+Reception.Human.RoomDescription.6: Номер эконом-класса с видом на сад
+Reception.Human.Date.6: Июль 1 - Июль 4
+Reception.Screen.Name.7: Майкл Грей
+Reception.Screen.DateOfBirth.7: 25/12/1995
+Reception.Screen.RoomDescription.7: Семейный люкс с видом на город
+Reception.Screen.Date.7: 20 августа - 25 августа
+Reception.Human.Name.7: Майкл Грэй
+Reception.Human.DateOfBirth.7: 25/12/1995
+Reception.Human.RoomDescription.7: Семейный люкс с видом на город
+Reception.Human.Date.7: 20 августа - 25 августа
+Reception.Screen.Name.8: Сьюзан Блэк +
+Reception.Screen.DateOfBirth.8: 05/02/1988
+Reception.Screen.RoomDescription.8: Роскошный номер с видом на горы
+Reception.Screen.Date.8: 15 сентября - 18 сентября
+Reception.Human.Name.8: Сьюзан Блэк
+Reception.Human.DateOfBirth.8: 05/02/1988
+Reception.Human.RoomDescription.8: Роскошный номер с видом на бассейн
+Reception.Human.Date.8: 15 сентября - 18 сентября
+Reception.Screen.Name.9: Кевин Желтый +
+Reception.Screen.DateOfBirth.9: 18/04/1975
+Reception.Screen.RoomDescription.9: Номер с видом на океан
+Reception.Screen.Date.9: 5 октября - 7 октября
+Reception.Human.Name.9: Кевин Желтый
+Reception.Human.DateOfBirth.9: 18/04/1975
+Reception.Human.RoomDescription.9: Номер с видом на океан
+Reception.Human.Date.9: 5 октября - 7 октября

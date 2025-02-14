@@ -4,11 +4,11 @@
 ;@addChoiceBoxOption "It makes the game run faster." todo:"@setparameter Reputation value:-1"
 ;@showChoiceBox
 ;@printer ReceptionPrinter
-Start
 
-;@hideAll
+;Puzzle
 ;@puzzle StarryNight
 
+Reception
 @reception 7
 
 @if IsReceptionWin()

@@ -1068,6 +1068,37 @@ MonoBehaviour:
   cardText: {fileID: 9204195615068539307}
   authorPrinter: {fileID: 9068794591545059860}
   textPrinter: {fileID: 3854047800138291351}
+  cardImage: {fileID: 4661897355604553482}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 0.48379433, g: 0.48235294, b: 0.6509804, a: 1}
+    key1: {r: 0.6509804, g: 0.48235294, b: 0.59557885, a: 1}
+    key2: {r: 0.6509804, g: 0.48235294, b: 0.5827268, a: 0}
+    key3: {r: 0.6509804, g: 0.62456024, b: 0.48235294, a: 0}
+    key4: {r: 0.59863067, g: 0.6509804, b: 0.48235294, a: 0}
+    key5: {r: 0.50554246, g: 0.6509804, b: 0.48235294, a: 0}
+    key6: {r: 0.51143044, g: 0.6509804, b: 0.48235294, a: 0}
+    key7: {r: 0.48235294, g: 0.6039216, b: 0.6509804, a: 0}
+    ctime0: 4048
+    ctime1: 10409
+    ctime2: 16577
+    ctime3: 24287
+    ctime4: 31226
+    ctime5: 38743
+    ctime6: 45682
+    ctime7: 53585
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 8
+    m_NumAlphaKeys: 2
   cardRectTransform: {fileID: 3037178031173768371}
   keyRectTransform: {fileID: 7469528683288261714}
   acceptButton: {fileID: 5588713967996577412}

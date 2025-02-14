@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using Naninovel.UI;
 using UnityEngine.UI;
 using UnityEngine.Events;
@@ -14,6 +14,9 @@ namespace Naninovel.U.Reception
         [Space]
         [SerializeField] private Text authorPrinter;
         [SerializeField] private Text textPrinter;
+        [Space]
+        [SerializeField] private Image cardImage;
+        [SerializeField] private Gradient gradient;
         [Space]
         [SerializeField] private RectTransform cardRectTransform;
         [SerializeField] private RectTransform keyRectTransform;
@@ -42,6 +45,7 @@ namespace Naninovel.U.Reception
             this.cancelButton.onClick.RemoveAllListeners();
             this.cancelButton.onClick.AddListener(cancelButton);
 
+            cardImage.color = gradient.Evaluate(Random.Range(0, 1f));
             cardRectTransform.anchoredPosition = new Vector2(cardRectTransform.anchoredPosition.x, 800);
             cardRectTransform.DOAnchorPos(new Vector2(cardRectTransform.anchoredPosition.x, 0), time / 2);
         }
