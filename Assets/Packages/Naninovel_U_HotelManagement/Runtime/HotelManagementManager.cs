@@ -42,8 +42,24 @@ namespace Naninovel.U.HotelManagement
             return UniTask.CompletedTask;
         }
 
-        /// <summary>
-        /// Write the body for the HotelManagement service here
-        /// </summary>
+        public void StartMiniGame(int complexity)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Improve(string key)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool IsHotelWin()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void FinishGame()
+        {
+
+        }
     }
 }

@@ -4,8 +4,8 @@ namespace Naninovel.U.HotelManagement
 {
     public interface IHotelManagementManager : IEngineService
     {
-        /// <summary>
-        /// Write the body of your HotelManagement interface here
-        /// </summary>
+        public void StartMiniGame(int complexity);
+        public void Improve(string key);
+        public bool IsHotelWin();
     }
 }
