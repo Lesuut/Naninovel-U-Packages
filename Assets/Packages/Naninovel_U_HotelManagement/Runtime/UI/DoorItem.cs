@@ -7,10 +7,11 @@ namespace Naninovel.U.HotelManagement
 {
     public class DoorItem : MonoBehaviour
     {
-        public Button button;
+        [SerializeField] private Button button;
         [Space]
         [SerializeField] private UnityEvent OccupyDoorEvent;
         [SerializeField] private UnityEvent ReleaseDoorEvent;
+        [SerializeField] private UnityEvent ReadyForOccupyDoorEvent;
         [Space]
         [SerializeField] private Image moodBar;
         [SerializeField] private Gradient moodBarColor;
@@ -29,6 +30,20 @@ namespace Naninovel.U.HotelManagement
         public void ReleaseDoor()
         {
             ReleaseDoorEvent?.Invoke();
+        }
+        public void SetIcone(Sprite icone)
+        {
+            NotificationIcone.enabled = true;
+            NotificationIcone.sprite = icone;
+        }
+        public void HideIcone()
+        {
+            NotificationIcone.enabled = false;
+        }
+        public void SetMood(float mood)
+        {
+            moodBar.fillAmount = mood;
+            moodBar.color = moodBarColor.Evaluate(mood);
         }
     }
 }
