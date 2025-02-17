@@ -66,8 +66,6 @@ public class HotelMovementSystem : MonoBehaviour
             }
             else
             {
-                Debug.Log("Layer");
-
                 Vector2 start;
                 Vector2 end;
                 FindClosestTargetInTransition(rectTransform.anchoredPosition.y, targetY, out start, out end);
@@ -82,9 +80,6 @@ public class HotelMovementSystem : MonoBehaviour
                     yield return MoveRectToTarget(rectTransform, start);
                     yield return MoveRectToTarget(rectTransform, end);
                 }
-
-                Debug.Log($"Start: X:{start.x} Y:{start.y}");
-                Debug.Log($"End: X:{end.x} Y:{end.y}");
             }
         }
 
@@ -127,8 +122,6 @@ public class HotelMovementSystem : MonoBehaviour
         Transition closestTransition = transitions[0];
         float minCurrentDistance = float.MaxValue;
         float minTargetDistance = float.MaxValue;
-
-        Debug.Log($"currentY: {currentY} targetY: {targetY}");
 
         foreach (var item in transitions)
         {
@@ -175,16 +168,25 @@ public class HotelMovementSystem : MonoBehaviour
         Vector3 testTargetPos = center + new Vector3(testTargetPosition.x * scale.x, testTargetPosition.y * scale.y, 0);
         Gizmos.DrawSphere(testTargetPos, 20);
 
-        // Рисуем горизонтальные точки (красные сферы)
+        // Рисуем горизонтальные точки (красные сферы) и соединяем их линиями
         if (layerTargets != null)
-        {
-            Gizmos.color = Color.red;
+        {          
             foreach (var layer in layerTargets)
             {
+                Vector3? previousPoint = null;
                 foreach (var item in layer.X)
                 {
+                    Gizmos.color = Color.red;
                     Vector3 worldPos = center + new Vector3(item * scale.x, layer.Y * scale.y, 0);
                     Gizmos.DrawSphere(worldPos, 20);
+
+                    // Рисуем линию между соседними точками
+                    if (previousPoint.HasValue)
+                    {
+                        Gizmos.color = Color.yellow;
+                        Gizmos.DrawLine(previousPoint.Value, worldPos);
+                    }
+                    previousPoint = worldPos;
                 }
             }
         }
@@ -197,13 +199,13 @@ public class HotelMovementSystem : MonoBehaviour
                 Vector3 worldPosA = center + new Vector3(transition.pointA * scale.x, layerTargets[transition.TargetLayerIdA].Y * scale.y, 0);
                 Vector3 worldPosB = center + new Vector3(transition.pointB * scale.x, layerTargets[transition.TargetLayerIdB].Y * scale.y, 0);
 
-                // Рисуем точки переходов (зелёные сферы)
-                Gizmos.color = Color.yellow;
+                // Рисуем точки переходов (жёлтые сферы)
+                Gizmos.color = Color.green;
                 Gizmos.DrawSphere(worldPosA, 20);
                 Gizmos.DrawSphere(worldPosB, 20);
 
                 // Рисуем линию между ними (синяя)
-                Gizmos.color = Color.blue;
+                Gizmos.color = Color.yellow;
                 Gizmos.DrawLine(worldPosA, worldPosB);
             }
         }
