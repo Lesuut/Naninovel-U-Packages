@@ -181,6 +181,9 @@ MonoBehaviour:
     - name: ReceptionUI
       pathPrefix: UI
       guid: f07acacae6f2bd642bef7c74301d0b2b
+    - name: HotelManagementUI
+      pathPrefix: UI
+      guid: 2f603ec897290f94aacd1781963602ef
   - Id: Scripts
     Resources:
     - name: Main
