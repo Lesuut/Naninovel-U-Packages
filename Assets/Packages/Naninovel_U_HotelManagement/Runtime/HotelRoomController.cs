@@ -83,7 +83,7 @@ namespace Naninovel.U.HotelManagement
             yield return new WaitUntil(() => miniGameEventsType == MiniGameEventsType.Null);
             mood += hotelLevelInfo.MoodPlusValue;
 
-            finishMoodAction?.Invoke(mood);
+            finishMoodAction?.Invoke(Mathf.Clamp01(mood));
 
             if (lessModCoroutine != null)
                 monoBehaviour.StopCoroutine(lessModCoroutine);

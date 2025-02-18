@@ -96,41 +96,40 @@ namespace Naninovel.U.HotelManagement
 
         private void ReceptionButton()
         {
-            Debug.Log("Reception Button");
-            if (!hotelManagementUI.hotelMovementSystem.IsMove && guestsInLineCount > 0)
+            if (!hotelManagementUI.HotelMovementSystem.IsMove && guestsInLineCount > 0)
             {
-                hotelManagementUI.hotelMovementSystem.MoveRectToHotelTargetCur(hotelManagementUI.player, hotelManagementUI.ButtonReception.GetComponent<RectTransform>().anchoredPosition,
+                hotelManagementUI.HotelMovementSystem.MoveRectToHotelTargetCur(hotelManagementUI.PlayerRectTransform, hotelManagementUI.ButtonReception.GetComponent<RectTransform>().anchoredPosition,
                     () =>
                     {
                         miniGameEventsType = MiniGameEventsType.Reception;
+                        hotelManagementUI.SetPlayerItem(Configuration.GetIcone(miniGameEventsType));
+                        hotelManagementUI.SetReceptionKeyView(guestsInLineCount - 1);
                     });
             }
         }
 
         private void FoodButton()
         {
-            Debug.Log("Food Button");
-
-            if (!hotelManagementUI.hotelMovementSystem.IsMove && hotelRoomControllers.Any(item => item.miniGameEventsType == MiniGameEventsType.Food))
+            if (!hotelManagementUI.HotelMovementSystem.IsMove && hotelRoomControllers.Any(item => item.miniGameEventsType == MiniGameEventsType.Food))
             {
-                hotelManagementUI.hotelMovementSystem.MoveRectToHotelTargetCur(hotelManagementUI.player, hotelManagementUI.ButtonFood.GetComponent<RectTransform>().anchoredPosition,
+                hotelManagementUI.HotelMovementSystem.MoveRectToHotelTargetCur(hotelManagementUI.PlayerRectTransform, hotelManagementUI.ButtonFood.GetComponent<RectTransform>().anchoredPosition,
                     () =>
                     {
                         miniGameEventsType = MiniGameEventsType.Food;
+                        hotelManagementUI.SetPlayerItem(Configuration.GetIcone(miniGameEventsType));
                     });
             }
         }
 
         private void CleaningButton()
         {
-            Debug.Log("Cleaning Button");
-
-            if (!hotelManagementUI.hotelMovementSystem.IsMove && hotelRoomControllers.Any(item => item.miniGameEventsType == MiniGameEventsType.Cleaning))
+            if (!hotelManagementUI.HotelMovementSystem.IsMove && hotelRoomControllers.Any(item => item.miniGameEventsType == MiniGameEventsType.Cleaning))
             {
-                hotelManagementUI.hotelMovementSystem.MoveRectToHotelTargetCur(hotelManagementUI.player, hotelManagementUI.ButtonCleaning.GetComponent<RectTransform>().anchoredPosition,
+                hotelManagementUI.HotelMovementSystem.MoveRectToHotelTargetCur(hotelManagementUI.PlayerRectTransform, hotelManagementUI.ButtonCleaning.GetComponent<RectTransform>().anchoredPosition,
                     () =>
                     {
                         miniGameEventsType = MiniGameEventsType.Cleaning;
+                        hotelManagementUI.SetPlayerItem(Configuration.GetIcone(miniGameEventsType));
                     });
             }
         }
@@ -140,8 +139,7 @@ namespace Naninovel.U.HotelManagement
             while (true)
             {
                 guestsInLineCount++;
-                Debug.Log($"guestsInLineCount: {guestsInLineCount}");
-                hotelManagementUI.ShowKey();
+                hotelManagementUI.SetReceptionKeyView(guestsInLineCount);
                 yield return new WaitForSeconds(Random.Range(hotelLevelInfo.MinGuestsSpawnTime, hotelLevelInfo.MaxGuestsSpawnTime)); 
             }
         }
@@ -152,52 +150,53 @@ namespace Naninovel.U.HotelManagement
             {
                 case MiniGameEventsType.Food:
                     if (!hotelRoomController.Empty &&
-                        !hotelManagementUI.hotelMovementSystem.IsMove)
+                        !hotelManagementUI.HotelMovementSystem.IsMove &&
+                        hotelRoomController.miniGameEventsType == miniGameEventsType)
                     {
-                        hotelManagementUI.hotelMovementSystem.MoveRectToHotelTargetCur(
-                                hotelManagementUI.player,
+                        hotelManagementUI.HotelMovementSystem.MoveRectToHotelTargetCur(
+                                hotelManagementUI.PlayerRectTransform,
                                 hotelRoomController.doorUIItem.rectTransform.anchoredPosition,
                                 () =>
                                 {
                                     hotelRoomController.CompleteMiniGame();
                                     miniGameEventsType = MiniGameEventsType.Null;
+                                    hotelManagementUI.HidePlayerItem();
                                 });
                     }
                     break;
                 case MiniGameEventsType.Cleaning:
                     if (!hotelRoomController.Empty &&
-                        !hotelManagementUI.hotelMovementSystem.IsMove)
+                        !hotelManagementUI.HotelMovementSystem.IsMove &&
+                        hotelRoomController.miniGameEventsType == miniGameEventsType)
                     {
-                        hotelManagementUI.hotelMovementSystem.MoveRectToHotelTargetCur(
-                                hotelManagementUI.player,
+                        hotelManagementUI.HotelMovementSystem.MoveRectToHotelTargetCur(
+                                hotelManagementUI.PlayerRectTransform,
                                 hotelRoomController.doorUIItem.rectTransform.anchoredPosition,
                                 () =>
                                 {
                                     hotelRoomController.CompleteMiniGame();
                                     miniGameEventsType = MiniGameEventsType.Null;
+                                    hotelManagementUI.HidePlayerItem();
                                 });
                     }
                     break;
                 case MiniGameEventsType.Reception:
                     if (guestsInLineCount > 0 &&
-                        !hotelManagementUI.hotelMovementSystem.IsMove &&
-                        miniGameEventsType == MiniGameEventsType.Reception &&
-                        hotelRoomController.Empty)
+                        hotelRoomController.Empty &&
+                        !hotelManagementUI.HotelMovementSystem.IsMove)
                         {
                             guestsInLineCount--;
-                            if (guestsInLineCount <= 0)
-                            {
-                                hotelManagementUI.HideKey();
-                            }
+                            hotelManagementUI.SetReceptionKeyView(guestsInLineCount);
 
-                            hotelManagementUI.hotelMovementSystem.MoveRectToHotelTargetCur(
-                                hotelManagementUI.player,
+                                hotelManagementUI.HotelMovementSystem.MoveRectToHotelTargetCur(
+                                hotelManagementUI.PlayerRectTransform,
                                 hotelRoomController.doorUIItem.rectTransform.anchoredPosition,
                                 () =>
                                 {
                                     hotelRoomController.Occupy();
                                     hotelRoomController.StartMood();
                                     miniGameEventsType = MiniGameEventsType.Null;
+                                    hotelManagementUI.HidePlayerItem();
                                 });
                     }
                     break;
@@ -215,7 +214,7 @@ namespace Naninovel.U.HotelManagement
                 hotelManagementUI.ButtonFood.onClick.AddListener(FoodButton);
                 hotelManagementUI.ButtonCleaning.onClick.AddListener(CleaningButton);
 
-                foreach (var item in hotelManagementUI.doorUIItems)
+                foreach (var item in hotelManagementUI.DoorUIItems)
                 {
                     HotelRoomController hotelRoomController = new HotelRoomController(
                         item,
