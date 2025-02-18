@@ -8,8 +8,11 @@
 ;Puzzle
 ;@puzzle StarryNight
 
-Reception
-@reception 7
+;Reception
+;@reception 7
+
+Start
+@hotel Test
 
 End
 @stop

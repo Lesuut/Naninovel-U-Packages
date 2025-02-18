@@ -7,6 +7,8 @@ namespace Naninovel.U.HotelManagement
 {
     public class HotelMovementSystem : MonoBehaviour
     {
+        public bool IsMove {  get; private set; }
+
         public float moveSpeed;
 
         [SerializeField] private RectTransform referenceRect;
@@ -53,6 +55,8 @@ namespace Naninovel.U.HotelManagement
         }
         private IEnumerator MoveRectToHotelTarget(RectTransform rectTransform, Vector2 targetPos, Action onComplete)
         {
+            IsMove = true;
+
             float startX, startY;
             FindClosestTargetInLayers(rectTransform.anchoredPosition, out startX, out startY);
             rectTransform.anchoredPosition = new Vector2(startX, startY);
@@ -88,6 +92,7 @@ namespace Naninovel.U.HotelManagement
                 }
             }
 
+            IsMove = false;
             onComplete?.Invoke();
         }
 

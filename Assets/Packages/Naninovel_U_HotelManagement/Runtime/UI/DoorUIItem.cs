@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 namespace Naninovel.U.HotelManagement
 {
-    public class DoorItem : MonoBehaviour
+    public class DoorUIItem : MonoBehaviour
     {
+        public RectTransform rectTransform;
+
+        [Space]
         [SerializeField] private Button button;
         [Space]
         [SerializeField] private UnityEvent OccupyDoorEvent;
@@ -18,11 +21,10 @@ namespace Naninovel.U.HotelManagement
         [Space]
         [SerializeField] private Image NotificationIcone;
 
-        public void Init(Action<DoorItem> buttonAction)
+        public void Init(Action buttonAction)
         {
-            button.onClick.AddListener(() => buttonAction(this));
+            button.onClick.AddListener(() => buttonAction());
         }
-
         public void OccupyDoor()
         {
             OccupyDoorEvent?.Invoke();

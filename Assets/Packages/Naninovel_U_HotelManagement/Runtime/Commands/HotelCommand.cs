@@ -6,12 +6,11 @@ namespace Naninovel.U.HotelManagement.Commands
         [ParameterAlias(NamelessParameterAlias)]
         public StringParameter firstValue;
 
-        /*[ParameterAlias("id"), LocalizableParameter]
-        public StringParameter text = "Hello World!";*/
-
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
             var HotelManagementManager = Engine.GetService<IHotelManagementManager>();
+
+            HotelManagementManager.StartMiniGame(firstValue);
 
             return UniTask.CompletedTask;
         }

@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 namespace Naninovel.U.HotelManagement
@@ -8,10 +9,20 @@ namespace Naninovel.U.HotelManagement
     [EditInProjectSettings]
     public class HotelManagementConfiguration : Configuration
     {
+        [System.Serializable]
+        public struct MiniGameIcone
+        {
+            public MiniGameEventsType MiniGameEventsType;
+            public Sprite icone;
+        }
+
         public const string DefaultPathPrefix = "HotelManagement";
 
-        /// <summary>
-        /// Write here the body of the configuration for HotelManagement.
-        /// </summary>
+        [SerializeField] HotelLevelInfo[] levels;
+        [Space]
+        [SerializeField] private MiniGameIcone[] icones;
+
+        public Sprite GetIcone(MiniGameEventsType miniGameEventsType) => icones.FirstOrDefault((item) => item.MiniGameEventsType == miniGameEventsType).icone;
+        public HotelLevelInfo GetLevel(string name) => levels.FirstOrDefault((item) => item.name == name);
     }
 }
