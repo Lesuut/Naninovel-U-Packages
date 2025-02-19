@@ -123,7 +123,7 @@ MonoBehaviour:
       guid: 7fba909c66b25324cb77db18679c2c96
     - name: CGGalleryUI
       pathPrefix: UI
-      guid: 71da50c8dae82bd42ba67528804e820c
+      guid: 44862b7fba9b200428a32d20a6d02b81
     - name: ConfirmationUI
       pathPrefix: UI
       guid: 88d03f19bcbff914ba33a7c9895e2d7c
