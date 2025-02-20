@@ -1,15 +1,13 @@
 ; English <en> to Russian <ru> localization document for `Main` naninovel script
 
-# 7a5fe0ec
-; Start
-Начать
+# 7f611067
+; WordA 1
+СловоA 1
 
-# c6c58e0a
-;     Win
+# 64f47b52
+; WordA 2
+СловоA 2
 
-# 997ee177
-;     Fail
-
-# 4db9108a
-; End
-Конец
+# 849fd08d
+; WordA 3
+СловоA 3

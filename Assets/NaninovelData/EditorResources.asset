@@ -184,6 +184,9 @@ MonoBehaviour:
     - name: HotelManagementUI
       pathPrefix: UI
       guid: 2f603ec897290f94aacd1781963602ef
+    - name: CrossPromo
+      pathPrefix: UI
+      guid: 0a90cca622a5c594cae6be57eef58ab3
   - Id: Scripts
     Resources:
     - name: Main
