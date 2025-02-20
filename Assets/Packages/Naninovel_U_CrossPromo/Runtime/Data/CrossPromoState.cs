@@ -6,23 +6,21 @@ namespace Naninovel.U.CrossPromo
     [Serializable]
     public class CrossPromoState
     {
-        public List<string> Value;
+        public List<int> availableIdSlots;
+        public List<int> viewedIdSlots;
 
         public CrossPromoState()
         {
-            // Initialization Values
-            Value = new List<string>
-            {
-               "Value1",
-               "Value2",
-               "Value3"
-            };
+            availableIdSlots = new List<int>();
+            viewedIdSlots = new List<int>();
+
+            availableIdSlots.Add(0);
         }
 
         public CrossPromoState(CrossPromoState other)
         {
-            // Load and set Data
-            Value = new List<string>(other.Value);
+            availableIdSlots = other.availableIdSlots;
+            viewedIdSlots= other.viewedIdSlots;
         }
     }
 }

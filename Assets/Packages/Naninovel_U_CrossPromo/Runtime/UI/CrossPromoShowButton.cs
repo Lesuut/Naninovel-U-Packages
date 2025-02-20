@@ -3,14 +3,14 @@ using Naninovel.U.CrossPromo;
 
 public class CrossPromoShowButton : ScriptableButton
 {
-    private IUIManager uiManager;
+    private ICrossPromoService crossPromoService;
 
     protected override void Awake()
     {
         base.Awake();
 
-        uiManager = Engine.GetService<IUIManager>();
+        crossPromoService = Engine.GetService<ICrossPromoService>();
     }
 
-    protected override void OnButtonClick() => uiManager.GetUI<CrossPromoUI>()?.Show();
+    protected override void OnButtonClick() => crossPromoService.ShowCrossPromo();
 }

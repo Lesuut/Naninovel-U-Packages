@@ -1,3 +1,4 @@
+﻿using System;
 using UnityEngine;
 
 namespace Naninovel.U.CrossPromo
@@ -10,18 +11,30 @@ namespace Naninovel.U.CrossPromo
         private readonly IStateManager stateManager;
         private CrossPromoState state;
 
+        private IUIManager uiManager;
+        private IUnlockableManager unlockableManager;
+
+        private GoogleSheetDataLoader googleSheetDataLoader;
+        private SheetData[] sheetDatas;
+
         public CrossPromoService(CrossPromoConfiguration config, IStateManager stateManager)
         {
             Configuration = config;
             this.stateManager = stateManager;
         }
-        public UniTask InitializeServiceAsync()
+        public async UniTask InitializeServiceAsync()
         {
+            googleSheetDataLoader = new GoogleSheetDataLoader();
+
             state = new CrossPromoState();
             stateManager.AddOnGameSerializeTask(Serialize);
             stateManager.AddOnGameDeserializeTask(Deserialize);
 
-            return UniTask.CompletedTask;
+            uiManager = Engine.GetService<IUIManager>();
+            unlockableManager = Engine.GetService<IUnlockableManager>();
+
+            sheetDatas = await googleSheetDataLoader.LoadDataAsync(Configuration.GoogleSheetDataURL);
+            Debug.Log("CrossPromo: Finish Load GoogleSheetData");
         }
 
         public void DestroyService()
@@ -44,16 +57,41 @@ namespace Naninovel.U.CrossPromo
 
         public void ShowCrossPromo()
         {
-            throw new System.NotImplementedException();
+            if (sheetDatas == null || sheetDatas.Length <= 0)
+                throw new InvalidOperationException("CrossPromo: sheetDatas not initialized or empty!");
+
+            var crossPromoUi = uiManager.GetUI<CrossPromoUI>();
+
+            crossPromoUi.ClearSlots();
+
+            foreach (var ID in state.availableIdSlots)
+            {
+                crossPromoUi.SpawnSlot(sheetDatas[ID].Image, () =>
+                {
+                    crossPromoUi.ShowContinueWindow(() =>
+                    {
+                        if (!state.viewedIdSlots.Contains(ID))
+                        {
+                            state.availableIdSlots.Add(ID);
+                            unlockableManager.UnlockItem(Configuration.unlockableImages[ID].unlockableKey);
+                            stateManager.SaveGlobalAsync().Forget();
+                            Debug.Log($"UnlockItem: {Configuration.unlockableImages[ID].unlockableKey}");
+                        }
+
+                        crossPromoUi.ShowAdult(Configuration.unlockableImages[ID].sprite);
+                    });
+
+                    SteamUrlOpener.OpenUrl(sheetDatas[ID].Url);
+                });
+            }
+
+            crossPromoUi.Show();
         }
 
         public void UnlockItem(int id)
         {
-            throw new System.NotImplementedException();
+            if (!state.availableIdSlots.Contains(id))
+                state.availableIdSlots.Add(id);
         }
-
-        /// <summary>
-        /// Write the body for the CrossPromo service here
-        /// </summary>
     }
 }

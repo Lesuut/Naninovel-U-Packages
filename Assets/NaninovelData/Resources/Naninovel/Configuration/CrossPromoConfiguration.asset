@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bcee37f92ee6e84aa75004c308be6c9, type: 3}
   m_Name: CrossPromoConfiguration
   m_EditorClassIdentifier: 
+  GoogleSheetDataURL: https://docs.google.com/spreadsheets/d/e/2PACX-1vRPHeIeKCH1DtQFJ9fwZEDvSNoWHj-FgrV2-YeT9oDN2_Q6GBVHAVCjtOgjo5yv7vwHDcIGNCAxWgi3/pub?gid=0&single=true&output=csv
   unlockableImages:
-  - sprite: {fileID: 0}
+  - sprite: {fileID: 21300000, guid: c750232002cbe814e8b7af3a4c9f4a7d, type: 3}
     unlockableKey: CrossPromoUnlockableItem_0
-  - sprite: {fileID: 0}
+  - sprite: {fileID: 21300000, guid: c750232002cbe814e8b7af3a4c9f4a7d, type: 3}
     unlockableKey: CrossPromoUnlockableItem_1
-  - sprite: {fileID: 0}
+  - sprite: {fileID: 21300000, guid: c750232002cbe814e8b7af3a4c9f4a7d, type: 3}
     unlockableKey: CrossPromoUnlockableItem_2
-  - sprite: {fileID: 0}
+  - sprite: {fileID: 21300000, guid: c750232002cbe814e8b7af3a4c9f4a7d, type: 3}
     unlockableKey: CrossPromoUnlockableItem_3
-  - sprite: {fileID: 0}
+  - sprite: {fileID: 21300000, guid: c750232002cbe814e8b7af3a4c9f4a7d, type: 3}
     unlockableKey: CrossPromoUnlockableItem_4
-  - sprite: {fileID: 0}
+  - sprite: {fileID: 21300000, guid: c750232002cbe814e8b7af3a4c9f4a7d, type: 3}
     unlockableKey: CrossPromoUnlockableItem_5
   achievementNaniCommand: '@ach'

@@ -1,4 +1,5 @@
 using Naninovel.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -44,17 +45,25 @@ namespace Naninovel.U.CrossPromo
             StartCoroutine(FadeCoroutine(adultCanvasGroup, adultWindowObj, true, 1f));
         }
 
-        public void ShowContinueWindow()
+        public void ShowContinueWindow(Action action)
         {
             continueButton.onClick.RemoveAllListeners();
             continueButton.onClick.AddListener(() =>
             {
                 StartCoroutine(FadeCoroutine(continueCanvasGroup, continueWindowObj, false, 0.5f));
                 continueHideEvent?.Invoke();
+                action?.Invoke();
             });
 
             continueShowEvent?.Invoke();
             StartCoroutine(FadeCoroutine(continueCanvasGroup, continueWindowObj, true, 1f));
+        }
+
+        public override void Hide()
+        {
+            base.Hide();
+            continueWindowObj.SetActive(false);
+            adultWindowObj.SetActive(false);
         }
 
         public void OpenUrl(string url) => SteamUrlOpener.OpenUrl(url);
