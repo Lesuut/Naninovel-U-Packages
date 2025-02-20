@@ -14,10 +14,8 @@ namespace Naninovel.U.CrossPromo
         [TextArea]
         
         public string GoogleSheetDataURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRPHeIeKCH1DtQFJ9fwZEDvSNoWHj-FgrV2-YeT9oDN2_Q6GBVHAVCjtOgjo5yv7vwHDcIGNCAxWgi3/pub?gid=0&single=true&output=csv";
-        /*[Tooltip("Nani will hold the loading eeran until the table is loaded")]
         [Space]
-        public bool LaodSheetInStartGameLoad = true;
-        public int InternetTimeout = 2; */
+        public bool debug = false;
 
         [Space]
         public UnlockableImages[] unlockableImages = new UnlockableImages[]

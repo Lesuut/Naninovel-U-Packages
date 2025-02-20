@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -20,6 +19,7 @@ namespace Naninovel.U.CrossPromo
 
         [SerializeField] private ClickType clickType = ClickType.Instant;
         [SerializeField] private float holdTime = 1.0f;
+        [SerializeField] private Button button;
         [Space]
         [SerializeField] private Image uploadedPictureImage;
         [Space]
@@ -38,6 +38,9 @@ namespace Naninovel.U.CrossPromo
             this.action = action;
             uploadedPictureImage.sprite = uploadedPicture;
             receivedStatus = false;
+
+            if (clickType == ClickType.Instant)
+                button.onClick.AddListener(() => action?.Invoke());
         }
 
         public void SetReceivedStatus(bool status)
@@ -49,24 +52,24 @@ namespace Naninovel.U.CrossPromo
                 changeStatusToReceived?.Invoke();
             else
                 changeStatusToPending?.Invoke();
+
+            if (clickType == ClickType.Combined)
+            {
+                button.onClick.RemoveAllListeners();
+                button.onClick.AddListener(() => action?.Invoke());
+            }
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
             switch (clickType)
             {
-                case ClickType.Instant:
-                    action?.Invoke();
-                    break;
-
                 case ClickType.Delayed:
                     StartHoldCoroutine();
                     break;
 
                 case ClickType.Combined:
-                    if (receivedStatus)
-                        action?.Invoke();
-                    else
+                    if (!receivedStatus)
                         StartHoldCoroutine();
                     break;
             }

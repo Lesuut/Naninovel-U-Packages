@@ -28,6 +28,9 @@ namespace Naninovel.U.CrossPromo
         [SerializeField] private Button continueButton;
         [SerializeField] private UnityEvent continueShowEvent;
         [SerializeField] private UnityEvent continueHideEvent;
+        [Space]
+        [SerializeField] private float showTime = 1f;
+        [SerializeField] private float hideTime = 0.5f;
 
         private List<GameObject> slotObls = new List<GameObject>();
 
@@ -37,12 +40,12 @@ namespace Naninovel.U.CrossPromo
             adultButton.onClick.RemoveAllListeners();
             adultButton.onClick.AddListener(() =>
             {
-                StartCoroutine(FadeCoroutine(adultCanvasGroup, adultWindowObj, false, 0.5f));
+                StartCoroutine(FadeCoroutine(adultCanvasGroup, adultWindowObj, false, hideTime));
                 adultHideEvent?.Invoke();
             });
 
             adultShowEvent?.Invoke();
-            StartCoroutine(FadeCoroutine(adultCanvasGroup, adultWindowObj, true, 1f));
+            StartCoroutine(FadeCoroutine(adultCanvasGroup, adultWindowObj, true, showTime));
         }
 
         public void ShowContinueWindow(Action action)
@@ -50,13 +53,13 @@ namespace Naninovel.U.CrossPromo
             continueButton.onClick.RemoveAllListeners();
             continueButton.onClick.AddListener(() =>
             {
-                StartCoroutine(FadeCoroutine(continueCanvasGroup, continueWindowObj, false, 0.5f));
+                StartCoroutine(FadeCoroutine(continueCanvasGroup, continueWindowObj, false, hideTime));
                 continueHideEvent?.Invoke();
                 action?.Invoke();
             });
 
             continueShowEvent?.Invoke();
-            StartCoroutine(FadeCoroutine(continueCanvasGroup, continueWindowObj, true, 1f));
+            StartCoroutine(FadeCoroutine(continueCanvasGroup, continueWindowObj, true, showTime));
         }
 
         public override void Hide()

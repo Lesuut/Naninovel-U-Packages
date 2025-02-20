@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 namespace Naninovel.U.CrossPromo
 {
@@ -43,7 +42,7 @@ namespace Naninovel.U.CrossPromo
             }
             catch (Exception ex)
             {
-                Debug.LogError($"CrossPromo: Error loading data: {ex.Message}");
+                UnityEngine.Debug.LogError($"CrossPromo: Error loading data: {ex.Message}");
             }
         }
 
@@ -76,7 +75,16 @@ namespace Naninovel.U.CrossPromo
 
             RemoveDuplicates(ref crossPromoState.availableIdSlots);
 
-            //Debug.Log($"ShowCrossPromo: {string.Join(", ", crossPromoState.availableIdSlots)}");
+            if (Configuration.debug)
+            {
+                UnityEngine.Debug.Log($"ShowCrossPromo availableIdSlots: {string.Join(", ", crossPromoState.availableIdSlots)}");
+                UnityEngine.Debug.Log($"ShowCrossPromo receivedIdSlots: {string.Join(", ", crossPromoState.receivedIdSlots)}");
+
+                foreach (var item in Configuration.unlockableImages)
+                {
+                    UnityEngine.Debug.Log($"{item.unlockableKey}: {unlockableManager.ItemUnlocked(item.unlockableKey)}");
+                }
+            }
 
             if (sheetDatas == null || sheetDatas.Length <= 0)
                 throw new InvalidOperationException("CrossPromo: sheetDatas not initialized or empty!");
@@ -103,7 +111,9 @@ namespace Naninovel.U.CrossPromo
                             stateManager.SaveGlobalAsync().Forget();
 
                             UpdateSlotStatus();
-                            Debug.Log($"UnlockItem: {Configuration.unlockableImages[ID].unlockableKey}");
+                            UnityEngine.Debug.Log($"UnlockItem: {Configuration.unlockableImages[ID].unlockableKey}");
+
+                            TryGetAchievement();
 
                             crossPromoUi.ShowAdult(Configuration.unlockableImages[ID].sprite);
                         });
@@ -157,6 +167,17 @@ namespace Naninovel.U.CrossPromo
         {
             HashSet<int> seen = new HashSet<int>();
             list.RemoveAll(x => !seen.Add(x));
+        }
+        private void TryGetAchievement()
+        {
+            if (crossPromoState.receivedIdSlots.Count == sheetDatas.Length)
+                PlayScript(Configuration.achievementNaniCommand);
+        }
+        private async void PlayScript(string scriptText)
+        {
+            var script = Script.FromScriptText($"Generated script", scriptText);
+            var playlist = new ScriptPlaylist(script);
+            await playlist.ExecuteAsync();
         }
     }
 }
