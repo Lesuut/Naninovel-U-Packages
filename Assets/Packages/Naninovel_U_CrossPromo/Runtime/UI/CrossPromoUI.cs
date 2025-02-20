@@ -1,20 +1,109 @@
 using Naninovel.UI;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace Naninovel.U.CrossPromo
 {
     public class CrossPromoUI : CustomUI
     {
-        private ICrossPromoService CrossPromoService;
+        public List<SlotItemUI> SlotItems { get; private set; } = new List<SlotItemUI>();
 
-        protected override void Awake()
+        [Header("Slot")]
+        [SerializeField] private Transform slotPerent;
+        [SerializeField] private GameObject slotPrefab;
+        [Header("Adult")]
+        [SerializeField] private GameObject adultWindowObj;
+        [SerializeField] private CanvasGroup adultCanvasGroup;
+        [SerializeField] private Image adultImage;
+        [SerializeField] private Button adultButton;
+        [SerializeField] private UnityEvent adultShowEvent;
+        [SerializeField] private UnityEvent adultHideEvent;
+        [Header("Continue")]
+        [SerializeField] private GameObject continueWindowObj;
+        [SerializeField] private CanvasGroup continueCanvasGroup;
+        [SerializeField] private Button continueButton;
+        [SerializeField] private UnityEvent continueShowEvent;
+        [SerializeField] private UnityEvent continueHideEvent;
+
+        private List<GameObject> slotObls = new List<GameObject>();
+
+        public void ShowAdult(Sprite sprite)
         {
-            base.Awake();
+            adultImage.sprite = sprite;
+            adultButton.onClick.RemoveAllListeners();
+            adultButton.onClick.AddListener(() =>
+            {
+                StartCoroutine(FadeCoroutine(adultCanvasGroup, adultWindowObj, false, 0.5f));
+                adultHideEvent?.Invoke();
+            });
 
-            CrossPromoService = Engine.GetService<ICrossPromoService>();
+            adultShowEvent?.Invoke();
+            StartCoroutine(FadeCoroutine(adultCanvasGroup, adultWindowObj, true, 1f));
         }
 
-        /// <summary>
-        /// Write the body for the CrossPromo UI here
-        /// </summary>
+        public void ShowContinueWindow()
+        {
+            continueButton.onClick.RemoveAllListeners();
+            continueButton.onClick.AddListener(() =>
+            {
+                StartCoroutine(FadeCoroutine(continueCanvasGroup, continueWindowObj, false, 0.5f));
+                continueHideEvent?.Invoke();
+            });
+
+            continueShowEvent?.Invoke();
+            StartCoroutine(FadeCoroutine(continueCanvasGroup, continueWindowObj, true, 1f));
+        }
+
+        public void OpenUrl(string url) => SteamUrlOpener.OpenUrl(url);
+
+        public void SpawnSlot(Sprite uploadedPicture, UnityAction action)
+        {
+            GameObject obj = Instantiate(slotPrefab, slotPerent);
+            SlotItemUI slotItemUI = obj.GetComponent<SlotItemUI>();
+
+            slotItemUI.Initialize(action, uploadedPicture);
+
+            SlotItems.Add(slotItemUI);
+            slotObls.Add(obj);
+        }
+
+        public void ClearSlots()
+        {
+            foreach (var item in slotObls)
+            {
+                Destroy(item);
+            }
+            slotObls.Clear();
+            SlotItems.Clear();
+        }
+
+        private IEnumerator FadeCoroutine(CanvasGroup canvasGroup, GameObject targetObject, bool visibility, float duration)
+        {
+            float elapsedTime = 0f;
+            float startAlpha = canvasGroup.alpha;
+            float targetAlpha = visibility ? 1f : 0f;
+
+            if (visibility && !targetObject.activeSelf)
+            {
+                targetObject.SetActive(true);
+            }
+
+            while (elapsedTime < duration)
+            {
+                elapsedTime += Time.deltaTime;
+                canvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / duration);
+                yield return null;
+            }
+
+            canvasGroup.alpha = targetAlpha;
+
+            if (!visibility)
+            {
+                targetObject.SetActive(false);
+            }
+        }
     }
 }

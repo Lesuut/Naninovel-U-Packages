@@ -1,21 +1,17 @@
 using UnityEngine;
 using Naninovel;
+using Naninovel.U.CrossPromo;
+using System.Collections;
 
 public class TestSome : MonoBehaviour
 {
-    void OnEnable()
+    private void Start()
     {
-       /* var ILocalizationManager = Engine.GetService<ILocalizationManager>();
-        var textManager = Engine.GetService<ITextManager>();
-        ILocalizationManager.OnLocaleChanged += (string locate) => Debug.Log(textManager.GetRecordValue("Reception.Screen.DateOfBirth.0", "Reception"));*/
-
-        TestPrinter();
+        StartCoroutine(cur());
     }
-
-    private void TestPrinter()
+    private IEnumerator cur()
     {
-        Debug.Log("TestPrinter");
-        var textPrinterManager = Engine.GetService<ITextPrinterManager>();
-        textPrinterManager.PrintTextAsync("ReceptionPrinter", "123", "Custom");
+        yield return new WaitForSeconds(1f);
+        Engine.GetService<IUIManager>().GetUI<CrossPromoUI>().Show();
     }
 }

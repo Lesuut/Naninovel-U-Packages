@@ -42,6 +42,16 @@ namespace Naninovel.U.CrossPromo
             return UniTask.CompletedTask;
         }
 
+        public void ShowCrossPromo()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void UnlockItem(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
         /// <summary>
         /// Write the body for the CrossPromo service here
         /// </summary>

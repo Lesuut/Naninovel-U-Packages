@@ -7,14 +7,13 @@ using UnityEngine.Networking;
 
 namespace Naninovel.U.CrossPromo
 {
+    public struct SheetData
+    {
+        public Sprite Image;
+        public string Url;
+    }
     public class GoogleSheetDataLoader
     {
-        public struct SheetData
-        {
-            public Sprite Image;
-            public string Url;
-        }
-
         public async Task<SheetData[]> LoadDataAsync(string googleSheetUrl)
         {
             string[] lines = await LoadDataFromGoogleSheet(googleSheetUrl);

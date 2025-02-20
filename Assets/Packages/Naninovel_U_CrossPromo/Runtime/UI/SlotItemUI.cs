@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Resources;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -19,10 +18,11 @@ namespace Naninovel.U.CrossPromo
         [SerializeField] private float holdTime = 1.0f;
         [Space]
         [SerializeField] private Image uploadedPictureImage;
-        [SerializeField] private GameObject receivedUIObj;
-        [SerializeField] private GameObject pendingUIObj;
         [Space]
         [SerializeField] private UnityEvent<float> onHoldProgress;
+        [Space]
+        [SerializeField] private UnityEvent changeStatusToReceived;
+        [SerializeField] private UnityEvent changeStatusToPending;
 
         private UnityAction action;
         private Coroutine holdCoroutine;
@@ -35,8 +35,10 @@ namespace Naninovel.U.CrossPromo
 
         public void SetReceivedStatus(bool status)
         {
-            receivedUIObj.SetActive(status);
-            pendingUIObj.SetActive(!status);
+            if (status)
+                changeStatusToReceived?.Invoke();
+            else
+                changeStatusToPending?.Invoke();
         }
 
         public void OnPointerDown(PointerEventData eventData)
