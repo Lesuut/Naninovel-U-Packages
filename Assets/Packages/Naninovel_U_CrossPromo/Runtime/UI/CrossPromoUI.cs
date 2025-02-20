@@ -1,5 +1,3 @@
-using UnityEngine;
-using UnityEngine.UI;
 using Naninovel.UI;
 
 namespace Naninovel.U.CrossPromo

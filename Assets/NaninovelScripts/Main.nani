@@ -1,18 +1,4 @@
-;@hideAll
-;@addChoiceBoxTitle "What is the main advantage of using dependency injection in Unity?"
-;@addChoiceBoxOption "It improves code maintainability and testability." todo:"@setparameter Reputation value:+1"
-;@addChoiceBoxOption "It makes the game run faster." todo:"@setparameter Reputation value:-1"
-;@showChoiceBox
-;@printer ReceptionPrinter
-
-;Puzzle
-;@puzzle StarryNight
-
-;Reception
-;@reception 7
-
-Start
-@hotel Test
-
-End
+WordA 1
+WordA 2
+WordA 3
 @stop
