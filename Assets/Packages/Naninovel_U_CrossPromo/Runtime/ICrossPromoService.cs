@@ -6,5 +6,6 @@ namespace Naninovel.U.CrossPromo
     {
         public void ShowCrossPromo();
         public void UnlockItem(int id);
+        public void UnlockRandomItem();
     }
 }

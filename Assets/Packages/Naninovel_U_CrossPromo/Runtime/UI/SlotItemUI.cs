@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -11,8 +12,11 @@ namespace Naninovel.U.CrossPromo
         public enum ClickType
         {
             Instant,
-            Delayed
+            Delayed,
+            Combined,
         }
+
+        public int ID { get; private set; }
 
         [SerializeField] private ClickType clickType = ClickType.Instant;
         [SerializeField] private float holdTime = 1.0f;
@@ -26,15 +30,21 @@ namespace Naninovel.U.CrossPromo
 
         private UnityAction action;
         private Coroutine holdCoroutine;
+        private bool receivedStatus;
 
-        public void Initialize(UnityAction action, Sprite uploadedPicture)
+        public void Initialize(UnityAction action, Sprite uploadedPicture, int ID)
         {
+            this.ID = ID;
             this.action = action;
             uploadedPictureImage.sprite = uploadedPicture;
+            receivedStatus = false;
         }
 
         public void SetReceivedStatus(bool status)
         {
+            onHoldProgress?.Invoke(0);
+            receivedStatus = status;
+
             if (status)
                 changeStatusToReceived?.Invoke();
             else
@@ -43,28 +53,42 @@ namespace Naninovel.U.CrossPromo
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            if (clickType == ClickType.Instant)
+            switch (clickType)
             {
-                action?.Invoke();
-            }
-            else if (clickType == ClickType.Delayed)
-            {
-                if (holdCoroutine != null)
-                {
-                    StopCoroutine(holdCoroutine);
-                }
-                holdCoroutine = StartCoroutine(HoldButton());
+                case ClickType.Instant:
+                    action?.Invoke();
+                    break;
+
+                case ClickType.Delayed:
+                    StartHoldCoroutine();
+                    break;
+
+                case ClickType.Combined:
+                    if (receivedStatus)
+                        action?.Invoke();
+                    else
+                        StartHoldCoroutine();
+                    break;
             }
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            if (clickType == ClickType.Delayed && holdCoroutine != null)
+            if ((clickType == ClickType.Delayed || (clickType == ClickType.Combined && !receivedStatus)) && holdCoroutine != null)
             {
                 StopCoroutine(holdCoroutine);
                 holdCoroutine = null;
                 onHoldProgress?.Invoke(0f); // Сброс прогресса
             }
+        }
+
+        private void StartHoldCoroutine()
+        {
+            if (holdCoroutine != null)
+            {
+                StopCoroutine(holdCoroutine);
+            }
+            holdCoroutine = StartCoroutine(HoldButton());
         }
 
         private IEnumerator HoldButton()

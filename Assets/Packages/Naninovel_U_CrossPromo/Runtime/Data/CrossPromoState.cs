@@ -7,20 +7,18 @@ namespace Naninovel.U.CrossPromo
     public class CrossPromoState
     {
         public List<int> availableIdSlots;
-        public List<int> viewedIdSlots;
+        public List<int> receivedIdSlots;
 
         public CrossPromoState()
         {
             availableIdSlots = new List<int>();
-            viewedIdSlots = new List<int>();
-
-            availableIdSlots.Add(0);
+            receivedIdSlots = new List<int>();
         }
 
         public CrossPromoState(CrossPromoState other)
         {
             availableIdSlots = other.availableIdSlots;
-            viewedIdSlots= other.viewedIdSlots;
+            receivedIdSlots= other.receivedIdSlots;
         }
     }
 }

@@ -68,12 +68,12 @@ namespace Naninovel.U.CrossPromo
 
         public void OpenUrl(string url) => SteamUrlOpener.OpenUrl(url);
 
-        public void SpawnSlot(Sprite uploadedPicture, UnityAction action)
+        public void SpawnSlot(Sprite uploadedPicture, UnityAction action, int ID)
         {
             GameObject obj = Instantiate(slotPrefab, slotPerent);
             SlotItemUI slotItemUI = obj.GetComponent<SlotItemUI>();
 
-            slotItemUI.Initialize(action, uploadedPicture);
+            slotItemUI.Initialize(action, uploadedPicture, ID);
 
             SlotItems.Add(slotItemUI);
             slotObls.Add(obj);
