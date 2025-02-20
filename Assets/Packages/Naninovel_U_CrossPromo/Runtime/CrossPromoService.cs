@@ -33,15 +33,18 @@ namespace Naninovel.U.CrossPromo
         public async UniTask InitializeServiceAsync()
         {
             googleSheetDataLoader = new GoogleSheetDataLoader();
-
             crossPromoState = new CrossPromoState();
-
             uiManager = Engine.GetService<IUIManager>();
             unlockableManager = Engine.GetService<IUnlockableManager>();
 
-            sheetDatas = await googleSheetDataLoader.LoadDataAsync(Configuration.GoogleSheetDataURL);
-
-            Debug.Log("CrossPromo: Finish Load GoogleSheetData");
+            try
+            {
+                sheetDatas = await googleSheetDataLoader.LoadDataAsync(Configuration.GoogleSheetDataURL);
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"CrossPromo: Error loading data: {ex.Message}");
+            }
         }
 
         public void DestroyService() { }
@@ -73,7 +76,7 @@ namespace Naninovel.U.CrossPromo
 
             RemoveDuplicates(ref crossPromoState.availableIdSlots);
 
-            Debug.Log($"ShowCrossPromo: {string.Join(", ", crossPromoState.availableIdSlots)}");
+            //Debug.Log($"ShowCrossPromo: {string.Join(", ", crossPromoState.availableIdSlots)}");
 
             if (sheetDatas == null || sheetDatas.Length <= 0)
                 throw new InvalidOperationException("CrossPromo: sheetDatas not initialized or empty!");
@@ -118,12 +121,15 @@ namespace Naninovel.U.CrossPromo
         public void UnlockItem(int id)
         {
             if (!crossPromoState.availableIdSlots.Contains(id))
+            {
                 crossPromoState.availableIdSlots.Add(id);
+                stateManager.SaveGlobalAsync().Forget();
+            }
         }
 
         public void UnlockRandomItem()
         {
-            if (crossPromoState.availableIdSlots.Count == sheetDatas.Length) return;
+            if (sheetDatas == null && crossPromoState.availableIdSlots.Count == sheetDatas.Length) return;
 
             List<int> availableIds = Enumerable.Range(0, sheetDatas.Length)
                                                .Except(crossPromoState.availableIdSlots)
@@ -134,6 +140,8 @@ namespace Naninovel.U.CrossPromo
             int rndId = availableIds[UnityEngine.Random.Range(0, availableIds.Count)];
 
             crossPromoState.availableIdSlots.Add(rndId);
+
+            stateManager.SaveGlobalAsync().Forget();
         }
 
         private void UpdateSlotStatus()
