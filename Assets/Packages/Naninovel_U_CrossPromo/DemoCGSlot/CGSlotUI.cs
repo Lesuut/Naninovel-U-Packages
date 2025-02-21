@@ -36,7 +36,7 @@ namespace Naninovel.U.CrossPromo.Commands
                 button.onClick.RemoveAllListeners();
                 button.onClick.AddListener(() =>
                 {
-                    Engine.GetService<ICrossPromoService>().ShowCrossPromo();
+                    Engine.GetService<ICrossPromoService>().ShowCrossPromo(LinkTransitionType.Gallery);
                     hideCGGalleryEvent?.Invoke();
                 });
             }

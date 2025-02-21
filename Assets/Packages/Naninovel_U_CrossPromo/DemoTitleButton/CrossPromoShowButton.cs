@@ -12,5 +12,5 @@ public class CrossPromoShowButton : ScriptableButton
         crossPromoService = Engine.GetService<ICrossPromoService>();
     }
 
-    protected override void OnButtonClick() => crossPromoService.ShowCrossPromo();
+    protected override void OnButtonClick() => crossPromoService.ShowCrossPromo(LinkTransitionType.Menu);
 }

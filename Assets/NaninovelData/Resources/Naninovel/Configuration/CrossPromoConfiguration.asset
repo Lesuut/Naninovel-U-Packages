@@ -16,17 +16,26 @@ MonoBehaviour:
   debug: 0
   crossPromoEnable: 1
   showAllSlotsAtStart: 1
+  GalleryLeaderBoardCrossPromoClickKey: Gallery_LeaderBoardCrossPromoClickKey
+  MainLeaderBoardCrossPromoMenuClickKey: Main_LeaderBoardCrossPromoMenuClickKey
+  FinalLeaderBoardCrossPromoClickKey: Final_LeaderBoardCrossPromoClickKey
   unlockableImages:
   - sprite: {fileID: 0}
     unlockableKey: CrossPromoUnlockableItem_0
+    leaderBoardKey: LeaderBoardCrossPromoKey_0
   - sprite: {fileID: 0}
     unlockableKey: CrossPromoUnlockableItem_1
+    leaderBoardKey: LeaderBoardCrossPromoKey_1
   - sprite: {fileID: 0}
     unlockableKey: CrossPromoUnlockableItem_2
+    leaderBoardKey: LeaderBoardCrossPromoKey_2
   - sprite: {fileID: 0}
     unlockableKey: CrossPromoUnlockableItem_3
+    leaderBoardKey: LeaderBoardCrossPromoKey_3
   - sprite: {fileID: 0}
     unlockableKey: CrossPromoUnlockableItem_4
+    leaderBoardKey: LeaderBoardCrossPromoKey_4
   - sprite: {fileID: 0}
     unlockableKey: CrossPromoUnlockableItem_5
+    leaderBoardKey: LeaderBoardCrossPromoKey_5
   achievementNaniCommand: '@ach'

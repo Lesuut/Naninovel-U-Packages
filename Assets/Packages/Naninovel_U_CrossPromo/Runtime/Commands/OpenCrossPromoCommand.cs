@@ -7,7 +7,7 @@ namespace Naninovel.U.CrossPromo.Commands
         {
             var CrossPromoService = Engine.GetService<ICrossPromoService>();
 
-            CrossPromoService.ShowCrossPromo();
+            CrossPromoService.ShowCrossPromo(LinkTransitionType.Final);
 
             return UniTask.CompletedTask;
         }

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using Steamworks;
 using UnityEngine;
 
-namespace Naninovel.U.CrossPromo.Commands
+namespace Naninovel.U.CrossPromo
 {
     public class LeaderBoardCoroutines : MonoBehaviour
     {
         [SerializeField] private List<string> leaderboardNames = new List<string> { "steam_id" };
         private Dictionary<string, SteamLeaderboard_t> leaderboards = new Dictionary<string, SteamLeaderboard_t>();
+        private Queue<string> leaderboardQueue = new Queue<string>(); // Очередь для неинициализированных лидингов
         private bool _initialized = false;
 
         private CallResult<LeaderboardFindResult_t> _findResult = new CallResult<LeaderboardFindResult_t>();
@@ -51,10 +52,12 @@ namespace Naninovel.U.CrossPromo.Commands
 
             foreach (var name in leaderboardNames)
             {
+                leaderboardQueue.Enqueue(name); // Добавляем все лидинги в очередь
                 yield return StartCoroutine(FindAndStoreLeaderboard(name));
             }
 
             _initialized = true;
+            ProcessQueuedLeaderboards(); // Проверяем очередь, после инициализации Steam API
         }
 
         private IEnumerator FindAndStoreLeaderboard(string name)
@@ -81,13 +84,31 @@ namespace Naninovel.U.CrossPromo.Commands
             {
                 Debug.LogError($"STEAM LEADERBOARDS: Failed to find {name}");
             }
+
+            // После инициализации текущего лидерборда, проверяем очередь
+            ProcessQueuedLeaderboards();
+        }
+
+        private void ProcessQueuedLeaderboards()
+        {
+            while (leaderboardQueue.Count > 0)
+            {
+                string queuedLeaderboard = leaderboardQueue.Dequeue(); // Берем следующий элемент из очереди
+                // Инициализируем ключи из очереди
+                EnsureLeaderboardInitialized(queuedLeaderboard);
+            }
         }
 
         public void EnsureLeaderboardInitialized(string leaderboardName)
         {
             if (!leaderboards.ContainsKey(leaderboardName))
             {
+                leaderboardQueue.Enqueue(leaderboardName); // Добавляем в очередь, если лидерборд не инициализирован
                 StartCoroutine(FindAndStoreLeaderboard(leaderboardName));
+            }
+            else
+            {
+                Debug.Log($"Leaderboard {leaderboardName} already initialized.");
             }
         }
 

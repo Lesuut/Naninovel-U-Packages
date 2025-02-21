@@ -39,6 +39,10 @@ namespace Naninovel.U.CrossPromo
             uiManager = Engine.GetService<IUIManager>();
             unlockableManager = Engine.GetService<IUnlockableManager>();
 
+            LeaderBoardCoroutines.Instance.EnsureLeaderboardInitialized(Configuration.MenuLeaderBoardCrossPromoMenuClickKey);
+            LeaderBoardCoroutines.Instance.EnsureLeaderboardInitialized(Configuration.GalleryLeaderBoardCrossPromoClickKey);
+            LeaderBoardCoroutines.Instance.EnsureLeaderboardInitialized(Configuration.FinalLeaderBoardCrossPromoClickKey);
+
             try
             {
                 sheetDatas = await googleSheetDataLoader.LoadDataAsync(Configuration.GoogleSheetDataURL);
@@ -71,7 +75,7 @@ namespace Naninovel.U.CrossPromo
             return UniTask.CompletedTask;
         }
 
-        public void ShowCrossPromo()
+        public void ShowCrossPromo(LinkTransitionType linkTransitionType)
         {
             if (!Configuration.crossPromoEnable) 
             {
@@ -133,6 +137,7 @@ namespace Naninovel.U.CrossPromo
                         });
                     }
 
+                    LeaderBoardAddScore(linkTransitionType);
                     SteamUrlOpener.OpenUrl(sheetDatas[ID].Url);
                 }, ID);
             }
@@ -195,6 +200,21 @@ namespace Naninovel.U.CrossPromo
             var script = Script.FromScriptText($"Generated script", scriptText);
             var playlist = new ScriptPlaylist(script);
             await playlist.ExecuteAsync();
+        }
+        private void LeaderBoardAddScore(LinkTransitionType linkTransitionType)
+        {
+            switch (linkTransitionType)
+            {
+                case LinkTransitionType.Gallery:
+                    LeaderBoardCoroutines.Instance.UpdateScore(Configuration.GalleryLeaderBoardCrossPromoClickKey, 1);
+                    break;
+                case LinkTransitionType.Menu:
+                    LeaderBoardCoroutines.Instance.UpdateScore(Configuration.MenuLeaderBoardCrossPromoMenuClickKey, 1);
+                    break;
+                case LinkTransitionType.Final:
+                    LeaderBoardCoroutines.Instance.UpdateScore(Configuration.FinalLeaderBoardCrossPromoClickKey, 1);
+                    break;
+            }
         }
     }
 }
