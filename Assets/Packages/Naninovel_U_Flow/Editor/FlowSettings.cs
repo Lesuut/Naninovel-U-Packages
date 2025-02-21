@@ -1,10 +1,9 @@
-﻿using Naninovel.U.SideTip;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Naninovel.U.Flow.Commands
+namespace Naninovel.U.Flow
 {
     public class FlowSettings : ConfigurationSettings<FlowConfiguration>
     {

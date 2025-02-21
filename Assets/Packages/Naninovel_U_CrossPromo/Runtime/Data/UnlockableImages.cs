@@ -8,11 +8,11 @@ namespace Naninovel.U.CrossPromo
         public UnlockableImages(string key, string leaderBoardKey)
         {
             unlockableKey = key;
-            sprite = null;
+            adultStatic = null;
             this.leaderBoardKey = leaderBoardKey;
         }
 
-        public Sprite sprite;
+        public Sprite adultStatic;
         public string unlockableKey;
         public string leaderBoardKey;
     }

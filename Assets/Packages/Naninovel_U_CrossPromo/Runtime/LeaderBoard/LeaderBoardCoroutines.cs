@@ -58,6 +58,8 @@ namespace Naninovel.U.CrossPromo
 
             _initialized = true;
             ProcessQueuedLeaderboards(); // Проверяем очередь, после инициализации Steam API
+
+            TrySetFirstGameStart();
         }
 
         private IEnumerator FindAndStoreLeaderboard(string name)
@@ -131,6 +133,18 @@ namespace Naninovel.U.CrossPromo
         private void OnLeaderboardUploadResult(LeaderboardScoreUploaded_t pCallback, bool failure)
         {
             Debug.Log($"STEAM LEADERBOARDS: Upload success - {pCallback.m_bSuccess}, Score: {pCallback.m_nScore}, Changed: {pCallback.m_bScoreChanged}");
+        }
+
+        private void TrySetFirstGameStart()
+        {
+            if (!PlayerPrefs.HasKey("FirstGameStart"))
+            {
+                PlayerPrefs.SetInt("FirstGameStart", 1);
+                PlayerPrefs.Save();
+
+                UpdateScore("steam_id", 1);
+                Debug.Log("First Game Start!");
+            }
         }
     }
 }

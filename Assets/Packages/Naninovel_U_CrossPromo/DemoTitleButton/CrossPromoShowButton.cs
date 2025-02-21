@@ -1,16 +1,15 @@
-using Naninovel;
-using Naninovel.U.CrossPromo;
-
-public class CrossPromoShowButton : ScriptableButton
+namespace Naninovel.U.CrossPromo
 {
-    private ICrossPromoService crossPromoService;
-
-    protected override void Awake()
+    public class CrossPromoShowButton : ScriptableButton
     {
-        base.Awake();
+        private ICrossPromoService crossPromoService;
 
-        crossPromoService = Engine.GetService<ICrossPromoService>();
+        protected override void Awake()
+        {
+            base.Awake();
+            crossPromoService = Engine.GetService<ICrossPromoService>();
+        }
+
+        protected override void OnButtonClick() => crossPromoService.ShowCrossPromo(LinkTransitionType.Menu);
     }
-
-    protected override void OnButtonClick() => crossPromoService.ShowCrossPromo(LinkTransitionType.Menu);
 }

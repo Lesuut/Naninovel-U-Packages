@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace Naninovel.U.CrossPromo.Commands
+namespace Naninovel.U.CrossPromo
 {
     public class CGSlotUI : MonoBehaviour
     {

@@ -133,7 +133,7 @@ namespace Naninovel.U.CrossPromo
 
                             TryGetAchievement();
 
-                            crossPromoUi.ShowAdult(Configuration.unlockableImages[ID].sprite);
+                            crossPromoUi.ShowAdult(Configuration.unlockableImages[ID].adultStatic);
                         });
                     }
 
@@ -184,23 +184,27 @@ namespace Naninovel.U.CrossPromo
                 item.SetReceivedStatus(crossPromoState.receivedIdSlots.Contains(item.ID));
             }
         }
+
         private void RemoveDuplicates(ref List<int> list)
         {
             HashSet<int> seen = new HashSet<int>();
             list.RemoveAll(x => !seen.Add(x));
         }
+
         private void TryGetAchievement()
         {
             if (crossPromoState.receivedIdSlots.Count == sheetDatas.Length)
                 PlayScript(Configuration.achievementNaniCommand);
         }
-        // Проигрывает команду ачивки асинхронно
+
+        // Проигрывает команду ачивки асинхронно. Если это не работает в вашей версии, нужно выдрать код из класса PlayScript (namespace Naninovel)
         private async void PlayScript(string scriptText)
         {
             var script = Script.FromScriptText($"Generated script", scriptText);
             var playlist = new ScriptPlaylist(script);
             await playlist.ExecuteAsync();
         }
+
         private void LeaderBoardAddScore(LinkTransitionType linkTransitionType)
         {
             switch (linkTransitionType)

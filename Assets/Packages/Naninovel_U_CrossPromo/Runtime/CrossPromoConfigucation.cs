@@ -33,5 +33,7 @@ namespace Naninovel.U.CrossPromo
         };
 
         public string achievementNaniCommand = "@ach";
+        [Space]
+        public string API;
     }
 }
