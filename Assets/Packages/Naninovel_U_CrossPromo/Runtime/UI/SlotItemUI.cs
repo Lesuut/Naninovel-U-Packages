@@ -53,10 +53,10 @@ namespace Naninovel.U.CrossPromo
             else
                 changeStatusToPending?.Invoke();
 
-            if (clickType == ClickType.Combined)
+            if (receivedStatus && clickType == ClickType.Combined)
             {
                 button.onClick.RemoveAllListeners();
-                button.onClick.AddListener(() => action?.Invoke());
+                button.onClick.AddListener(action);
             }
         }
 
@@ -77,7 +77,7 @@ namespace Naninovel.U.CrossPromo
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            if ((clickType == ClickType.Delayed || (clickType == ClickType.Combined && !receivedStatus)) && holdCoroutine != null)
+            if ((clickType == ClickType.Delayed || (clickType == ClickType.Combined)) && holdCoroutine != null)
             {
                 StopCoroutine(holdCoroutine);
                 holdCoroutine = null;

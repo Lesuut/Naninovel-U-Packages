@@ -79,6 +79,12 @@ namespace Naninovel.U.CrossPromo
                 return;
             }
 
+            if (Configuration.showAllSlotsAtStart)
+            {
+                for (int i = 0; i < Configuration.unlockableImages.Length; i++)
+                    UnlockItem(i);
+            }
+
             if (crossPromoState.availableIdSlots.Count <= 0)
                 crossPromoState.availableIdSlots.Add(0);
 
@@ -86,13 +92,12 @@ namespace Naninovel.U.CrossPromo
 
             if (Configuration.debug)
             {
+                UnityEngine.Debug.Log($"ShowCrossPromo sheetDatas count: {sheetDatas.Length}");
                 UnityEngine.Debug.Log($"ShowCrossPromo availableIdSlots: {string.Join(", ", crossPromoState.availableIdSlots)}");
                 UnityEngine.Debug.Log($"ShowCrossPromo receivedIdSlots: {string.Join(", ", crossPromoState.receivedIdSlots)}");
 
                 foreach (var item in Configuration.unlockableImages)
-                {
                     UnityEngine.Debug.Log($"{item.unlockableKey}: {unlockableManager.ItemUnlocked(item.unlockableKey)}");
-                }
             }
 
             if (sheetDatas == null || sheetDatas.Length <= 0)
@@ -184,6 +189,7 @@ namespace Naninovel.U.CrossPromo
             if (crossPromoState.receivedIdSlots.Count == sheetDatas.Length)
                 PlayScript(Configuration.achievementNaniCommand);
         }
+        // Проигрывает команду ачивки асинхронно
         private async void PlayScript(string scriptText)
         {
             var script = Script.FromScriptText($"Generated script", scriptText);

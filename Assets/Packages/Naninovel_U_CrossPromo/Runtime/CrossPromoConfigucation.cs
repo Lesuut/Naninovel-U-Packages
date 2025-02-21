@@ -17,6 +17,7 @@ namespace Naninovel.U.CrossPromo
         [Space]
         public bool debug = false;
         public bool crossPromoEnable = true;
+        public bool showAllSlotsAtStart = true;
 
         [Space]
         public UnlockableImages[] unlockableImages = new UnlockableImages[]
