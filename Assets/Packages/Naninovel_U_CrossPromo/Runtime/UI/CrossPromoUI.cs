@@ -1,4 +1,4 @@
-using Naninovel.UI;
+﻿using Naninovel.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -45,6 +45,9 @@ namespace Naninovel.U.CrossPromo
             });
 
             adultShowEvent?.Invoke();
+
+            // Устанавливаем начальную прозрачность в 0 перед анимацией
+            adultCanvasGroup.alpha = 0f;
             StartCoroutine(FadeCoroutine(adultCanvasGroup, adultWindowObj, true, showTime));
         }
 
@@ -59,6 +62,9 @@ namespace Naninovel.U.CrossPromo
             });
 
             continueShowEvent?.Invoke();
+
+            // Устанавливаем начальную прозрачность в 0 перед анимацией
+            continueCanvasGroup.alpha = 0f;
             StartCoroutine(FadeCoroutine(continueCanvasGroup, continueWindowObj, true, showTime));
         }
 
