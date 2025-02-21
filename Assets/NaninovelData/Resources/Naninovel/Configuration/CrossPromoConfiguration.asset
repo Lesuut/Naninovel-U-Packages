@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CrossPromoConfiguration
   m_EditorClassIdentifier: 
   GoogleSheetDataURL: https://docs.google.com/spreadsheets/d/e/2PACX-1vRPHeIeKCH1DtQFJ9fwZEDvSNoWHj-FgrV2-YeT9oDN2_Q6GBVHAVCjtOgjo5yv7vwHDcIGNCAxWgi3/pub?gid=0&single=true&output=csv
-  LaodSheetInStartGameLoad: 0
-  InternetTimeout: 2
+  debug: 0
+  crossPromoEnable: 1
   unlockableImages:
   - sprite: {fileID: 0}
     unlockableKey: CrossPromoUnlockableItem_0

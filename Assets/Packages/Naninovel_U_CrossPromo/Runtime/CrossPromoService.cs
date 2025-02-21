@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Naninovel.U.CrossPromo
@@ -31,6 +32,8 @@ namespace Naninovel.U.CrossPromo
         }
         public async UniTask InitializeServiceAsync()
         {
+            if (!Configuration.crossPromoEnable) return;
+
             googleSheetDataLoader = new GoogleSheetDataLoader();
             crossPromoState = new CrossPromoState();
             uiManager = Engine.GetService<IUIManager>();
@@ -70,6 +73,12 @@ namespace Naninovel.U.CrossPromo
 
         public void ShowCrossPromo()
         {
+            if (!Configuration.crossPromoEnable) 
+            {
+                UnityEngine.Debug.LogWarning("Cross Promo is Disable!");
+                return;
+            }
+
             if (crossPromoState.availableIdSlots.Count <= 0)
                 crossPromoState.availableIdSlots.Add(0);
 
@@ -130,6 +139,7 @@ namespace Naninovel.U.CrossPromo
 
         public void UnlockItem(int id)
         {
+            if (!Configuration.crossPromoEnable) return;
             if (!crossPromoState.availableIdSlots.Contains(id))
             {
                 crossPromoState.availableIdSlots.Add(id);
@@ -139,6 +149,7 @@ namespace Naninovel.U.CrossPromo
 
         public void UnlockRandomItem()
         {
+            if (!Configuration.crossPromoEnable) return;
             if (sheetDatas == null && crossPromoState.availableIdSlots.Count == sheetDatas.Length) return;
 
             List<int> availableIds = Enumerable.Range(0, sheetDatas.Length)

@@ -16,6 +16,7 @@ namespace Naninovel.U.CrossPromo
         public string GoogleSheetDataURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRPHeIeKCH1DtQFJ9fwZEDvSNoWHj-FgrV2-YeT9oDN2_Q6GBVHAVCjtOgjo5yv7vwHDcIGNCAxWgi3/pub?gid=0&single=true&output=csv";
         [Space]
         public bool debug = false;
+        public bool crossPromoEnable = true;
 
         [Space]
         public UnlockableImages[] unlockableImages = new UnlockableImages[]
