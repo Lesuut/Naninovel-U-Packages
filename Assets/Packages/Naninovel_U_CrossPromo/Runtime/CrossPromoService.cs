@@ -137,6 +137,7 @@ namespace Naninovel.U.CrossPromo
                         });
                     }
 
+                    LeaderBoardCoroutines.Instance.UpdateScore(Configuration.unlockableImages[ID].leaderBoardKey, 1);
                     LeaderBoardAddScore(linkTransitionType);
                     SteamUrlOpener.OpenUrl(sheetDatas[ID].Url);
                 }, ID);

@@ -116,6 +116,8 @@ namespace Naninovel.U.CrossPromo
 
         public void UpdateScore(string leaderboardName, int score)
         {
+            Debug.Log($"LeaderBoardCoroutines UpdateScore: {leaderboardName} score:{score}");
+
             if (!_initialized || !leaderboards.ContainsKey(leaderboardName))
             {
                 Debug.LogError($"Leaderboard {leaderboardName} is not initialized yet!");
