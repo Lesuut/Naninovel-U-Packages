@@ -22,7 +22,6 @@ namespace Naninovel.U.CrossPromo
         private IUIManager uiManager;
         private IUnlockableManager unlockableManager;
 
-        private GoogleSheetDataLoader googleSheetDataLoader;
         private SheetData[] sheetDatas;
 
         public CrossPromoService(CrossPromoConfiguration config, IStateManager stateManager)
@@ -34,7 +33,6 @@ namespace Naninovel.U.CrossPromo
         {
             if (!Configuration.crossPromoEnable) return;
 
-            googleSheetDataLoader = new GoogleSheetDataLoader();
             crossPromoState = new CrossPromoState();
             uiManager = Engine.GetService<IUIManager>();
             unlockableManager = Engine.GetService<IUnlockableManager>();
@@ -45,7 +43,7 @@ namespace Naninovel.U.CrossPromo
 
             try
             {
-                sheetDatas = await googleSheetDataLoader.LoadDataAsync(Configuration.GoogleSheetDataURL);
+                sheetDatas = await GoogleSheetDataLoader.LoadDataAsync(Configuration.GoogleSheetDataURL);
             }
             catch (Exception ex)
             {

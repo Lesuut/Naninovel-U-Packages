@@ -12,9 +12,9 @@ namespace Naninovel.U.CrossPromo
         public Sprite Image;
         public string Url;
     }
-    public class GoogleSheetDataLoader
+    public static class GoogleSheetDataLoader
     {
-        public async Task<SheetData[]> LoadDataAsync(string googleSheetUrl)
+        public static async Task<SheetData[]> LoadDataAsync(string googleSheetUrl)
         {
             string[] lines = await LoadDataFromGoogleSheet(googleSheetUrl);
             if (lines == null || lines.Length == 0)
@@ -23,7 +23,7 @@ namespace Naninovel.U.CrossPromo
             return await ParseLinesToSheetData(lines);
         }
 
-        private async Task<string[]> LoadDataFromGoogleSheet(string googleSheetUrl)
+        private static async Task<string[]> LoadDataFromGoogleSheet(string googleSheetUrl)
         {
             using UnityWebRequest request = UnityWebRequest.Get(googleSheetUrl);
             var operation = request.SendWebRequest();
@@ -41,7 +41,7 @@ namespace Naninovel.U.CrossPromo
             return request.downloadHandler.text.Split('\n').Where(line => !string.IsNullOrWhiteSpace(line)).ToArray();
         }
 
-        private async Task<SheetData[]> ParseLinesToSheetData(string[] lines)
+        private static async Task<SheetData[]> ParseLinesToSheetData(string[] lines)
         {
             List<Task<SheetData>> tasks = new List<Task<SheetData>>();
 
@@ -59,7 +59,7 @@ namespace Naninovel.U.CrossPromo
             return await Task.WhenAll(tasks);
         }
 
-        private async Task<SheetData> LoadImageAsync(string imageUrl, string url)
+        private static async Task<SheetData> LoadImageAsync(string imageUrl, string url)
         {
             using UnityWebRequest request = UnityWebRequestTexture.GetTexture(imageUrl);
             var operation = request.SendWebRequest();
