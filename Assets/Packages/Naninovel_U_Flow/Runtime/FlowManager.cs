@@ -235,12 +235,20 @@ namespace Naninovel.U.Flow
                 StopFlow();
             }
         }
+        // Проигрывает команды асинхронно. Если это не работает в вашей версии, нужно выдрать код из класса PlayScript (namespace Naninovel)
+        // Или попробовать раскомитить код ниже
         private async void PlayScript(string scriptText)
         {
             var script = Script.FromScriptText($"Generated script", scriptText);
             var playlist = new ScriptPlaylist(script);
             await playlist.ExecuteAsync();
         }
+
+        /* protected virtual void PlayScript(string scriptText)
+        {
+            var player = Engine.GetService<IScriptPlayer>();
+            player.PlayTransient($"`Cross Promo` generated script", scriptText).Forget();
+        }*/
         private void TrySpawnFlowUI()
         {
             if (flowUI == null)
