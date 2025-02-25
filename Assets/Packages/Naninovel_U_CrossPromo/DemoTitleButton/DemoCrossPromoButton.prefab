@@ -146,6 +146,7 @@ MonoBehaviour:
   onHide:
     m_PersistentCalls:
       m_Calls: []
+  mainButtonObj: {fileID: 8814395539340563631}
 --- !u!1 &8814395539340563631
 GameObject:
   m_ObjectHideFlags: 0

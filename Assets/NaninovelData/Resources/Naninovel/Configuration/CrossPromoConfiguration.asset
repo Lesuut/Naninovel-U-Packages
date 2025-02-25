@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CrossPromoConfiguration
   m_EditorClassIdentifier: 
   GoogleSheetDataURL: https://docs.google.com/spreadsheets/d/e/2PACX-1vRPHeIeKCH1DtQFJ9fwZEDvSNoWHj-FgrV2-YeT9oDN2_Q6GBVHAVCjtOgjo5yv7vwHDcIGNCAxWgi3/pub?output=csv
-  debug: 1
+  debug: 0
   crossPromoEnable: 1
   showAllSlotsAtStart: 1
   GalleryLeaderBoardCrossPromoClickKey: Gallery_LeaderBoardCrossPromoClickKey

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Naninovel.U.CrossPromo
 {
-    public class CGSlotUI : MonoBehaviour
+    public class CrossPromoCGSlotUI : MonoBehaviour
     {
         [SerializeField] private string unlockableKey;
         [Space]
@@ -20,22 +20,13 @@ namespace Naninovel.U.CrossPromo
 
         public void UpdateStatus()
         {
+            if (!Engine.GetService<ICrossPromoService>().IsCrossPromoEnabled()) return;
+
+            gameObject.SetActive(Engine.GetService<ICrossPromoService>().IsCGSlotValid(unlockableKey)); // Если в табличке нет нужного елемента по айди, то отключаем
+
             resetUnityEvent?.Invoke();
 
             bool itemUnlocked = Engine.GetService<IUnlockableManager>().ItemUnlocked(unlockableKey);
-
-            if (!Engine.GetService<ICrossPromoService>().IsCGSlotValid(unlockableKey))
-            {
-                for (int i = 0; i < transform.childCount; i++)
-                    transform.GetChild(i).gameObject.SetActive(false);
-
-                return;
-            }
-            else
-            {
-                for (int i = 0; i < transform.childCount; i++)
-                    transform.GetChild(i).gameObject.SetActive(false);
-            }
 
             if (itemUnlocked)
             {

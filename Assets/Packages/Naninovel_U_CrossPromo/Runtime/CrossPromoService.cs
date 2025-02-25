@@ -110,31 +110,34 @@ namespace Naninovel.U.CrossPromo
 
             foreach (var ID in crossPromoState.availableIdSlots)
             {
-                crossPromoUi.SpawnSlot(sheetDatas[ID].Image, () =>
+                if (ID <= sheetDatas.Length - 1)
                 {
-                    if (!crossPromoState.receivedIdSlots.Contains(ID))
+                    crossPromoUi.SpawnSlot(sheetDatas[ID].Image, () =>
                     {
-                        crossPromoUi.ShowContinueWindow(() =>
+                        if (!crossPromoState.receivedIdSlots.Contains(ID))
                         {
-                            crossPromoState.availableIdSlots.Add(ID);
-                            crossPromoState.receivedIdSlots.Add(ID);
+                            crossPromoUi.ShowContinueWindow(() =>
+                            {
+                                crossPromoState.availableIdSlots.Add(ID);
+                                crossPromoState.receivedIdSlots.Add(ID);
 
-                            unlockableManager.UnlockItem(Configuration.unlockableImages[ID].unlockableKey);
-                            stateManager.SaveGlobalAsync().Forget();
+                                unlockableManager.UnlockItem(Configuration.unlockableImages[ID].unlockableKey);
+                                stateManager.SaveGlobalAsync().Forget();
 
-                            UpdateSlotStatus();
-                            UnityEngine.Debug.Log($"UnlockItem: {Configuration.unlockableImages[ID].unlockableKey}");
+                                UpdateSlotStatus();
+                                UnityEngine.Debug.Log($"UnlockItem: {Configuration.unlockableImages[ID].unlockableKey}");
 
-                            TryGetAchievement();
+                                TryGetAchievement();
 
-                            crossPromoUi.ShowAdult(Configuration.unlockableImages[ID].adultStatic);
-                        });
-                    }
+                                crossPromoUi.ShowAdult(Configuration.unlockableImages[ID].adultStatic);
+                            });
+                        }
 
-                    LeaderBoardCoroutines.Instance.UpdateScore(sheetDatas[ID].LeaderBoardKey, 1);
-                    LeaderBoardAddScore(linkTransitionType);
-                    SteamUrlOpener.OpenUrl(sheetDatas[ID].Url);
-                }, ID);
+                        LeaderBoardCoroutines.Instance.UpdateScore(sheetDatas[ID].LeaderBoardKey, 1);
+                        LeaderBoardAddScore(linkTransitionType);
+                        SteamUrlOpener.OpenUrl(sheetDatas[ID].Url);
+                    }, ID);
+                }
             }
 
             UpdateSlotStatus();
@@ -176,7 +179,7 @@ namespace Naninovel.U.CrossPromo
 
             if (index == -1) return false;
 
-            return index - 1 <= sheetDatas.Length;
+            return (Math.Clamp(index - 1, 0, int.MaxValue)) <= sheetDatas.Length - 2;
         }
 
         public bool IsCrossPromoEnabled() => Configuration.crossPromoEnable;

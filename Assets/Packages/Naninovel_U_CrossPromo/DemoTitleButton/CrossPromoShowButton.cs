@@ -1,7 +1,11 @@
+using UnityEngine;
+
 namespace Naninovel.U.CrossPromo
 {
     public class CrossPromoShowButton : ScriptableButton
     {
+        [SerializeField] private GameObject mainButtonObj;
+
         private ICrossPromoService crossPromoService;
 
         protected override void Awake()
@@ -10,7 +14,7 @@ namespace Naninovel.U.CrossPromo
             crossPromoService = Engine.GetService<ICrossPromoService>();
 
             if (!crossPromoService.IsCrossPromoEnabled())
-                gameObject.SetActive(false);
+                mainButtonObj.SetActive(false);
         }
 
         protected override void OnButtonClick() => crossPromoService.ShowCrossPromo(LinkTransitionType.Menu);
