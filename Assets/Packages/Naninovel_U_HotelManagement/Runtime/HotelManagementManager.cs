@@ -56,7 +56,12 @@ namespace Naninovel.U.HotelManagement
             stateManager.RemoveOnGameDeserializeTask(Deserialize);
         }
 
-        public void ResetService() { }
+        public void ResetService() 
+        {
+            state.ReceptionImproving = 0;
+            state.FoodImproving = 0;
+            state.CleanImproving = 0;
+        }
 
         private void Serialize(GameStateMap map) => map.SetState(new HotelManagementState(state));
 
@@ -64,10 +69,6 @@ namespace Naninovel.U.HotelManagement
         {
             state = map.GetState<HotelManagementState>();
             state = state == null ? new HotelManagementState() : new HotelManagementState(state);
-
-            foreach (var item in hotelRoomControllers)
-                item.Reset();
-            hotelManagementUI.HidePlayerItem();
 
             if (state.GameActive)
                 StartMiniGame(state.LevelKey);
@@ -77,6 +78,7 @@ namespace Naninovel.U.HotelManagement
 
         public void StartMiniGame(string levelName)
         {
+            guestsInLineCount = 0;
             nowActionProgress = false;
             state.GameActive = true;
             state.LevelKey = levelName;
@@ -91,9 +93,14 @@ namespace Naninovel.U.HotelManagement
             if (!TryUIInit(hotelLevelInfo))
                 hotelManagementUI.ResetUI();
 
+            foreach (var item in hotelRoomControllers)
+                item.Reset();
+            hotelManagementUI.HidePlayerItem();
+
             hotelManagementUI.Show();
 
             hotelManagementUI.SetReceptionUpgrade(state.ReceptionImproving);
+            Debug.Log($"state.ReceptionImproving: {state.ReceptionImproving}");
             hotelManagementUI.SetFoodUpgrade(state.FoodImproving);
             hotelManagementUI.SetCleaningUpgrade(state.CleanImproving);
 

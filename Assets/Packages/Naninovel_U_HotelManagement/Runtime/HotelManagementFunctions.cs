@@ -3,11 +3,9 @@ namespace Naninovel.U.HotelManagement
     [ExpressionFunctions]
     public static class HotelManagementFunctions
     {
-        public static string IsHotelManagementWin()
+        public static bool IsHotelManagementWin()
         {
-            var HotelManagementManager = Engine.GetService<IHotelManagementManager>();
-
-            return "";
+            return Engine.GetService<IHotelManagementManager>().IsHotelWin();
         }
     }
 }

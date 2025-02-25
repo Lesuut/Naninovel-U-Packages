@@ -117,7 +117,7 @@ namespace Naninovel.U.HotelManagement
         }
         public void UpdateMoney(int money, RectTransform moneySpawnPoint)
         {
-            moneyInQueue = money;
+            moneyInQueue += money;
             particleImage.rectTransform.anchoredPosition = moneySpawnPoint.anchoredPosition;
             particleImage.rateOverTime = money;
             particleImage.Play();
