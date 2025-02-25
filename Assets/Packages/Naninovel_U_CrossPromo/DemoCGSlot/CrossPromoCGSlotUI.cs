@@ -8,9 +8,9 @@ namespace Naninovel.U.CrossPromo
     {
         [SerializeField] private string unlockableKey;
         [Space]
-        [Tooltip("Throw in an adalta opening here")]
+        [Tooltip("Вставьте сюда событие для открытия рекламы")]
         [SerializeField] private UnityEvent openAdultEventButton;
-        [SerializeField] private UnityEvent hideCGGalleryEvent;
+        [SerializeField] private UnityEvent hideCGGalleryEvent; // Важно назначить Hide окна вашей галереи UI для коректной работы.
         [Space]
         [SerializeField] private UnityEvent resetUnityEvent;
         [SerializeField] private UnityEvent lockUnityEvent;
@@ -20,12 +20,18 @@ namespace Naninovel.U.CrossPromo
 
         public void UpdateStatus()
         {
+            // Если в инспекторе отключена галочка "Enable кросс-промо", то слот будет отключен
             if (!Engine.GetService<ICrossPromoService>().IsCrossPromoEnabled()) return;
 
-            gameObject.SetActive(Engine.GetService<ICrossPromoService>().IsCGSlotValid(unlockableKey)); // Если в табличке нет нужного елемента по айди, то отключаем
+            // Проверка на валидность. Например, если в галерее 9 слотов, а в таблице только 6 строк,
+            // то метод проверит, входит ли данный слот в допустимый диапазон по кдючу unlockable.
+            // В нашем случае метод отключит ненужные элементы галереи, оставив только 6 активных.
+            // Рекомендуется изменить эту логику под вашу галерею.
+            gameObject.SetActive(Engine.GetService<ICrossPromoService>().IsCGSlotValid(unlockableKey));
 
             resetUnityEvent?.Invoke();
 
+            // Проверка, был ли элемент уже разблокирован
             bool itemUnlocked = Engine.GetService<IUnlockableManager>().ItemUnlocked(unlockableKey);
 
             if (itemUnlocked)

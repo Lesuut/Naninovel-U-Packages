@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Naninovel.U.CrossPromo
 {
@@ -13,6 +13,7 @@ namespace Naninovel.U.CrossPromo
             base.Awake();
             crossPromoService = Engine.GetService<ICrossPromoService>();
 
+            // Жёстко отключаем кнопку, если кросс-промо не активен
             if (!crossPromoService.IsCrossPromoEnabled())
                 mainButtonObj.SetActive(false);
         }
