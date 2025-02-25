@@ -101,6 +101,12 @@ namespace Naninovel.U.HotelManagement
                 yield return new WaitForSeconds(0.5f);
                 mood = Mathf.Clamp01(mood - hotelLevelInfo.MoodLossSpeed / 2f);
                 doorUIItem.SetMood(mood);
+
+                if (mood <= 0)
+                {
+                    finishMoodAction?.Invoke(Mathf.Clamp01(mood));
+                    Reset();
+                }
             }
         }
     } 

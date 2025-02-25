@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b739e83858790464bb2815e2fc2db53e, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  MiniGameTimeSeconds: 60
+  MiniGameTimeSeconds: 300
   MinGuestsSpawnTime: 10
   MaxGuestsSpawnTime: 15
   MoodLossSpeed: 0.02

@@ -95,7 +95,9 @@ namespace Naninovel.U.HotelManagement
         public void SetReceptionUpgrade(int id)
         {
             foreach (var item in receptionUpgrades)
+            {
                 item.enabled = false;
+            }
 
             receptionUpgrades[id].enabled = true;
         }

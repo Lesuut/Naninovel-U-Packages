@@ -65,10 +65,6 @@ namespace Naninovel.U.HotelManagement
             state = map.GetState<HotelManagementState>();
             state = state == null ? new HotelManagementState() : new HotelManagementState(state);
 
-            hotelManagementUI.SetReceptionUpgrade(state.ReceptionImproving);
-            hotelManagementUI.SetFoodUpgrade(state.FoodImproving);
-            hotelManagementUI.SetCleaningUpgrade(state.CleanImproving);
-
             foreach (var item in hotelRoomControllers)
                 item.Reset();
             hotelManagementUI.HidePlayerItem();
@@ -94,6 +90,10 @@ namespace Naninovel.U.HotelManagement
             TryUIInit(hotelLevelInfo);
             hotelManagementUI.Show();
 
+            hotelManagementUI.SetReceptionUpgrade(state.ReceptionImproving);
+            hotelManagementUI.SetFoodUpgrade(state.FoodImproving);
+            hotelManagementUI.SetCleaningUpgrade(state.CleanImproving);
+
             hotelManagementUI.StartTimer(hotelLevelInfo.MiniGameTimeSeconds, FinishGame);
 
             foreach (var item in hotelRoomControllers)
@@ -106,6 +106,7 @@ namespace Naninovel.U.HotelManagement
 
         public void Improve(string key)
         {
+            Debug.Log($"Improve hotel: {key}");
             switch (key)
             {
                 case "Reception":
