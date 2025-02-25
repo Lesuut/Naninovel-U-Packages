@@ -21,3 +21,4 @@ MonoBehaviour:
     icone: {fileID: 523481430, guid: bf4a2029656685f4393c159aeeacab03, type: 3}
   - MiniGameEventsType: 3
     icone: {fileID: 1432386368, guid: 8487fb06bc1b83a4797d33e8372dac5b, type: 3}
+  actionTimeDuration: 2

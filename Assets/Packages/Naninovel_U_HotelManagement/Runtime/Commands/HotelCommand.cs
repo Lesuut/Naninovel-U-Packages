@@ -10,7 +10,7 @@ namespace Naninovel.U.HotelManagement.Commands
         {
             var HotelManagementManager = Engine.GetService<IHotelManagementManager>();
 
-            HotelManagementManager.StartMiniGame(firstValue);
+            HotelManagementManager.StartMiniGame(firstValue.Value);
 
             return UniTask.CompletedTask;
         }

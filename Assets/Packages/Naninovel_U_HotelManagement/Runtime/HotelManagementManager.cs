@@ -1,8 +1,9 @@
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Naninovel.U.HotelManagement
 {
@@ -13,6 +14,7 @@ namespace Naninovel.U.HotelManagement
 
         private readonly IStateManager stateManager;
         private IUIManager uIManager;
+        private IScriptPlayer scriptPlayer;
         private HotelManagementState state;
 
         private HotelManagementUI hotelManagementUI;
@@ -21,8 +23,7 @@ namespace Naninovel.U.HotelManagement
         private CoroutinePlayer coroutinePlayer;
 
         private int guestsInLineCount;
-
-        private Coroutine coroutineSpawnGuests;
+        private bool nowActionProgress = false;
 
         private MiniGameEventsType miniGameEventsType;
 
@@ -42,6 +43,7 @@ namespace Naninovel.U.HotelManagement
             coroutinePlayer = Engine.CreateObject<CoroutinePlayer>();
 
             uIManager = Engine.GetService<IUIManager>();
+            scriptPlayer = Engine.GetService<IScriptPlayer>();
 
             miniGameEventsType = MiniGameEventsType.Null;
 
@@ -63,73 +65,131 @@ namespace Naninovel.U.HotelManagement
             state = map.GetState<HotelManagementState>();
             state = state == null ? new HotelManagementState() : new HotelManagementState(state);
 
+            hotelManagementUI.SetReceptionUpgrade(state.ReceptionImproving);
+            hotelManagementUI.SetFoodUpgrade(state.FoodImproving);
+            hotelManagementUI.SetCleaningUpgrade(state.CleanImproving);
+
+            foreach (var item in hotelRoomControllers)
+                item.Reset();
+            hotelManagementUI.HidePlayerItem();
+
+            if (state.GameActive)
+                StartMiniGame(state.LevelKey);
+
             return UniTask.CompletedTask;
         }
 
         public void StartMiniGame(string levelName)
         {
-            TryUIInit();
-            hotelManagementUI.Show();
+            state.GameActive = true;
+            state.LevelKey = levelName;
+            coroutinePlayer.StopAllCoroutines();
+
+            state.ScriptName = scriptPlayer.Playlist.ScriptName;
+            state.ScriptPlayedIndex = scriptPlayer.PlayedIndex;
+            scriptPlayer.Stop();
 
             HotelLevelInfo hotelLevelInfo = Configuration.GetLevel(levelName);
+
+            TryUIInit(hotelLevelInfo);
+            hotelManagementUI.Show();
+
+            hotelManagementUI.StartTimer(hotelLevelInfo.MiniGameTimeSeconds, FinishGame);
 
             foreach (var item in hotelRoomControllers)
                 item.SetLevel(hotelLevelInfo);
 
-            coroutineSpawnGuests = coroutinePlayer.StartCoroutine(CurSpawnGuests(hotelLevelInfo));
+            coroutinePlayer.StartCoroutine(CurSpawnGuests(hotelLevelInfo));
+
+            state.CompletedMoods.Clear();
         }
 
         public void Improve(string key)
         {
-            throw new System.NotImplementedException();
+            switch (key)
+            {
+                case "Reception":
+                    state.ReceptionImproving = 1;
+                    break;
+                case "Clean":
+                    state.CleanImproving = 1;
+                    break;
+                case "Food":
+                    state.FoodImproving = 1;
+                    break;
+                default:
+                    break;
+            }
         }
 
         public bool IsHotelWin()
         {
-            throw new System.NotImplementedException();
+            return state.CompletedMoods.Average() > 0.5f;
         }
 
-        private void FinishGame()
+        private async void FinishGame()
         {
+            state.GameActive = false;
+            coroutinePlayer.StopAllCoroutines();
 
+            foreach (var item in hotelRoomControllers)
+                item.Reset();
+            hotelManagementUI.HidePlayerItem();
+
+            await scriptPlayer.PreloadAndPlayAsync(state.ScriptName);
+            scriptPlayer.Play(scriptPlayer.Playlist, state.ScriptPlayedIndex + 1);
+
+            hotelManagementUI.Hide();
         }
 
         private void ReceptionButton()
         {
-            if (!hotelManagementUI.HotelMovementSystem.IsMove && guestsInLineCount > 0)
+            if (!hotelManagementUI.HotelMovementSystem.IsMove && guestsInLineCount > 0 && !nowActionProgress)
             {
                 hotelManagementUI.HotelMovementSystem.MoveRectToHotelTargetCur(hotelManagementUI.PlayerRectTransform, hotelManagementUI.ButtonReception.GetComponent<RectTransform>().anchoredPosition,
                     () =>
                     {
-                        miniGameEventsType = MiniGameEventsType.Reception;
-                        hotelManagementUI.SetPlayerItem(Configuration.GetIcone(miniGameEventsType));
-                        hotelManagementUI.SetReceptionKeyView(guestsInLineCount - 1);
+                        coroutinePlayer.StartCoroutine(ExecutionCoroutine(state.ReceptionImproving == 0 ? Configuration.actionTimeDuration : 0, 
+                            hotelManagementUI.ReceptionProgressBar,
+                            () => {
+                                miniGameEventsType = MiniGameEventsType.Reception;
+                                hotelManagementUI.SetPlayerItem(Configuration.GetIcone(miniGameEventsType));
+                                hotelManagementUI.SetReceptionKeyView(guestsInLineCount - 1);
+                            }));
                     });
             }
         }
 
         private void FoodButton()
         {
-            if (!hotelManagementUI.HotelMovementSystem.IsMove && hotelRoomControllers.Any(item => item.miniGameEventsType == MiniGameEventsType.Food))
+            if (!hotelManagementUI.HotelMovementSystem.IsMove && hotelRoomControllers.Any(item => item.miniGameEventsType == MiniGameEventsType.Food) && !nowActionProgress)
             {
                 hotelManagementUI.HotelMovementSystem.MoveRectToHotelTargetCur(hotelManagementUI.PlayerRectTransform, hotelManagementUI.ButtonFood.GetComponent<RectTransform>().anchoredPosition,
                     () =>
                     {
-                        miniGameEventsType = MiniGameEventsType.Food;
-                        hotelManagementUI.SetPlayerItem(Configuration.GetIcone(miniGameEventsType));
+                        coroutinePlayer.StartCoroutine(ExecutionCoroutine(state.FoodImproving == 0 ? Configuration.actionTimeDuration : 0,
+                            hotelManagementUI.FoodProgressBar,
+                            () => {
+                                miniGameEventsType = MiniGameEventsType.Food;
+                                hotelManagementUI.SetPlayerItem(Configuration.GetIcone(miniGameEventsType));
+                            }));
                     });
             }
         }
 
         private void CleaningButton()
         {
-            if (!hotelManagementUI.HotelMovementSystem.IsMove && hotelRoomControllers.Any(item => item.miniGameEventsType == MiniGameEventsType.Cleaning))
+            if (!hotelManagementUI.HotelMovementSystem.IsMove && hotelRoomControllers.Any(item => item.miniGameEventsType == MiniGameEventsType.Cleaning) && !nowActionProgress)
             {
                 hotelManagementUI.HotelMovementSystem.MoveRectToHotelTargetCur(hotelManagementUI.PlayerRectTransform, hotelManagementUI.ButtonCleaning.GetComponent<RectTransform>().anchoredPosition,
                     () =>
                     {
-                        miniGameEventsType = MiniGameEventsType.Cleaning;
-                        hotelManagementUI.SetPlayerItem(Configuration.GetIcone(miniGameEventsType));
+                        coroutinePlayer.StartCoroutine(ExecutionCoroutine(state.CleanImproving == 0 ? Configuration.actionTimeDuration : 0,
+                            hotelManagementUI.CleaningProgressBar,
+                            () => {
+                                miniGameEventsType = MiniGameEventsType.Cleaning;
+                                hotelManagementUI.SetPlayerItem(Configuration.GetIcone(miniGameEventsType));
+                            }));
                     });
             }
         }
@@ -140,7 +200,7 @@ namespace Naninovel.U.HotelManagement
             {
                 guestsInLineCount++;
                 hotelManagementUI.SetReceptionKeyView(guestsInLineCount);
-                yield return new WaitForSeconds(Random.Range(hotelLevelInfo.MinGuestsSpawnTime, hotelLevelInfo.MaxGuestsSpawnTime)); 
+                yield return new WaitForSeconds(UnityEngine.Random.Range(hotelLevelInfo.MinGuestsSpawnTime, hotelLevelInfo.MaxGuestsSpawnTime)); 
             }
         }
 
@@ -205,7 +265,7 @@ namespace Naninovel.U.HotelManagement
             }          
         }
 
-        private void TryUIInit()
+        private void TryUIInit(HotelLevelInfo hotelLevelInfo)
         {
             if (hotelManagementUI == null)
             {
@@ -214,14 +274,19 @@ namespace Naninovel.U.HotelManagement
                 hotelManagementUI.ButtonFood.onClick.AddListener(FoodButton);
                 hotelManagementUI.ButtonCleaning.onClick.AddListener(CleaningButton);
 
+                hotelManagementUI.ResetUI();
+
                 foreach (var item in hotelManagementUI.DoorUIItems)
                 {
                     HotelRoomController hotelRoomController = new HotelRoomController(
                         item,
                         Configuration,
                         coroutinePlayer,
-                        (float mood) => Debug.Log($"Finish Mood: {mood}")
-                        );
+                        (float mood) => {
+                            Debug.Log($"Finish Mood: {mood}");
+                            hotelManagementUI.UpdateMoney((int)(hotelLevelInfo.maxMoneyRevard * mood), item.rectTransform);
+                            state.CompletedMoods.Add(mood);
+                        });
 
                     hotelRoomController.Reset();
 
@@ -230,6 +295,23 @@ namespace Naninovel.U.HotelManagement
                     item.Init(() => TryDoorAction(hotelRoomController));
                 }
             }
+        }
+
+        private IEnumerator ExecutionCoroutine(float duration, UnityEvent<float> onProgressUpdate, Action onComplete)
+        {
+            nowActionProgress = true;
+            float elapsedTime = 0f;
+            while (elapsedTime < duration)
+            {
+                elapsedTime += Time.deltaTime;
+                float progress = Mathf.Clamp01(elapsedTime / duration);
+                onProgressUpdate.Invoke(progress);
+                yield return null;
+            }
+
+            onProgressUpdate.Invoke(0f); // В конце прогресса
+            onComplete.Invoke(); // Ивент завершения
+            nowActionProgress = false;
         }
     }
 }

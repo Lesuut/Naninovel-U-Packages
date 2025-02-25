@@ -1,8 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Naninovel.U.HotelManagement
 {
-    public class CoroutinePlayer : MonoBehaviour
-    {
-    }
+    public class CoroutinePlayer : MonoBehaviour { }
 }

@@ -21,6 +21,8 @@ namespace Naninovel.U.HotelManagement
         [SerializeField] HotelLevelInfo[] levels;
         [Space]
         [SerializeField] private MiniGameIcone[] icones;
+        [Space]
+        public float actionTimeDuration = 4;
 
         public Sprite GetIcone(MiniGameEventsType miniGameEventsType) => icones.FirstOrDefault((item) => item.MiniGameEventsType == miniGameEventsType).icone;
         public HotelLevelInfo GetLevel(string name) => levels.FirstOrDefault((item) => item.name == name);

@@ -23,5 +23,7 @@ namespace Naninovel.U.HotelManagement
         [Header("Food")]
         public int MinCliningTime;
         public int MaxCliningTime;
+        [Space]
+        public int maxMoneyRevard = 25;
     }
 }

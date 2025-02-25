@@ -1,37 +1,46 @@
 using System;
+using System.Collections.Generic;
 
 namespace Naninovel.U.HotelManagement
 {
     [Serializable]
     public class HotelManagementState
     {
-        public int ComplexityId;
+        public bool GameActive;
 
-        public bool ReceptionImproving;
-        public bool FoodImproving;
-        public bool CleanImproving;
+        public string LevelKey;
+
+        public int ReceptionImproving;
+        public int FoodImproving;
+        public int CleanImproving;
 
         public string ScriptName;
         public int ScriptPlayedIndex;
 
+        public List<float> CompletedMoods;
+
         public HotelManagementState()
         {
-            ComplexityId = 0;
-            ReceptionImproving = false;
-            FoodImproving = false;
-            CleanImproving = false;
+            GameActive = false;
+            LevelKey = "";
+            ReceptionImproving = 0;
+            FoodImproving = 0;
+            CleanImproving = 0;
             ScriptName = string.Empty;
             ScriptPlayedIndex = 0;
+            CompletedMoods = new List<float>();
         }
 
         public HotelManagementState(HotelManagementState other)
         {
-            ComplexityId= other.ComplexityId;
+            GameActive = other.GameActive;
+            LevelKey = other.LevelKey;
             ReceptionImproving = other.ReceptionImproving;
             FoodImproving = other.FoodImproving;
             CleanImproving = other.CleanImproving;
             ScriptName = other.ScriptName;
             ScriptPlayedIndex= other.ScriptPlayedIndex;
+            CompletedMoods = other.CompletedMoods;
         }
     }
 }
