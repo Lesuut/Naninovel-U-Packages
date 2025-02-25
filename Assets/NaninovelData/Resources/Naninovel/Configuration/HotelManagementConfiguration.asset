@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - {fileID: 11400000, guid: a79b33f567f7f974d8a841b5a78dcfe5, type: 2}
+  - {fileID: 11400000, guid: 89511ea15e73cac4e987ca6ad1963ec4, type: 2}
   icones:
   - MiniGameEventsType: 1
     icone: {fileID: -2056660025, guid: f2b55201379a193479f5003556359419, type: 3}

@@ -77,6 +77,7 @@ namespace Naninovel.U.HotelManagement
 
         public void StartMiniGame(string levelName)
         {
+            nowActionProgress = false;
             state.GameActive = true;
             state.LevelKey = levelName;
             coroutinePlayer.StopAllCoroutines();
@@ -87,12 +88,16 @@ namespace Naninovel.U.HotelManagement
 
             HotelLevelInfo hotelLevelInfo = Configuration.GetLevel(levelName);
 
-            TryUIInit(hotelLevelInfo);
+            if (!TryUIInit(hotelLevelInfo))
+                hotelManagementUI.ResetUI();
+
             hotelManagementUI.Show();
 
             hotelManagementUI.SetReceptionUpgrade(state.ReceptionImproving);
             hotelManagementUI.SetFoodUpgrade(state.FoodImproving);
             hotelManagementUI.SetCleaningUpgrade(state.CleanImproving);
+
+            hotelManagementUI.HotelMovementSystem.moveSpeed = hotelLevelInfo.MoveSpeed;
 
             hotelManagementUI.StartTimer(hotelLevelInfo.MiniGameTimeSeconds, FinishGame);
 
@@ -125,7 +130,10 @@ namespace Naninovel.U.HotelManagement
 
         public bool IsHotelWin()
         {
-            return state.CompletedMoods.Average() > 0.5f;
+            if (state.CompletedMoods.Count > 1)
+                return state.CompletedMoods.Average() > 0.5f;
+            else
+                return false;
         }
 
         private async void FinishGame()
@@ -266,7 +274,7 @@ namespace Naninovel.U.HotelManagement
             }          
         }
 
-        private void TryUIInit(HotelLevelInfo hotelLevelInfo)
+        private bool TryUIInit(HotelLevelInfo hotelLevelInfo)
         {
             if (hotelManagementUI == null)
             {
@@ -285,7 +293,7 @@ namespace Naninovel.U.HotelManagement
                         coroutinePlayer,
                         (float mood) => {
                             Debug.Log($"Finish Mood: {mood}");
-                            hotelManagementUI.UpdateMoney((int)(hotelLevelInfo.maxMoneyRevard * mood), item.rectTransform);
+                            hotelManagementUI.UpdateMoney((int)(hotelLevelInfo.MaxMoneyRevard * mood), item.rectTransform);
                             state.CompletedMoods.Add(mood);
                         });
 
@@ -295,7 +303,11 @@ namespace Naninovel.U.HotelManagement
 
                     item.Init(() => TryDoorAction(hotelRoomController));
                 }
+
+                return true;
             }
+
+            return false;
         }
 
         private IEnumerator ExecutionCoroutine(float duration, UnityEvent<float> onProgressUpdate, Action onComplete)

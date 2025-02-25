@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b739e83858790464bb2815e2fc2db53e, type: 3}
-  m_Name: Test
+  m_Name: Hard
   m_EditorClassIdentifier: 
-  MiniGameTimeSeconds: 15
-  MinGuestsSpawnTime: 10
-  MaxGuestsSpawnTime: 15
-  MoodLossSpeed: 0.02
-  MoodPlusValue: 0.5
+  MiniGameTimeSeconds: 300
+  MinGuestsSpawnTime: 2
+  MaxGuestsSpawnTime: 6
+  MoodLossSpeed: 0.075
+  MoodPlusValue: 0.25
   MinNumberFoodOrders: 1
-  MaxNumberFoodOrders: 1
-  MinTimeFoodOrders: 3
-  MaxTimeFoodOrders: 7
-  MinCliningTime: 3
-  MaxCliningTime: 7
+  MaxNumberFoodOrders: 3
+  MinTimeFoodOrders: 1
+  MaxTimeFoodOrders: 3
+  MinCliningTime: 1
+  MaxCliningTime: 3
   MaxMoneyRevard: 25
-  MoveSpeed: 750
+  MoveSpeed: 3750

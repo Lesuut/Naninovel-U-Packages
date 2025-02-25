@@ -24,6 +24,8 @@ namespace Naninovel.U.HotelManagement
         public int MinCliningTime;
         public int MaxCliningTime;
         [Space]
-        public int maxMoneyRevard = 25;
+        public int MaxMoneyRevard = 25;
+        [Space]
+        public float MoveSpeed = 750;
     }
 }
