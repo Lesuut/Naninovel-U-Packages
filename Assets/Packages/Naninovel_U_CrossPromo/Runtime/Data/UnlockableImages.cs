@@ -5,15 +5,13 @@ namespace Naninovel.U.CrossPromo
     [System.Serializable]
     public struct UnlockableImages
     {
-        public UnlockableImages(string key, string leaderBoardKey)
+        public UnlockableImages(string key)
         {
             unlockableKey = key;
             adultStatic = null;
-            this.leaderBoardKey = leaderBoardKey;
         }
 
         public Sprite adultStatic;
         public string unlockableKey;
-        public string leaderBoardKey;
     }
 }

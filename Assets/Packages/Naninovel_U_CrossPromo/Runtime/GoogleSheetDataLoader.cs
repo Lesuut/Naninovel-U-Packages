@@ -11,6 +11,7 @@ namespace Naninovel.U.CrossPromo
     {
         public Sprite Image;
         public string Url;
+        public string LeaderBoardKey;
     }
     public static class GoogleSheetDataLoader
     {
@@ -48,18 +49,19 @@ namespace Naninovel.U.CrossPromo
             foreach (string line in lines)
             {
                 string[] values = line.Split(',');
-                if (values.Length >= 2)
+                if (values.Length >= 3)
                 {
                     string imageUrl = values[0].Trim();
                     string linkUrl = values[1].Trim();
-                    tasks.Add(LoadImageAsync(imageUrl, linkUrl));
+                    string leaderBoardKey = values[2].Trim();
+                    tasks.Add(LoadImageAsync(imageUrl, linkUrl, leaderBoardKey));
                 }
             }
 
             return await Task.WhenAll(tasks);
         }
 
-        private static async Task<SheetData> LoadImageAsync(string imageUrl, string url)
+        private static async Task<SheetData> LoadImageAsync(string imageUrl, string url, string leaderBoardKey)
         {
             using UnityWebRequest request = UnityWebRequestTexture.GetTexture(imageUrl);
             var operation = request.SendWebRequest();
@@ -71,12 +73,12 @@ namespace Naninovel.U.CrossPromo
                 request.result == UnityWebRequest.Result.ProtocolError)
             {
                 Debug.LogError("Ошибка загрузки изображения: " + request.error);
-                return new SheetData { Image = null, Url = url };
+                return new SheetData { Image = null, Url = url, LeaderBoardKey = leaderBoardKey };
             }
 
             Texture2D texture = DownloadHandlerTexture.GetContent(request);
             Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
-            return new SheetData { Image = sprite, Url = url };
+            return new SheetData { Image = sprite, Url = url, LeaderBoardKey = leaderBoardKey };
         }
     }
 }

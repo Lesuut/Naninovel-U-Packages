@@ -24,12 +24,15 @@ namespace Naninovel.U.CrossPromo
         [Space]
         public UnlockableImages[] unlockableImages = new UnlockableImages[]
         {
-            new UnlockableImages("CrossPromoUnlockableItem_0", "LeaderBoardCrossPromoKey_0"),
-            new UnlockableImages("CrossPromoUnlockableItem_1", "LeaderBoardCrossPromoKey_1"),
-            new UnlockableImages("CrossPromoUnlockableItem_2", "LeaderBoardCrossPromoKey_2"),
-            new UnlockableImages("CrossPromoUnlockableItem_3", "LeaderBoardCrossPromoKey_3"),
-            new UnlockableImages("CrossPromoUnlockableItem_4", "LeaderBoardCrossPromoKey_4"),
-            new UnlockableImages("CrossPromoUnlockableItem_5", "LeaderBoardCrossPromoKey_5")
+            new UnlockableImages("CrossPromoUnlockableItem_0"),
+            new UnlockableImages("CrossPromoUnlockableItem_1"),
+            new UnlockableImages("CrossPromoUnlockableItem_2"),
+            new UnlockableImages("CrossPromoUnlockableItem_3"),
+            new UnlockableImages("CrossPromoUnlockableItem_4"),
+            new UnlockableImages("CrossPromoUnlockableItem_5"),
+            new UnlockableImages("CrossPromoUnlockableItem_6"),
+            new UnlockableImages("CrossPromoUnlockableItem_7"),
+            new UnlockableImages("CrossPromoUnlockableItem_8")
         };
 
         public string achievementNaniCommand = "@ach";

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Naninovel.Searcher;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -83,7 +84,7 @@ namespace Naninovel.U.CrossPromo
 
             if (Configuration.showAllSlotsAtStart)
             {
-                for (int i = 0; i < Configuration.unlockableImages.Length; i++)
+                for (int i = 0; i < sheetDatas.Length; i++)
                     UnlockItem(i);
             }
 
@@ -104,9 +105,6 @@ namespace Naninovel.U.CrossPromo
 
             if (sheetDatas == null || sheetDatas.Length <= 0)
                 throw new InvalidOperationException("CrossPromo: sheetDatas not initialized or empty!");
-
-            if (sheetDatas.Length != Configuration.unlockableImages.Length)
-                throw new InvalidOperationException("CrossPromo: The number of unlockableImages in the configuration must be equal to the number of items in the table!");
 
             var crossPromoUi = uiManager.GetUI<CrossPromoUI>();
 
@@ -135,7 +133,7 @@ namespace Naninovel.U.CrossPromo
                         });
                     }
 
-                    LeaderBoardCoroutines.Instance.UpdateScore(Configuration.unlockableImages[ID].leaderBoardKey, 1);
+                    LeaderBoardCoroutines.Instance.UpdateScore(sheetDatas[ID].LeaderBoardKey, 1);
                     LeaderBoardAddScore(linkTransitionType);
                     SteamUrlOpener.OpenUrl(sheetDatas[ID].Url);
                 }, ID);
@@ -172,6 +170,15 @@ namespace Naninovel.U.CrossPromo
             crossPromoState.availableIdSlots.Add(rndId);
 
             stateManager.SaveGlobalAsync().Forget();
+        }
+
+        public bool IsCGSlotValid(string unlockableKey)
+        {
+            int index = Array.FindIndex(Configuration.unlockableImages, item => item.unlockableKey == unlockableKey);
+
+            if (index == -1) return false;
+
+            return index - 1 <= sheetDatas.Length;
         }
 
         private void UpdateSlotStatus()

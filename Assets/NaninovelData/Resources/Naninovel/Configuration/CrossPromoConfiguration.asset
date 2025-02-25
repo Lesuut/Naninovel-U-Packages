@@ -12,30 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bcee37f92ee6e84aa75004c308be6c9, type: 3}
   m_Name: CrossPromoConfiguration
   m_EditorClassIdentifier: 
-  GoogleSheetDataURL: https://docs.google.com/spreadsheets/d/e/2PACX-1vRPHeIeKCH1DtQFJ9fwZEDvSNoWHj-FgrV2-YeT9oDN2_Q6GBVHAVCjtOgjo5yv7vwHDcIGNCAxWgi3/pub?gid=0&single=true&output=csv
-  debug: 0
+  GoogleSheetDataURL: https://docs.google.com/spreadsheets/d/e/2PACX-1vRPHeIeKCH1DtQFJ9fwZEDvSNoWHj-FgrV2-YeT9oDN2_Q6GBVHAVCjtOgjo5yv7vwHDcIGNCAxWgi3/pub?output=csv
+  debug: 1
   crossPromoEnable: 1
   showAllSlotsAtStart: 1
   GalleryLeaderBoardCrossPromoClickKey: Gallery_LeaderBoardCrossPromoClickKey
-  MainLeaderBoardCrossPromoMenuClickKey: Main_LeaderBoardCrossPromoMenuClickKey
+  MenuLeaderBoardCrossPromoMenuClickKey: Menu_LeaderBoardCrossPromoMenuClickKey
   FinalLeaderBoardCrossPromoClickKey: Final_LeaderBoardCrossPromoClickKey
   unlockableImages:
-  - sprite: {fileID: 0}
+  - adultStatic: {fileID: 0}
     unlockableKey: CrossPromoUnlockableItem_0
-    leaderBoardKey: LeaderBoardCrossPromoKey_0
-  - sprite: {fileID: 0}
+  - adultStatic: {fileID: 0}
     unlockableKey: CrossPromoUnlockableItem_1
-    leaderBoardKey: LeaderBoardCrossPromoKey_1
-  - sprite: {fileID: 0}
+  - adultStatic: {fileID: 0}
     unlockableKey: CrossPromoUnlockableItem_2
-    leaderBoardKey: LeaderBoardCrossPromoKey_2
-  - sprite: {fileID: 0}
+  - adultStatic: {fileID: 0}
     unlockableKey: CrossPromoUnlockableItem_3
-    leaderBoardKey: LeaderBoardCrossPromoKey_3
-  - sprite: {fileID: 0}
+  - adultStatic: {fileID: 0}
     unlockableKey: CrossPromoUnlockableItem_4
-    leaderBoardKey: LeaderBoardCrossPromoKey_4
-  - sprite: {fileID: 0}
+  - adultStatic: {fileID: 0}
     unlockableKey: CrossPromoUnlockableItem_5
-    leaderBoardKey: LeaderBoardCrossPromoKey_5
+  - adultStatic: {fileID: 0}
+    unlockableKey: CrossPromoUnlockableItem_6
+  - adultStatic: {fileID: 0}
+    unlockableKey: CrossPromoUnlockableItem_7
+  - adultStatic: {fileID: 0}
+    unlockableKey: CrossPromoUnlockableItem_8
   achievementNaniCommand: '@ach'
+  API: 

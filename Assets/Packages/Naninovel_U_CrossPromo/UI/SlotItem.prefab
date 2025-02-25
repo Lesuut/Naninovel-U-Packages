@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d19314cbc7d67459c5ccfa613bafd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickType: 2
+  clickType: 3
   holdTime: 1
   button: {fileID: 8978601388162480721}
   uploadedPictureImage: {fileID: 3717138630631519472}

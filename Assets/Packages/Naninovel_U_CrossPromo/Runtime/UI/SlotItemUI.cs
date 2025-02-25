@@ -11,8 +11,9 @@ namespace Naninovel.U.CrossPromo
         public enum ClickType
         {
             Instant,
-            Delayed,
+            Hold,
             Combined,
+            AnimationHold
         }
 
         public int ID { get; private set; }
@@ -41,6 +42,13 @@ namespace Naninovel.U.CrossPromo
 
             if (clickType == ClickType.Instant)
                 button.onClick.AddListener(() => action?.Invoke());
+
+            if (clickType == ClickType.AnimationHold)
+                button.onClick.AddListener(() =>
+                {
+                    if (!receivedStatus)
+                        StartHoldCoroutine();
+                });
         }
 
         public void SetReceivedStatus(bool status)
@@ -53,7 +61,7 @@ namespace Naninovel.U.CrossPromo
             else
                 changeStatusToPending?.Invoke();
 
-            if (receivedStatus && clickType == ClickType.Combined)
+            if (receivedStatus && (clickType == ClickType.Combined || clickType == ClickType.AnimationHold))
             {
                 button.onClick.RemoveAllListeners();
                 button.onClick.AddListener(action);
@@ -64,7 +72,7 @@ namespace Naninovel.U.CrossPromo
         {
             switch (clickType)
             {
-                case ClickType.Delayed:
+                case ClickType.Hold:
                     StartHoldCoroutine();
                     break;
 
@@ -77,7 +85,9 @@ namespace Naninovel.U.CrossPromo
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            if ((clickType == ClickType.Delayed || (clickType == ClickType.Combined)) && holdCoroutine != null)
+            if (clickType == ClickType.AnimationHold) return;
+
+            if ((clickType == ClickType.Hold || (clickType == ClickType.Combined)) && holdCoroutine != null)
             {
                 StopCoroutine(holdCoroutine);
                 holdCoroutine = null;
