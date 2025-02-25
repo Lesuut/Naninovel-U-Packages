@@ -1,7 +1,5 @@
-﻿using Naninovel.Searcher;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace Naninovel.U.CrossPromo
@@ -180,6 +178,8 @@ namespace Naninovel.U.CrossPromo
 
             return index - 1 <= sheetDatas.Length;
         }
+
+        public bool IsCrossPromoEnabled() => Configuration.crossPromoEnable;
 
         private void UpdateSlotStatus()
         {

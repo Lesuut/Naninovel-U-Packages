@@ -8,5 +8,6 @@ namespace Naninovel.U.CrossPromo
         public void UnlockItem(int id);
         public void UnlockRandomItem();
         public bool IsCGSlotValid(string unlockableKey);
+        public bool IsCrossPromoEnabled();
     }
 }

@@ -8,6 +8,9 @@ namespace Naninovel.U.CrossPromo
         {
             base.Awake();
             crossPromoService = Engine.GetService<ICrossPromoService>();
+
+            if (!crossPromoService.IsCrossPromoEnabled())
+                gameObject.SetActive(false);
         }
 
         protected override void OnButtonClick() => crossPromoService.ShowCrossPromo(LinkTransitionType.Menu);
