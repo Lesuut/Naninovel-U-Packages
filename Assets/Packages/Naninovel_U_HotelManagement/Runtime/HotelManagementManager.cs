@@ -84,7 +84,6 @@ namespace Naninovel.U.HotelManagement
             state.LevelKey = levelName;
             coroutinePlayer.StopAllCoroutines();
 
-            state.ScriptName = scriptPlayer.Playlist.ScriptName;
             state.ScriptPlayedIndex = scriptPlayer.PlayedIndex;
             scriptPlayer.Stop();
 
@@ -143,7 +142,7 @@ namespace Naninovel.U.HotelManagement
                 return false;
         }
 
-        private async void FinishGame()
+        private void FinishGame()
         {
             state.GameActive = false;
             coroutinePlayer.StopAllCoroutines();
@@ -152,7 +151,6 @@ namespace Naninovel.U.HotelManagement
                 item.Reset();
             hotelManagementUI.HidePlayerItem();
 
-            await scriptPlayer.PreloadAndPlayAsync(state.ScriptName);
             scriptPlayer.Play(scriptPlayer.Playlist, state.ScriptPlayedIndex + 1);
 
             hotelManagementUI.Hide();

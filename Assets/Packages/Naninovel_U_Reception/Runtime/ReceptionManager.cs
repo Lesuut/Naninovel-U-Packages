@@ -75,7 +75,6 @@ namespace Naninovel.U.Reception
             state.correctAnswer = 0;
             state.incorrectAnswer = 0;
 
-            state.scriptName = scriptPlayer.Playlist.ScriptName;
             state.scriptPlayedIndex = scriptPlayer.PlayedIndex;
             scriptPlayer.Stop();
 
@@ -86,11 +85,10 @@ namespace Naninovel.U.Reception
 
         private bool pairActive = false;
 
-        private async void ChainPairSwitcher()
+        private void ChainPairSwitcher()
         {
             if (state.pairIdsChain.Count <= 0)
             {
-                await scriptPlayer.PreloadAndPlayAsync(state.scriptName);
                 scriptPlayer.Play(scriptPlayer.Playlist, state.scriptPlayedIndex + 1);
                 state.pairIdsChain.Clear();
                 receptionUI.Hide();

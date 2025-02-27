@@ -15,7 +15,6 @@ namespace Naninovel.U.Flow
 
         public bool hideFlowButtonsStatus;
 
-        public string startScriptName;
         public int startScriptPlayedIndex;
 
         public string customEndBackground;
@@ -31,7 +30,6 @@ namespace Naninovel.U.Flow
             currentActiveFlowNodeId = -1;
             hideFlowButtonsStatus = false;
 
-            startScriptName = string.Empty;
             startScriptPlayedIndex = 0;
             
             customEndBackground = string.Empty;
@@ -45,7 +43,6 @@ namespace Naninovel.U.Flow
             currentFlowIndex = other.currentFlowIndex;
             currentActiveFlowNodeId = other.currentActiveFlowNodeId;
             hideFlowButtonsStatus = other.hideFlowButtonsStatus;
-            startScriptName = other.startScriptName;
             startScriptPlayedIndex = other.startScriptPlayedIndex;
             currentFlowAssetName = other.currentFlowAssetName;
             customEndBackground = other.customEndBackground;

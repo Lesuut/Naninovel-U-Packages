@@ -24,7 +24,7 @@ namespace Naninovel.U.Flow
         public FlowManager(FlowConfiguration config, IStateManager stateManager)
         {
             Configuration = config;
-            this.stateManager = stateManager;            
+            this.stateManager = stateManager;
         }
         public UniTask InitializeServiceAsync()
         {
@@ -44,7 +44,7 @@ namespace Naninovel.U.Flow
             stateManager.RemoveOnGameDeserializeTask(Deserialize);
         }
 
-        public void ResetService() 
+        public void ResetService()
         {
             if (flowUI != null)
                 flowUI.HideAllButtons();
@@ -64,7 +64,7 @@ namespace Naninovel.U.Flow
 
             if (state.isFlowActive)
             {
-                UpdateFlowScene(state.currentFlowAssetName == "" ? 
+                UpdateFlowScene(state.currentFlowAssetName == "" ?
                     Configuration.flowAssetsWay[state.currentFlowIndex] :
                     FindFlowAssetByName(state.currentFlowAssetName));
             }
@@ -76,7 +76,6 @@ namespace Naninovel.U.Flow
         {
             state.isFlowActive = true;
 
-            state.startScriptName = scriptPlayer.Playlist.ScriptName;
             state.startScriptPlayedIndex = scriptPlayer.PlayedIndex;
 
             UpdateFlowScene(Configuration.flowAssetsWay[state.currentFlowIndex]);
@@ -87,7 +86,6 @@ namespace Naninovel.U.Flow
             Debug.Log($"StartFlowByName: {FlowAssetName}");
 
             state.isFlowActive = true;
-            state.startScriptName = scriptPlayer.Playlist.ScriptName;
             state.startScriptPlayedIndex = scriptPlayer.PlayedIndex;
             state.currentFlowAssetName = FlowAssetName;
 
@@ -293,7 +291,9 @@ namespace Naninovel.U.Flow
             state.isFlowActive = false;
             flowUI.HideAllButtons();
 
-            await scriptPlayer.PreloadAndPlayAsync(state.startScriptName);
+            PlayScript("[i]");
+            flowUI.Hide();
+
             scriptPlayer.Play(scriptPlayer.Playlist, state.startScriptPlayedIndex + 1);
         }
     }

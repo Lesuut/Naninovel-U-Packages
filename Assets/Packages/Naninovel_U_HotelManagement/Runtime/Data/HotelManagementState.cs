@@ -14,7 +14,6 @@ namespace Naninovel.U.HotelManagement
         public int FoodImproving;
         public int CleanImproving;
 
-        public string ScriptName;
         public int ScriptPlayedIndex;
 
         public List<float> CompletedMoods;
@@ -26,7 +25,6 @@ namespace Naninovel.U.HotelManagement
             ReceptionImproving = 0;
             FoodImproving = 0;
             CleanImproving = 0;
-            ScriptName = string.Empty;
             ScriptPlayedIndex = 0;
             CompletedMoods = new List<float>();
         }
@@ -38,7 +36,6 @@ namespace Naninovel.U.HotelManagement
             ReceptionImproving = other.ReceptionImproving;
             FoodImproving = other.FoodImproving;
             CleanImproving = other.CleanImproving;
-            ScriptName = other.ScriptName;
             ScriptPlayedIndex= other.ScriptPlayedIndex;
             CompletedMoods = other.CompletedMoods;
         }

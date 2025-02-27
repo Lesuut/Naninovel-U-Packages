@@ -17,7 +17,6 @@ namespace Naninovel.U.Puzzle
             public Vector2[] finalPositions;
             public Vector2[] currentPositions;
 
-            public string startScriptName;
             public int startScriptPlayedIndex;
         }
 
@@ -78,7 +77,6 @@ namespace Naninovel.U.Puzzle
             gameState.puzzleName = puzzleName;
             gameState.finalPositions = currentPuzzlePartsKit.GetPartsPositions();
 
-            gameState.startScriptName = scriptPlayer.Playlist.ScriptName;
             gameState.startScriptPlayedIndex = scriptPlayer.PlayedIndex;
             scriptPlayer.Stop();
 
@@ -257,7 +255,6 @@ namespace Naninovel.U.Puzzle
 
             yield return new WaitForSeconds(waitBeforeFinish);
 
-            yield return scriptPlayer.PreloadAndPlayAsync(gameState.startScriptName);
             scriptPlayer.Play(scriptPlayer.Playlist, gameState.startScriptPlayedIndex + 1);
 
             gameState = new GameState();

@@ -83,7 +83,6 @@ namespace Naninovel.U.ChoiceBox
 
             uiManager.GetUI<ChoiceBoxUI>().Show();
 
-            state.startScriptName = scriptPlayer.Playlist.ScriptName;
             state.startScriptPlayedIndex = scriptPlayer.PlayedIndex;
             scriptPlayer.Stop();
             state.isChoiceBoxActive = true;
@@ -101,7 +100,6 @@ namespace Naninovel.U.ChoiceBox
             state.choiceItem.Clear();
             state.isChoiceBoxActive = false;
 
-            await scriptPlayer.PreloadAndPlayAsync(state.startScriptName);
             scriptPlayer.Play(scriptPlayer.Playlist, state.startScriptPlayedIndex + 1);
         }
     }

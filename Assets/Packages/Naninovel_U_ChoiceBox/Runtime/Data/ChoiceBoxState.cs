@@ -10,7 +10,6 @@ namespace Naninovel.U.ChoiceBox
         public string currentChoiceTitle;
         public List<ChoiceBoxItem> choiceItem;
 
-        public string startScriptName;
         public int startScriptPlayedIndex;
 
         public ChoiceBoxState()
@@ -25,7 +24,6 @@ namespace Naninovel.U.ChoiceBox
             isChoiceBoxActive = other.isChoiceBoxActive;
             currentChoiceTitle = other.currentChoiceTitle;
             choiceItem = other.choiceItem;
-            startScriptName = other.startScriptName;
             startScriptPlayedIndex = other.startScriptPlayedIndex;
         }
     }
