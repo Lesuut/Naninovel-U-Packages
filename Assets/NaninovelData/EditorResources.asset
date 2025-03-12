@@ -187,6 +187,9 @@ MonoBehaviour:
     - name: CrossPromo
       pathPrefix: UI
       guid: 0a90cca622a5c594cae6be57eef58ab3
+    - name: U_CGGalleryUI
+      pathPrefix: UI
+      guid: 5f20798fef3a1ba419bfe294ac16409d
   - Id: Scripts
     Resources:
     - name: Main

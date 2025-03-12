@@ -8,18 +8,20 @@ namespace Naninovel.U.CG
     {
         private List<IUpdatedCGSlot> updatedCGSlots = new List<IUpdatedCGSlot>();
 
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-
-            updatedCGSlots = GetComponentsInChildren<IUpdatedCGSlot>().ToList();
-
-            updatedCGSlots.ForEach(updatedCGSlot => { updatedCGSlot.Init(); });
-        }
+        private bool init = false;
 
         public override void Show()
         {
             base.Show();
+
+            if (!init)
+            {
+                updatedCGSlots = GetComponentsInChildren<IUpdatedCGSlot>().ToList();
+
+                updatedCGSlots.ForEach(updatedCGSlot => { updatedCGSlot.Init(); });
+
+                init = true;
+            }
 
             updatedCGSlots.ForEach(updatedCGSlot => { updatedCGSlot.SlotUpdate(); });
         }

@@ -20,13 +20,20 @@ namespace Naninovel.U.CG
         public void Init()
         {
             unlockableManager = Engine.GetService<IUnlockableManager>();
+            button.onClick.AddListener(() => openContent?.Invoke());
         }
 
         public void SlotUpdate()
         {
+            resetStatus?.Invoke();
+
             if (unlockableManager.ItemUnlocked(unlockableKey))
             {
-
+                unlockSlot?.Invoke();
+            }
+            else
+            {
+                lockSlot?.Invoke();
             }
         }
     }
