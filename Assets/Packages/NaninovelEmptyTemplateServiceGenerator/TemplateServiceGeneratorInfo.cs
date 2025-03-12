@@ -5,6 +5,7 @@ public class TemplateServiceGeneratorInfo : ScriptableObject
 {
     [Header("Data")]
     public TextAsset BaseConfigucation;
+    public TextAsset BaseConfigucationAPI;
     public TextAsset BaseState;
     [Header("Service")]
     public TextAsset BaseService;
@@ -20,4 +21,7 @@ public class TemplateServiceGeneratorInfo : ScriptableObject
     [Header("Command")]
     public TextAsset BaseCommand;
     public TextAsset BaseCommandEmpty;
+    [Header("Editor")]
+    public TextAsset BaseSettings;
+    public TextAsset SyntaxHighlighter;
 }

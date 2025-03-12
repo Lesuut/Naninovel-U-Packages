@@ -1783,7 +1783,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   showTime: 1
-  hideTime: 0.5
+  hideTime: 0.2
 --- !u!225 &6306036015961478118
 CanvasGroup:
   m_ObjectHideFlags: 0

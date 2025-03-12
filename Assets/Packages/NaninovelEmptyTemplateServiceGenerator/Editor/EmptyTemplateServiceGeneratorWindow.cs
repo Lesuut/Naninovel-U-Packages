@@ -8,7 +8,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
 {
     public class EmptyTemplateServiceGeneratorWindow : EditorWindow
     {
-        private readonly string version = "V1";
+        private readonly string version = "V4";
 
         private bool isService = true;
 
@@ -19,10 +19,12 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
         private string functions;
 
         private bool useService = true;
-        private bool useConfigucation = false;
+        private bool useConfiguration = false;
 
         private bool useUI;
         private bool useUIdata;
+
+        private bool useSetting = false;
 
         [MenuItem("Tools/Template Service Generator")]
         public static void OpenWindow()
@@ -79,15 +81,22 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
             EditorGUILayout.LabelField("———–––———–––———––––");
             useService = EditorGUILayout.Toggle(new GUIContent($"Use {(isService ? "Service" : "Manager")}"), useService);
             if (useService)
-                useConfigucation = EditorGUILayout.Toggle(new GUIContent("Use Configucation"), useConfigucation);
+                useConfiguration = EditorGUILayout.Toggle(new GUIContent("Use Configuration"), useConfiguration);
             else
-                useConfigucation = false;
+                useConfiguration = false;
+
+            if (useConfiguration)
+                useSetting = EditorGUILayout.Toggle(new GUIContent("Use Settings"), useSetting);
+            else
+                useSetting = false;
+
             EditorGUILayout.LabelField("———–––———–––———––––");
             useUI = EditorGUILayout.Toggle(new GUIContent("Use UI"), useUI);
             if (useUI)
                 useUIdata = EditorGUILayout.Toggle(new GUIContent("Use UI with Data"), useUIdata);
             else
                 useUIdata = false;
+
             EditorGUILayout.LabelField("———–––———–––———––––");
 
             EditorGUILayout.Space();
@@ -151,15 +160,34 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
                         ReplaceKeys(templateServiceGeneratorInfo.IBaseService.text,
                         coreName, sm));
 
-                if (useConfigucation)
+                if (useConfiguration)
                 {
-                    GenerateCSharpScript(runtimePath, $"{coreName}Configucation",
-                        ReplaceKeys(templateServiceGeneratorInfo.BaseConfigucation.text,
-                        coreName, sm));
+                    GenerateCSharpScript(runtimePath, $"{coreName}{sm}",
+                        ReplaceKeys(templateServiceGeneratorInfo.BaseServiceConfigucation.text,
+                        coreName, sm));                    
 
-                    GenerateCSharpScript(runtimePath, $"{coreName}{sm}", 
-                        ReplaceKeys(templateServiceGeneratorInfo.BaseServiceConfigucation.text, 
-                        coreName, sm));
+                    if (useSetting)
+                    {
+                        GenerateCSharpScript(runtimePath, $"{coreName}Configucation",
+                            ReplaceKeys(templateServiceGeneratorInfo.BaseConfigucationAPI.text,
+                            coreName, sm));
+
+                        CreateEmptyFolder(runtimePath, "Editor");
+
+                        GenerateCSharpScript(Path.Combine(runtimePath, "Editor"), $"{coreName}Settings",
+                            ReplaceKeys(templateServiceGeneratorInfo.BaseSettings.text,
+                            coreName, sm));
+
+                        GenerateCSharpScript(Path.Combine(runtimePath, "Editor"), $"SyntaxHighlighter",
+                            ReplaceKeys(templateServiceGeneratorInfo.SyntaxHighlighter.text,
+                            coreName, sm));
+                    }
+                    else
+                    {
+                        GenerateCSharpScript(runtimePath, $"{coreName}Configucation",
+                            ReplaceKeys(templateServiceGeneratorInfo.BaseConfigucation.text,
+                            coreName, sm));
+                    }
                 }          
                 else
                 {
@@ -312,8 +340,11 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
             if (!useService)
                 newColor = new Color(Mathf.Clamp01(newColor.r + 0.2f), newColor.g, newColor.b);
 
-            if (useConfigucation)
+            if (useConfiguration)
                 newColor = new Color(Mathf.Clamp01(newColor.r + 0.05f), newColor.g, Mathf.Clamp01(newColor.b + 0.05f));
+
+            if (useSetting)
+                newColor = new Color(newColor.r, Mathf.Clamp01(newColor.g + 0.1f), Mathf.Clamp01(newColor.b + 0.1f));
 
             // Корректируем цвет так, чтобы яркость оставалась прежней
             float newBrightness = (newColor.r + newColor.g + newColor.b) / 3f;
@@ -352,6 +383,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
         {
             return scriptTemple.Replace("%CORENAME%", coreName).Replace("%SM%", SM);
         }
+
         private string CapitalizeFirstLetter(string input)
         {
             if (string.IsNullOrEmpty(input))
@@ -361,6 +393,5 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
 
             return char.ToUpper(input[0]) + input.Substring(1);
         }
-
     }
 }

@@ -17,8 +17,16 @@ namespace Naninovel.U.CrossPromo
 
         public CrossPromoState(CrossPromoState other)
         {
-            availableIdSlots = other.availableIdSlots;
-            receivedIdSlots= other.receivedIdSlots;
+            if (other != null)
+            {
+                availableIdSlots = other.availableIdSlots;
+                receivedIdSlots = other.receivedIdSlots;
+            }
+            else
+            {
+                availableIdSlots = new List<int>();
+                receivedIdSlots = new List<int>();
+            }
         }
     }
 }

@@ -28,7 +28,7 @@ namespace Naninovel.U.CrossPromo
                  "2. Возьмите в папке пакета во вкладке UI префаб кросс-промо и добавьте в Naninovel UI.\r\n" +
                  "3. Зайдите в папку DemoTitleButton и поместите префаб кнопки открытия кросс-промо в ваше главное меню.\r\n" +
                  "4. В инспекторе Naninovel укажите ссылку на таблицу (проверьте корректность ссылки, она должна заканчиваться на .csv).\r\n" +
-                 "5. Установите статические данные в поля adultStatic для каждого элемента.\r\n" +
+                 "5. Установите данные в поля adultStatic для каждого элемента.\r\n" +
                  "6. Установите в поле achievementNaniCommand команду для открытия ачивки при сборе всех слотов.\r\n\n" +
                  "// Эксплуатация:\r\n" +
                  "• Данные о слотах хранятся в NaninovelData/Saves/GlobalSave.\n" +
@@ -56,7 +56,7 @@ namespace Naninovel.U.CrossPromo
             private const string CommandColor = "#6cb2ed";   // Синий — для @команд (например, @tip, @if)
             private const string KeyColor = "#cd8843";       // Оранжевый — для ключей (часть перед двоеточием, например, key:)
             private const string ValueColor = "#e2be7f";     // Желтый — для значений (текст в кавычках, например, "key_value")
-            private const string ArgumentColor = "#e2be7f";  // Фиолетовый #dfb3ff — для аргументов после @
+            private const string ArgumentColor = "#dfb3ff";  // Фиолетовый — для аргументов после @
             private const string FlowCommentColor = "#579f3c"; // Зеленый — для комментариев, начинающихся с //
 
             public static string ColorizeSyntax(string input)

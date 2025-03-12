@@ -1,0 +1,19 @@
+using UnityEngine;
+
+namespace Naninovel.U.%CORENAME%
+{
+    /// <summary>
+    /// Contains configuration data for the %CORENAME% systems.
+    /// </summary>
+    [EditInProjectSettings]
+    public class %CORENAME%Configuration : Configuration
+    {
+        public const string DefaultPathPrefix = "%CORENAME%";
+
+        /// <summary>
+        /// Write here the body of the configuration for %CORENAME%.
+        /// </summary>
+		
+		public string API;
+    }
+}

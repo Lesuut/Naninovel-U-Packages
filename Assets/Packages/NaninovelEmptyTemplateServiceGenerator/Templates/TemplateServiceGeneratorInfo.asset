@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TemplateServiceGeneratorInfo
   m_EditorClassIdentifier: 
   BaseConfigucation: {fileID: 4900000, guid: cee6f062a36b8dd489ca73964d03f673, type: 3}
+  BaseConfigucationAPI: {fileID: 4900000, guid: 7b5cc1f21e717ff42b99998609e148a7, type: 3}
   BaseState: {fileID: 4900000, guid: 4e42d71c32eb42a438668f569f5bda45, type: 3}
   BaseService: {fileID: 4900000, guid: 977c287ac6919ff4fa6dd2d6165a0b64, type: 3}
   BaseServiceConfigucation: {fileID: 4900000, guid: d5b223689eb032446a22103673155f4e, type: 3}
@@ -24,3 +25,5 @@ MonoBehaviour:
   BaseUIDataNoSystem: {fileID: 4900000, guid: 8e807c297f26a5d469d042d8fac9b14c, type: 3}
   BaseCommand: {fileID: 4900000, guid: 96ab2729959339f489e95884baa7c9f2, type: 3}
   BaseCommandEmpty: {fileID: 4900000, guid: 37714343f3a6f3447a5b813711bc932b, type: 3}
+  BaseSettings: {fileID: 4900000, guid: 9a06d95fba7b4024094e978452f86928, type: 3}
+  SyntaxHighlighter: {fileID: 4900000, guid: 608c3acb661a70342ba1841c188f1b20, type: 3}
