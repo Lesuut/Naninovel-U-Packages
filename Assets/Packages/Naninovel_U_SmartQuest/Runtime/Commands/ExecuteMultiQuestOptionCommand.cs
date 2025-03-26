@@ -9,7 +9,7 @@ namespace Naninovel.U.SmartQuest.Commands
         [ParameterAlias("option"), RequiredParameter]
         public StringParameter idOption;
 
-        [ParameterAlias("value"), RequiredParameter]
+        [ParameterAlias("value")]
         public IntegerParameter value;
 
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)

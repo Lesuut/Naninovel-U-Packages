@@ -4,7 +4,9 @@ namespace Naninovel.U.SmartQuest
 {
     public interface ISmartQuestService : IEngineService
     {
-        public event Action<string> UpdateQuestTextAction;
+        public event Action UpdateQuestAction;
+        public string GetQuestsTextInfo();
+
         public bool GetQuestStatus(string id);
 
         public void CreateSingleQuest(string id, string title, string description);
@@ -14,5 +16,6 @@ namespace Naninovel.U.SmartQuest
         public void AddMultiQuestOption(string idQuest, string idOption, int maxProgressUnits, string description);
         public void UpdateInfoAction();
         public void ExecuteMultiQuestOption(string idQuest, string idOption, int value);
+        public Quest[] GetAllQuests();
     }
 }

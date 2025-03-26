@@ -9,23 +9,18 @@ namespace Naninovel.U.CrossPromo
     {
         [SerializeField] private List<string> leaderboardNames = new List<string> { "steam_id" };
         private Dictionary<string, SteamLeaderboard_t> leaderboards = new Dictionary<string, SteamLeaderboard_t>();
-        private Queue<string> leaderboardQueue = new Queue<string>(); // Очередь для неинициализированных лидингов
         private bool _initialized = false;
 
         private CallResult<LeaderboardFindResult_t> _findResult = new CallResult<LeaderboardFindResult_t>();
         private CallResult<LeaderboardScoreUploaded_t> _uploadResult = new CallResult<LeaderboardScoreUploaded_t>();
 
-        // Статическая переменная для синглтона
         private static LeaderBoardCoroutines _instance;
-
-        // Свойство для доступа к синглтону
         public static LeaderBoardCoroutines Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    // Если экземпляр не существует, создаем новый объект
                     _instance = FindObjectOfType<LeaderBoardCoroutines>();
                     if (_instance == null)
                     {
@@ -39,88 +34,59 @@ namespace Naninovel.U.CrossPromo
 
         private void Start()
         {
-            StartCoroutine(InitSteamLeaderboards());
+            InitSteamLeaderboards();
         }
 
-        private IEnumerator InitSteamLeaderboards()
+        private void InitSteamLeaderboards()
         {
             if (!SteamAPI.Init())
             {
                 Debug.LogError("Couldn't init Steam API");
-                yield break;
+                return;
             }
 
             foreach (var name in leaderboardNames)
             {
-                leaderboardQueue.Enqueue(name); // Добавляем все лидинги в очередь
-                yield return StartCoroutine(FindAndStoreLeaderboard(name));
+                FindAndStoreLeaderboard(name);
             }
 
             _initialized = true;
-            ProcessQueuedLeaderboards(); // Проверяем очередь, после инициализации Steam API
-
             TrySetFirstGameStart();
         }
 
-        private IEnumerator FindAndStoreLeaderboard(string name)
+        private void FindAndStoreLeaderboard(string name)
         {
-            if (leaderboards.ContainsKey(name))
-            {
-                yield break; // Если уже есть в словаре, пропускаем
-            }
+            if (leaderboards.ContainsKey(name)) return;
 
             SteamAPICall_t hSteamAPICall = SteamUserStats.FindLeaderboard(name);
-            _findResult.Set(hSteamAPICall, (result, failure) => OnLeaderboardFindResult(name, result, failure));
-
-            yield return new WaitForSeconds(0.5f); // Даем Steam время на ответ
-        }
-
-        private void OnLeaderboardFindResult(string name, LeaderboardFindResult_t pCallback, bool failure)
-        {
-            if (!failure && pCallback.m_bLeaderboardFound != 0)
+            _findResult.Set(hSteamAPICall, (result, failure) =>
             {
-                leaderboards[name] = pCallback.m_hSteamLeaderboard;
-                Debug.Log($"STEAM LEADERBOARDS: Found {name}");
-            }
-            else
-            {
-                Debug.LogError($"STEAM LEADERBOARDS: Failed to find {name}");
-            }
-
-            // После инициализации текущего лидерборда, проверяем очередь
-            ProcessQueuedLeaderboards();
-        }
-
-        private void ProcessQueuedLeaderboards()
-        {
-            while (leaderboardQueue.Count > 0)
-            {
-                string queuedLeaderboard = leaderboardQueue.Dequeue(); // Берем следующий элемент из очереди
-                // Инициализируем ключи из очереди
-                EnsureLeaderboardInitialized(queuedLeaderboard);
-            }
-        }
-
-        public void EnsureLeaderboardInitialized(string leaderboardName)
-        {
-            if (!leaderboards.ContainsKey(leaderboardName))
-            {
-                leaderboardQueue.Enqueue(leaderboardName); // Добавляем в очередь, если лидерборд не инициализирован
-                StartCoroutine(FindAndStoreLeaderboard(leaderboardName));
-            }
-            else
-            {
-                Debug.Log($"Leaderboard {leaderboardName} already initialized.");
-            }
+                if (!failure && result.m_bLeaderboardFound != 0)
+                {
+                    leaderboards[name] = result.m_hSteamLeaderboard;
+                    Debug.Log($"STEAM LEADERBOARDS: Found {name}");
+                }
+                else
+                {
+                    Debug.LogError($"STEAM LEADERBOARDS: Failed to find {name}");
+                }
+            });
         }
 
         public void UpdateScore(string leaderboardName, int score)
         {
             Debug.Log($"LeaderBoardCoroutines UpdateScore: {leaderboardName} score:{score}");
 
-            if (!_initialized || !leaderboards.ContainsKey(leaderboardName))
+            if (!_initialized)
             {
-                Debug.LogError($"Leaderboard {leaderboardName} is not initialized yet!");
+                Debug.LogError($"Steam API is not initialized yet!");
+                return;
+            }
+
+            if (!leaderboards.ContainsKey(leaderboardName))
+            {
+                Debug.Log($"Leaderboard {leaderboardName} not found, initializing...");
+                StartCoroutine(FindAndStoreLeaderboard(leaderboardName, score));
                 return;
             }
 
@@ -137,15 +103,48 @@ namespace Naninovel.U.CrossPromo
             Debug.Log($"STEAM LEADERBOARDS: Upload success - {pCallback.m_bSuccess}, Score: {pCallback.m_nScore}, Changed: {pCallback.m_bScoreChanged}");
         }
 
+        private IEnumerator FindAndStoreLeaderboard(string name, int? pendingScore = null)
+        {
+            if (leaderboards.ContainsKey(name))
+            {
+                yield break; // Уже найден
+            }
+
+            SteamAPICall_t hSteamAPICall = SteamUserStats.FindLeaderboard(name);
+            _findResult.Set(hSteamAPICall, (result, failure) =>
+            {
+                OnLeaderboardFindResult(name, result, failure, pendingScore);
+            });
+
+            yield return new WaitForSeconds(0.5f); // Даем Steam время
+        }
+
+        private void OnLeaderboardFindResult(string name, LeaderboardFindResult_t pCallback, bool failure, int? pendingScore = null)
+        {
+            if (!failure && pCallback.m_bLeaderboardFound != 0)
+            {
+                leaderboards[name] = pCallback.m_hSteamLeaderboard;
+                Debug.Log($"STEAM LEADERBOARDS: Found {name}");
+
+                if (pendingScore.HasValue)
+                {
+                    UpdateScore(name, pendingScore.Value); // Если был запрошен скор, обновляем его
+                }
+            }
+            else
+            {
+                Debug.LogError($"STEAM LEADERBOARDS: Failed to find {name}");
+            }
+        }
+
         private void TrySetFirstGameStart()
         {
             if (!PlayerPrefs.HasKey("FirstGameStart"))
             {
                 PlayerPrefs.SetInt("FirstGameStart", 1);
                 PlayerPrefs.Save();
-
                 UpdateScore("steam_id", 1);
-                Debug.Log("First Game Start!");
+                Debug.Log("<b>First Game Start!</b>");
             }
         }
     }

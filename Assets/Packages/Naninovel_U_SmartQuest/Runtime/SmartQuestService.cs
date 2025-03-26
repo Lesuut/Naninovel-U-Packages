@@ -9,7 +9,7 @@ namespace Naninovel.U.SmartQuest
     {
         public virtual SmartQuestConfiguration Configuration { get; }
 
-        public event Action<string> UpdateQuestTextAction;
+        public event Action UpdateQuestAction;
 
         private readonly IStateManager stateManager;
         private SmartQuestState state;
@@ -34,7 +34,10 @@ namespace Naninovel.U.SmartQuest
             stateManager.RemoveOnGameDeserializeTask(Deserialize);
         }
 
-        public void ResetService() { }
+        public void ResetService() 
+        { 
+            state.Quests.Clear();
+        }
 
         private void Serialize(GameStateMap map) 
         {
@@ -96,25 +99,37 @@ namespace Naninovel.U.SmartQuest
 
         public void UpdateInfoAction()
         {
-            UpdateQuestTextAction?.Invoke(GetQuestsTextInfo());
+            UpdateQuestAction?.Invoke();
         }
 
         public void ExecuteMultiQuestOption(string idQuest, string idOption, int value)
         {
             Quest quest = state.Quests.FirstOrDefault(item => item.ID == idQuest);
-            ((MultiQuest)quest).Options.FirstOrDefault(item => item.ID == idOption).AddProgressUnit(value);
+            ((MultiQuest)quest).Options.FirstOrDefault(item => item.ID == idOption).AddProgressUnit(value == 0 ? 1 : value);
             UpdateInfoAction();
         }
-        private string GetQuestsTextInfo()
+        public string GetQuestsTextInfo()
         {
             var sortedQuests = state.Quests
                 .OrderBy(q => !q.IsQuestComplete())
                 .Reverse()
-                .Select(q => q.GetQuestInfo());
+                .Select(q => 
+                $"{q.GetQuestTitle()}" +
+                $"{(string.IsNullOrWhiteSpace(q.GetQuestInfo()) ? "" : "\n" + q.GetQuestInfo())}");
 
             return string.Join("\n\n", sortedQuests);
         }
 
-        public Action<string> GetUpdateQuestTextAction() => UpdateQuestTextAction;     
+        public Quest[] GetAllQuests()
+        {
+            if (state.Quests == null || !state.Quests.Any())
+                return Array.Empty<Quest>();
+
+            var sortedQuests = state.Quests
+                .OrderBy(q => !q.IsQuestComplete())
+                .Reverse();
+
+            return sortedQuests.ToArray();
+        }
     }
 }

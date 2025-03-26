@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Naninovel.U.SmartQuest
 {
     [ExpressionFunctions]
@@ -7,6 +9,7 @@ namespace Naninovel.U.SmartQuest
         {
             var SmartQuestService = Engine.GetService<ISmartQuestService>();
 
+            Debug.Log($"{idQuest} GetQuestStatus: {SmartQuestService.GetQuestStatus(idQuest)}");
             return SmartQuestService.GetQuestStatus(idQuest);
         }
     }

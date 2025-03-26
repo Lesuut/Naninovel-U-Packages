@@ -17,13 +17,24 @@ namespace Naninovel.U.SmartQuest
 
         public override string GetQuestInfo()
         {
-            string title = $"<color=#{ColorUtility.ToHtmlStringRGBA(IsQuestComplete() ? smartQuestConfiguration.TitleCompletedColor : smartQuestConfiguration.TitleActiveColor)}>{(IsQuestComplete() ? smartQuestConfiguration.TitleCompletedCoding.Replace("%TEXT%", Title) : smartQuestConfiguration.TitleActiveCoding.Replace("%TEXT%", Title))}</color>";
-
             string options = string.Join("\n", Options.Select(item => $"\t{item.GetOptionText()}")) + "\n";
 
-            string description = $"<color=#{ColorUtility.ToHtmlStringRGBA(IsQuestComplete() ? smartQuestConfiguration.DescriptionCompletedColor : smartQuestConfiguration.DescriptionActiveColor)}>{(IsQuestComplete() ? smartQuestConfiguration.DescriptionCompletedCoding.Replace("%TEXT%", Description) : smartQuestConfiguration.DescriptionActiveCoding.Replace("%TEXT%", Description))}</color>";
+            string description;
 
-            return $"{title}\n{options}{(Description != "" ? $"\n{description}" : "")}";
+            if (smartQuestConfiguration.useColor)
+            {
+                description = $"<color=#{ColorUtility.ToHtmlStringRGBA(IsQuestComplete() ? smartQuestConfiguration.DescriptionCompletedColor : smartQuestConfiguration.DescriptionActiveColor)}>" +
+                              $"{(IsQuestComplete() ? smartQuestConfiguration.DescriptionCompletedCoding.Replace("%TEXT%", Description) : smartQuestConfiguration.DescriptionActiveCoding.Replace("%TEXT%", Description))}" +
+                              $"</color>";
+            }
+            else
+            {
+                description = IsQuestComplete()
+                    ? smartQuestConfiguration.DescriptionCompletedCoding.Replace("%TEXT%", Description)
+                    : smartQuestConfiguration.DescriptionActiveCoding.Replace("%TEXT%", Description);
+            }
+
+            return $"{options}{(string.IsNullOrEmpty(Description) ? "" : $"\n{description}")}";
         }
 
         public override bool IsQuestComplete()

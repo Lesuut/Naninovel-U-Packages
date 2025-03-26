@@ -30,19 +30,18 @@ namespace Naninovel.U.CrossPromo
         }
         public async UniTask InitializeServiceAsync()
         {
-            if (!Configuration.crossPromoEnable) return;
+            UnityEngine.Debug.Log("InitializeServiceAsync");
+
+            if (!Configuration.crossPromoEnable)
+                return;
 
             crossPromoState = new CrossPromoState();
             uiManager = Engine.GetService<IUIManager>();
             unlockableManager = Engine.GetService<IUnlockableManager>();
 
-            LeaderBoardCoroutines.Instance.EnsureLeaderboardInitialized(Configuration.MenuLeaderBoardCrossPromoMenuClickKey);
-            LeaderBoardCoroutines.Instance.EnsureLeaderboardInitialized(Configuration.GalleryLeaderBoardCrossPromoClickKey);
-            LeaderBoardCoroutines.Instance.EnsureLeaderboardInitialized(Configuration.FinalLeaderBoardCrossPromoClickKey);
-
             try
             {
-                sheetDatas = await GoogleSheetDataLoader.LoadDataAsync(Configuration.GoogleSheetDataURL);
+                sheetDatas = await GoogleSheetDataLoader.LoadDataAsync(Configuration.GoogleSheetDataURL, Configuration.debug);
             }
             catch (Exception ex)
             {
@@ -74,7 +73,7 @@ namespace Naninovel.U.CrossPromo
 
         public void ShowCrossPromo(LinkTransitionType linkTransitionType)
         {
-            if (!Configuration.crossPromoEnable) 
+            if (!Configuration.crossPromoEnable)
             {
                 UnityEngine.Debug.LogWarning("Cross Promo is Disable!");
                 return;
@@ -215,7 +214,7 @@ namespace Naninovel.U.CrossPromo
             await playlist.ExecuteAsync();
         }
 
-        /* protected virtual void PlayScript(string scriptText)
+        /*protected virtual void PlayScript(string scriptText)
         {
             var player = Engine.GetService<IScriptPlayer>();
             player.PlayTransient($"`Cross Promo` generated script", scriptText).Forget();

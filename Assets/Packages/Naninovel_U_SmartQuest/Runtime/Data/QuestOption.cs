@@ -20,25 +20,41 @@ namespace Naninovel.U.SmartQuest
             ProgressUnits = 0;
             MaxProgressUnits = Mathf.Clamp(maxProgressUnits, 1, int.MaxValue);
             OptionText = optionText;
-            smartQuestConfiguration = Engine.GetConfiguration< SmartQuestConfiguration>();
+            smartQuestConfiguration = Engine.GetConfiguration<SmartQuestConfiguration>();
         }
 
         public void AddProgressUnit(int progressUnits) => ProgressUnits += progressUnits;
 
         public string GetOptionText()
         {
-            return $"<color=#{ColorUtility.ToHtmlStringRGBA(ProgressUnits >= MaxProgressUnits ? smartQuestConfiguration.OptionCompletedColor : smartQuestConfiguration.OptionActiveColor)}>" +
-                $"{(ProgressUnits >= MaxProgressUnits ? smartQuestConfiguration.OptionCompletedCoding.Replace("%TEXT%", OptionText) : smartQuestConfiguration.OptionActiveCoding.Replace("%TEXT%", OptionText))} " +
-                $"{GetProgressText()}</color>";
+            if (smartQuestConfiguration.useColor)
+            {
+                return $"<color=#{ColorUtility.ToHtmlStringRGBA(ProgressUnits >= MaxProgressUnits ? smartQuestConfiguration.OptionCompletedColor : smartQuestConfiguration.OptionActiveColor)}>" +
+                       $"{(ProgressUnits >= MaxProgressUnits ? smartQuestConfiguration.OptionCompletedCoding.Replace("%TEXT%", OptionText) : smartQuestConfiguration.OptionActiveCoding.Replace("%TEXT%", OptionText))} " +
+                       $"{GetProgressText()}</color>";
+            }
+            else
+            {
+                return $"{(ProgressUnits >= MaxProgressUnits ? smartQuestConfiguration.OptionCompletedCoding.Replace("%TEXT%", OptionText) : smartQuestConfiguration.OptionActiveCoding.Replace("%TEXT%", OptionText))} " +
+                       $"{GetProgressText(false)}";
+            }
         }
+
         public bool IsOptionComplete() => ProgressUnits >= MaxProgressUnits;
 
-        private string GetProgressText()
+        private string GetProgressText(bool useColor = true)
         {
             if (MaxProgressUnits <= 1)
                 return "";
 
-            return $"<color=#{ColorUtility.ToHtmlStringRGBA(smartQuestConfiguration.ProgressGradient.Evaluate((float)ProgressUnits / MaxProgressUnits))}>{ProgressUnits}/{MaxProgressUnits}</color>";
+            string progressText = $"{ProgressUnits}/{MaxProgressUnits}";
+
+            if (useColor && smartQuestConfiguration.useColor)
+            {
+                return $"<color=#{ColorUtility.ToHtmlStringRGBA(smartQuestConfiguration.ProgressGradient.Evaluate((float)ProgressUnits / MaxProgressUnits))}>{progressText}</color>";
+            }
+
+            return progressText;
         }
     }
 }

@@ -1,17 +1,15 @@
 using Naninovel;
+using Naninovel.U.SmartQuest;
 
 [CommandAlias("test")]
 public class TestCommand : Command, Command.ILocalizable
 {
-    [ParameterAlias(NamelessParameterAlias), LocalizableParameter]
-    public StringParameter firstValue;
-
-    /*[ParameterAlias("id"), LocalizableParameter]
-    public StringParameter text = "Hello World!";*/
+/*    [ParameterAlias(NamelessParameterAlias), LocalizableParameter]
+    public StringParameter firstValue;*/
 
     public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
-    {      
-        UnityEngine.Debug.Log(firstValue.Value);
+    {
+        UnityEngine.Debug.Log(Engine.GetService<ISmartQuestService>().GetQuestsTextInfo());
         return UniTask.CompletedTask;
     }
 }

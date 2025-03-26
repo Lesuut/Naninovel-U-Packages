@@ -7,6 +7,7 @@ namespace Naninovel.U.SmartQuest
     {
         public const string DefaultPathPrefix = "SmartQuest";
 
+        public bool useColor = true;
         [Header("Title")]
         public string TitleActiveCoding = "<b>%TEXT%</b>";
         public string TitleCompletedCoding = "<b>%TEXT%</b> +";
@@ -33,5 +34,7 @@ namespace Naninovel.U.SmartQuest
         public string DescriptionCompletedCoding = "%TEXT%";
         public Color DescriptionActiveColor = new Color(1, 1, 1f, 1);
         public Color DescriptionCompletedColor = new Color(0.5f, 0.5f, 0.5f, 1);
+
+        public string API;
     }
 }

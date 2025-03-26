@@ -5,8 +5,8 @@ namespace Naninovel.U.SmartQuest
     [Serializable]
     public abstract class Quest
     {
-        public string ID;
-        public string Title;
+        public string ID { get; set; }
+        public string Title { get; set; }
 
         protected SmartQuestConfiguration smartQuestConfiguration;
 
@@ -17,6 +17,7 @@ namespace Naninovel.U.SmartQuest
             smartQuestConfiguration = Engine.GetConfiguration<SmartQuestConfiguration>();
         }
 
+        public abstract string GetQuestTitle();
         public abstract string GetQuestInfo();
         public abstract bool IsQuestComplete();
     }

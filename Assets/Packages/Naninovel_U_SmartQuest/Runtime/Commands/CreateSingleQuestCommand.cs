@@ -9,7 +9,7 @@ namespace Naninovel.U.SmartQuest.Commands
         [ParameterAlias("title"), LocalizableParameter, RequiredParameter]
         public StringParameter title;
 
-        [ParameterAlias("description"), LocalizableParameter, RequiredParameter]
+        [ParameterAlias("description"), LocalizableParameter]
         public StringParameter description;
 
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
