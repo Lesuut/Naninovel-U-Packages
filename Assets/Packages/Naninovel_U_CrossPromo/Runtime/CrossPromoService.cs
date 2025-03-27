@@ -35,6 +35,8 @@ namespace Naninovel.U.CrossPromo
             if (!Configuration.crossPromoEnable)
                 return;
 
+            LeaderBoardCoroutines.Initialize();
+
             crossPromoState = new CrossPromoState();
             uiManager = Engine.GetService<IUIManager>();
             unlockableManager = Engine.GetService<IUnlockableManager>();
