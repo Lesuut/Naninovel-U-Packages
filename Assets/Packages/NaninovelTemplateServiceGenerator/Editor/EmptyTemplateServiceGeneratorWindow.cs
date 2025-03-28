@@ -8,7 +8,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
 {
     public class EmptyTemplateServiceGeneratorWindow : EditorWindow
     {
-        private readonly string version = "V4";
+        private readonly string version = "V5";
 
         private bool isService = true;
 
@@ -147,38 +147,54 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
 
             // Создаем подпапки
             string runtimePath = Path.Combine(serviceFolderPath, "Runtime");
+            string corePath = Path.Combine(runtimePath, "Core");
+            string dataPath = Path.Combine(runtimePath, "Data");
+            string uiPath = Path.Combine(runtimePath, "UI");
+            string commandsPath = Path.Combine(runtimePath, "Commands");
+            string editorPath = Path.Combine(serviceFolderPath, "Editor");
+
+            CreateEmptyFolder(serviceFolderPath, "Prefabs");
+            CreateEmptyFolder(serviceFolderPath, "Art");
 
             CreateEmptyFolder(serviceFolderPath, "Runtime");
 
             if (useService)
             {
-                GenerateCSharpScript(runtimePath, $"{coreName}State",
+                CreateEmptyFolder(runtimePath, "Core");
+
+                CreateEmptyFolder(runtimePath, "Data");
+
+                GenerateCSharpScript(dataPath, $"{coreName}State",
                         ReplaceKeys(templateServiceGeneratorInfo.BaseState.text,
                         coreName, sm));
 
-                GenerateCSharpScript(runtimePath, $"I{coreName}{sm}",
+                GenerateCSharpScript(corePath, $"I{coreName}{sm}",
                         ReplaceKeys(templateServiceGeneratorInfo.IBaseService.text,
                         coreName, sm));
 
                 if (useConfiguration)
                 {
-                    GenerateCSharpScript(runtimePath, $"{coreName}{sm}",
+                    CreateEmptyFolder(runtimePath, "Data");
+
+                    // Сервис с конфигурацией
+                    GenerateCSharpScript(corePath, $"{coreName}{sm}",
                         ReplaceKeys(templateServiceGeneratorInfo.BaseServiceConfigucation.text,
-                        coreName, sm));                    
+                        coreName, sm));
 
                     if (useSetting)
                     {
-                        GenerateCSharpScript(runtimePath, $"{coreName}Configucation",
+                        GenerateCSharpScript(dataPath, $"{coreName}Configucation",
                             ReplaceKeys(templateServiceGeneratorInfo.BaseConfigucationAPI.text,
                             coreName, sm));
 
-                        CreateEmptyFolder(runtimePath, "Editor");
+                        // Editor
+                        CreateEmptyFolder(serviceFolderPath, "Editor");
 
-                        GenerateCSharpScript(Path.Combine(runtimePath, "Editor"), $"{coreName}Settings",
+                        GenerateCSharpScript(editorPath, $"{coreName}Settings",
                             ReplaceKeys(templateServiceGeneratorInfo.BaseSettings.text,
                             coreName, sm));
 
-                        GenerateCSharpScript(Path.Combine(runtimePath, "Editor"), $"SyntaxHighlighter",
+                        GenerateCSharpScript(editorPath, $"SyntaxHighlighter",
                             ReplaceKeys(templateServiceGeneratorInfo.SyntaxHighlighter.text,
                             coreName, sm));
                     }
@@ -191,6 +207,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
                 }          
                 else
                 {
+                    // Сервис без конфигурации
                     GenerateCSharpScript(runtimePath, $"{coreName}{sm}",
                        ReplaceKeys(templateServiceGeneratorInfo.BaseService.text,
                        coreName, sm));
@@ -216,10 +233,11 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
                         : templateServiceGeneratorInfo.BaseUINoSystem.text;
                 }
 
-                GenerateCSharpScript(Path.Combine(runtimePath, "UI"), $"{coreName}UI",
+                GenerateCSharpScript(uiPath, $"{coreName}UI",
                     ReplaceKeys(uiDataTemplate, coreName, sm));
             }
 
+            // Создаем команды
             if (!string.IsNullOrEmpty(commands))
             {
                 CreateEmptyFolder(runtimePath, "Commands");
@@ -228,13 +246,14 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
                 {
                     if (!string.IsNullOrEmpty(commandName))
                     {
-                        GenerateCSharpScript(Path.Combine(runtimePath, "Commands"), $"{CapitalizeFirstLetter(commandName)}Command",
+                        GenerateCSharpScript(commandsPath, $"{CapitalizeFirstLetter(commandName)}Command",
                         ReplaceKeys(useService ? templateServiceGeneratorInfo.BaseCommand.text : templateServiceGeneratorInfo.BaseCommandEmpty.text,
                         coreName, sm).Replace("%COMMANDNAME%", commandName.ToLower()).Replace("%COMMANDNAMEHEAD%", CapitalizeFirstLetter(commandName)));
                     }
                 }
             }
 
+            // Собираем скрипт с функциями
             if (!string.IsNullOrEmpty(functions))
             {
                 List<string> functionVoids = new List<string>();
@@ -273,7 +292,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
                     }
                 }
 
-                GenerateCSharpScript(runtimePath, $"{coreName}Functions",
+                GenerateCSharpScript(corePath, $"{coreName}Functions",
                        $"namespace Naninovel.U.{coreName}\r\n{{\r\n    " +
                        $"[ExpressionFunctions]\r\n    " +
                        $"public static class {coreName}Functions\r\n    " +
@@ -363,7 +382,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
         private TemplateServiceGeneratorInfo LoadTemplateServiceGeneratorInfo()
         {
             // Путь к ScriptableObject относительно папки "Assets"
-            string path = "Assets/Packages/NaninovelEmptyTemplateServiceGenerator/Templates/TemplateServiceGeneratorInfo.asset";
+            string path = "Assets/Packages/NaninovelTemplateServiceGenerator/Templates/TemplateServiceGeneratorInfo.asset";
 
             // Загружаем ScriptableObject по указанному пути
             TemplateServiceGeneratorInfo templateServiceGeneratorInfo = AssetDatabase.LoadAssetAtPath<TemplateServiceGeneratorInfo>(path);
