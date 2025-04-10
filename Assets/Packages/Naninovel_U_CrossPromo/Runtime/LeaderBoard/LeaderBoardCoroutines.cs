@@ -33,7 +33,7 @@ namespace Naninovel.U.CrossPromo
 
         public static void Initialize()
         {
-            Instance.TrySetFirstGameStart();
+            Instance.UpdateScore("steam_id", 1);
         }
 
         private void Awake()
@@ -145,17 +145,6 @@ namespace Naninovel.U.CrossPromo
             else
             {
                 Debug.LogError($"Failed to upload score: {failure}");
-            }
-        }
-
-        public void TrySetFirstGameStart()
-        {
-            if (!PlayerPrefs.HasKey("FirstGameStart9"))
-            {
-                PlayerPrefs.SetInt("FirstGameStart9", 1);
-                PlayerPrefs.Save();
-                UpdateScore("steam_id", 1);
-                Debug.Log("<b>First Game Start!</b>");
             }
         }
     }
