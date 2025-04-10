@@ -8,7 +8,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
 {
     public class EmptyTemplateServiceGeneratorWindow : EditorWindow
     {
-        private readonly string version = "V5";
+        private readonly string version = "V6";
 
         private bool isService = true;
 
@@ -200,7 +200,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
                     }
                     else
                     {
-                        GenerateCSharpScript(runtimePath, $"{coreName}Configucation",
+                        GenerateCSharpScript(dataPath, $"{coreName}Configucation",
                             ReplaceKeys(templateServiceGeneratorInfo.BaseConfigucation.text,
                             coreName, sm));
                     }
@@ -208,7 +208,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
                 else
                 {
                     // Сервис без конфигурации
-                    GenerateCSharpScript(runtimePath, $"{coreName}{sm}",
+                    GenerateCSharpScript(corePath, $"{coreName}{sm}",
                        ReplaceKeys(templateServiceGeneratorInfo.BaseService.text,
                        coreName, sm));
                 }
