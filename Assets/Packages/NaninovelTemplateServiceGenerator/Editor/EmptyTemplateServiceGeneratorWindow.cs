@@ -292,7 +292,7 @@ namespace Naninovel.U.TemplateServiceGeneratorWindow
                     }
                 }
 
-                GenerateCSharpScript(corePath, $"{coreName}Functions",
+                GenerateCSharpScript(runtimePath, $"{coreName}Functions",
                        $"namespace Naninovel.U.{coreName}\r\n{{\r\n    " +
                        $"[ExpressionFunctions]\r\n    " +
                        $"public static class {coreName}Functions\r\n    " +

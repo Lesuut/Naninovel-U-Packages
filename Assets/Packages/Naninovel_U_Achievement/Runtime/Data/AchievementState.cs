@@ -6,23 +6,18 @@ namespace Naninovel.U.Achievement
     [Serializable]
     public class AchievementState
     {
-        public List<string> Value;
+        public List<string> RegisterAchievementActivatedKeys;
 
         public AchievementState()
         {
             // Initialization Values
-            Value = new List<string>
-            {
-               "Value1",
-               "Value2",
-               "Value3"
-            };
+            RegisterAchievementActivatedKeys = new List<string>();
         }
 
         public AchievementState(AchievementState other)
         {
             // Load and set Data
-            Value = new List<string>(other.Value);
+            RegisterAchievementActivatedKeys = new List<string>(other.RegisterAchievementActivatedKeys);
         }
     }
 }

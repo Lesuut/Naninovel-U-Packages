@@ -1,18 +1,14 @@
 namespace Naninovel.U.Achievement.Commands
 {
-    [CommandAlias("unlockachievement")]
+    [CommandAlias("ach")]
     public class UnlockAchievementCommand : Command
     {
-        [ParameterAlias(NamelessParameterAlias)]
-        public StringParameter firstValue;
-
-        /*[ParameterAlias("id"), LocalizableParameter]
-        public StringParameter text = "Hello World!";*/
+        [ParameterAlias(NamelessParameterAlias), RequiredParameter]
+        public StringParameter key;
 
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
-            var AchievementService = Engine.GetService<IAchievementService>();
-
+            Engine.GetService<IAchievementService>().UnlockAchievement(key);
             return UniTask.CompletedTask;
         }
     }

@@ -191,7 +191,10 @@ MonoBehaviour:
       pathPrefix: UI
       guid: 5f20798fef3a1ba419bfe294ac16409d
   - Id: Scripts
-    Resources: []
+    Resources:
+    - name: Game
+      pathPrefix: Scripts
+      guid: 1617f90a122f0c34c9632a5bdf2eaa99
   - Id: Audio
     Resources:
     - name: BadPig

@@ -1,18 +1,14 @@
 namespace Naninovel.U.Achievement.Commands
 {
-    [CommandAlias("resetachievement")]
+    [CommandAlias("resetAch")]
     public class ResetAchievementCommand : Command
     {
-        [ParameterAlias(NamelessParameterAlias)]
-        public StringParameter firstValue;
-
-        /*[ParameterAlias("id"), LocalizableParameter]
-        public StringParameter text = "Hello World!";*/
+        [ParameterAlias(NamelessParameterAlias), RequiredParameter]
+        public StringParameter key;
 
         public override UniTask ExecuteAsync(AsyncToken asyncToken = default)
         {
-            var AchievementService = Engine.GetService<IAchievementService>();
-
+            Engine.GetService<IAchievementService>().ResetAchievement(key);
             return UniTask.CompletedTask;
         }
     }

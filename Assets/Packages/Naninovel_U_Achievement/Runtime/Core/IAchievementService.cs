@@ -1,11 +1,11 @@
-using UnityEngine;
-
 namespace Naninovel.U.Achievement
 {
     public interface IAchievementService : IEngineService
     {
-        /// <summary>
-        /// Write the body of your Achievement interface here
-        /// </summary>
+        public void UnlockAchievement(string key);
+        public bool IsAchievementGranted(string key);
+
+        public void ResetAchievement(string key);
+        public void ResetAllAchievement();
     }
 }
